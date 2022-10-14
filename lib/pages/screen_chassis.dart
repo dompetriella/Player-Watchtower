@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:player_watchtower/components/bottom_bar.dart';
 import 'package:player_watchtower/pages/Dice/dice.dart';
 import 'package:player_watchtower/pages/Inventory/inventory.dart';
@@ -22,7 +23,7 @@ class ScreenChassis extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.purple[400],
+        backgroundColor: HexColor('423B52'),
         title: Text('PLAYER'),
       ),
       bottomNavigationBar: BottomBar(),

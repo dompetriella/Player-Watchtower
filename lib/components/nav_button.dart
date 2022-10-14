@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/providers/page.dart';
+import 'package:player_watchtower/providers/theme.dart';
 
 class NavButton extends ConsumerWidget {
   final IconData buttonIcon;
@@ -18,12 +19,7 @@ class NavButton extends ConsumerWidget {
             border: Border.all(color: Colors.white, width: 1.0),
             color: Colors.black,
             borderRadius: BorderRadius.circular(5),
-            boxShadow: [
-              BoxShadow(
-                  offset: Offset(0, 4),
-                  blurRadius: 4,
-                  color: Color.fromARGB(70, 0, 0, 0))
-            ]),
+            boxShadow: [ref.watch(colorProvider).hoverShadow]),
         child: Icon(
           buttonIcon,
           color: Colors.white,

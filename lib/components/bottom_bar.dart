@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/components/nav_button.dart';
+import 'package:player_watchtower/providers/theme.dart';
 
-class BottomBar extends StatelessWidget {
+class BottomBar extends ConsumerWidget {
   const BottomBar({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       height: 60,
       decoration: BoxDecoration(
-        color: Colors.grey[300],
+        color: ref.watch(colorProvider).secondary,
         border: Border(top: BorderSide(color: Colors.white, width: 3.0)),
         boxShadow: [
-          BoxShadow(
-              offset: Offset(0, -4),
-              color: Color.fromARGB(50, 0, 0, 0),
-              blurRadius: 5)
+          BoxShadow(offset: Offset(0, -4), color: Colors.grey, blurRadius: 5)
         ],
       ),
       child: Center(
