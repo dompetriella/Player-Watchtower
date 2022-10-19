@@ -24,7 +24,13 @@ class ScreenChassis extends ConsumerWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: HexColor('423B52'),
-        title: Text('PLAYER'),
+        title: Stack(
+          children: [
+            Center(child: Text('PLAYER')),
+            Container(
+                alignment: Alignment.centerRight, child: Icon(Icons.settings))
+          ],
+        ),
       ),
       bottomNavigationBar: BottomBar(),
       body: pages[ref.watch(currentPage)],

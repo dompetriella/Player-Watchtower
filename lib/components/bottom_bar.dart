@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/components/nav_button.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
@@ -30,11 +31,11 @@ class BottomBar extends ConsumerWidget {
               index: 1,
             ),
             NavButton(
-              buttonIcon: Icons.inventory,
+              buttonIcon: FontAwesomeIcons.briefcase,
               index: 2,
             ),
             NavButton(
-              buttonIcon: Icons.twenty_mp_rounded,
+              buttonIcon: FontAwesomeIcons.diceD20,
               index: 3,
             )
           ],

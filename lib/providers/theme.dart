@@ -13,7 +13,7 @@ class ThemeColor {
       {required this.primary,
       this.secondary = Colors.white,
       this.hoverShadow = const BoxShadow(
-          offset: Offset(0, 4), color: Colors.grey, blurRadius: 5),
+          offset: Offset(0, 4), color: Colors.black45, blurRadius: 5),
       required this.bg,
       required this.accent});
 }

@@ -19,7 +19,15 @@ class NavButton extends ConsumerWidget {
             border: Border.all(color: Colors.white, width: 1.0),
             color: Colors.black,
             borderRadius: BorderRadius.circular(5),
-            boxShadow: [ref.watch(colorProvider).hoverShadow]),
+            boxShadow: [
+              ref.watch(colorProvider).hoverShadow,
+              if (index == ref.watch(currentPage))
+                BoxShadow(
+                    color: ref.watch(colorProvider).primary,
+                    offset: Offset(0, 3),
+                    blurRadius: 3,
+                    spreadRadius: 3)
+            ]),
         child: Icon(
           buttonIcon,
           color: Colors.white,
