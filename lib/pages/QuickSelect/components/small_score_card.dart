@@ -6,8 +6,13 @@ import 'package:player_watchtower/providers/theme.dart';
 
 class SmallScoreCard extends ConsumerWidget {
   final IconData icon;
+  final Color iconColor;
   final String text;
-  const SmallScoreCard({super.key, required this.icon, required this.text});
+  const SmallScoreCard(
+      {super.key,
+      required this.icon,
+      required this.text,
+      this.iconColor = Colors.black});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,6 +33,7 @@ class SmallScoreCard extends ConsumerWidget {
               child: FaIcon(
             icon,
             size: 30,
+            color: iconColor,
           )),
           Align(
               alignment: Alignment.bottomCenter,

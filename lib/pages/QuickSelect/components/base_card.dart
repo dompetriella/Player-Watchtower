@@ -30,7 +30,10 @@ class BaseCard extends ConsumerWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CircleAvatar(),
+                  FaIcon(
+                    FontAwesomeIcons.cloud,
+                    size: 40,
+                  ),
                   HealthBarWithButtons(
                     healthbarWidth: 220,
                     total: 40,
@@ -55,7 +58,12 @@ class BaseCard extends ConsumerWidget {
                     text: "+1",
                   ),
                   SmallScoreCard(
-                      icon: FontAwesomeIcons.personRunning, text: "30")
+                      icon: FontAwesomeIcons.personRunning, text: "30"),
+                  SmallScoreCard(
+                    icon: FontAwesomeIcons.wandMagicSparkles,
+                    text: "",
+                    iconColor: ref.watch(colorProvider).primary,
+                  )
                 ],
               ),
             )),
