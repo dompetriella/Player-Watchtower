@@ -36,8 +36,8 @@ class BaseCard extends ConsumerWidget {
                   ),
                   HealthBarWithButtons(
                     healthbarWidth: 220,
+                    current: 40,
                     total: 40,
-                    current: 25,
                   ),
                 ],
               ),
@@ -133,6 +133,12 @@ class HealthBarWithButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color percentageToHsl(double percent, int hue0, int hue1) {
+      double returnHue = ((percent * (hue1 - hue0)) + hue0);
+      double saturation = percent > 0.75 ? .55 - (.05 * (percent * 4)) : .42;
+      return HSLColor.fromAHSL(1, returnHue, .9, saturation).toColor();
+    }
+
     return Container(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -150,6 +156,7 @@ class HealthBarWithButtons extends StatelessWidget {
               current: current,
               width: healthbarWidth,
               isHp: true,
+              color: percentageToHsl(current / total, 0, 120),
             ),
           ),
           MultiButton(
