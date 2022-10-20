@@ -2,6 +2,7 @@ import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:player_watchtower/providers/player_stats.dart';
 import 'package:player_watchtower/providers/theme.dart';
 import 'package:player_watchtower/global_components/bar_drop_down.dart';
 
@@ -21,6 +22,7 @@ class QuickSelectPage extends ConsumerWidget {
   final spellsExpanded = StateProvider<bool>(
     (ref) => false,
   );
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
@@ -32,10 +34,17 @@ class QuickSelectPage extends ConsumerWidget {
             BaseCard(),
             MoneyCard(),
             BarDropDown(
+              expandedProvider: abilitiesExpanded,
               text: 'Abilities',
             ),
-            BarDropDown(text: 'Weapons'),
-            BarDropDown(text: 'Spells'),
+            BarDropDown(
+              expandedProvider: weaponsExpanded,
+              text: 'Weapons',
+            ),
+            BarDropDown(
+              expandedProvider: spellsExpanded,
+              text: 'Spells',
+            ),
           ],
         ),
       ),
