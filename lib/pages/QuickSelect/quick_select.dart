@@ -12,15 +12,15 @@ class QuickSelectPage extends ConsumerWidget {
   QuickSelectPage({super.key});
 
   final abilitiesExpanded = StateProvider<bool>(
-    (ref) => false,
+    (ref) => true,
   );
 
   final weaponsExpanded = StateProvider<bool>(
-    (ref) => false,
+    (ref) => true,
   );
 
   final spellsExpanded = StateProvider<bool>(
-    (ref) => false,
+    (ref) => true,
   );
 
   @override

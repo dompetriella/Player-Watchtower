@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "package:flutter_riverpod/flutter_riverpod.dart";
+import 'package:player_watchtower/global_components/info_item.dart';
 import 'package:player_watchtower/providers/theme.dart';
 import 'package:bordered_text/bordered_text.dart';
 
@@ -66,7 +67,6 @@ class BarDropDown extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
               child: Container(
-                height: 80,
                 width: double.infinity,
                 decoration: BoxDecoration(
                     color: ref.watch(colorProvider).secondary,
@@ -74,6 +74,10 @@ class BarDropDown extends ConsumerWidget {
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(5),
                         bottomRight: Radius.circular(5))),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: InfoItem(),
+                ),
               ),
             ),
         ],
