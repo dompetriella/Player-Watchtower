@@ -3,13 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/providers/theme.dart';
-import 'package:player_watchtower/components/bar_drop_down.dart';
+import 'package:player_watchtower/global_components/bar_drop_down.dart';
 
 import 'components/base_card.dart';
 
 class QuickSelectPage extends ConsumerWidget {
-  const QuickSelectPage({super.key});
+  QuickSelectPage({super.key});
 
+  final abilitiesExpanded = StateProvider<bool>(
+    (ref) => false,
+  );
+
+  final weaponsExpanded = StateProvider<bool>(
+    (ref) => false,
+  );
+
+  final spellsExpanded = StateProvider<bool>(
+    (ref) => false,
+  );
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(

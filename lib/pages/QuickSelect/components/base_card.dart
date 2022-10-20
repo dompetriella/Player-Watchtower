@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:player_watchtower/components/fillable_bar.dart';
-import 'package:player_watchtower/components/multi_button.dart';
 import 'package:player_watchtower/pages/QuickSelect/components/score_card.dart';
+import 'package:player_watchtower/providers/player_stats.dart';
 import 'package:player_watchtower/providers/theme.dart';
 import 'small_score_card.dart';
-import 'package:player_watchtower/components/multi_button.dart';
+import 'package:player_watchtower/global_components/multi_button.dart';
+import 'package:player_watchtower/global_components/fillable_bar.dart';
 
 class BaseCard extends ConsumerWidget {
   const BaseCard({super.key});
@@ -36,8 +36,6 @@ class BaseCard extends ConsumerWidget {
                   ),
                   HealthBarWithButtons(
                     healthbarWidth: 220,
-                    current: 40,
-                    total: 40,
                   ),
                 ],
               ),
@@ -59,11 +57,6 @@ class BaseCard extends ConsumerWidget {
                   ),
                   SmallScoreCard(
                       icon: FontAwesomeIcons.personRunning, text: "30"),
-                  SmallScoreCard(
-                    icon: FontAwesomeIcons.wandMagicSparkles,
-                    text: "",
-                    iconColor: ref.watch(colorProvider).primary,
-                  )
                 ],
               ),
             )),
@@ -111,7 +104,7 @@ class BaseCard extends ConsumerWidget {
   }
 }
 
-class HealthBarWithButtons extends StatelessWidget {
+class HealthBarWithButtons extends ConsumerWidget {
   final int total;
   final int current;
   final Color buttonBg;
@@ -127,12 +120,12 @@ class HealthBarWithButtons extends StatelessWidget {
       this.healthColor = Colors.green,
       this.height = 30,
       this.healthbarWidth = 200,
-      required this.current,
-      required this.total})
+      this.current = 20,
+      this.total = 40})
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     Color percentageToHsl(double percent, int hue0, int hue1) {
       double returnHue = ((percent * (hue1 - hue0)) + hue0);
       double saturation = percent > 0.75 ? .55 - (.05 * (percent * 4)) : .42;
@@ -144,6 +137,10 @@ class HealthBarWithButtons extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           MultiButton(
+            onTap: () {
+              ref.read(playerProvider.notifier).decreaseHealth();
+              print(ref.read(playerProvider).currentHp);
+            },
             color: iconColor,
             bgColor: buttonBg,
             icon: FontAwesomeIcons.minus,
@@ -152,14 +149,22 @@ class HealthBarWithButtons extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(4.0, 0, 4.0, 0),
             child: FillableBar(
-              total: total,
-              current: current,
+              current: ref.watch(playerProvider).currentHp,
+              total: ref.watch(playerProvider).totalHp,
               width: healthbarWidth,
               isHp: true,
-              color: percentageToHsl(current / total, 0, 120),
+              color: percentageToHsl(
+                  ref.watch(playerProvider).currentHp /
+                      ref.watch(playerProvider).totalHp,
+                  0,
+                  120),
             ),
           ),
           MultiButton(
+            onTap: () {
+              ref.read(playerProvider.notifier).increaseHealth();
+              print(ref.watch(playerProvider).currentHp);
+            },
             color: iconColor,
             bgColor: buttonBg,
             icon: FontAwesomeIcons.plus,
