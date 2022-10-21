@@ -3,9 +3,9 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:player_watchtower/global_components/bottom_bar.dart';
 import 'package:player_watchtower/pages/Dice/dice.dart';
 import 'package:player_watchtower/pages/Inventory/inventory.dart';
-import 'package:player_watchtower/pages/Stats/stats.dart';
+import 'package:player_watchtower/pages/Stats/stats_page.dart';
 import 'package:player_watchtower/providers/player_stats.dart';
-import 'QuickSelect/quick_select.dart';
+import 'QuickSelect/quick_select_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/providers/page.dart';
 

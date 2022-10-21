@@ -19,7 +19,8 @@ class InfoItem extends ConsumerWidget {
           Container(
             height: height,
             width: height,
-            color: Colors.black,
+            decoration: BoxDecoration(
+                color: Colors.black, borderRadius: BorderRadius.circular(10)),
             child: Center(
               child: FaIcon(
                 FontAwesomeIcons.personRunning,
@@ -30,10 +31,13 @@ class InfoItem extends ConsumerWidget {
           ),
           Expanded(
             child: Container(
-              height: height * .70,
+              height: height * .65,
               width: 50,
-              decoration:
-                  BoxDecoration(color: ref.watch(colorProvider).primary),
+              decoration: BoxDecoration(
+                  color: ref.watch(colorProvider).primary,
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(10),
+                      bottomRight: Radius.circular(10))),
               child: Center(
                 child: BorderedText(
                   strokeWidth: 5.0,

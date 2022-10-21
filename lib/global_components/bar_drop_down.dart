@@ -75,8 +75,18 @@ class BarDropDown extends ConsumerWidget {
                         bottomLeft: Radius.circular(5),
                         bottomRight: Radius.circular(5))),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: InfoItem(),
+                  padding: const EdgeInsets.all(8),
+                  child: Column(
+                    children: [
+                      InfoItem(),
+                      Divider(
+                        thickness: 3,
+                        indent: 125,
+                        endIndent: 100,
+                      ),
+                      InfoItem()
+                    ],
+                  ),
                 ),
               ),
             ),
