@@ -19,11 +19,10 @@ class StatsEntry extends ConsumerWidget {
         child: Padding(
           padding: const EdgeInsets.all(6.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
                 width: 175,
-                color: Colors.blue,
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
                   child: StrokeText(
@@ -34,7 +33,9 @@ class StatsEntry extends ConsumerWidget {
               ),
               Container(
                 width: 120,
-                color: Colors.red,
+                decoration: BoxDecoration(
+                    color: ref.watch(colorProvider).bg,
+                    borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
                   child: StrokeText(
