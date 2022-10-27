@@ -35,6 +35,7 @@ class StatsEntry extends ConsumerWidget {
                 width: 120,
                 decoration: BoxDecoration(
                     color: ref.watch(themeProvider).bgColor,
+                    border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
