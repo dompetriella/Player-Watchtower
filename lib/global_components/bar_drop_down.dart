@@ -23,8 +23,8 @@ class BarDropDown extends ConsumerWidget {
             child: Container(
               height: 50,
               decoration: BoxDecoration(
-                  color: ref.watch(colorProvider).primary,
-                  boxShadow: [ref.watch(colorProvider).hoverShadow],
+                  color: ref.watch(themeProvider).primary,
+                  boxShadow: [ref.watch(themeProvider).shadow],
                   border: Border.all(color: Colors.white, width: 2.0),
                   borderRadius: BorderRadius.circular(10)),
               child: Padding(
@@ -34,13 +34,13 @@ class BarDropDown extends ConsumerWidget {
                     Center(
                         child: BorderedText(
                       strokeWidth: 5.0,
-                      strokeColor: Colors.black,
+                      strokeColor: ref.watch(themeProvider).outlineText,
                       child: Text(
                         text,
                         style: TextStyle(
                             fontSize: 30,
                             letterSpacing: 1.2,
-                            color: Colors.white,
+                            color: ref.watch(themeProvider).textColor,
                             fontWeight: FontWeight.bold),
                       ),
                     )),
@@ -50,12 +50,12 @@ class BarDropDown extends ConsumerWidget {
                           ? Icon(
                               Icons.expand_less,
                               size: 30,
-                              color: Colors.white,
+                              color: ref.watch(themeProvider).textColor,
                             )
                           : Icon(
                               Icons.expand_more,
                               size: 30,
-                              color: Colors.white,
+                              color: ref.watch(themeProvider).textColor,
                             ),
                     ),
                   ],
@@ -69,8 +69,8 @@ class BarDropDown extends ConsumerWidget {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    color: ref.watch(colorProvider).secondary,
-                    boxShadow: [ref.watch(colorProvider).hoverShadow],
+                    color: ref.watch(themeProvider).cardBg,
+                    boxShadow: [ref.watch(themeProvider).shadow],
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(5),
                         bottomRight: Radius.circular(5))),

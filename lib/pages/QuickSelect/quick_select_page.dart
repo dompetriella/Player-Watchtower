@@ -25,7 +25,7 @@ class QuickSelectPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      color: ref.watch(colorProvider).bg,
+      color: ref.watch(themeProvider).bgColor,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
@@ -63,8 +63,8 @@ class MoneyCard extends ConsumerWidget {
       child: Container(
         height: 50,
         decoration: BoxDecoration(
-          color: ref.watch(colorProvider).secondary,
-          boxShadow: [ref.watch(colorProvider).hoverShadow],
+          color: ref.watch(themeProvider).cardBg,
+          boxShadow: [ref.watch(themeProvider).shadow],
           border: Border.all(color: Colors.white, width: 2.0),
           borderRadius: BorderRadius.circular(10),
         ),

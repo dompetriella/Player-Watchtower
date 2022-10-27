@@ -13,7 +13,7 @@ class StatsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      color: ref.watch(colorProvider).bg,
+      color: ref.watch(themeProvider).bgColor,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(

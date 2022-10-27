@@ -20,20 +20,20 @@ class SmallScoreCard extends ConsumerWidget {
       width: 50,
       height: 50,
       decoration: BoxDecoration(
-          color: ref.watch(colorProvider).secondary,
+          color: ref.watch(themeProvider).cardBg,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
             color: Colors.white,
             width: 2,
           ),
-          boxShadow: [ref.watch(colorProvider).hoverShadow]),
+          boxShadow: [ref.watch(themeProvider).shadow]),
       child: Stack(
         children: [
           Center(
               child: FaIcon(
             icon,
             size: 30,
-            color: iconColor,
+            color: ref.watch(themeProvider).cardIconColor,
           )),
           Align(
               alignment: Alignment.bottomCenter,

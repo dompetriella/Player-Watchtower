@@ -8,7 +8,7 @@ final playerProvider = StateNotifierProvider<PlayerNotifier, Player>((ref) {
 class PlayerNotifier extends StateNotifier<Player> {
   PlayerNotifier()
       : super(Player(
-            characterName: "",
+            characterName: "Character",
             currentHp: 10,
             totalHp: 10,
             level: 1,

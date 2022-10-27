@@ -29,9 +29,9 @@ class FillableBar extends ConsumerWidget {
       height: height,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(2),
-          border: Border.all(color: Colors.white, width: 2),
-          boxShadow: [ref.watch(colorProvider).hoverShadow],
-          color: ref.watch(colorProvider).secondary),
+          border: Border.all(color: ref.watch(themeProvider).outline, width: 2),
+          boxShadow: [ref.watch(themeProvider).shadow],
+          color: ref.watch(themeProvider).cardBg),
       child: Stack(
         children: [
           FractionallySizedBox(
@@ -45,7 +45,7 @@ class FillableBar extends ConsumerWidget {
               alignment: Alignment.center,
               child: BorderedText(
                 strokeWidth: 5.0,
-                strokeColor: Colors.black,
+                strokeColor: ref.watch(themeProvider).outlineText,
                 child: Text(
                   isHp
                       ? 'HP: ${current.toString()} / ${total.toString()}'
@@ -53,7 +53,7 @@ class FillableBar extends ConsumerWidget {
                   style: TextStyle(
                       fontSize: height * .45,
                       letterSpacing: 1.0,
-                      color: Colors.white,
+                      color: ref.watch(themeProvider).textColor,
                       fontWeight: FontWeight.w900),
                 ),
               )),

@@ -16,14 +16,15 @@ class NavButton extends ConsumerWidget {
         height: 40,
         width: 75,
         decoration: BoxDecoration(
-            border: Border.all(color: Colors.white, width: 1.0),
+            border:
+                Border.all(color: ref.watch(themeProvider).outline, width: 1.0),
             color: Colors.black,
             borderRadius: BorderRadius.circular(5),
             boxShadow: [
-              ref.watch(colorProvider).hoverShadow,
+              ref.watch(themeProvider).shadow,
               if (index == ref.watch(currentPage))
                 BoxShadow(
-                    color: ref.watch(colorProvider).primary,
+                    color: ref.watch(themeProvider).currentNavHighlightColor,
                     offset: Offset(0, 3),
                     blurRadius: 3,
                     spreadRadius: 3)

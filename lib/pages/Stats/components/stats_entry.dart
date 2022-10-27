@@ -14,7 +14,7 @@ class StatsEntry extends ConsumerWidget {
       padding: const EdgeInsets.fromLTRB(0, 6, 0, 6),
       child: Container(
         decoration: BoxDecoration(
-            color: ref.watch(colorProvider).secondary,
+            color: ref.watch(themeProvider).cardBg,
             borderRadius: BorderRadius.circular(10)),
         child: Padding(
           padding: const EdgeInsets.all(6.0),
@@ -34,7 +34,7 @@ class StatsEntry extends ConsumerWidget {
               Container(
                 width: 120,
                 decoration: BoxDecoration(
-                    color: ref.watch(colorProvider).bg,
+                    color: ref.watch(themeProvider).bgColor,
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),

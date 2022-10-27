@@ -34,20 +34,20 @@ class InfoItem extends ConsumerWidget {
               height: height * .65,
               width: 50,
               decoration: BoxDecoration(
-                  color: ref.watch(colorProvider).primary,
+                  color: ref.watch(themeProvider).primary,
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(10),
                       bottomRight: Radius.circular(10))),
               child: Center(
                 child: BorderedText(
                   strokeWidth: 5.0,
-                  strokeColor: Colors.black,
+                  strokeColor: ref.watch(themeProvider).outlineText,
                   child: Text(
                     'Running',
                     style: TextStyle(
                         fontSize: height / 3,
                         letterSpacing: 1.2,
-                        color: Colors.white,
+                        color: ref.watch(themeProvider).textColor,
                         fontWeight: FontWeight.bold),
                   ),
                 ),

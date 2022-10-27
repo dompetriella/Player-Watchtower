@@ -34,7 +34,7 @@ class MultiButton extends ConsumerWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
             color: bgColor,
-            boxShadow: [ref.watch(colorProvider).hoverShadow]),
+            boxShadow: [ref.watch(themeProvider).shadow]),
         child: Center(
           child: FaIcon(
             icon,

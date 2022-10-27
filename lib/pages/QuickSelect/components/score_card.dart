@@ -15,31 +15,32 @@ class ScoreCard extends ConsumerWidget {
       width: 100,
       height: 100,
       decoration: BoxDecoration(
-          color: ref.watch(colorProvider).secondary,
+          color: ref.watch(themeProvider).cardBg,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
             color: Colors.white,
             width: 2,
           ),
-          boxShadow: [ref.watch(colorProvider).hoverShadow]),
+          boxShadow: [ref.watch(themeProvider).shadow]),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           BorderedText(
             strokeWidth: 5.0,
-            strokeColor: Colors.black,
+            strokeColor: ref.watch(themeProvider).outlineText,
             child: Text(
               text,
               style: TextStyle(
                   fontSize: 40,
                   letterSpacing: 1.2,
-                  color: Colors.white,
+                  color: ref.watch(themeProvider).textColor,
                   fontWeight: FontWeight.bold),
             ),
           ),
           FaIcon(
             icon,
             size: 35,
+            color: ref.watch(themeProvider).cardIconColor,
           )
         ],
       ),

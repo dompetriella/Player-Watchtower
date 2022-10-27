@@ -12,10 +12,15 @@ class BottomBar extends ConsumerWidget {
     return Container(
       height: 60,
       decoration: BoxDecoration(
-        color: ref.watch(colorProvider).secondary,
-        border: Border(top: BorderSide(color: Colors.white, width: 3.0)),
+        color: ref.watch(themeProvider).baseCardBg,
+        border: Border(
+            top: BorderSide(
+                color: ref.watch(themeProvider).outline, width: 3.0)),
         boxShadow: [
-          BoxShadow(offset: Offset(0, -4), color: Colors.grey, blurRadius: 5)
+          BoxShadow(
+              offset: Offset(0, -4),
+              color: Color.fromRGBO(0, 0, 0, .50),
+              blurRadius: 5)
         ],
       ),
       child: Center(

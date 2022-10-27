@@ -1,33 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:bordered_text/bordered_text.dart';
+import 'package:player_watchtower/providers/theme.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class StrokeText extends StatelessWidget {
+class StrokeText extends ConsumerWidget {
   final String text;
   final double size;
   final FontWeight boldness;
-  final Color strokeColor;
-  final Color color;
 
   const StrokeText(
       {super.key,
       this.boldness = FontWeight.w900,
-      this.color = Colors.white,
       this.size = 15,
-      this.strokeColor = Colors.black,
       required this.text});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return BorderedText(
       strokeWidth: 5.0,
-      strokeColor: strokeColor,
+      strokeColor: ref.watch(themeProvider).outlineText,
       child: Text(
         text,
         textAlign: TextAlign.center,
         style: TextStyle(
             fontSize: size,
             letterSpacing: 1.2,
-            color: color,
+            color: ref.watch(themeProvider).textColor,
             fontWeight: boldness),
       ),
     );

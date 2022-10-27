@@ -24,8 +24,8 @@ class BodyDropDown extends ConsumerWidget {
           },
           child: Container(
             decoration: BoxDecoration(
-                color: ref.watch(colorProvider).primary,
-                boxShadow: [ref.watch(colorProvider).hoverShadow],
+                color: ref.watch(themeProvider).primary,
+                boxShadow: [ref.watch(themeProvider).shadow],
                 border: Border.all(color: Colors.white, width: 2.0),
                 borderRadius: BorderRadius.circular(5)),
             child: Padding(
