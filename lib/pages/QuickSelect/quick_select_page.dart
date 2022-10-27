@@ -65,7 +65,8 @@ class MoneyCard extends ConsumerWidget {
         decoration: BoxDecoration(
           color: ref.watch(themeProvider).cardBg,
           boxShadow: [ref.watch(themeProvider).shadow],
-          border: Border.all(color: Colors.white, width: 2.0),
+          border:
+              Border.all(color: ref.watch(themeProvider).outline, width: 2.0),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Row(

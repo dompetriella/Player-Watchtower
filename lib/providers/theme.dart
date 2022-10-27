@@ -5,5 +5,5 @@ import 'package:player_watchtower/themes.dart';
 final currentThemeIndex = StateProvider<int>(((ref) => 0));
 
 final themeProvider = StateProvider<AppTheme>((ref) {
-  return themesDictionary['Sunset'] ?? defaultTheme;
+  return themesDictionary['Daylight'] ?? defaultTheme;
 });

@@ -13,7 +13,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/providers/page.dart';
 
 class ScreenChassis extends ConsumerWidget {
-  const ScreenChassis({super.key});
+  ScreenChassis({super.key});
+
+  int index = 0;
+  List<String> themesNames = ['Daylight', 'Twilight', 'Sunset', 'Midnight'];
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -24,13 +27,10 @@ class ScreenChassis extends ConsumerWidget {
       DicePage()
     ];
 
-    List<String> themesNames = ['Daylight', 'Sunset', 'Twilight', 'Midnight'];
-
-    int index = 0;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: ref.watch(themeProvider).primary,
+        backgroundColor: ref.watch(themeProvider).appBarColor,
         title: Stack(
           children: [
             Center(
@@ -39,7 +39,16 @@ class ScreenChassis extends ConsumerWidget {
               size: 20,
             )),
             Container(
-                alignment: Alignment.centerRight, child: Icon(Icons.settings))
+                alignment: Alignment.centerRight,
+                child: GestureDetector(
+                    onTap: () {
+                      print(index);
+                      print(themesNames[index]);
+                      ref.watch(themeProvider.notifier).state =
+                          themesDictionary[themesNames[index]]!;
+                      index == themesNames.length - 1 ? index = 0 : index++;
+                    },
+                    child: Icon(Icons.settings)))
           ],
         ),
       ),

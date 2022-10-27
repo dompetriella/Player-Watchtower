@@ -25,9 +25,9 @@ class NavButton extends ConsumerWidget {
               if (index == ref.watch(currentPage))
                 BoxShadow(
                     color: ref.watch(themeProvider).currentNavHighlightColor,
-                    offset: Offset(0, 3),
-                    blurRadius: 3,
-                    spreadRadius: 3)
+                    offset: Offset(0, 2),
+                    blurRadius: 2,
+                    spreadRadius: 2)
             ]),
         child: Icon(
           buttonIcon,

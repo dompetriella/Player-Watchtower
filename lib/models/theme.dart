@@ -12,6 +12,7 @@ class AppTheme {
   final Color textColor;
   final BoxShadow innerShadow;
   final BoxShadow shadow;
+  final Color appBarColor;
   final String fontFamily;
 
   final Color baseCardBg;
@@ -77,6 +78,7 @@ class AppTheme {
     required this.cardBg,
     required this.bgForInput,
     required this.bgForText,
+    required this.appBarColor,
     required this.numberDisplayBgColor,
     required this.diceIconBgColor,
     required this.diceTypeBgColor,

@@ -18,6 +18,7 @@ var defaultTheme = AppTheme(
   cardBg: daylightSecondary,
   bgForInput: daylightBg,
   bgForText: daylightSecondary,
+  appBarColor: daylightPrimary,
   //
   numberDisplayBgColor: daylightSecondary,
   diceIconBgColor: daylightPrimary,
@@ -34,7 +35,7 @@ var defaultTheme = AppTheme(
 );
 
 Map<String, AppTheme> themesDictionary = {
-  'DayLight': AppTheme(
+  'Daylight': AppTheme(
     themeName: "Daylight",
     themeColors: [hex('423B52'), hex('AAC6C3'), hex('D9D9D9'), hex('990000')],
     currentNavHighlightColor: daylightPrimary,
@@ -45,6 +46,7 @@ Map<String, AppTheme> themesDictionary = {
     cardBg: daylightSecondary,
     bgForInput: daylightBg,
     bgForText: daylightSecondary,
+    appBarColor: daylightPrimary,
     //
     numberDisplayBgColor: daylightSecondary,
     diceIconBgColor: daylightPrimary,
@@ -66,12 +68,14 @@ Map<String, AppTheme> themesDictionary = {
       primary: sunsetPrimary,
       bgColor: Colors.black,
       accent: sunsetAccent,
-      baseCardBg: sunsetBg,
+      baseCardBg: Colors.black,
       cardBg: sunsetBg,
       cardIconColor: sunsetAccent,
       bgForInput: sunsetBg,
       bgForText: sunsetPrimary,
       currentNavHighlightColor: sunsetAccent,
+      appBarColor: sunsetPrimary,
+      outline: Colors.black,
       //
       numberDisplayDropShadow: BoxShadow(
           spreadRadius: 2, color: sunsetPrimary, blurRadius: 15, inset: true),
@@ -113,6 +117,8 @@ Map<String, AppTheme> themesDictionary = {
       bgForInput: Colors.black,
       bgForText: daylightSecondary,
       bgColor: Colors.black,
+      appBarColor: hex('DB893D'),
+      currentNavHighlightColor: hex('DB893D'),
       numberDisplayBgColor: daylightSecondary,
       diceIconBgColor: Colors.black,
       diceTypeBgColor: Colors.black,
@@ -143,6 +149,8 @@ Map<String, AppTheme> themesDictionary = {
       cardBg: Colors.black,
       bgForInput: Colors.white,
       bgForText: Colors.black,
+      cardIconColor: Colors.white,
+      appBarColor: Colors.white,
       numberDisplayBgColor: Colors.black,
       diceIconBgColor: Colors.black,
       diceTypeBgColor: Colors.black,
