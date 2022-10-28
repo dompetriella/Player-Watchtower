@@ -5,9 +5,13 @@ import 'package:player_watchtower/providers/theme.dart';
 
 class StatsEntry extends ConsumerWidget {
   final String title;
+  final bool hasProficiency;
   final String entry;
-  const StatsEntry({super.key, required this.entry, required this.title});
-
+  const StatsEntry(
+      {super.key,
+      required this.entry,
+      required this.title,
+      this.hasProficiency = false});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(

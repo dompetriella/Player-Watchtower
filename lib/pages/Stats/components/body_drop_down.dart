@@ -7,9 +7,14 @@ import 'package:bordered_text/bordered_text.dart';
 
 class BodyDropDown extends ConsumerWidget {
   final String text;
+  final List<StatsEntry> statsEntries;
   final StateProvider<bool> expandedProvider;
 
-  BodyDropDown({super.key, required this.text, required this.expandedProvider});
+  BodyDropDown(
+      {super.key,
+      required this.text,
+      required this.statsEntries,
+      required this.expandedProvider});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -54,12 +59,12 @@ class BodyDropDown extends ConsumerWidget {
                           alignment: Alignment.centerRight,
                           child: ref.watch(expandedProvider)
                               ? Icon(
-                                  Icons.expand_less,
+                                  Icons.expand_more,
                                   size: 35,
                                   color: Colors.white,
                                 )
                               : Icon(
-                                  Icons.expand_more,
+                                  Icons.expand_less,
                                   size: 35,
                                   color: Colors.white,
                                 ),
@@ -68,39 +73,7 @@ class BodyDropDown extends ConsumerWidget {
                     ),
                   ),
                   if (!ref.watch(expandedProvider))
-                    Container(
-                        child: Column(
-                      children: [
-                        StatsEntry(
-                          title: 'Character Name',
-                          entry: 'Oort Boneshaw',
-                        ),
-                        StatsEntry(
-                          title: 'Level',
-                          entry: '4',
-                        ),
-                        StatsEntry(
-                          title: 'Experience',
-                          entry: '2950',
-                        ),
-                        StatsEntry(
-                          title: 'Class',
-                          entry: 'Barbarian',
-                        ),
-                        StatsEntry(
-                          title: 'Race',
-                          entry: 'Goliath',
-                        ),
-                        StatsEntry(
-                          title: 'Alignment',
-                          entry: 'Chaotic Neutral',
-                        ),
-                        StatsEntry(
-                          title: 'Background',
-                          entry: 'Gladiator',
-                        ),
-                      ],
-                    ))
+                    Container(child: Column(children: statsEntries))
                 ],
               ),
             ),
