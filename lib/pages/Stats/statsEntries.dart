@@ -31,10 +31,10 @@ List<StatsEntry> characterStatsEntries = [
   ),
 ];
 
-List<StatsEntry> statsEntries = [
+List<StatsEntry> combatStatsEntries = [
   StatsEntry(
     title: 'Current Hit Points',
-    entry: '20',
+    entry: '40',
   ),
   StatsEntry(
     title: 'Total Hit Points',
@@ -44,6 +44,21 @@ List<StatsEntry> statsEntries = [
     title: 'Temporary Hit Points',
     entry: '0',
   ),
+  StatsEntry(
+    title: 'Armor Class',
+    entry: '14',
+  ),
+  StatsEntry(
+    title: 'Speed',
+    entry: '40',
+  ),
+  StatsEntry(
+    title: 'Initiative',
+    entry: '+2',
+  ),
+];
+
+List<StatsEntry> scoreStatsEntries = [
   StatsEntry(
     title: 'Strength',
     entry: '18',
@@ -74,11 +89,28 @@ List<StatsEntry> skillsStatsEntry = [
   StatsEntry(
     title: 'Athletics',
     entry: '+2',
-    hasProficiency: true,
   ),
   StatsEntry(
     title: 'Animal Handling',
     entry: '+1',
-    hasProficiency: true,
+  ),
+];
+
+List<StatsEntry> notesEntries = [
+  StatsEntry(
+    title: 'Languages',
+    entry: 'Common',
+  ),
+  StatsEntry(
+    title: 'Traits',
+    entry: '',
+  ),
+  StatsEntry(
+    title: 'Features',
+    entry: '',
+  ),
+  StatsEntry(
+    title: 'Notes',
+    entry: '',
   ),
 ];

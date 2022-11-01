@@ -59,12 +59,12 @@ class BodyDropDown extends ConsumerWidget {
                           alignment: Alignment.centerRight,
                           child: ref.watch(expandedProvider)
                               ? Icon(
-                                  Icons.expand_more,
+                                  Icons.expand_less,
                                   size: 35,
                                   color: Colors.white,
                                 )
                               : Icon(
-                                  Icons.expand_less,
+                                  Icons.expand_more,
                                   size: 35,
                                   color: Colors.white,
                                 ),
@@ -72,7 +72,7 @@ class BodyDropDown extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  if (!ref.watch(expandedProvider))
+                  if (ref.watch(expandedProvider))
                     Container(child: Column(children: statsEntries))
                 ],
               ),

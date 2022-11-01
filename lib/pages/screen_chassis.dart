@@ -4,6 +4,7 @@ import 'package:player_watchtower/global_components/bottom_bar.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/pages/Dice/dice.dart';
 import 'package:player_watchtower/pages/Inventory/inventory.dart';
+import 'package:player_watchtower/pages/QuickSelect/drawer/skills_drawer.dart';
 import 'package:player_watchtower/pages/Stats/stats_page.dart';
 import 'package:player_watchtower/providers/player_stats.dart';
 import 'package:player_watchtower/providers/theme.dart';
@@ -29,6 +30,7 @@ class ScreenChassis extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: ref.watch(themeProvider).appBarColor,
         title: Stack(
@@ -42,16 +44,20 @@ class ScreenChassis extends ConsumerWidget {
                 alignment: Alignment.centerRight,
                 child: GestureDetector(
                     onTap: () {
-                      print(index);
-                      print(themesNames[index]);
                       ref.watch(themeProvider.notifier).state =
                           themesDictionary[themesNames[index]]!;
                       index == themesNames.length - 1 ? index = 0 : index++;
                     },
-                    child: Icon(Icons.settings)))
+                    child: Icon(Icons.settings))),
+            Builder(builder: (context) {
+              return GestureDetector(
+                  onTap: () => Scaffold.of(context).openDrawer(),
+                  child: Icon(Icons.menu));
+            })
           ],
         ),
       ),
+      drawer: SkillsDrawer(),
       bottomNavigationBar: BottomBar(),
       body: pages[ref.watch(currentPage)],
     );

@@ -11,11 +11,19 @@ class StatsPage extends ConsumerWidget {
     (ref) => false,
   );
 
-  final statsExpanded = StateProvider<bool>(
+  final combatStatsExpanded = StateProvider<bool>(
+    (ref) => false,
+  );
+
+  final scoresExpanded = StateProvider<bool>(
     (ref) => false,
   );
 
   final skillsExpanded = StateProvider<bool>(
+    (ref) => false,
+  );
+
+  final notesExpanded = StateProvider<bool>(
     (ref) => false,
   );
 
@@ -36,9 +44,17 @@ class StatsPage extends ConsumerWidget {
               height: 10,
             ),
             BodyDropDown(
-                text: "Stats",
-                statsEntries: statsEntries,
-                expandedProvider: statsExpanded),
+                text: "Combat Stats",
+                statsEntries: combatStatsEntries,
+                expandedProvider: combatStatsExpanded),
+            Divider(
+              thickness: 0,
+              height: 10,
+            ),
+            BodyDropDown(
+                text: "Ability Scores",
+                statsEntries: scoreStatsEntries,
+                expandedProvider: scoresExpanded),
             Divider(
               thickness: 0,
               height: 10,
@@ -47,6 +63,14 @@ class StatsPage extends ConsumerWidget {
                 text: "Skills",
                 statsEntries: skillsStatsEntry,
                 expandedProvider: skillsExpanded),
+            Divider(
+              thickness: 0,
+              height: 10,
+            ),
+            BodyDropDown(
+                text: "Languages/Notes",
+                statsEntries: notesEntries,
+                expandedProvider: notesExpanded),
           ],
         ),
       ),
