@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:player_watchtower/global_components/bottom_bar.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
@@ -49,11 +50,12 @@ class ScreenChassis extends ConsumerWidget {
                       index == themesNames.length - 1 ? index = 0 : index++;
                     },
                     child: Icon(Icons.settings))),
-            Builder(builder: (context) {
-              return GestureDetector(
-                  onTap: () => Scaffold.of(context).openDrawer(),
-                  child: Icon(Icons.menu));
-            })
+            if (ref.watch(currentPage) == 0)
+              Builder(builder: (context) {
+                return GestureDetector(
+                    onTap: () => Scaffold.of(context).openDrawer(),
+                    child: FaIcon(FontAwesomeIcons.personCircleCheck));
+              })
           ],
         ),
       ),

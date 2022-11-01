@@ -49,6 +49,10 @@ List<StatsEntry> combatStatsEntries = [
     entry: '14',
   ),
   StatsEntry(
+    title: 'Proficiency',
+    entry: '+3',
+  ),
+  StatsEntry(
     title: 'Speed',
     entry: '40',
   ),

@@ -37,38 +37,52 @@ class Skill extends ConsumerWidget {
                   Container(
                     width: 40,
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+                      padding: const EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: StrokeText(
-                        text: skillType,
-                        size: 18,
+                        text: skillType.toUpperCase(),
+                        size: 16,
                       ),
                     ),
                   ),
                   Container(
                     width: 150,
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+                      padding: const EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: StrokeText(
                         text: text,
                         size: 16,
                       ),
                     ),
                   ),
-                  Container(
-                    width: 50,
-                    decoration: BoxDecoration(
-                        color: ref.watch(themeProvider).primary,
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
-                      child: Center(
-                        child: StrokeText(
-                          text: modifier,
-                          size: 16,
+                  Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Container(
+                        width: 50,
+                        decoration: BoxDecoration(
+                            color: ref.watch(themeProvider).primary,
+                            border: Border.all(color: Colors.white),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 4, 0, 4),
+                          child: Center(
+                            child: StrokeText(
+                              text: modifier,
+                              size: 16,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      if (isProficient)
+                        Positioned(
+                          top: -5,
+                          right: -5,
+                          child: StrokeText(
+                            text: "(+2)",
+                            size: 10,
+                          ),
+                        )
+                    ],
                   ),
                 ],
               ),
@@ -77,7 +91,7 @@ class Skill extends ConsumerWidget {
           if (isProficient)
             FaIcon(
               FontAwesomeIcons.graduationCap,
-              size: 22,
+              size: 16,
               color: ref.watch(themeProvider).accent,
             )
         ],

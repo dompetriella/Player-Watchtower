@@ -68,7 +68,7 @@ class StatsPage extends ConsumerWidget {
               height: 10,
             ),
             BodyDropDown(
-                text: "Languages/Notes",
+                text: "Misc.",
                 statsEntries: notesEntries,
                 expandedProvider: notesExpanded),
           ],
