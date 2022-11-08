@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/global_components/action_dialogs/edit_dialog.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/providers/theme.dart';
-
-import '../../../global_components/longpress_action_dialog.dart';
 
 class StatsEntry extends ConsumerWidget {
   final String title;
@@ -16,8 +15,16 @@ class StatsEntry extends ConsumerWidget {
       this.hasProficiency = false});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return LongPressActionDialog(
-      actionWidget: Padding(
+    return GestureDetector(
+      onLongPress: () {
+        showDialog(
+            context: context,
+            builder: (_) => EditDialog(
+                  editType: 'change-to',
+                  title: title,
+                ));
+      },
+      child: Padding(
         padding: const EdgeInsets.fromLTRB(0, 6, 0, 6),
         child: Container(
           decoration: BoxDecoration(
