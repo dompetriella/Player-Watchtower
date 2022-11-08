@@ -7,7 +7,7 @@ import 'package:bordered_text/bordered_text.dart';
 
 class BodyDropDown extends ConsumerWidget {
   final String text;
-  final List<StatsEntry> statsEntries;
+  final Widget statsEntries;
   final StateProvider<bool> expandedProvider;
 
   BodyDropDown(
@@ -73,7 +73,7 @@ class BodyDropDown extends ConsumerWidget {
                     ),
                   ),
                   if (ref.watch(expandedProvider))
-                    Container(child: Column(children: statsEntries))
+                    Container(child: statsEntries)
                 ],
               ),
             ),

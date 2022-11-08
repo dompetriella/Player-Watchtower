@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
+import 'package:player_watchtower/providers/player_stats.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
 class DialogInput extends ConsumerWidget {
@@ -23,6 +24,10 @@ class DialogInput extends ConsumerWidget {
                   borderRadius: BorderRadius.circular(10)),
               child: Center(
                   child: TextField(
+                onChanged: (value) {
+                  ref.read(playerProvider.notifier).state.characterName =
+                      'jeff';
+                },
                 textAlign: TextAlign.center,
                 textAlignVertical: TextAlignVertical.center,
               )),

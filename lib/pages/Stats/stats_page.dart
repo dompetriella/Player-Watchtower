@@ -37,7 +37,7 @@ class StatsPage extends ConsumerWidget {
           children: [
             BodyDropDown(
                 text: "Character",
-                statsEntries: characterStatsEntries,
+                statsEntries: CharacterStatsEntries(),
                 expandedProvider: characterExpanded),
             Divider(
               thickness: 0,
@@ -45,7 +45,7 @@ class StatsPage extends ConsumerWidget {
             ),
             BodyDropDown(
                 text: "Combat Stats",
-                statsEntries: combatStatsEntries,
+                statsEntries: CombatStatsEntries(),
                 expandedProvider: combatStatsExpanded),
             Divider(
               thickness: 0,
@@ -53,7 +53,7 @@ class StatsPage extends ConsumerWidget {
             ),
             BodyDropDown(
                 text: "Ability Scores",
-                statsEntries: scoreStatsEntries,
+                statsEntries: ScoreStatsEntries(),
                 expandedProvider: scoresExpanded),
             Divider(
               thickness: 0,
@@ -61,7 +61,7 @@ class StatsPage extends ConsumerWidget {
             ),
             BodyDropDown(
                 text: "Skills",
-                statsEntries: skillsStatsEntry,
+                statsEntries: SkillsStatsEntries(),
                 expandedProvider: skillsExpanded),
             Divider(
               thickness: 0,
@@ -69,7 +69,7 @@ class StatsPage extends ConsumerWidget {
             ),
             BodyDropDown(
                 text: "Misc.",
-                statsEntries: notesEntries,
+                statsEntries: MiscEntries(),
                 expandedProvider: notesExpanded),
           ],
         ),

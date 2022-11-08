@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/global_components/action_dialogs/types/changeto_dialog.dart';
@@ -70,8 +69,11 @@ class EditDialog extends ConsumerWidget {
           ),
         ),
         actions: [
-          DialogActionButton(
-            text: 'Cancel',
+          GestureDetector(
+            onTap: () => Navigator.pop(context),
+            child: DialogActionButton(
+              text: 'Cancel',
+            ),
           ),
           DialogActionButton(text: 'OK')
         ],

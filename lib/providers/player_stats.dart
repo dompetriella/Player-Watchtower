@@ -18,6 +18,10 @@ class PlayerNotifier extends StateNotifier<Player> {
             alignment: '',
             background: ''));
 
+  void changePlayerStat() {
+    state = state.copyWith(currentHp: state.currentHp + 1);
+  }
+
   void increaseHealth() {
     if (state.currentHp < state.totalHp) {
       state = state.copyWith(currentHp: state.currentHp + 1);
