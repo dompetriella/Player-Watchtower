@@ -2,23 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/providers/player_stats.dart';
 
 import 'components/stats_entry.dart';
 
-class CharacterStatsEntries extends StatelessWidget {
+class CharacterStatsEntries extends ConsumerWidget {
   const CharacterStatsEntries({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
         StatsEntry(
           title: 'Character Name',
-          entry: 'Oort Boneshaw',
+          entry: ref.watch(playerProvider).characterName,
         ),
         StatsEntry(
           title: 'Level',
-          entry: '4',
+          entry: ref.watch(playerProvider).level,
         ),
         StatsEntry(
           title: 'Experience',

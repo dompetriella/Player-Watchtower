@@ -7,8 +7,8 @@ import 'package:player_watchtower/providers/theme.dart';
 class StatsEntry extends ConsumerWidget {
   final String title;
   final bool hasProficiency;
-  final String entry;
-  const StatsEntry(
+  var entry;
+  StatsEntry(
       {super.key,
       required this.entry,
       required this.title,
@@ -54,7 +54,7 @@ class StatsEntry extends ConsumerWidget {
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
                     child: StrokeText(
-                      text: entry,
+                      text: entry.toString(),
                       size: 18,
                     ),
                   ),

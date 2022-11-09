@@ -16,21 +16,20 @@ class DialogInput extends ConsumerWidget {
           StrokeText(text: text.toUpperCase()),
           Padding(
             padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
-            child: Container(
-              height: 40,
-              decoration: BoxDecoration(
-                  color: ref.watch(themeProvider).bgColor,
-                  border: Border.all(color: Colors.white, width: 4),
-                  borderRadius: BorderRadius.circular(10)),
-              child: Center(
-                  child: TextField(
-                onChanged: (value) {
-                  ref.read(playerProvider.notifier).state.characterName =
-                      'jeff';
-                },
-                textAlign: TextAlign.center,
-                textAlignVertical: TextAlignVertical.center,
-              )),
+            child: Form(
+              child: Container(
+                height: 40,
+                decoration: BoxDecoration(
+                    color: ref.watch(themeProvider).bgColor,
+                    border: Border.all(color: Colors.white, width: 4),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Center(
+                    child: TextFormField(
+                  onChanged: (value) {},
+                  textAlign: TextAlign.center,
+                  textAlignVertical: TextAlignVertical.center,
+                )),
+              ),
             ),
           )
         ],

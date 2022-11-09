@@ -6,20 +6,12 @@ final playerProvider = StateNotifierProvider<PlayerNotifier, Player>((ref) {
 });
 
 class PlayerNotifier extends StateNotifier<Player> {
-  PlayerNotifier()
-      : super(Player(
-            characterName: "Character",
-            currentHp: 10,
-            totalHp: 10,
-            level: 1,
-            exp: 0,
-            playerClass: '',
-            playerRace: '',
-            alignment: '',
-            background: ''));
+  PlayerNotifier() : super(Player());
 
-  void changePlayerStat() {
-    state = state.copyWith(currentHp: state.currentHp + 1);
+  void playerStatChangeTo(String propertyName, var newValue) {
+    var newPlayer = state.toJson();
+    newPlayer[propertyName] = newValue;
+    state = Player.fromJson(newPlayer);
   }
 
   void increaseHealth() {
