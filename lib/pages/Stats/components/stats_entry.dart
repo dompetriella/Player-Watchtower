@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:player_watchtower/global_components/action_dialogs/edit_dialog.dart';
+import 'package:player_watchtower/global_components/action_dialogs/base_dialog.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
 class StatsEntry extends ConsumerWidget {
   final String title;
+  final String statPropertyName;
   final bool hasProficiency;
-  var entry;
-  StatsEntry(
+  final dynamic provider;
+  const StatsEntry(
       {super.key,
-      required this.entry,
+      required this.provider,
       required this.title,
+      required this.statPropertyName,
       this.hasProficiency = false});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -19,10 +21,12 @@ class StatsEntry extends ConsumerWidget {
       onLongPress: () {
         showDialog(
             context: context,
-            builder: (_) => EditDialog(
-                  editType: 'change-to',
-                  title: title,
-                ));
+            builder: (_) => BaseDialog(
+                editDialogType: 'change-to',
+                title: title,
+                provider: provider,
+                statPropertyName: statPropertyName,
+                statPropertyType: provider.runtimeType));
       },
       child: Padding(
         padding: const EdgeInsets.fromLTRB(0, 6, 0, 6),
@@ -46,15 +50,15 @@ class StatsEntry extends ConsumerWidget {
                   ),
                 ),
                 Container(
-                  width: 120,
+                  width: 160,
                   decoration: BoxDecoration(
                       color: ref.watch(themeProvider).bgColor,
                       border: Border.all(color: Colors.white),
                       borderRadius: BorderRadius.circular(10)),
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+                    padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
                     child: StrokeText(
-                      text: entry.toString(),
+                      text: provider.toString(),
                       size: 18,
                     ),
                   ),

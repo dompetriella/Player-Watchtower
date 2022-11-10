@@ -8,10 +8,15 @@ final playerProvider = StateNotifierProvider<PlayerNotifier, Player>((ref) {
 class PlayerNotifier extends StateNotifier<Player> {
   PlayerNotifier() : super(Player());
 
-  void playerStatChangeTo(String propertyName, var newValue) {
-    var newPlayer = state.toJson();
-    newPlayer[propertyName] = newValue;
-    state = Player.fromJson(newPlayer);
+  void playerStatChangeTo(
+      String propertyName, var newValue, Type propertyType) {
+    var playerJson = state.toJson();
+    var adjustedValue = newValue;
+    if (propertyType == int) {
+      adjustedValue = int.parse(newValue);
+    }
+    playerJson[propertyName] = adjustedValue;
+    state = Player.fromJson(playerJson);
   }
 
   void increaseHealth() {

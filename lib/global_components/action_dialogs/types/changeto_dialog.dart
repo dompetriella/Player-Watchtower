@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:player_watchtower/global_components/action_dialogs/dialog-input.dart';
+
+import '../components/dialog-input.dart';
 
 class ChangeToDialog extends StatelessWidget {
   const ChangeToDialog({super.key});

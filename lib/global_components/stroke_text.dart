@@ -7,11 +7,13 @@ class StrokeText extends ConsumerWidget {
   final String text;
   final double size;
   final FontWeight boldness;
+  final TextAlign textAlignment;
 
   const StrokeText(
       {super.key,
       this.boldness = FontWeight.w900,
       this.size = 15,
+      this.textAlignment = TextAlign.center,
       required this.text});
 
   @override
@@ -21,7 +23,7 @@ class StrokeText extends ConsumerWidget {
       strokeColor: ref.watch(themeProvider).outlineText,
       child: Text(
         text,
-        textAlign: TextAlign.center,
+        textAlign: textAlignment,
         style: TextStyle(
             fontSize: size,
             letterSpacing: 1.2,
