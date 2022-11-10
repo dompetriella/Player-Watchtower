@@ -6,7 +6,8 @@ import 'package:player_watchtower/providers/theme.dart';
 
 class DialogInput extends ConsumerWidget {
   final String text;
-  const DialogInput({super.key, required this.text});
+  final Type inputType;
+  const DialogInput({super.key, required this.text, this.inputType = String});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -17,19 +18,22 @@ class DialogInput extends ConsumerWidget {
           Padding(
             padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
             child: Container(
-              height: 40,
+              height: 50,
               decoration: BoxDecoration(
                   color: ref.watch(themeProvider).bgColor,
                   border: Border.all(color: Colors.white, width: 4),
                   borderRadius: BorderRadius.circular(10)),
-              child: Center(
-                  child: TextField(
+              child: TextFormField(
+                style: TextStyle(fontWeight: FontWeight.w900),
+                keyboardType: inputType == String
+                    ? TextInputType.text
+                    : TextInputType.number,
                 onChanged: (value) {
                   ref.watch(changeTo.notifier).state = value;
                 },
                 textAlign: TextAlign.center,
                 textAlignVertical: TextAlignVertical.center,
-              )),
+              ),
             ),
           )
         ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:player_watchtower/providers/player_stats.dart';
+import 'package:player_watchtower/providers/player.dart';
 
 import 'components/stats_entry.dart';
 
@@ -51,78 +51,92 @@ class CharacterStatsEntries extends ConsumerWidget {
   }
 }
 
-class CombatStatsEntries extends StatelessWidget {
+class CombatStatsEntries extends ConsumerWidget {
   const CombatStatsEntries({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
-        // StatsEntry(
-        //   title: 'Current Hit Points',
-        //   entry: '40',
-        // ),
-        // StatsEntry(
-        //   title: 'Total Hit Points',
-        //   entry: '40',
-        // ),
-        // StatsEntry(
-        //   title: 'Temporary Hit Points',
-        //   entry: '0',
-        // ),
-        // StatsEntry(
-        //   title: 'Armor Class',
-        //   entry: '14',
-        // ),
-        // StatsEntry(
-        //   title: 'Proficiency',
-        //   entry: '+3',
-        // ),
-        // StatsEntry(
-        //   title: 'Speed',
-        //   entry: '40',
-        // ),
-        // StatsEntry(
-        //   title: 'Initiative',
-        //   entry: '+2',
-        // ),
+        StatsEntry(
+          title: 'Current Hit Points',
+          statPropertyName: 'currentHp',
+          provider: ref.watch(playerProvider).currentHp,
+        ),
+        StatsEntry(
+          title: 'Total Hit Points',
+          statPropertyName: 'totalHp',
+          provider: ref.watch(playerProvider).totalHp,
+        ),
+        StatsEntry(
+          title: 'Temporary Hit Points',
+          statPropertyName: 'tempHp',
+          provider: ref.watch(playerProvider).tempHp,
+        ),
+        StatsEntry(
+          title: 'Armor Class',
+          statPropertyName: 'armorClass',
+          provider: ref.watch(playerProvider).armorClass,
+        ),
+        StatsEntry(
+          title: 'Proficiency',
+          statPropertyName: 'proficiency',
+          provider: ref.watch(playerProvider).proficiency,
+          isModifier: true,
+        ),
+        StatsEntry(
+          title: 'Speed',
+          statPropertyName: 'speed',
+          provider: ref.watch(playerProvider).speed,
+        ),
+        StatsEntry(
+          title: 'Initiative',
+          statPropertyName: 'initiative',
+          provider: ref.watch(playerProvider).initiative,
+          isModifier: true,
+        ),
       ],
     );
   }
 }
 
-class ScoreStatsEntries extends StatelessWidget {
+class ScoreStatsEntries extends ConsumerWidget {
   const ScoreStatsEntries({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
-        // StatsEntry(
-        //   title: 'Strength',
-        //   property: 'strength',
-        //   entry: '18',
-        // ),
-        // StatsEntry(
-        //   title: 'Dexterity',
-        //   entry: '12',
-        // ),
-        // StatsEntry(
-        //   title: 'Constitution',
-        //   entry: '14',
-        // ),
-        // StatsEntry(
-        //   title: 'Intellegence',
-        //   entry: '6',
-        // ),
-        // StatsEntry(
-        //   title: 'Wisdom',
-        //   entry: '8',
-        // ),
-        // StatsEntry(
-        //   title: 'Charisma',
-        //   entry: '10',
-        // ),
+        StatsEntry(
+          title: 'Strength',
+          statPropertyName: 'strength',
+          provider: ref.watch(playerProvider).strength,
+        ),
+        StatsEntry(
+          title: 'Dexterity',
+          statPropertyName: 'dexterity',
+          provider: ref.watch(playerProvider).dexterity,
+        ),
+        StatsEntry(
+          title: 'Constitution',
+          statPropertyName: 'constitution',
+          provider: ref.watch(playerProvider).constitution,
+        ),
+        StatsEntry(
+          title: 'Intellegence',
+          statPropertyName: 'intellegence',
+          provider: ref.watch(playerProvider).intellegence,
+        ),
+        StatsEntry(
+          title: 'Wisdom',
+          statPropertyName: 'wisdom',
+          provider: ref.watch(playerProvider).wisdom,
+        ),
+        StatsEntry(
+          title: 'Charisma',
+          statPropertyName: 'charisma',
+          provider: ref.watch(playerProvider).charisma,
+        ),
       ],
     );
   }

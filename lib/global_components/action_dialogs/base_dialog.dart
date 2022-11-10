@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/global_components/action_dialogs/types/changeTo_dialog.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/providers/forms.dart';
-import 'package:player_watchtower/providers/player_stats.dart';
+import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
 import 'components/dialog-input.dart';
@@ -25,13 +25,13 @@ class BaseDialog extends ConsumerWidget {
 
   Widget editTypeFilter(String editTypeSwitch) {
     switch (editTypeSwitch) {
-      case 'change-to':
-        return ChangeToDialog();
-      case 'drop-down':
+      case 'changeTo':
+        return ChangeToDialog(inputType: statPropertyType);
+      case 'dropDown':
         return Text('drop-down');
       case 'modifier':
         return Text('modifier');
-      case 'ability-score':
+      case 'abilityScore':
         return Text('ability-score');
       case 'skill':
         return Text('skill');
@@ -79,7 +79,7 @@ class BaseDialog extends ConsumerWidget {
                         Padding(
                           padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
                           child: Container(
-                            height: 40,
+                            height: 50,
                             decoration: BoxDecoration(
                                 color: ref.watch(themeProvider).bgColor,
                                 border:

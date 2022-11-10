@@ -29,6 +29,17 @@ mixin _$Player {
   String get background => throw _privateConstructorUsedError;
   int get currentHp => throw _privateConstructorUsedError;
   int get totalHp => throw _privateConstructorUsedError;
+  int get tempHp => throw _privateConstructorUsedError;
+  int get armorClass => throw _privateConstructorUsedError;
+  int get proficiency => throw _privateConstructorUsedError;
+  int get speed => throw _privateConstructorUsedError;
+  int get initiative => throw _privateConstructorUsedError;
+  int get strength => throw _privateConstructorUsedError;
+  int get dexterity => throw _privateConstructorUsedError;
+  int get constitution => throw _privateConstructorUsedError;
+  int get intellegence => throw _privateConstructorUsedError;
+  int get wisdom => throw _privateConstructorUsedError;
+  int get charisma => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +60,18 @@ abstract class $PlayerCopyWith<$Res> {
       String alignment,
       String background,
       int currentHp,
-      int totalHp});
+      int totalHp,
+      int tempHp,
+      int armorClass,
+      int proficiency,
+      int speed,
+      int initiative,
+      int strength,
+      int dexterity,
+      int constitution,
+      int intellegence,
+      int wisdom,
+      int charisma});
 }
 
 /// @nodoc
@@ -74,6 +96,17 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
     Object? background = null,
     Object? currentHp = null,
     Object? totalHp = null,
+    Object? tempHp = null,
+    Object? armorClass = null,
+    Object? proficiency = null,
+    Object? speed = null,
+    Object? initiative = null,
+    Object? strength = null,
+    Object? dexterity = null,
+    Object? constitution = null,
+    Object? intellegence = null,
+    Object? wisdom = null,
+    Object? charisma = null,
   }) {
     return _then(_value.copyWith(
       characterName: null == characterName
@@ -112,6 +145,50 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
           ? _value.totalHp
           : totalHp // ignore: cast_nullable_to_non_nullable
               as int,
+      tempHp: null == tempHp
+          ? _value.tempHp
+          : tempHp // ignore: cast_nullable_to_non_nullable
+              as int,
+      armorClass: null == armorClass
+          ? _value.armorClass
+          : armorClass // ignore: cast_nullable_to_non_nullable
+              as int,
+      proficiency: null == proficiency
+          ? _value.proficiency
+          : proficiency // ignore: cast_nullable_to_non_nullable
+              as int,
+      speed: null == speed
+          ? _value.speed
+          : speed // ignore: cast_nullable_to_non_nullable
+              as int,
+      initiative: null == initiative
+          ? _value.initiative
+          : initiative // ignore: cast_nullable_to_non_nullable
+              as int,
+      strength: null == strength
+          ? _value.strength
+          : strength // ignore: cast_nullable_to_non_nullable
+              as int,
+      dexterity: null == dexterity
+          ? _value.dexterity
+          : dexterity // ignore: cast_nullable_to_non_nullable
+              as int,
+      constitution: null == constitution
+          ? _value.constitution
+          : constitution // ignore: cast_nullable_to_non_nullable
+              as int,
+      intellegence: null == intellegence
+          ? _value.intellegence
+          : intellegence // ignore: cast_nullable_to_non_nullable
+              as int,
+      wisdom: null == wisdom
+          ? _value.wisdom
+          : wisdom // ignore: cast_nullable_to_non_nullable
+              as int,
+      charisma: null == charisma
+          ? _value.charisma
+          : charisma // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -131,7 +208,18 @@ abstract class _$$_PlayerCopyWith<$Res> implements $PlayerCopyWith<$Res> {
       String alignment,
       String background,
       int currentHp,
-      int totalHp});
+      int totalHp,
+      int tempHp,
+      int armorClass,
+      int proficiency,
+      int speed,
+      int initiative,
+      int strength,
+      int dexterity,
+      int constitution,
+      int intellegence,
+      int wisdom,
+      int charisma});
 }
 
 /// @nodoc
@@ -153,6 +241,17 @@ class __$$_PlayerCopyWithImpl<$Res>
     Object? background = null,
     Object? currentHp = null,
     Object? totalHp = null,
+    Object? tempHp = null,
+    Object? armorClass = null,
+    Object? proficiency = null,
+    Object? speed = null,
+    Object? initiative = null,
+    Object? strength = null,
+    Object? dexterity = null,
+    Object? constitution = null,
+    Object? intellegence = null,
+    Object? wisdom = null,
+    Object? charisma = null,
   }) {
     return _then(_$_Player(
       characterName: null == characterName
@@ -191,6 +290,50 @@ class __$$_PlayerCopyWithImpl<$Res>
           ? _value.totalHp
           : totalHp // ignore: cast_nullable_to_non_nullable
               as int,
+      tempHp: null == tempHp
+          ? _value.tempHp
+          : tempHp // ignore: cast_nullable_to_non_nullable
+              as int,
+      armorClass: null == armorClass
+          ? _value.armorClass
+          : armorClass // ignore: cast_nullable_to_non_nullable
+              as int,
+      proficiency: null == proficiency
+          ? _value.proficiency
+          : proficiency // ignore: cast_nullable_to_non_nullable
+              as int,
+      speed: null == speed
+          ? _value.speed
+          : speed // ignore: cast_nullable_to_non_nullable
+              as int,
+      initiative: null == initiative
+          ? _value.initiative
+          : initiative // ignore: cast_nullable_to_non_nullable
+              as int,
+      strength: null == strength
+          ? _value.strength
+          : strength // ignore: cast_nullable_to_non_nullable
+              as int,
+      dexterity: null == dexterity
+          ? _value.dexterity
+          : dexterity // ignore: cast_nullable_to_non_nullable
+              as int,
+      constitution: null == constitution
+          ? _value.constitution
+          : constitution // ignore: cast_nullable_to_non_nullable
+              as int,
+      intellegence: null == intellegence
+          ? _value.intellegence
+          : intellegence // ignore: cast_nullable_to_non_nullable
+              as int,
+      wisdom: null == wisdom
+          ? _value.wisdom
+          : wisdom // ignore: cast_nullable_to_non_nullable
+              as int,
+      charisma: null == charisma
+          ? _value.charisma
+          : charisma // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -199,7 +342,7 @@ class __$$_PlayerCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Player with DiagnosticableTreeMixin implements _Player {
   const _$_Player(
-      {this.characterName = '',
+      {this.characterName = 'Player',
       this.level = 1,
       this.exp = 0,
       this.playerClass = 'Fighter',
@@ -207,7 +350,18 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
       this.alignment = 'True Neutral',
       this.background = 'Hermit',
       this.currentHp = 10,
-      this.totalHp = 10});
+      this.totalHp = 10,
+      this.tempHp = 0,
+      this.armorClass = 10,
+      this.proficiency = 1,
+      this.speed = 10,
+      this.initiative = 0,
+      this.strength = 10,
+      this.dexterity = 10,
+      this.constitution = 10,
+      this.intellegence = 10,
+      this.wisdom = 10,
+      this.charisma = 10});
 
   factory _$_Player.fromJson(Map<String, dynamic> json) =>
       _$$_PlayerFromJson(json);
@@ -239,10 +393,43 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
   @override
   @JsonKey()
   final int totalHp;
+  @override
+  @JsonKey()
+  final int tempHp;
+  @override
+  @JsonKey()
+  final int armorClass;
+  @override
+  @JsonKey()
+  final int proficiency;
+  @override
+  @JsonKey()
+  final int speed;
+  @override
+  @JsonKey()
+  final int initiative;
+  @override
+  @JsonKey()
+  final int strength;
+  @override
+  @JsonKey()
+  final int dexterity;
+  @override
+  @JsonKey()
+  final int constitution;
+  @override
+  @JsonKey()
+  final int intellegence;
+  @override
+  @JsonKey()
+  final int wisdom;
+  @override
+  @JsonKey()
+  final int charisma;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Player(characterName: $characterName, level: $level, exp: $exp, playerClass: $playerClass, playerRace: $playerRace, alignment: $alignment, background: $background, currentHp: $currentHp, totalHp: $totalHp)';
+    return 'Player(characterName: $characterName, level: $level, exp: $exp, playerClass: $playerClass, playerRace: $playerRace, alignment: $alignment, background: $background, currentHp: $currentHp, totalHp: $totalHp, tempHp: $tempHp, armorClass: $armorClass, proficiency: $proficiency, speed: $speed, initiative: $initiative, strength: $strength, dexterity: $dexterity, constitution: $constitution, intellegence: $intellegence, wisdom: $wisdom, charisma: $charisma)';
   }
 
   @override
@@ -258,7 +445,18 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
       ..add(DiagnosticsProperty('alignment', alignment))
       ..add(DiagnosticsProperty('background', background))
       ..add(DiagnosticsProperty('currentHp', currentHp))
-      ..add(DiagnosticsProperty('totalHp', totalHp));
+      ..add(DiagnosticsProperty('totalHp', totalHp))
+      ..add(DiagnosticsProperty('tempHp', tempHp))
+      ..add(DiagnosticsProperty('armorClass', armorClass))
+      ..add(DiagnosticsProperty('proficiency', proficiency))
+      ..add(DiagnosticsProperty('speed', speed))
+      ..add(DiagnosticsProperty('initiative', initiative))
+      ..add(DiagnosticsProperty('strength', strength))
+      ..add(DiagnosticsProperty('dexterity', dexterity))
+      ..add(DiagnosticsProperty('constitution', constitution))
+      ..add(DiagnosticsProperty('intellegence', intellegence))
+      ..add(DiagnosticsProperty('wisdom', wisdom))
+      ..add(DiagnosticsProperty('charisma', charisma));
   }
 
   @override
@@ -280,13 +478,53 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
                 other.background == background) &&
             (identical(other.currentHp, currentHp) ||
                 other.currentHp == currentHp) &&
-            (identical(other.totalHp, totalHp) || other.totalHp == totalHp));
+            (identical(other.totalHp, totalHp) || other.totalHp == totalHp) &&
+            (identical(other.tempHp, tempHp) || other.tempHp == tempHp) &&
+            (identical(other.armorClass, armorClass) ||
+                other.armorClass == armorClass) &&
+            (identical(other.proficiency, proficiency) ||
+                other.proficiency == proficiency) &&
+            (identical(other.speed, speed) || other.speed == speed) &&
+            (identical(other.initiative, initiative) ||
+                other.initiative == initiative) &&
+            (identical(other.strength, strength) ||
+                other.strength == strength) &&
+            (identical(other.dexterity, dexterity) ||
+                other.dexterity == dexterity) &&
+            (identical(other.constitution, constitution) ||
+                other.constitution == constitution) &&
+            (identical(other.intellegence, intellegence) ||
+                other.intellegence == intellegence) &&
+            (identical(other.wisdom, wisdom) || other.wisdom == wisdom) &&
+            (identical(other.charisma, charisma) ||
+                other.charisma == charisma));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, characterName, level, exp,
-      playerClass, playerRace, alignment, background, currentHp, totalHp);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        characterName,
+        level,
+        exp,
+        playerClass,
+        playerRace,
+        alignment,
+        background,
+        currentHp,
+        totalHp,
+        tempHp,
+        armorClass,
+        proficiency,
+        speed,
+        initiative,
+        strength,
+        dexterity,
+        constitution,
+        intellegence,
+        wisdom,
+        charisma
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -312,7 +550,18 @@ abstract class _Player implements Player {
       final String alignment,
       final String background,
       final int currentHp,
-      final int totalHp}) = _$_Player;
+      final int totalHp,
+      final int tempHp,
+      final int armorClass,
+      final int proficiency,
+      final int speed,
+      final int initiative,
+      final int strength,
+      final int dexterity,
+      final int constitution,
+      final int intellegence,
+      final int wisdom,
+      final int charisma}) = _$_Player;
 
   factory _Player.fromJson(Map<String, dynamic> json) = _$_Player.fromJson;
 
@@ -334,6 +583,28 @@ abstract class _Player implements Player {
   int get currentHp;
   @override
   int get totalHp;
+  @override
+  int get tempHp;
+  @override
+  int get armorClass;
+  @override
+  int get proficiency;
+  @override
+  int get speed;
+  @override
+  int get initiative;
+  @override
+  int get strength;
+  @override
+  int get dexterity;
+  @override
+  int get constitution;
+  @override
+  int get intellegence;
+  @override
+  int get wisdom;
+  @override
+  int get charisma;
   @override
   @JsonKey(ignore: true)
   _$$_PlayerCopyWith<_$_Player> get copyWith =>

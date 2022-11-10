@@ -5,6 +5,34 @@ final playerProvider = StateNotifierProvider<PlayerNotifier, Player>((ref) {
   return PlayerNotifier();
 });
 
+String displayValue(var value) {
+  if (value.runtimeType == int) {
+    if (value > 0) {
+      return '+${value.toString()}';
+    }
+  }
+  return value.toString();
+}
+
+int getModifier(int score) {
+  if (score < 2) return -5;
+  if (score < 4) return -4;
+  if (score < 6) return -3;
+  if (score < 8) return -2;
+  if (score < 10) return -1;
+  if (score < 12) return 0;
+  if (score < 14) return 1;
+  if (score < 16) return 2;
+  if (score < 18) return 3;
+  if (score < 22) return 4;
+  if (score < 24) return 5;
+  if (score < 26) return 6;
+  if (score < 28) return 7;
+  if (score < 30) return 8;
+  if (score < 32) return 9;
+  return 0;
+}
+
 class PlayerNotifier extends StateNotifier<Player> {
   PlayerNotifier() : super(Player());
 

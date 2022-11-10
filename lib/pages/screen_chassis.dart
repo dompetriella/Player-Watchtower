@@ -7,7 +7,7 @@ import 'package:player_watchtower/pages/Dice/dice.dart';
 import 'package:player_watchtower/pages/Inventory/inventory.dart';
 import 'package:player_watchtower/pages/QuickSelect/drawer/skills_drawer.dart';
 import 'package:player_watchtower/pages/Stats/stats_page.dart';
-import 'package:player_watchtower/providers/player_stats.dart';
+import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
 import 'package:player_watchtower/themes.dart';
 import 'QuickSelect/quick_select_page.dart';
@@ -18,7 +18,7 @@ class ScreenChassis extends ConsumerWidget {
   ScreenChassis({super.key});
 
   int index = 0;
-  List<String> themesNames = ['Daylight', 'Twilight', 'Sunset', 'Midnight'];
+  List<String> themesNames = ['Daylight', 'Twilight', 'Midnight'];
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

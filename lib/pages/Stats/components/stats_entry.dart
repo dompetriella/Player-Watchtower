@@ -2,18 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/global_components/action_dialogs/base_dialog.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
+import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
 class StatsEntry extends ConsumerWidget {
   final String title;
   final String statPropertyName;
   final bool hasProficiency;
+  final bool isModifier;
   final dynamic provider;
+  final String editDialogType;
   const StatsEntry(
       {super.key,
       required this.provider,
       required this.title,
       required this.statPropertyName,
+      this.editDialogType = 'changeTo',
+      this.isModifier = false,
       this.hasProficiency = false});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -22,7 +27,7 @@ class StatsEntry extends ConsumerWidget {
         showDialog(
             context: context,
             builder: (_) => BaseDialog(
-                editDialogType: 'change-to',
+                editDialogType: editDialogType,
                 title: title,
                 provider: provider,
                 statPropertyName: statPropertyName,
@@ -58,7 +63,9 @@ class StatsEntry extends ConsumerWidget {
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
                     child: StrokeText(
-                      text: provider.toString(),
+                      text: isModifier
+                          ? displayValue(provider)
+                          : provider.toString(),
                       size: 18,
                     ),
                   ),

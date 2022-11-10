@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/pages/QuickSelect/components/score_card.dart';
-import 'package:player_watchtower/providers/player_stats.dart';
+import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
 import 'small_score_card.dart';
 import 'package:player_watchtower/global_components/multi_button.dart';
@@ -48,16 +48,19 @@ class BaseCard extends ConsumerWidget {
                 children: [
                   SmallScoreCard(
                     icon: FontAwesomeIcons.shieldHalved,
-                    text: "16",
+                    text: ref.watch(playerProvider).armorClass.toString(),
                   ),
                   SmallScoreCard(
-                      icon: FontAwesomeIcons.graduationCap, text: "+2"),
+                      icon: FontAwesomeIcons.graduationCap,
+                      text:
+                          displayValue(ref.watch(playerProvider).proficiency)),
                   SmallScoreCard(
                     icon: FontAwesomeIcons.handFist,
-                    text: "+1",
+                    text: displayValue(ref.watch(playerProvider).initiative),
                   ),
                   SmallScoreCard(
-                      icon: FontAwesomeIcons.personRunning, text: "30"),
+                      icon: FontAwesomeIcons.personRunning,
+                      text: ref.watch(playerProvider).speed.toString()),
                 ],
               ),
             )),
@@ -71,27 +74,33 @@ class BaseCard extends ConsumerWidget {
                       alignment: WrapAlignment.spaceEvenly,
                       children: [
                         ScoreCard(
-                          text: "+3",
+                          text: displayValue(
+                              getModifier(ref.watch(playerProvider).strength)),
                           icon: FontAwesomeIcons.dumbbell,
                         ),
                         ScoreCard(
-                          text: "+1",
+                          text: displayValue(
+                              getModifier(ref.watch(playerProvider).dexterity)),
                           icon: FontAwesomeIcons.hand,
                         ),
                         ScoreCard(
-                          text: "+2",
+                          text: displayValue(getModifier(
+                              ref.watch(playerProvider).constitution)),
                           icon: FontAwesomeIcons.heartPulse,
                         ),
                         ScoreCard(
-                          text: "-3",
+                          text: displayValue(getModifier(
+                              ref.watch(playerProvider).intellegence)),
                           icon: FontAwesomeIcons.brain,
                         ),
                         ScoreCard(
-                          text: "-1",
+                          text: displayValue(
+                              getModifier(ref.watch(playerProvider).wisdom)),
                           icon: FontAwesomeIcons.eye,
                         ),
                         ScoreCard(
-                          text: "0",
+                          text: displayValue(
+                              getModifier(ref.watch(playerProvider).charisma)),
                           icon: FontAwesomeIcons.solidComments,
                         ),
                       ],
