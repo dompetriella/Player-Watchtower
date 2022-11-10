@@ -3,29 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/pages/Stats/components/body_drop_down.dart';
 import 'package:player_watchtower/pages/Stats/statsEntries.dart';
 import 'package:player_watchtower/providers/theme.dart';
+import 'package:player_watchtower/providers/page.dart';
 
 class StatsPage extends ConsumerWidget {
   StatsPage({super.key});
-
-  final characterExpanded = StateProvider<bool>(
-    (ref) => false,
-  );
-
-  final combatStatsExpanded = StateProvider<bool>(
-    (ref) => false,
-  );
-
-  final scoresExpanded = StateProvider<bool>(
-    (ref) => false,
-  );
-
-  final skillsExpanded = StateProvider<bool>(
-    (ref) => false,
-  );
-
-  final notesExpanded = StateProvider<bool>(
-    (ref) => false,
-  );
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
