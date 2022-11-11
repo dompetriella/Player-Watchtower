@@ -29,6 +29,17 @@ class ScreenChassis extends ConsumerWidget {
       DicePage()
     ];
 
+    String truncateWithEllipsis(int cutoff, String myString) {
+      var name = myString.split(' ');
+
+      if (name[0].length > cutoff) {
+        return (myString.length <= cutoff)
+            ? myString
+            : '${myString.substring(0, cutoff)}...';
+      }
+      return name[0];
+    }
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -38,7 +49,8 @@ class ScreenChassis extends ConsumerWidget {
           children: [
             Center(
                 child: StrokeText(
-              text: ref.watch(playerProvider).characterName,
+              text:
+                  '${truncateWithEllipsis(12, ref.watch(playerProvider).characterName)} Lv. ${ref.watch(playerProvider).level}',
               size: 20,
             )),
             Container(

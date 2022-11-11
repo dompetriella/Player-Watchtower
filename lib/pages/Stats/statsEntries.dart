@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/providers/page.dart';
 import 'package:player_watchtower/providers/player.dart';
 
 import 'components/stats_entry.dart';
@@ -16,6 +17,7 @@ class CharacterStatsEntries extends ConsumerWidget {
           statPropertyName: 'characterName',
           provider: ref.watch(playerProvider).characterName,
         ),
+        // if (!ref.watch(autoCalculate))
         StatsEntry(
           title: 'Level',
           statPropertyName: 'level',
@@ -59,6 +61,11 @@ class CombatStatsEntries extends ConsumerWidget {
     return Column(
       children: [
         StatsEntry(
+          title: 'Armor Class',
+          statPropertyName: 'armorClass',
+          provider: ref.watch(playerProvider).armorClass,
+        ),
+        StatsEntry(
           title: 'Current Hit Points',
           statPropertyName: 'currentHp',
           provider: ref.watch(playerProvider).currentHp,
@@ -73,28 +80,25 @@ class CombatStatsEntries extends ConsumerWidget {
           statPropertyName: 'tempHp',
           provider: ref.watch(playerProvider).tempHp,
         ),
-        StatsEntry(
-          title: 'Armor Class',
-          statPropertyName: 'armorClass',
-          provider: ref.watch(playerProvider).armorClass,
-        ),
-        StatsEntry(
-          title: 'Proficiency',
-          statPropertyName: 'proficiency',
-          provider: ref.watch(playerProvider).proficiency,
-          isModifier: true,
-        ),
+        if (!ref.watch(autoCalculate))
+          StatsEntry(
+            title: 'Proficiency',
+            statPropertyName: 'proficiency',
+            provider: ref.watch(playerProvider).proficiency,
+            isModifier: true,
+          ),
         StatsEntry(
           title: 'Speed',
           statPropertyName: 'speed',
           provider: ref.watch(playerProvider).speed,
         ),
-        StatsEntry(
-          title: 'Initiative',
-          statPropertyName: 'initiative',
-          provider: ref.watch(playerProvider).initiative,
-          isModifier: true,
-        ),
+        if (!ref.watch(autoCalculate))
+          StatsEntry(
+            title: 'Initiative',
+            statPropertyName: 'initiative',
+            provider: ref.watch(playerProvider).initiative,
+            isModifier: true,
+          ),
       ],
     );
   }

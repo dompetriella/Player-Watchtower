@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/pages/QuickSelect/components/score_card.dart';
+import 'package:player_watchtower/providers/page.dart';
 import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
 import 'small_score_card.dart';
@@ -52,8 +53,11 @@ class BaseCard extends ConsumerWidget {
                   ),
                   SmallScoreCard(
                       icon: FontAwesomeIcons.graduationCap,
-                      text:
-                          displayValue(ref.watch(playerProvider).proficiency)),
+                      text: ref.watch(autoCalculate)
+                          ? displayValue(getProficiencyModifier(
+                              ref.watch(playerProvider).level))
+                          : displayValue(
+                              ref.watch(playerProvider).proficiency)),
                   SmallScoreCard(
                     icon: FontAwesomeIcons.handFist,
                     text: displayValue(ref.watch(playerProvider).initiative),
@@ -74,33 +78,33 @@ class BaseCard extends ConsumerWidget {
                       alignment: WrapAlignment.spaceEvenly,
                       children: [
                         ScoreCard(
-                          text: displayValue(
-                              getModifier(ref.watch(playerProvider).strength)),
+                          text: displayValue(getAbilityScoreModifier(
+                              ref.watch(playerProvider).strength)),
                           icon: FontAwesomeIcons.dumbbell,
                         ),
                         ScoreCard(
-                          text: displayValue(
-                              getModifier(ref.watch(playerProvider).dexterity)),
+                          text: displayValue(getAbilityScoreModifier(
+                              ref.watch(playerProvider).dexterity)),
                           icon: FontAwesomeIcons.hand,
                         ),
                         ScoreCard(
-                          text: displayValue(getModifier(
+                          text: displayValue(getAbilityScoreModifier(
                               ref.watch(playerProvider).constitution)),
                           icon: FontAwesomeIcons.heartPulse,
                         ),
                         ScoreCard(
-                          text: displayValue(getModifier(
+                          text: displayValue(getAbilityScoreModifier(
                               ref.watch(playerProvider).intellegence)),
                           icon: FontAwesomeIcons.brain,
                         ),
                         ScoreCard(
-                          text: displayValue(
-                              getModifier(ref.watch(playerProvider).wisdom)),
+                          text: displayValue(getAbilityScoreModifier(
+                              ref.watch(playerProvider).wisdom)),
                           icon: FontAwesomeIcons.eye,
                         ),
                         ScoreCard(
-                          text: displayValue(
-                              getModifier(ref.watch(playerProvider).charisma)),
+                          text: displayValue(getAbilityScoreModifier(
+                              ref.watch(playerProvider).charisma)),
                           icon: FontAwesomeIcons.solidComments,
                         ),
                       ],

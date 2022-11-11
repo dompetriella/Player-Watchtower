@@ -116,6 +116,7 @@ class BaseDialog extends ConsumerWidget {
                   ref.watch(playerProvider.notifier).playerStatChangeTo(
                       statPropertyName, ref.read(changeTo), statPropertyType);
                   ref.read(changeTo.notifier).state = '';
+                  print(getProficiencyModifier(ref.read(playerProvider).level));
                 }
 
                 Navigator.pop(context);

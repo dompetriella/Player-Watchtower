@@ -35,3 +35,5 @@ final qsWeaponsExpanded = StateProvider<bool>(
 final qsSpellsExpanded = StateProvider<bool>(
   (ref) => false,
 );
+
+final autoCalculate = StateProvider<bool>((ref) => true);
