@@ -112,10 +112,13 @@ class BaseDialog extends ConsumerWidget {
           ),
           GestureDetector(
               onTap: () {
-                ref.watch(playerProvider.notifier).playerStatChangeTo(
-                    statPropertyName, ref.read(changeTo), statPropertyType);
+                if (ref.read(changeTo) != '') {
+                  ref.watch(playerProvider.notifier).playerStatChangeTo(
+                      statPropertyName, ref.read(changeTo), statPropertyType);
+                  ref.read(changeTo.notifier).state = '';
+                }
+
                 Navigator.pop(context);
-                ref.read(changeTo.notifier).state = '';
               },
               child: DialogActionButton(text: 'OK'))
         ],

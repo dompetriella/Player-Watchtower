@@ -4,22 +4,34 @@ final currentPage = StateProvider<int>(
   (ref) => 0,
 );
 
-final characterExpanded = StateProvider<bool>(
+final statsCharacterExpanded = StateProvider<bool>(
   (ref) => false,
 );
 
-final combatStatsExpanded = StateProvider<bool>(
+final statsCombatStatsExpanded = StateProvider<bool>(
   (ref) => false,
 );
 
-final scoresExpanded = StateProvider<bool>(
+final statsScoresExpanded = StateProvider<bool>(
   (ref) => false,
 );
 
-final skillsExpanded = StateProvider<bool>(
+final statsSkillsExpanded = StateProvider<bool>(
   (ref) => false,
 );
 
-final notesExpanded = StateProvider<bool>(
+final statsNotesExpanded = StateProvider<bool>(
+  (ref) => false,
+);
+
+final qsAbilitiesExpanded = StateProvider<bool>(
+  (ref) => false,
+);
+
+final qsWeaponsExpanded = StateProvider<bool>(
+  (ref) => false,
+);
+
+final qsSpellsExpanded = StateProvider<bool>(
   (ref) => false,
 );
