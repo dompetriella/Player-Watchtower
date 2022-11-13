@@ -8,6 +8,7 @@ import 'package:player_watchtower/providers/theme.dart';
 import 'small_score_card.dart';
 import 'package:player_watchtower/global_components/multi_button.dart';
 import 'package:player_watchtower/global_components/fillable_bar.dart';
+import 'package:player_watchtower/functions/calculations.dart';
 
 class BaseCard extends ConsumerWidget {
   const BaseCard({super.key});
@@ -59,9 +60,11 @@ class BaseCard extends ConsumerWidget {
                           : displayValue(
                               ref.watch(playerProvider).proficiency)),
                   SmallScoreCard(
-                    icon: FontAwesomeIcons.handFist,
-                    text: displayValue(ref.watch(playerProvider).initiative),
-                  ),
+                      icon: FontAwesomeIcons.handFist,
+                      text: ref.watch(autoCalculate)
+                          ? displayValue(getAbilityScoreModifier(
+                              ref.watch(playerProvider).dexterity))
+                          : displayValue(ref.watch(playerProvider).initiative)),
                   SmallScoreCard(
                       icon: FontAwesomeIcons.personRunning,
                       text: ref.watch(playerProvider).speed.toString()),

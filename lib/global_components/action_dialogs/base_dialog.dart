@@ -6,8 +6,7 @@ import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/providers/forms.dart';
 import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
-
-import 'components/dialog-input.dart';
+import 'package:player_watchtower/functions/calculations.dart';
 
 class BaseDialog extends ConsumerWidget {
   final String title;

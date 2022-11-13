@@ -17,12 +17,12 @@ class CharacterStatsEntries extends ConsumerWidget {
           statPropertyName: 'characterName',
           provider: ref.watch(playerProvider).characterName,
         ),
-        // if (!ref.watch(autoCalculate))
-        StatsEntry(
-          title: 'Level',
-          statPropertyName: 'level',
-          provider: ref.watch(playerProvider).level,
-        ),
+        if (!ref.watch(autoCalculate))
+          StatsEntry(
+            title: 'Level',
+            statPropertyName: 'level',
+            provider: ref.watch(playerProvider).level,
+          ),
         StatsEntry(
           title: 'Experience',
           statPropertyName: 'exp',

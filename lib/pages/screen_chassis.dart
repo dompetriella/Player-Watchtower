@@ -10,6 +10,7 @@ import 'package:player_watchtower/pages/Stats/stats_page.dart';
 import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
 import 'package:player_watchtower/themes.dart';
+import '../functions/calculations.dart';
 import 'QuickSelect/quick_select_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/providers/page.dart';
@@ -50,7 +51,7 @@ class ScreenChassis extends ConsumerWidget {
             Center(
                 child: StrokeText(
               text:
-                  '${truncateWithEllipsis(12, ref.watch(playerProvider).characterName)} Lv. ${ref.watch(playerProvider).level}',
+                  '${truncateWithEllipsis(12, ref.watch(playerProvider).characterName)} Lv. ${ref.watch(autoCalculate) ? getPlayerLevelByExp(ref.watch(playerProvider).exp) : ref.watch(playerProvider).level}',
               size: 20,
             )),
             Container(

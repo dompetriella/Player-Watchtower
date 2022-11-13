@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/global_components/action_dialogs/base_dialog.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
-import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
+import 'package:player_watchtower/functions/calculations.dart';
 
 class StatsEntry extends ConsumerWidget {
   final String title;
