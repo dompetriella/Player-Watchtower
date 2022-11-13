@@ -8,18 +8,17 @@ import 'package:player_watchtower/functions/calculations.dart';
 class StatsEntry extends ConsumerWidget {
   final String title;
   final String statPropertyName;
-  final bool hasProficiency;
   final bool isModifier;
   final dynamic provider;
   final String editDialogType;
-  const StatsEntry(
-      {super.key,
-      required this.provider,
-      required this.title,
-      required this.statPropertyName,
-      this.editDialogType = 'changeTo',
-      this.isModifier = false,
-      this.hasProficiency = false});
+  const StatsEntry({
+    super.key,
+    required this.provider,
+    required this.title,
+    required this.statPropertyName,
+    this.editDialogType = 'changeTo',
+    this.isModifier = false,
+  });
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
