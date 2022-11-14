@@ -33,9 +33,11 @@ class BaseCard extends ConsumerWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  FaIcon(
-                    FontAwesomeIcons.cloud,
-                    size: 40,
+                  GestureDetector(
+                    child: FaIcon(
+                      FontAwesomeIcons.cloud,
+                      size: 40,
+                    ),
                   ),
                   HealthBarWithButtons(
                     healthbarWidth: 220,

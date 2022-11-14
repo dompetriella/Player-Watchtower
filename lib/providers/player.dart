@@ -19,6 +19,17 @@ class PlayerNotifier extends StateNotifier<Player> {
     state = Player.fromJson(playerJson);
   }
 
+  void modifyPlayerSkill(
+      String skillName, String skillProperty, var newValue, Type propertyType) {
+    var playerJson = state.toJson();
+    var adjustedValue = newValue;
+    if (propertyType == int) {
+      adjustedValue = int.parse(newValue);
+    }
+    playerJson[skillName][skillProperty] = adjustedValue;
+    state = Player.fromJson(playerJson);
+  }
+
   void increaseHealth() {
     if (state.currentHp < state.totalHp) {
       state = state.copyWith(currentHp: state.currentHp + 1);

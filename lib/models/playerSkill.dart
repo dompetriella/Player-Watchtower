@@ -9,6 +9,7 @@ class PlayerSkill with _$PlayerSkill {
   const factory PlayerSkill({
     required String skillName,
     required String skillType,
+    @Default(0) int skillModifier,
     @Default(false) bool isProficient,
     @Default(true) bool autoCalculated,
   }) = _PlayerSkill;

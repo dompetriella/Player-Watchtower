@@ -1,102 +1,69 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/functions/calculations.dart';
+import 'package:player_watchtower/models/playerSkill.dart';
+import 'package:player_watchtower/providers/page.dart';
+import 'package:player_watchtower/providers/player.dart';
 
 import 'skill.dart';
 
-class SkillsList extends StatelessWidget {
+class SkillsList extends ConsumerWidget {
   const SkillsList({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Column(
-      children: const [
+      children: [
         Skill(
-          skillType: "DEX",
-          text: "Acrobatics",
-          modifier: "+2",
+          playerSkill: ref.watch(playerProvider).acrobatics,
         ),
         Skill(
-          skillType: "WIS",
-          modifier: "+2",
-          text: "Animal Handling",
-          isProficient: true,
-        ),
-        Skill(skillType: "INT", modifier: "0", text: "Arcana"),
-        Skill(
-          skillType: "STR",
-          modifier: "+2",
-          text: "Athletics",
-          isProficient: true,
+          playerSkill: ref.watch(playerProvider).animalHandling,
         ),
         Skill(
-          skillType: "CHA",
-          modifier: "0",
-          text: "Deception",
+          playerSkill: ref.watch(playerProvider).arcana,
         ),
         Skill(
-          skillType: "Int",
-          modifier: "+2",
-          text: "History",
+          playerSkill: ref.watch(playerProvider).atheletics,
         ),
         Skill(
-          skillType: "WIS",
-          modifier: "+2",
-          text: "Insight",
+          playerSkill: ref.watch(playerProvider).deception,
         ),
         Skill(
-          skillType: "CHA",
-          modifier: "+2",
-          text: "Intimidation",
-          isProficient: true,
+          playerSkill: ref.watch(playerProvider).history,
         ),
         Skill(
-          skillType: "INT",
-          modifier: "+2",
-          text: "Investigation",
+          playerSkill: ref.watch(playerProvider).insight,
         ),
         Skill(
-          skillType: "WIS",
-          modifier: "0",
-          text: "Medicine",
+          playerSkill: ref.watch(playerProvider).intimidation,
         ),
         Skill(
-          skillType: "Int",
-          modifier: "+2",
-          text: "Nature",
+          playerSkill: ref.watch(playerProvider).investigation,
         ),
         Skill(
-          skillType: "WIS",
-          modifier: "+2",
-          text: "Perception",
+          playerSkill: ref.watch(playerProvider).medicine,
         ),
         Skill(
-          skillType: "CHA",
-          modifier: "+2",
-          text: "Performance",
+          playerSkill: ref.watch(playerProvider).nature,
         ),
         Skill(
-          skillType: "CHA",
-          modifier: "+2",
-          text: "Persuasion",
+          playerSkill: ref.watch(playerProvider).perfomance,
         ),
         Skill(
-          skillType: "INT",
-          modifier: "+2",
-          text: "Religion",
+          playerSkill: ref.watch(playerProvider).persuasian,
         ),
         Skill(
-          skillType: "DEX",
-          modifier: "+2",
-          text: "Sleight of Hand",
+          playerSkill: ref.watch(playerProvider).religion,
         ),
         Skill(
-          skillType: "DEX",
-          modifier: "+2",
-          text: "Stealth",
+          playerSkill: ref.watch(playerProvider).sleightOfHand,
         ),
         Skill(
-          skillType: "WIS",
-          modifier: "+2",
-          text: "Survival",
+          playerSkill: ref.watch(playerProvider).stealth,
+        ),
+        Skill(
+          playerSkill: ref.watch(playerProvider).survival,
         ),
       ],
     );

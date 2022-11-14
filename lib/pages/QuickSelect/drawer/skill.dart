@@ -2,23 +2,54 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
+import 'package:player_watchtower/models/playerSkill.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
+import '../../../functions/calculations.dart';
+import '../../../providers/page.dart';
+import '../../../providers/player.dart';
+
 class Skill extends ConsumerWidget {
-  final String skillType;
-  final String text;
-  final String modifier;
-  final bool isProficient;
-  const Skill({
-    super.key,
-    required this.skillType,
-    required this.modifier,
-    required this.text,
-    this.isProficient = false,
-  });
+  final PlayerSkill playerSkill;
+  const Skill({super.key, required this.playerSkill});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    String formatSkillTypeString(String skillType) {
+      return skillType.substring(0, 3).toUpperCase();
+    }
+
+    String formatSkillNameString(String text) {
+      return text.replaceAllMapped(RegExp(r'^([a-z])|[A-Z]'),
+          (Match m) => m[1] == null ? " ${m[0]}" : m[1]!.toUpperCase());
+    }
+
+    String formatSkillModifierString(PlayerSkill skill) {
+      if (ref.watch(autoCalculate)) {
+        switch (skill.skillType) {
+          case 'strength':
+            return displayValue(
+                getAbilityScoreModifier(ref.watch(playerProvider).strength));
+          case 'dexterity':
+            return displayValue(
+                getAbilityScoreModifier(ref.watch(playerProvider).dexterity));
+          case 'constitution':
+            return displayValue(getAbilityScoreModifier(
+                ref.watch(playerProvider).constitution));
+          case 'intellegence':
+            return displayValue(getAbilityScoreModifier(
+                ref.watch(playerProvider).intellegence));
+          case 'wisdom':
+            return displayValue(
+                getAbilityScoreModifier(ref.watch(playerProvider).wisdom));
+          case 'charisma':
+            return displayValue(
+                getAbilityScoreModifier(ref.watch(playerProvider).charisma));
+        }
+      }
+      return displayValue(skill.skillModifier);
+    }
+
     return Padding(
       padding: const EdgeInsets.all(4.0),
       child: Stack(
@@ -31,7 +62,7 @@ class Skill extends ConsumerWidget {
                     color: ref.watch(themeProvider).outline, width: 2),
                 boxShadow: [ref.watch(themeProvider).shadow]),
             child: Padding(
-              padding: const EdgeInsets.all(6.0),
+              padding: const EdgeInsets.all(2.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -40,7 +71,7 @@ class Skill extends ConsumerWidget {
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: StrokeText(
-                        text: skillType.toUpperCase(),
+                        text: formatSkillTypeString(playerSkill.skillType),
                         size: 16,
                       ),
                     ),
@@ -50,7 +81,7 @@ class Skill extends ConsumerWidget {
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(0, 4, 0, 4),
                       child: StrokeText(
-                        text: text,
+                        text: formatSkillNameString(playerSkill.skillName),
                         size: 16,
                       ),
                     ),
@@ -68,19 +99,20 @@ class Skill extends ConsumerWidget {
                           padding: const EdgeInsets.fromLTRB(0, 4, 0, 4),
                           child: Center(
                             child: StrokeText(
-                              text: modifier,
+                              text: formatSkillModifierString(playerSkill),
                               size: 16,
                             ),
                           ),
                         ),
                       ),
-                      if (isProficient)
+                      if (playerSkill.isProficient)
                         Positioned(
                           top: -5,
                           right: -5,
                           child: StrokeText(
-                            text: "(+2)",
-                            size: 10,
+                            text: displayValue(
+                                ref.watch(playerProvider).proficiency),
+                            size: 12,
                           ),
                         )
                     ],
@@ -89,7 +121,7 @@ class Skill extends ConsumerWidget {
               ),
             ),
           ),
-          if (isProficient)
+          if (playerSkill.isProficient)
             FaIcon(
               FontAwesomeIcons.graduationCap,
               size: 16,

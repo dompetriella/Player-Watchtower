@@ -156,17 +156,18 @@ class ScoreStatsEntries extends ConsumerWidget {
   }
 }
 
-class SkillsStatsEntries extends StatelessWidget {
+class SkillsStatsEntries extends ConsumerWidget {
   const SkillsStatsEntries({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
-        // StatsEntry(
-        //   title: 'Athletics',
-        //   entry: '+2',
-        // ),
+        StatsEntry(
+          title: 'Acrobatics',
+          provider: ref.watch(playerProvider).acrobatics.skillModifier,
+          statPropertyName: ref.watch(playerProvider).acrobatics.skillName,
+        ),
         // StatsEntry(
         //   title: 'Animal Handling',
         //   entry: '+1',

@@ -22,6 +22,7 @@ PlayerSkill _$PlayerSkillFromJson(Map<String, dynamic> json) {
 mixin _$PlayerSkill {
   String get skillName => throw _privateConstructorUsedError;
   String get skillType => throw _privateConstructorUsedError;
+  int get skillModifier => throw _privateConstructorUsedError;
   bool get isProficient => throw _privateConstructorUsedError;
   bool get autoCalculated => throw _privateConstructorUsedError;
 
@@ -40,6 +41,7 @@ abstract class $PlayerSkillCopyWith<$Res> {
   $Res call(
       {String skillName,
       String skillType,
+      int skillModifier,
       bool isProficient,
       bool autoCalculated});
 }
@@ -59,6 +61,7 @@ class _$PlayerSkillCopyWithImpl<$Res, $Val extends PlayerSkill>
   $Res call({
     Object? skillName = null,
     Object? skillType = null,
+    Object? skillModifier = null,
     Object? isProficient = null,
     Object? autoCalculated = null,
   }) {
@@ -71,6 +74,10 @@ class _$PlayerSkillCopyWithImpl<$Res, $Val extends PlayerSkill>
           ? _value.skillType
           : skillType // ignore: cast_nullable_to_non_nullable
               as String,
+      skillModifier: null == skillModifier
+          ? _value.skillModifier
+          : skillModifier // ignore: cast_nullable_to_non_nullable
+              as int,
       isProficient: null == isProficient
           ? _value.isProficient
           : isProficient // ignore: cast_nullable_to_non_nullable
@@ -94,6 +101,7 @@ abstract class _$$_PlayerSkillCopyWith<$Res>
   $Res call(
       {String skillName,
       String skillType,
+      int skillModifier,
       bool isProficient,
       bool autoCalculated});
 }
@@ -111,6 +119,7 @@ class __$$_PlayerSkillCopyWithImpl<$Res>
   $Res call({
     Object? skillName = null,
     Object? skillType = null,
+    Object? skillModifier = null,
     Object? isProficient = null,
     Object? autoCalculated = null,
   }) {
@@ -123,6 +132,10 @@ class __$$_PlayerSkillCopyWithImpl<$Res>
           ? _value.skillType
           : skillType // ignore: cast_nullable_to_non_nullable
               as String,
+      skillModifier: null == skillModifier
+          ? _value.skillModifier
+          : skillModifier // ignore: cast_nullable_to_non_nullable
+              as int,
       isProficient: null == isProficient
           ? _value.isProficient
           : isProficient // ignore: cast_nullable_to_non_nullable
@@ -141,6 +154,7 @@ class _$_PlayerSkill with DiagnosticableTreeMixin implements _PlayerSkill {
   const _$_PlayerSkill(
       {required this.skillName,
       required this.skillType,
+      this.skillModifier = 0,
       this.isProficient = false,
       this.autoCalculated = true});
 
@@ -153,6 +167,9 @@ class _$_PlayerSkill with DiagnosticableTreeMixin implements _PlayerSkill {
   final String skillType;
   @override
   @JsonKey()
+  final int skillModifier;
+  @override
+  @JsonKey()
   final bool isProficient;
   @override
   @JsonKey()
@@ -160,7 +177,7 @@ class _$_PlayerSkill with DiagnosticableTreeMixin implements _PlayerSkill {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PlayerSkill(skillName: $skillName, skillType: $skillType, isProficient: $isProficient, autoCalculated: $autoCalculated)';
+    return 'PlayerSkill(skillName: $skillName, skillType: $skillType, skillModifier: $skillModifier, isProficient: $isProficient, autoCalculated: $autoCalculated)';
   }
 
   @override
@@ -170,6 +187,7 @@ class _$_PlayerSkill with DiagnosticableTreeMixin implements _PlayerSkill {
       ..add(DiagnosticsProperty('type', 'PlayerSkill'))
       ..add(DiagnosticsProperty('skillName', skillName))
       ..add(DiagnosticsProperty('skillType', skillType))
+      ..add(DiagnosticsProperty('skillModifier', skillModifier))
       ..add(DiagnosticsProperty('isProficient', isProficient))
       ..add(DiagnosticsProperty('autoCalculated', autoCalculated));
   }
@@ -183,6 +201,8 @@ class _$_PlayerSkill with DiagnosticableTreeMixin implements _PlayerSkill {
                 other.skillName == skillName) &&
             (identical(other.skillType, skillType) ||
                 other.skillType == skillType) &&
+            (identical(other.skillModifier, skillModifier) ||
+                other.skillModifier == skillModifier) &&
             (identical(other.isProficient, isProficient) ||
                 other.isProficient == isProficient) &&
             (identical(other.autoCalculated, autoCalculated) ||
@@ -191,8 +211,8 @@ class _$_PlayerSkill with DiagnosticableTreeMixin implements _PlayerSkill {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, skillName, skillType, isProficient, autoCalculated);
+  int get hashCode => Object.hash(runtimeType, skillName, skillType,
+      skillModifier, isProficient, autoCalculated);
 
   @JsonKey(ignore: true)
   @override
@@ -212,6 +232,7 @@ abstract class _PlayerSkill implements PlayerSkill {
   const factory _PlayerSkill(
       {required final String skillName,
       required final String skillType,
+      final int skillModifier,
       final bool isProficient,
       final bool autoCalculated}) = _$_PlayerSkill;
 
@@ -222,6 +243,8 @@ abstract class _PlayerSkill implements PlayerSkill {
   String get skillName;
   @override
   String get skillType;
+  @override
+  int get skillModifier;
   @override
   bool get isProficient;
   @override

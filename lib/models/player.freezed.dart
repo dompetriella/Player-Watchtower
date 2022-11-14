@@ -40,6 +40,24 @@ mixin _$Player {
   int get intellegence => throw _privateConstructorUsedError;
   int get wisdom => throw _privateConstructorUsedError;
   int get charisma => throw _privateConstructorUsedError;
+  dynamic get acrobatics => throw _privateConstructorUsedError;
+  dynamic get animalHandling => throw _privateConstructorUsedError;
+  dynamic get arcana => throw _privateConstructorUsedError;
+  dynamic get atheletics => throw _privateConstructorUsedError;
+  dynamic get deception => throw _privateConstructorUsedError;
+  dynamic get history => throw _privateConstructorUsedError;
+  dynamic get insight => throw _privateConstructorUsedError;
+  dynamic get intimidation => throw _privateConstructorUsedError;
+  dynamic get investigation => throw _privateConstructorUsedError;
+  dynamic get medicine => throw _privateConstructorUsedError;
+  dynamic get nature => throw _privateConstructorUsedError;
+  dynamic get perception => throw _privateConstructorUsedError;
+  dynamic get perfomance => throw _privateConstructorUsedError;
+  dynamic get persuasian => throw _privateConstructorUsedError;
+  dynamic get religion => throw _privateConstructorUsedError;
+  dynamic get sleightOfHand => throw _privateConstructorUsedError;
+  dynamic get stealth => throw _privateConstructorUsedError;
+  dynamic get survival => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -71,7 +89,25 @@ abstract class $PlayerCopyWith<$Res> {
       int constitution,
       int intellegence,
       int wisdom,
-      int charisma});
+      int charisma,
+      dynamic acrobatics,
+      dynamic animalHandling,
+      dynamic arcana,
+      dynamic atheletics,
+      dynamic deception,
+      dynamic history,
+      dynamic insight,
+      dynamic intimidation,
+      dynamic investigation,
+      dynamic medicine,
+      dynamic nature,
+      dynamic perception,
+      dynamic perfomance,
+      dynamic persuasian,
+      dynamic religion,
+      dynamic sleightOfHand,
+      dynamic stealth,
+      dynamic survival});
 }
 
 /// @nodoc
@@ -107,6 +143,24 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
     Object? intellegence = null,
     Object? wisdom = null,
     Object? charisma = null,
+    Object? acrobatics = null,
+    Object? animalHandling = null,
+    Object? arcana = null,
+    Object? atheletics = null,
+    Object? deception = null,
+    Object? history = null,
+    Object? insight = null,
+    Object? intimidation = null,
+    Object? investigation = null,
+    Object? medicine = null,
+    Object? nature = null,
+    Object? perception = null,
+    Object? perfomance = null,
+    Object? persuasian = null,
+    Object? religion = null,
+    Object? sleightOfHand = null,
+    Object? stealth = null,
+    Object? survival = null,
   }) {
     return _then(_value.copyWith(
       characterName: null == characterName
@@ -189,6 +243,78 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
           ? _value.charisma
           : charisma // ignore: cast_nullable_to_non_nullable
               as int,
+      acrobatics: null == acrobatics
+          ? _value.acrobatics
+          : acrobatics // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      animalHandling: null == animalHandling
+          ? _value.animalHandling
+          : animalHandling // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      arcana: null == arcana
+          ? _value.arcana
+          : arcana // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      atheletics: null == atheletics
+          ? _value.atheletics
+          : atheletics // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      deception: null == deception
+          ? _value.deception
+          : deception // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      history: null == history
+          ? _value.history
+          : history // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      insight: null == insight
+          ? _value.insight
+          : insight // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      intimidation: null == intimidation
+          ? _value.intimidation
+          : intimidation // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      investigation: null == investigation
+          ? _value.investigation
+          : investigation // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      medicine: null == medicine
+          ? _value.medicine
+          : medicine // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      nature: null == nature
+          ? _value.nature
+          : nature // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      perception: null == perception
+          ? _value.perception
+          : perception // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      perfomance: null == perfomance
+          ? _value.perfomance
+          : perfomance // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      persuasian: null == persuasian
+          ? _value.persuasian
+          : persuasian // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      religion: null == religion
+          ? _value.religion
+          : religion // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      sleightOfHand: null == sleightOfHand
+          ? _value.sleightOfHand
+          : sleightOfHand // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      stealth: null == stealth
+          ? _value.stealth
+          : stealth // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      survival: null == survival
+          ? _value.survival
+          : survival // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ) as $Val);
   }
 }
@@ -219,7 +345,25 @@ abstract class _$$_PlayerCopyWith<$Res> implements $PlayerCopyWith<$Res> {
       int constitution,
       int intellegence,
       int wisdom,
-      int charisma});
+      int charisma,
+      dynamic acrobatics,
+      dynamic animalHandling,
+      dynamic arcana,
+      dynamic atheletics,
+      dynamic deception,
+      dynamic history,
+      dynamic insight,
+      dynamic intimidation,
+      dynamic investigation,
+      dynamic medicine,
+      dynamic nature,
+      dynamic perception,
+      dynamic perfomance,
+      dynamic persuasian,
+      dynamic religion,
+      dynamic sleightOfHand,
+      dynamic stealth,
+      dynamic survival});
 }
 
 /// @nodoc
@@ -252,6 +396,24 @@ class __$$_PlayerCopyWithImpl<$Res>
     Object? intellegence = null,
     Object? wisdom = null,
     Object? charisma = null,
+    Object? acrobatics = null,
+    Object? animalHandling = null,
+    Object? arcana = null,
+    Object? atheletics = null,
+    Object? deception = null,
+    Object? history = null,
+    Object? insight = null,
+    Object? intimidation = null,
+    Object? investigation = null,
+    Object? medicine = null,
+    Object? nature = null,
+    Object? perception = null,
+    Object? perfomance = null,
+    Object? persuasian = null,
+    Object? religion = null,
+    Object? sleightOfHand = null,
+    Object? stealth = null,
+    Object? survival = null,
   }) {
     return _then(_$_Player(
       characterName: null == characterName
@@ -334,6 +496,27 @@ class __$$_PlayerCopyWithImpl<$Res>
           ? _value.charisma
           : charisma // ignore: cast_nullable_to_non_nullable
               as int,
+      acrobatics: null == acrobatics ? _value.acrobatics : acrobatics,
+      animalHandling:
+          null == animalHandling ? _value.animalHandling : animalHandling,
+      arcana: null == arcana ? _value.arcana : arcana,
+      atheletics: null == atheletics ? _value.atheletics : atheletics,
+      deception: null == deception ? _value.deception : deception,
+      history: null == history ? _value.history : history,
+      insight: null == insight ? _value.insight : insight,
+      intimidation: null == intimidation ? _value.intimidation : intimidation,
+      investigation:
+          null == investigation ? _value.investigation : investigation,
+      medicine: null == medicine ? _value.medicine : medicine,
+      nature: null == nature ? _value.nature : nature,
+      perception: null == perception ? _value.perception : perception,
+      perfomance: null == perfomance ? _value.perfomance : perfomance,
+      persuasian: null == persuasian ? _value.persuasian : persuasian,
+      religion: null == religion ? _value.religion : religion,
+      sleightOfHand:
+          null == sleightOfHand ? _value.sleightOfHand : sleightOfHand,
+      stealth: null == stealth ? _value.stealth : stealth,
+      survival: null == survival ? _value.survival : survival,
     ));
   }
 }
@@ -361,7 +544,43 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
       this.constitution = 10,
       this.intellegence = 10,
       this.wisdom = 10,
-      this.charisma = 10});
+      this.charisma = 10,
+      this.acrobatics =
+          const PlayerSkill(skillName: 'acrobatics', skillType: 'dexterity'),
+      this.animalHandling =
+          const PlayerSkill(skillName: 'animalHandling', skillType: 'wisdom'),
+      this.arcana =
+          const PlayerSkill(skillName: 'arcana', skillType: 'intellegence'),
+      this.atheletics =
+          const PlayerSkill(skillName: 'atheletics', skillType: 'strength'),
+      this.deception =
+          const PlayerSkill(skillName: 'deception', skillType: 'charisma'),
+      this.history =
+          const PlayerSkill(skillName: 'history', skillType: 'intellgence'),
+      this.insight =
+          const PlayerSkill(skillName: 'insight', skillType: 'wisdom'),
+      this.intimidation =
+          const PlayerSkill(skillName: 'intimidation', skillType: 'charisma'),
+      this.investigation = const PlayerSkill(
+          skillName: 'investigation', skillType: 'intellegence'),
+      this.medicine =
+          const PlayerSkill(skillName: 'medicine', skillType: 'wisdom'),
+      this.nature =
+          const PlayerSkill(skillName: 'nature', skillType: 'intellegence'),
+      this.perception =
+          const PlayerSkill(skillName: 'perception', skillType: 'wisdom'),
+      this.perfomance =
+          const PlayerSkill(skillName: 'perfomance', skillType: 'charisma'),
+      this.persuasian =
+          const PlayerSkill(skillName: 'persuasian', skillType: 'charisma'),
+      this.religion =
+          const PlayerSkill(skillName: 'religion', skillType: 'intellegence'),
+      this.sleightOfHand =
+          const PlayerSkill(skillName: 'sleightOfHand', skillType: 'dexterity'),
+      this.stealth =
+          const PlayerSkill(skillName: 'stealth', skillType: 'dexterity'),
+      this.survival =
+          const PlayerSkill(skillName: 'survival', skillType: 'wisdom')});
 
   factory _$_Player.fromJson(Map<String, dynamic> json) =>
       _$$_PlayerFromJson(json);
@@ -426,10 +645,64 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
   @override
   @JsonKey()
   final int charisma;
+  @override
+  @JsonKey()
+  final dynamic acrobatics;
+  @override
+  @JsonKey()
+  final dynamic animalHandling;
+  @override
+  @JsonKey()
+  final dynamic arcana;
+  @override
+  @JsonKey()
+  final dynamic atheletics;
+  @override
+  @JsonKey()
+  final dynamic deception;
+  @override
+  @JsonKey()
+  final dynamic history;
+  @override
+  @JsonKey()
+  final dynamic insight;
+  @override
+  @JsonKey()
+  final dynamic intimidation;
+  @override
+  @JsonKey()
+  final dynamic investigation;
+  @override
+  @JsonKey()
+  final dynamic medicine;
+  @override
+  @JsonKey()
+  final dynamic nature;
+  @override
+  @JsonKey()
+  final dynamic perception;
+  @override
+  @JsonKey()
+  final dynamic perfomance;
+  @override
+  @JsonKey()
+  final dynamic persuasian;
+  @override
+  @JsonKey()
+  final dynamic religion;
+  @override
+  @JsonKey()
+  final dynamic sleightOfHand;
+  @override
+  @JsonKey()
+  final dynamic stealth;
+  @override
+  @JsonKey()
+  final dynamic survival;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Player(characterName: $characterName, level: $level, exp: $exp, playerClass: $playerClass, playerRace: $playerRace, alignment: $alignment, background: $background, currentHp: $currentHp, totalHp: $totalHp, tempHp: $tempHp, armorClass: $armorClass, proficiency: $proficiency, speed: $speed, initiative: $initiative, strength: $strength, dexterity: $dexterity, constitution: $constitution, intellegence: $intellegence, wisdom: $wisdom, charisma: $charisma)';
+    return 'Player(characterName: $characterName, level: $level, exp: $exp, playerClass: $playerClass, playerRace: $playerRace, alignment: $alignment, background: $background, currentHp: $currentHp, totalHp: $totalHp, tempHp: $tempHp, armorClass: $armorClass, proficiency: $proficiency, speed: $speed, initiative: $initiative, strength: $strength, dexterity: $dexterity, constitution: $constitution, intellegence: $intellegence, wisdom: $wisdom, charisma: $charisma, acrobatics: $acrobatics, animalHandling: $animalHandling, arcana: $arcana, atheletics: $atheletics, deception: $deception, history: $history, insight: $insight, intimidation: $intimidation, investigation: $investigation, medicine: $medicine, nature: $nature, perception: $perception, perfomance: $perfomance, persuasian: $persuasian, religion: $religion, sleightOfHand: $sleightOfHand, stealth: $stealth, survival: $survival)';
   }
 
   @override
@@ -456,7 +729,25 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
       ..add(DiagnosticsProperty('constitution', constitution))
       ..add(DiagnosticsProperty('intellegence', intellegence))
       ..add(DiagnosticsProperty('wisdom', wisdom))
-      ..add(DiagnosticsProperty('charisma', charisma));
+      ..add(DiagnosticsProperty('charisma', charisma))
+      ..add(DiagnosticsProperty('acrobatics', acrobatics))
+      ..add(DiagnosticsProperty('animalHandling', animalHandling))
+      ..add(DiagnosticsProperty('arcana', arcana))
+      ..add(DiagnosticsProperty('atheletics', atheletics))
+      ..add(DiagnosticsProperty('deception', deception))
+      ..add(DiagnosticsProperty('history', history))
+      ..add(DiagnosticsProperty('insight', insight))
+      ..add(DiagnosticsProperty('intimidation', intimidation))
+      ..add(DiagnosticsProperty('investigation', investigation))
+      ..add(DiagnosticsProperty('medicine', medicine))
+      ..add(DiagnosticsProperty('nature', nature))
+      ..add(DiagnosticsProperty('perception', perception))
+      ..add(DiagnosticsProperty('perfomance', perfomance))
+      ..add(DiagnosticsProperty('persuasian', persuasian))
+      ..add(DiagnosticsProperty('religion', religion))
+      ..add(DiagnosticsProperty('sleightOfHand', sleightOfHand))
+      ..add(DiagnosticsProperty('stealth', stealth))
+      ..add(DiagnosticsProperty('survival', survival));
   }
 
   @override
@@ -497,7 +788,34 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
                 other.intellegence == intellegence) &&
             (identical(other.wisdom, wisdom) || other.wisdom == wisdom) &&
             (identical(other.charisma, charisma) ||
-                other.charisma == charisma));
+                other.charisma == charisma) &&
+            const DeepCollectionEquality()
+                .equals(other.acrobatics, acrobatics) &&
+            const DeepCollectionEquality()
+                .equals(other.animalHandling, animalHandling) &&
+            const DeepCollectionEquality().equals(other.arcana, arcana) &&
+            const DeepCollectionEquality()
+                .equals(other.atheletics, atheletics) &&
+            const DeepCollectionEquality().equals(other.deception, deception) &&
+            const DeepCollectionEquality().equals(other.history, history) &&
+            const DeepCollectionEquality().equals(other.insight, insight) &&
+            const DeepCollectionEquality()
+                .equals(other.intimidation, intimidation) &&
+            const DeepCollectionEquality()
+                .equals(other.investigation, investigation) &&
+            const DeepCollectionEquality().equals(other.medicine, medicine) &&
+            const DeepCollectionEquality().equals(other.nature, nature) &&
+            const DeepCollectionEquality()
+                .equals(other.perception, perception) &&
+            const DeepCollectionEquality()
+                .equals(other.perfomance, perfomance) &&
+            const DeepCollectionEquality()
+                .equals(other.persuasian, persuasian) &&
+            const DeepCollectionEquality().equals(other.religion, religion) &&
+            const DeepCollectionEquality()
+                .equals(other.sleightOfHand, sleightOfHand) &&
+            const DeepCollectionEquality().equals(other.stealth, stealth) &&
+            const DeepCollectionEquality().equals(other.survival, survival));
   }
 
   @JsonKey(ignore: true)
@@ -523,7 +841,25 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
         constitution,
         intellegence,
         wisdom,
-        charisma
+        charisma,
+        const DeepCollectionEquality().hash(acrobatics),
+        const DeepCollectionEquality().hash(animalHandling),
+        const DeepCollectionEquality().hash(arcana),
+        const DeepCollectionEquality().hash(atheletics),
+        const DeepCollectionEquality().hash(deception),
+        const DeepCollectionEquality().hash(history),
+        const DeepCollectionEquality().hash(insight),
+        const DeepCollectionEquality().hash(intimidation),
+        const DeepCollectionEquality().hash(investigation),
+        const DeepCollectionEquality().hash(medicine),
+        const DeepCollectionEquality().hash(nature),
+        const DeepCollectionEquality().hash(perception),
+        const DeepCollectionEquality().hash(perfomance),
+        const DeepCollectionEquality().hash(persuasian),
+        const DeepCollectionEquality().hash(religion),
+        const DeepCollectionEquality().hash(sleightOfHand),
+        const DeepCollectionEquality().hash(stealth),
+        const DeepCollectionEquality().hash(survival)
       ]);
 
   @JsonKey(ignore: true)
@@ -561,7 +897,25 @@ abstract class _Player implements Player {
       final int constitution,
       final int intellegence,
       final int wisdom,
-      final int charisma}) = _$_Player;
+      final int charisma,
+      final dynamic acrobatics,
+      final dynamic animalHandling,
+      final dynamic arcana,
+      final dynamic atheletics,
+      final dynamic deception,
+      final dynamic history,
+      final dynamic insight,
+      final dynamic intimidation,
+      final dynamic investigation,
+      final dynamic medicine,
+      final dynamic nature,
+      final dynamic perception,
+      final dynamic perfomance,
+      final dynamic persuasian,
+      final dynamic religion,
+      final dynamic sleightOfHand,
+      final dynamic stealth,
+      final dynamic survival}) = _$_Player;
 
   factory _Player.fromJson(Map<String, dynamic> json) = _$_Player.fromJson;
 
@@ -605,6 +959,42 @@ abstract class _Player implements Player {
   int get wisdom;
   @override
   int get charisma;
+  @override
+  dynamic get acrobatics;
+  @override
+  dynamic get animalHandling;
+  @override
+  dynamic get arcana;
+  @override
+  dynamic get atheletics;
+  @override
+  dynamic get deception;
+  @override
+  dynamic get history;
+  @override
+  dynamic get insight;
+  @override
+  dynamic get intimidation;
+  @override
+  dynamic get investigation;
+  @override
+  dynamic get medicine;
+  @override
+  dynamic get nature;
+  @override
+  dynamic get perception;
+  @override
+  dynamic get perfomance;
+  @override
+  dynamic get persuasian;
+  @override
+  dynamic get religion;
+  @override
+  dynamic get sleightOfHand;
+  @override
+  dynamic get stealth;
+  @override
+  dynamic get survival;
   @override
   @JsonKey(ignore: true)
   _$$_PlayerCopyWith<_$_Player> get copyWith =>
