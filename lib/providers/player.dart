@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/models/player.dart';
 
+import '../models/playerSkill.dart';
+
 final playerProvider = StateNotifierProvider<PlayerNotifier, Player>((ref) {
   return PlayerNotifier();
 });
@@ -9,7 +11,10 @@ class PlayerNotifier extends StateNotifier<Player> {
   PlayerNotifier() : super(Player());
 
   void playerStatChangeTo(
-      String propertyName, var newValue, Type propertyType) {
+      {required String propertyName,
+      var newValue,
+      Type propertyType = String,
+      bool isAbilityScore = false}) {
     var playerJson = state.toJson();
     var adjustedValue = newValue;
     if (propertyType == int) {
@@ -19,14 +24,25 @@ class PlayerNotifier extends StateNotifier<Player> {
     state = Player.fromJson(playerJson);
   }
 
-  void modifyPlayerSkill(
-      String skillName, String skillProperty, var newValue, Type propertyType) {
+  List<dynamic> updateSkillsFromAbilityScore(
+      Map<String, dynamic> playerProperties, String propertyName) {
+    var relevantSkills = [];
+    playerProperties.forEach((key, value) {
+      if (value.runtimeType == PlayerSkill) {
+        var skillJson = value.toJson();
+        if (skillJson['skillType'] == propertyName) {
+          relevantSkills.add(skillJson['skillName']);
+        }
+      }
+    });
+    return relevantSkills;
+  }
+
+  void updatePlayerSkillModifierValue(String skillName, int modifierValue) {
     var playerJson = state.toJson();
-    var adjustedValue = newValue;
-    if (propertyType == int) {
-      adjustedValue = int.parse(newValue);
-    }
-    playerJson[skillName][skillProperty] = adjustedValue;
+    PlayerSkill skillObject = playerJson[skillName];
+    var updatedSkill = skillObject.copyWith(skillModifier: modifierValue);
+    playerJson[skillName] = updatedSkill;
     state = Player.fromJson(playerJson);
   }
 

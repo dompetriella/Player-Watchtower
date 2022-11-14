@@ -6,7 +6,6 @@ import 'package:player_watchtower/models/playerSkill.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
 import '../../../functions/calculations.dart';
-import '../../../providers/page.dart';
 import '../../../providers/player.dart';
 
 class Skill extends ConsumerWidget {
@@ -22,32 +21,6 @@ class Skill extends ConsumerWidget {
     String formatSkillNameString(String text) {
       return text.replaceAllMapped(RegExp(r'^([a-z])|[A-Z]'),
           (Match m) => m[1] == null ? " ${m[0]}" : m[1]!.toUpperCase());
-    }
-
-    String formatSkillModifierString(PlayerSkill skill) {
-      if (ref.watch(autoCalculate)) {
-        switch (skill.skillType) {
-          case 'strength':
-            return displayValue(
-                getAbilityScoreModifier(ref.watch(playerProvider).strength));
-          case 'dexterity':
-            return displayValue(
-                getAbilityScoreModifier(ref.watch(playerProvider).dexterity));
-          case 'constitution':
-            return displayValue(getAbilityScoreModifier(
-                ref.watch(playerProvider).constitution));
-          case 'intellegence':
-            return displayValue(getAbilityScoreModifier(
-                ref.watch(playerProvider).intellegence));
-          case 'wisdom':
-            return displayValue(
-                getAbilityScoreModifier(ref.watch(playerProvider).wisdom));
-          case 'charisma':
-            return displayValue(
-                getAbilityScoreModifier(ref.watch(playerProvider).charisma));
-        }
-      }
-      return displayValue(skill.skillModifier);
     }
 
     return Padding(
@@ -99,7 +72,7 @@ class Skill extends ConsumerWidget {
                           padding: const EdgeInsets.fromLTRB(0, 4, 0, 4),
                           child: Center(
                             child: StrokeText(
-                              text: formatSkillModifierString(playerSkill),
+                              text: displayValue(playerSkill.skillModifier),
                               size: 16,
                             ),
                           ),

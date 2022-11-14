@@ -36,19 +36,14 @@ class StatsPage extends ConsumerWidget {
                 text: "Ability Scores",
                 statsEntries: ScoreStatsEntries(),
                 expandedProvider: statsScoresExpanded),
-            if (!ref.watch(autoCalculate))
-              Column(
-                children: [
-                  Divider(
-                    thickness: 0,
-                    height: 10,
-                  ),
-                  BodyDropDown(
-                      text: "Skills",
-                      statsEntries: SkillsStatsEntries(),
-                      expandedProvider: statsSkillsExpanded),
-                ],
-              ),
+            Divider(
+              thickness: 0,
+              height: 10,
+            ),
+            BodyDropDown(
+                text: "Skills",
+                statsEntries: SkillsStatsEntries(),
+                expandedProvider: statsSkillsExpanded),
             Divider(
               thickness: 0,
               height: 10,

@@ -19,12 +19,6 @@ class CharacterStatsEntries extends ConsumerWidget {
           statPropertyName: 'characterName',
           provider: ref.watch(playerProvider).characterName,
         ),
-        if (!ref.watch(autoCalculate))
-          StatsEntry(
-            title: 'Level',
-            statPropertyName: 'level',
-            provider: ref.watch(playerProvider).level,
-          ),
         StatsEntry(
           title: 'Experience',
           statPropertyName: 'exp',
@@ -90,25 +84,11 @@ class CombatStatsEntries extends ConsumerWidget {
           statPropertyName: 'tempHp',
           provider: ref.watch(playerProvider).tempHp,
         ),
-        if (!ref.watch(autoCalculate))
-          StatsEntry(
-            title: 'Proficiency',
-            statPropertyName: 'proficiency',
-            provider: ref.watch(playerProvider).proficiency,
-            isModifier: true,
-          ),
         StatsEntry(
           title: 'Speed',
           statPropertyName: 'speed',
           provider: ref.watch(playerProvider).speed,
         ),
-        if (!ref.watch(autoCalculate))
-          StatsEntry(
-            title: 'Initiative',
-            statPropertyName: 'initiative',
-            provider: ref.watch(playerProvider).initiative,
-            isModifier: true,
-          ),
       ],
     );
   }
@@ -163,11 +143,11 @@ class SkillsStatsEntries extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
-        StatsEntry(
-          title: 'Acrobatics',
-          provider: ref.watch(playerProvider).acrobatics.skillModifier,
-          statPropertyName: ref.watch(playerProvider).acrobatics.skillName,
-        ),
+        // StatsEntry(
+        //   title: 'Acrobatics',
+        //   provider: ref.watch(playerProvider).acrobatics.skillModifier,
+        //   statPropertyName: ref.watch(playerProvider).acrobatics.skillName,
+        // ),
         // StatsEntry(
         //   title: 'Animal Handling',
         //   entry: '+1',

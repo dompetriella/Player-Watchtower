@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/pages/QuickSelect/components/score_card.dart';
-import 'package:player_watchtower/providers/page.dart';
 import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
 import 'small_score_card.dart';
@@ -55,18 +54,14 @@ class BaseCard extends ConsumerWidget {
                     text: ref.watch(playerProvider).armorClass.toString(),
                   ),
                   SmallScoreCard(
-                      icon: FontAwesomeIcons.graduationCap,
-                      text: ref.watch(autoCalculate)
-                          ? displayValue(getProficiencyModifier(
-                              ref.watch(playerProvider).level))
-                          : displayValue(
-                              ref.watch(playerProvider).proficiency)),
+                    icon: FontAwesomeIcons.graduationCap,
+                    text: displayValue(getProficiencyModifier(
+                        ref.watch(playerProvider).level)),
+                  ),
                   SmallScoreCard(
                       icon: FontAwesomeIcons.handFist,
-                      text: ref.watch(autoCalculate)
-                          ? displayValue(getAbilityScoreModifier(
-                              ref.watch(playerProvider).dexterity))
-                          : displayValue(ref.watch(playerProvider).initiative)),
+                      text: displayValue(getAbilityScoreModifier(
+                          ref.watch(playerProvider).dexterity))),
                   SmallScoreCard(
                       icon: FontAwesomeIcons.personRunning,
                       text: ref.watch(playerProvider).speed.toString()),
