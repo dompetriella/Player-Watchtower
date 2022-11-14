@@ -9,12 +9,13 @@ class Skill extends ConsumerWidget {
   final String text;
   final String modifier;
   final bool isProficient;
-  const Skill(
-      {super.key,
-      required this.skillType,
-      required this.modifier,
-      required this.text,
-      this.isProficient = false});
+  const Skill({
+    super.key,
+    required this.skillType,
+    required this.modifier,
+    required this.text,
+    this.isProficient = false,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

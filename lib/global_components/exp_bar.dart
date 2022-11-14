@@ -21,21 +21,21 @@ class ExpBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             StrokeText(
-              text: playerLevel.toString(),
-              size: 25,
+              text: 'Lv. $playerLevel',
+              size: 18,
             ),
             StrokeText(
-              text: (playerLevel + 1).toString(),
-              size: 25,
+              text: 'Lv. ${playerLevel + 1}',
+              size: 18,
             )
           ],
         ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.only(top: 4.0),
           child: FillableBar(
             total: levelDict[playerLevel + 1]!,
             current: exp,
-            height: 50,
+            height: height,
             color: color,
           ),
         ),

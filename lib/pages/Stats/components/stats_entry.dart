@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/global_components/action_dialogs/base_dialog.dart';
+import 'package:player_watchtower/global_components/exp_bar.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/providers/theme.dart';
 import 'package:player_watchtower/functions/calculations.dart';
@@ -9,6 +10,7 @@ class StatsEntry extends ConsumerWidget {
   final String title;
   final String statPropertyName;
   final bool isModifier;
+  final Widget displayWidget;
   final dynamic provider;
   final String editDialogType;
   const StatsEntry({
@@ -17,6 +19,7 @@ class StatsEntry extends ConsumerWidget {
     required this.title,
     required this.statPropertyName,
     this.editDialogType = 'changeTo',
+    this.displayWidget = const SizedBox.shrink(),
     this.isModifier = false,
   });
   @override
@@ -40,35 +43,40 @@ class StatsEntry extends ConsumerWidget {
               borderRadius: BorderRadius.circular(10)),
           child: Padding(
             padding: const EdgeInsets.all(6.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+            child: Column(
               children: [
-                Container(
-                  width: 175,
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
-                    child: StrokeText(
-                      text: title,
-                      size: 22,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      width: 175,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+                        child: StrokeText(
+                          text: title,
+                          size: 22,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                Container(
-                  width: 160,
-                  decoration: BoxDecoration(
-                      color: ref.watch(themeProvider).bgColor,
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
-                    child: StrokeText(
-                      text: isModifier
-                          ? displayValue(provider)
-                          : provider.toString(),
-                      size: 18,
+                    Container(
+                      width: 160,
+                      decoration: BoxDecoration(
+                          color: ref.watch(themeProvider).bgColor,
+                          border: Border.all(color: Colors.white),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
+                        child: StrokeText(
+                          text: isModifier
+                              ? displayValue(provider)
+                              : provider.toString(),
+                          size: 18,
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
+                displayWidget
               ],
             ),
           ),

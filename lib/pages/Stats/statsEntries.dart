@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/providers/page.dart';
 import 'package:player_watchtower/providers/player.dart';
+import 'package:player_watchtower/providers/theme.dart';
 
+import '../../global_components/exp_bar.dart';
 import 'components/stats_entry.dart';
 
 class CharacterStatsEntries extends ConsumerWidget {
@@ -27,6 +29,14 @@ class CharacterStatsEntries extends ConsumerWidget {
           title: 'Experience',
           statPropertyName: 'exp',
           provider: ref.watch(playerProvider).exp,
+          displayWidget: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ExpBar(
+              exp: ref.watch(playerProvider).exp,
+              color: ref.watch(themeProvider).primary,
+              height: 35,
+            ),
+          ),
         ),
         StatsEntry(
           title: 'Class',

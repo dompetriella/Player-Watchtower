@@ -66,6 +66,11 @@ class ScreenChassis extends ConsumerWidget {
             if (ref.watch(currentPage) == 0)
               Builder(builder: (context) {
                 return GestureDetector(
+                    onPanUpdate: (swipe) {
+                      if (swipe.delta.dx < 0) {
+                        Scaffold.of(context).openDrawer();
+                      }
+                    },
                     onTap: () => Scaffold.of(context).openDrawer(),
                     child: FaIcon(FontAwesomeIcons.personCircleCheck));
               })
