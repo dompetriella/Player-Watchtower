@@ -113,7 +113,7 @@ class BaseDialog extends ConsumerWidget {
           GestureDetector(
               onTap: () {
                 if (ref.read(changeTo) != '') {
-                  ref.watch(playerProvider.notifier).playerStatChangeTo(
+                  ref.watch(playerProvider.notifier).updatePlayerProperty(
                       propertyName: statPropertyName,
                       newValue: ref.read(changeTo),
                       propertyType: statPropertyType,

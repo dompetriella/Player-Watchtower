@@ -11,7 +11,7 @@ final playerProvider = StateNotifierProvider<PlayerNotifier, Player>((ref) {
 class PlayerNotifier extends StateNotifier<Player> {
   PlayerNotifier() : super(Player());
 
-  void playerStatChangeTo(
+  void updatePlayerProperty(
       {required String propertyName,
       var newValue,
       Type propertyType = String,
@@ -23,18 +23,18 @@ class PlayerNotifier extends StateNotifier<Player> {
     }
     playerJson[propertyName] = adjustedValue;
     if (isAbilityScore) {
-      playerJson =
-          updateSkillsFromAbilityScore(playerJson, propertyName, adjustedValue);
+      playerJson = updatePlayerSkillModifierValue(
+          playerJson, propertyName, adjustedValue);
     }
     state = Player.fromJson(playerJson);
   }
 
-  Map<String, dynamic> updateSkillsFromAbilityScore(
+  Map<String, dynamic> updatePlayerSkillModifierValue(
       Map<String, dynamic> playerProperties,
       String propertyName,
       dynamic adjustedValue) {
     playerProperties.forEach((key, value) {
-      if (value.runtimeType != String && value.runtimeType != int) {
+      if (value is PlayerSkill) {
         var skillJson = value.toJson();
         skillJson['skillModifier'] = getAbilityScoreModifier(adjustedValue);
         PlayerSkill updatedPlayerSkill = PlayerSkill.fromJson(skillJson);
@@ -44,14 +44,6 @@ class PlayerNotifier extends StateNotifier<Player> {
       }
     });
     return playerProperties;
-  }
-
-  void updatePlayerSkillModifierValue(String skillName, int modifierValue) {
-    var playerJson = state.toJson();
-    PlayerSkill skillObject = playerJson[skillName];
-    var updatedSkill = skillObject.copyWith(skillModifier: modifierValue);
-    playerJson[skillName] = updatedSkill;
-    state = Player.fromJson(playerJson);
   }
 
   void increaseHealth() {

@@ -15,7 +15,7 @@ class BaseCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      height: 350,
+      height: 375,
       decoration: BoxDecoration(
           color: ref.watch(themeProvider).baseCardBg,
           boxShadow: [ref.watch(themeProvider).shadow],
@@ -33,13 +33,25 @@ class BaseCard extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    child: FaIcon(
-                      FontAwesomeIcons.cloud,
-                      size: 40,
+                      child: Container(
+                    height: 60,
+                    width: 60,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.white, width: 2),
+                        color: ref.watch(themeProvider).primary,
+                        borderRadius: BorderRadius.circular(200),
+                        boxShadow: [ref.watch(themeProvider).shadow]),
+                    child: Center(
+                      child: FaIcon(
+                        FontAwesomeIcons.firefox,
+                        color: Colors.white,
+                        size: 30,
+                      ),
                     ),
-                  ),
+                  )),
                   HealthBarWithButtons(
-                    healthbarWidth: 220,
+                    height: 40,
+                    healthbarWidth: 180,
                   ),
                 ],
               ),
@@ -166,6 +178,7 @@ class HealthBarWithButtons extends ConsumerWidget {
               current: ref.watch(playerProvider).currentHp,
               total: ref.watch(playerProvider).totalHp,
               width: healthbarWidth,
+              height: height,
               isHp: true,
               color: percentageToHsl(
                   ref.watch(playerProvider).currentHp /

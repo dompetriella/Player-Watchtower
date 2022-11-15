@@ -36,22 +36,22 @@ class StatsPage extends ConsumerWidget {
                 text: "Ability Scores",
                 statsEntries: ScoreStatsEntries(),
                 expandedProvider: statsScoresExpanded),
-            Divider(
-              thickness: 0,
-              height: 10,
-            ),
-            BodyDropDown(
-                text: "Skills",
-                statsEntries: SkillsStatsEntries(),
-                expandedProvider: statsSkillsExpanded),
-            Divider(
-              thickness: 0,
-              height: 10,
-            ),
-            BodyDropDown(
-                text: "Misc.",
-                statsEntries: MiscEntries(),
-                expandedProvider: statsNotesExpanded),
+            // Divider(
+            //   thickness: 0,
+            //   height: 10,
+            // ),
+            // BodyDropDown(
+            //     text: "Skills",
+            //     statsEntries: SkillsStatsEntries(),
+            //     expandedProvider: statsSkillsExpanded),
+            // Divider(
+            //   thickness: 0,
+            //   height: 10,
+            // ),
+            // BodyDropDown(
+            //     text: "Misc.",
+            //     statsEntries: MiscEntries(),
+            //     expandedProvider: statsNotesExpanded),
           ],
         ),
       ),
