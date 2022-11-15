@@ -105,31 +105,37 @@ class ScoreStatsEntries extends ConsumerWidget {
           title: 'Strength',
           statPropertyName: 'strength',
           provider: ref.watch(playerProvider).strength,
+          isAbilityScore: true,
         ),
         StatsEntry(
           title: 'Dexterity',
           statPropertyName: 'dexterity',
           provider: ref.watch(playerProvider).dexterity,
+          isAbilityScore: true,
         ),
         StatsEntry(
           title: 'Constitution',
           statPropertyName: 'constitution',
           provider: ref.watch(playerProvider).constitution,
+          isAbilityScore: true,
         ),
         StatsEntry(
           title: 'Intellegence',
           statPropertyName: 'intellegence',
           provider: ref.watch(playerProvider).intellegence,
+          isAbilityScore: true,
         ),
         StatsEntry(
           title: 'Wisdom',
           statPropertyName: 'wisdom',
           provider: ref.watch(playerProvider).wisdom,
+          isAbilityScore: true,
         ),
         StatsEntry(
           title: 'Charisma',
           statPropertyName: 'charisma',
           provider: ref.watch(playerProvider).charisma,
+          isAbilityScore: true,
         ),
       ],
     );

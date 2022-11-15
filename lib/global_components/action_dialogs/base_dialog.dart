@@ -6,7 +6,6 @@ import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/providers/forms.dart';
 import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
-import 'package:player_watchtower/functions/calculations.dart';
 
 class BaseDialog extends ConsumerWidget {
   final String title;
@@ -14,9 +13,11 @@ class BaseDialog extends ConsumerWidget {
   final dynamic provider;
   final String statPropertyName;
   final Type statPropertyType;
+  final bool isAbilityScore;
   const BaseDialog(
       {super.key,
       this.editDialogType = "change-to",
+      required this.isAbilityScore,
       required this.title,
       required this.provider,
       required this.statPropertyName,
@@ -115,7 +116,8 @@ class BaseDialog extends ConsumerWidget {
                   ref.watch(playerProvider.notifier).playerStatChangeTo(
                       propertyName: statPropertyName,
                       newValue: ref.read(changeTo),
-                      propertyType: statPropertyType);
+                      propertyType: statPropertyType,
+                      isAbilityScore: isAbilityScore);
                   ref.read(changeTo.notifier).state = '';
                 }
 

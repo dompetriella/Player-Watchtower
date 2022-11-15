@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/functions/calculations.dart';
 import 'package:player_watchtower/models/player.dart';
 
 import '../models/playerSkill.dart';
@@ -21,21 +22,28 @@ class PlayerNotifier extends StateNotifier<Player> {
       adjustedValue = int.parse(newValue);
     }
     playerJson[propertyName] = adjustedValue;
+    if (isAbilityScore) {
+      playerJson =
+          updateSkillsFromAbilityScore(playerJson, propertyName, adjustedValue);
+    }
     state = Player.fromJson(playerJson);
   }
 
-  List<dynamic> updateSkillsFromAbilityScore(
-      Map<String, dynamic> playerProperties, String propertyName) {
-    var relevantSkills = [];
+  Map<String, dynamic> updateSkillsFromAbilityScore(
+      Map<String, dynamic> playerProperties,
+      String propertyName,
+      dynamic adjustedValue) {
     playerProperties.forEach((key, value) {
-      if (value.runtimeType == PlayerSkill) {
+      if (value.runtimeType != String && value.runtimeType != int) {
         var skillJson = value.toJson();
+        skillJson['skillModifier'] = getAbilityScoreModifier(adjustedValue);
+        PlayerSkill updatedPlayerSkill = PlayerSkill.fromJson(skillJson);
         if (skillJson['skillType'] == propertyName) {
-          relevantSkills.add(skillJson['skillName']);
+          playerProperties[skillJson['skillName']] = updatedPlayerSkill;
         }
       }
     });
-    return relevantSkills;
+    return playerProperties;
   }
 
   void updatePlayerSkillModifierValue(String skillName, int modifierValue) {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/global_components/action_dialogs/base_dialog.dart';
-import 'package:player_watchtower/global_components/exp_bar.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/providers/theme.dart';
 import 'package:player_watchtower/functions/calculations.dart';
@@ -10,6 +9,7 @@ class StatsEntry extends ConsumerWidget {
   final String title;
   final String statPropertyName;
   final bool isModifier;
+  final bool isAbilityScore;
   final Widget displayWidget;
   final dynamic provider;
   final String editDialogType;
@@ -18,6 +18,7 @@ class StatsEntry extends ConsumerWidget {
     required this.provider,
     required this.title,
     required this.statPropertyName,
+    this.isAbilityScore = false,
     this.editDialogType = 'changeTo',
     this.displayWidget = const SizedBox.shrink(),
     this.isModifier = false,
@@ -29,11 +30,13 @@ class StatsEntry extends ConsumerWidget {
         showDialog(
             context: context,
             builder: (_) => BaseDialog(
-                editDialogType: editDialogType,
-                title: title,
-                provider: provider,
-                statPropertyName: statPropertyName,
-                statPropertyType: provider.runtimeType));
+                  editDialogType: editDialogType,
+                  title: title,
+                  provider: provider,
+                  statPropertyName: statPropertyName,
+                  statPropertyType: provider.runtimeType,
+                  isAbilityScore: isAbilityScore,
+                ));
       },
       child: Padding(
         padding: const EdgeInsets.fromLTRB(0, 6, 0, 6),
