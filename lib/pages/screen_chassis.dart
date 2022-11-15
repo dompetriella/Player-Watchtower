@@ -51,7 +51,7 @@ class ScreenChassis extends ConsumerWidget {
             Center(
                 child: StrokeText(
               text:
-                  '${truncateWithEllipsis(12, ref.watch(playerProvider).characterName)} Lv. ${getPlayerLevelByExp(ref.watch(playerProvider).exp)}',
+                  '${truncateWithEllipsis(12, ref.watch(playerProvider).characterName)} - Lv.${getPlayerLevelByExp(ref.watch(playerProvider).exp)}',
               size: 20,
             )),
             Container(

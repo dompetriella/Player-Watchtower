@@ -1,3 +1,8 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/providers/player.dart';
+
+import '../models/playerSkill.dart';
+
 String displayValue(var value) {
   if (value.runtimeType == int) {
     if (value > 0) {
@@ -79,3 +84,19 @@ Map<int, int> levelDict = {
   19: 305000,
   20: 355000
 };
+
+bool isSkillProficient(PlayerSkill skill) {
+  bool result = skill.isProficient;
+  return result;
+}
+
+int addProficiency(PlayerSkill skill, WidgetRef ref) {
+  if (isSkillProficient(skill)) {
+    return ref.read(playerProvider).proficiency;
+  }
+  return 0;
+}
+
+int getSkillModifier(PlayerSkill skillName) {
+  return skillName.skillModifier;
+}

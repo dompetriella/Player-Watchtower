@@ -87,6 +87,7 @@ class BaseDialog extends ConsumerWidget {
                                 borderRadius: BorderRadius.circular(10)),
                             child: Center(
                                 child: TextFormField(
+                              style: TextStyle(fontWeight: FontWeight.w900),
                               readOnly: true,
                               initialValue: provider.toString(),
                               textAlign: TextAlign.center,

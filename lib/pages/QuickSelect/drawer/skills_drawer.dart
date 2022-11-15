@@ -42,7 +42,7 @@ class SkillsDrawer extends ConsumerWidget {
                   SmallScoreCard(
                     icon: FontAwesomeIcons.eyeLowVision,
                     text:
-                        '${getAbilityScoreModifier(ref.watch(playerProvider).wisdom) + 10}',
+                        '${getSkillModifier(ref.read(playerProvider).perception) + 10 + addProficiency(ref.read(playerProvider).perception, ref)}',
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 16.0),
