@@ -14,8 +14,19 @@ class BaseCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
+    double adjustSize(double height, double width) {
+      double size = height / width;
+      if (size < 2) {
+        return size + (width / 1500);
+      }
+      return size;
+    }
+
     return Container(
-      height: 375,
+      height: 180 * adjustSize(height, width),
       decoration: BoxDecoration(
           color: ref.watch(themeProvider).baseCardBg,
           boxShadow: [ref.watch(themeProvider).shadow],
@@ -24,109 +35,148 @@ class BaseCard extends ConsumerWidget {
           borderRadius: BorderRadius.circular(10)),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Flex(
-          direction: Axis.vertical,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  GestureDetector(
-                      child: Container(
-                    height: 60,
-                    width: 60,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white, width: 2),
-                        color: ref.watch(themeProvider).primary,
-                        borderRadius: BorderRadius.circular(200),
-                        boxShadow: [ref.watch(themeProvider).shadow]),
-                    child: Center(
-                      child: FaIcon(
-                        FontAwesomeIcons.firefox,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                    ),
-                  )),
+                  PlayerAvatar(),
                   HealthBarWithButtons(
-                    height: 40,
-                    healthbarWidth: 180,
+                    height: 30,
+                    healthbarWidth: width * .6,
                   ),
                 ],
               ),
             ),
-            Expanded(
-                child: Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SmallScoreCard(
-                    icon: FontAwesomeIcons.shieldHalved,
-                    text: ref.watch(playerProvider).armorClass.toString(),
-                  ),
-                  SmallScoreCard(
-                    icon: FontAwesomeIcons.graduationCap,
-                    text: displayValue(getProficiencyModifier(
-                        ref.watch(playerProvider).level)),
-                  ),
-                  SmallScoreCard(
-                      icon: FontAwesomeIcons.handFist,
-                      text: displayValue(getAbilityScoreModifier(
-                          ref.watch(playerProvider).dexterity))),
-                  SmallScoreCard(
-                      icon: FontAwesomeIcons.personRunning,
-                      text: ref.watch(playerProvider).speed.toString()),
-                ],
-              ),
-            )),
-            Expanded(
-                flex: 4,
-                child: Container(
-                  child: Center(
-                    child: Wrap(
-                      spacing: 20,
-                      runSpacing: 10,
-                      alignment: WrapAlignment.spaceEvenly,
-                      children: [
-                        ScoreCard(
-                          text: displayValue(getAbilityScoreModifier(
-                              ref.watch(playerProvider).strength)),
-                          icon: FontAwesomeIcons.dumbbell,
-                        ),
-                        ScoreCard(
-                          text: displayValue(getAbilityScoreModifier(
-                              ref.watch(playerProvider).dexterity)),
-                          icon: FontAwesomeIcons.hand,
-                        ),
-                        ScoreCard(
-                          text: displayValue(getAbilityScoreModifier(
-                              ref.watch(playerProvider).constitution)),
-                          icon: FontAwesomeIcons.heartPulse,
-                        ),
-                        ScoreCard(
-                          text: displayValue(getAbilityScoreModifier(
-                              ref.watch(playerProvider).intellegence)),
-                          icon: FontAwesomeIcons.brain,
-                        ),
-                        ScoreCard(
-                          text: displayValue(getAbilityScoreModifier(
-                              ref.watch(playerProvider).wisdom)),
-                          icon: FontAwesomeIcons.eye,
-                        ),
-                        ScoreCard(
-                          text: displayValue(getAbilityScoreModifier(
-                              ref.watch(playerProvider).charisma)),
-                          icon: FontAwesomeIcons.solidComments,
-                        ),
-                      ],
-                    ),
-                  ),
-                ))
+            Padding(
+              padding: const EdgeInsets.only(bottom: 2.0),
+              child: SmallScoreCards(),
+            ),
+            BigScoreCards()
           ],
         ),
       ),
     );
+  }
+}
+
+class SmallScoreCards extends ConsumerWidget {
+  const SmallScoreCards({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        SmallScoreCard(
+          icon: FontAwesomeIcons.shieldHalved,
+          text: ref.watch(playerProvider).armorClass.toString(),
+        ),
+        SmallScoreCard(
+          icon: FontAwesomeIcons.graduationCap,
+          text: displayValue(
+              getProficiencyModifier(ref.watch(playerProvider).level)),
+        ),
+        SmallScoreCard(
+            icon: FontAwesomeIcons.handFist,
+            text: displayValue(
+                getAbilityScoreModifier(ref.watch(playerProvider).dexterity))),
+        SmallScoreCard(
+            icon: FontAwesomeIcons.personRunning,
+            text: ref.watch(playerProvider).speed.toString()),
+      ],
+    );
+  }
+}
+
+class BigScoreCards extends ConsumerWidget {
+  const BigScoreCards({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Expanded(
+      child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ScoreCard(
+                  text: displayValue(getAbilityScoreModifier(
+                      ref.watch(playerProvider).strength)),
+                  icon: FontAwesomeIcons.dumbbell,
+                ),
+                ScoreCard(
+                  text: displayValue(getAbilityScoreModifier(
+                      ref.watch(playerProvider).dexterity)),
+                  icon: FontAwesomeIcons.hand,
+                ),
+                ScoreCard(
+                  text: displayValue(getAbilityScoreModifier(
+                      ref.watch(playerProvider).constitution)),
+                  icon: FontAwesomeIcons.heartPulse,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ScoreCard(
+                  text: displayValue(getAbilityScoreModifier(
+                      ref.watch(playerProvider).intellegence)),
+                  icon: FontAwesomeIcons.brain,
+                ),
+                ScoreCard(
+                  text: displayValue(getAbilityScoreModifier(
+                      ref.watch(playerProvider).wisdom)),
+                  icon: FontAwesomeIcons.eye,
+                ),
+                ScoreCard(
+                  text: displayValue(getAbilityScoreModifier(
+                      ref.watch(playerProvider).charisma)),
+                  icon: FontAwesomeIcons.solidComments,
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class PlayerAvatar extends ConsumerWidget {
+  const PlayerAvatar({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return GestureDetector(
+        child: Container(
+      height: 60,
+      width: 60,
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.white, width: 2),
+          color: ref.watch(themeProvider).primary,
+          borderRadius: BorderRadius.circular(200),
+          boxShadow: [ref.watch(themeProvider).shadow]),
+      child: Center(
+        child: FaIcon(
+          FontAwesomeIcons.firefox,
+          color: Colors.white,
+          size: 30,
+        ),
+      ),
+    ));
   }
 }
 
@@ -159,45 +209,84 @@ class HealthBarWithButtons extends ConsumerWidget {
     }
 
     return Container(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
         children: [
-          MultiButton(
-            onTap: () {
-              ref.read(playerProvider.notifier).decreaseHealth();
-              print(ref.read(playerProvider).currentHp);
-            },
-            color: iconColor,
-            bgColor: buttonBg,
-            icon: FontAwesomeIcons.minus,
-            size: height * .95,
+          FillableBar(
+            current: ref.watch(playerProvider).currentHp,
+            total: ref.watch(playerProvider).totalHp,
+            width: healthbarWidth,
+            height: height,
+            isHp: true,
+            color: percentageToHsl(
+                ref.watch(playerProvider).currentHp /
+                    ref.watch(playerProvider).totalHp,
+                0,
+                120),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(4.0, 0, 4.0, 0),
-            child: FillableBar(
-              current: ref.watch(playerProvider).currentHp,
-              total: ref.watch(playerProvider).totalHp,
-              width: healthbarWidth,
-              height: height,
-              isHp: true,
-              color: percentageToHsl(
-                  ref.watch(playerProvider).currentHp /
-                      ref.watch(playerProvider).totalHp,
-                  0,
-                  120),
+            padding: const EdgeInsets.all(4.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                HpButton(
+                  height: height,
+                  healthbarWidth: healthbarWidth,
+                  icon: FontAwesomeIcons.minus,
+                ),
+                HpButton(
+                  height: height,
+                  healthbarWidth: healthbarWidth,
+                  icon: FontAwesomeIcons.plus,
+                  increase: true,
+                ),
+              ],
             ),
           ),
-          MultiButton(
-            onTap: () {
-              ref.read(playerProvider.notifier).increaseHealth();
-              print(ref.watch(playerProvider).currentHp);
-            },
-            color: iconColor,
-            bgColor: buttonBg,
-            icon: FontAwesomeIcons.plus,
-            size: height * .95,
-          ),
         ],
+      ),
+    );
+  }
+}
+
+class HpButton extends ConsumerWidget {
+  const HpButton(
+      {Key? key,
+      required this.height,
+      required this.healthbarWidth,
+      required this.icon,
+      this.increase = false})
+      : super(key: key);
+
+  final double height;
+  final double healthbarWidth;
+  final IconData icon;
+  final bool increase;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Padding(
+      padding: const EdgeInsets.all(2.0),
+      child: GestureDetector(
+        onTap: () => increase
+            ? ref.read(playerProvider.notifier).increaseHealth()
+            : ref.read(playerProvider.notifier).decreaseHealth(),
+        child: Container(
+          height: height,
+          width: healthbarWidth / 2 * .95,
+          decoration: BoxDecoration(
+              color: ref.watch(themeProvider).primary,
+              borderRadius: BorderRadius.circular(5),
+              border: Border.all(
+                color: Colors.white,
+              ),
+              boxShadow: [ref.watch(themeProvider).shadow]),
+          child: Center(
+              child: FaIcon(
+            icon,
+            color: Colors.white,
+            size: 15,
+          )),
+        ),
       ),
     );
   }

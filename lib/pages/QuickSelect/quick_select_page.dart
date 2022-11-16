@@ -17,7 +17,7 @@ class QuickSelectPage extends ConsumerWidget {
     return Container(
       color: ref.watch(themeProvider).bgColor,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0),
         child: ListView(
           children: [
             BaseCard(),

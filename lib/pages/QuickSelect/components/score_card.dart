@@ -11,9 +11,10 @@ class ScoreCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    double width = MediaQuery.of(context).size.width;
     return Container(
-      width: 100,
-      height: 100,
+      width: width / 4,
+      height: width / 4,
       decoration: BoxDecoration(
           color: ref.watch(themeProvider).cardBg,
           borderRadius: BorderRadius.circular(10),
@@ -31,7 +32,7 @@ class ScoreCard extends ConsumerWidget {
             child: Text(
               text,
               style: TextStyle(
-                  fontSize: 40,
+                  fontSize: width / 10,
                   letterSpacing: 1.2,
                   color: ref.watch(themeProvider).textColor,
                   fontWeight: FontWeight.bold),
@@ -39,7 +40,7 @@ class ScoreCard extends ConsumerWidget {
           ),
           FaIcon(
             icon,
-            size: 35,
+            size: width / 12,
             color: ref.watch(themeProvider).cardIconColor,
           )
         ],
