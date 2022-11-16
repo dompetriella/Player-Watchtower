@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:player_watchtower/pages/QuickSelect/components/saving_throw_card.dart';
 import 'package:player_watchtower/pages/QuickSelect/components/score_card.dart';
+import 'package:player_watchtower/providers/page.dart';
 import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
+import '../../../models/savingThrow.dart';
 import 'small_score_card.dart';
 import 'package:player_watchtower/global_components/multi_button.dart';
 import 'package:player_watchtower/global_components/fillable_bar.dart';
@@ -109,45 +112,88 @@ class BigScoreCards extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ScoreCard(
-                  text: displayValue(getAbilityScoreModifier(
-                      ref.watch(playerProvider).strength)),
-                  icon: FontAwesomeIcons.dumbbell,
-                ),
-                ScoreCard(
-                  text: displayValue(getAbilityScoreModifier(
-                      ref.watch(playerProvider).dexterity)),
-                  icon: FontAwesomeIcons.hand,
-                ),
-                ScoreCard(
-                  text: displayValue(getAbilityScoreModifier(
-                      ref.watch(playerProvider).constitution)),
-                  icon: FontAwesomeIcons.heartPulse,
-                ),
+                SwitchableScoreCard(
+                    abilityScoreName: "strength",
+                    switchProvider: strengthAbilityScoreCard,
+                    scoreProvider: ref.read(playerProvider).strength,
+                    savingThrow: ref.read(playerProvider).strengthSavingThrow,
+                    icon: FontAwesomeIcons.dumbbell),
+                SwitchableScoreCard(
+                    abilityScoreName: "dexterity",
+                    switchProvider: dexterityAbilityScoreCard,
+                    scoreProvider: ref.read(playerProvider).dexterity,
+                    savingThrow: ref.read(playerProvider).dexteritySavingThrow,
+                    icon: FontAwesomeIcons.hand),
+                SwitchableScoreCard(
+                    abilityScoreName: "constitution",
+                    switchProvider: constitutionAbilityScoreCard,
+                    scoreProvider: ref.read(playerProvider).constitution,
+                    savingThrow:
+                        ref.read(playerProvider).constitutionSavingThrow,
+                    icon: FontAwesomeIcons.heartPulse),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ScoreCard(
-                  text: displayValue(getAbilityScoreModifier(
-                      ref.watch(playerProvider).intellegence)),
-                  icon: FontAwesomeIcons.brain,
-                ),
-                ScoreCard(
-                  text: displayValue(getAbilityScoreModifier(
-                      ref.watch(playerProvider).wisdom)),
-                  icon: FontAwesomeIcons.eye,
-                ),
-                ScoreCard(
-                  text: displayValue(getAbilityScoreModifier(
-                      ref.watch(playerProvider).charisma)),
-                  icon: FontAwesomeIcons.solidComments,
-                ),
+                SwitchableScoreCard(
+                    abilityScoreName: "intellegence",
+                    switchProvider: intellegenceAbilityScoreCard,
+                    scoreProvider: ref.read(playerProvider).intellegence,
+                    savingThrow:
+                        ref.read(playerProvider).intellegenceSavingThrow,
+                    icon: FontAwesomeIcons.brain),
+                SwitchableScoreCard(
+                    abilityScoreName: "wisdom",
+                    switchProvider: wisdomAbilityScoreCard,
+                    scoreProvider: ref.read(playerProvider).wisdom,
+                    savingThrow: ref.read(playerProvider).wisdomSavingThrow,
+                    icon: FontAwesomeIcons.eye),
+                SwitchableScoreCard(
+                    abilityScoreName: "charisma",
+                    switchProvider: charismaAbilityScoreCard,
+                    scoreProvider: ref.read(playerProvider).charisma,
+                    savingThrow: ref.read(playerProvider).charismaSavingThrow,
+                    icon: FontAwesomeIcons.solidComments),
               ],
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class SwitchableScoreCard extends ConsumerWidget {
+  final String abilityScoreName;
+  final StateProvider<bool> switchProvider;
+  final int scoreProvider;
+  final IconData icon;
+  final SavingThrow savingThrow;
+  const SwitchableScoreCard(
+      {Key? key,
+      required this.abilityScoreName,
+      required this.switchProvider,
+      required this.scoreProvider,
+      required this.savingThrow,
+      required this.icon})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return GestureDetector(
+      onTap: () =>
+          ref.read(switchProvider.notifier).state = !ref.read(switchProvider),
+      child: Container(
+        child: ref.watch(switchProvider)
+            ? ScoreCard(
+                text: displayValue(getAbilityScoreModifier(scoreProvider)),
+                icon: icon,
+              )
+            : SavingThrowCard(
+                scoreName: abilityScoreName,
+                savingThrow: savingThrow,
+              ),
       ),
     );
   }

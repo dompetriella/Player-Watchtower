@@ -35,3 +35,23 @@ final qsWeaponsExpanded = StateProvider<bool>(
 final qsSpellsExpanded = StateProvider<bool>(
   (ref) => false,
 );
+
+final strengthAbilityScoreCard = StateProvider<bool>(
+  (ref) => true,
+);
+
+final dexterityAbilityScoreCard = StateProvider<bool>(
+  (ref) => true,
+);
+final constitutionAbilityScoreCard = StateProvider<bool>(
+  (ref) => true,
+);
+final intellegenceAbilityScoreCard = StateProvider<bool>(
+  (ref) => true,
+);
+final wisdomAbilityScoreCard = StateProvider<bool>(
+  (ref) => true,
+);
+final charismaAbilityScoreCard = StateProvider<bool>(
+  (ref) => true,
+);

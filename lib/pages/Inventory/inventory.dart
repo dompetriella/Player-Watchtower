@@ -4,6 +4,7 @@ import 'package:player_watchtower/functions/calculations.dart';
 import 'package:player_watchtower/global_components/action_dialogs/base_dialog.dart';
 import 'package:player_watchtower/global_components/fillable_bar.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
+import 'package:player_watchtower/pages/QuickSelect/components/saving_throw_card.dart';
 import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
@@ -13,7 +14,7 @@ class InventoryPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      color: Colors.lightBlue.shade900,
+      child: Center(),
     );
   }
 }
