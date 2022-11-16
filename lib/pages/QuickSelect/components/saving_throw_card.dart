@@ -3,9 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/functions/calculations.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
-import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
-import 'package:bordered_text/bordered_text.dart';
 
 import '../../../models/savingThrow.dart';
 
@@ -38,18 +36,14 @@ class SavingThrowCard extends ConsumerWidget {
                 text: scoreName.substring(0, 3).toUpperCase(),
                 size: 12,
               ),
-              Text(
-                (ref.read(playerProvider).toJson()[scoreName]).toString(),
-                style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w900),
-              ),
-              Text(
-                "Saving Throw",
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w900,
+              Center(
+                child: Text(
+                  "Saving Throw",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
               ),
               StrokeText(text: displayValue(savingThrow.skillModifier)),
@@ -61,7 +55,7 @@ class SavingThrowCard extends ConsumerWidget {
           child: FaIcon(
             FontAwesomeIcons.graduationCap,
             color: ref.watch(themeProvider).accent,
-            size: 20,
+            size: 16,
           ),
         ),
       ],
