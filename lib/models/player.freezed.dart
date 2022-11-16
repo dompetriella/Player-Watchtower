@@ -26,20 +26,26 @@ mixin _$Player {
   String get playerClass => throw _privateConstructorUsedError;
   String get playerRace => throw _privateConstructorUsedError;
   String get alignment => throw _privateConstructorUsedError;
-  String get background => throw _privateConstructorUsedError;
+  String get background => throw _privateConstructorUsedError; //
   int get currentHp => throw _privateConstructorUsedError;
   int get totalHp => throw _privateConstructorUsedError;
   int get tempHp => throw _privateConstructorUsedError;
   int get armorClass => throw _privateConstructorUsedError;
   int get proficiency => throw _privateConstructorUsedError;
   int get speed => throw _privateConstructorUsedError;
-  int get initiative => throw _privateConstructorUsedError;
+  int get initiative => throw _privateConstructorUsedError; //
   int get strength => throw _privateConstructorUsedError;
+  dynamic get strengthSavingThrow => throw _privateConstructorUsedError;
   int get dexterity => throw _privateConstructorUsedError;
+  dynamic get dexteritySavingThrow => throw _privateConstructorUsedError;
   int get constitution => throw _privateConstructorUsedError;
+  dynamic get constitutionSavingThrow => throw _privateConstructorUsedError;
   int get intellegence => throw _privateConstructorUsedError;
+  dynamic get intellegenceSavingThrow => throw _privateConstructorUsedError;
   int get wisdom => throw _privateConstructorUsedError;
+  dynamic get wisdomSavingThrow => throw _privateConstructorUsedError;
   int get charisma => throw _privateConstructorUsedError;
+  dynamic get charismaSavingThrow => throw _privateConstructorUsedError; //
   dynamic get acrobatics => throw _privateConstructorUsedError;
   dynamic get animalHandling => throw _privateConstructorUsedError;
   dynamic get arcana => throw _privateConstructorUsedError;
@@ -85,11 +91,17 @@ abstract class $PlayerCopyWith<$Res> {
       int speed,
       int initiative,
       int strength,
+      dynamic strengthSavingThrow,
       int dexterity,
+      dynamic dexteritySavingThrow,
       int constitution,
+      dynamic constitutionSavingThrow,
       int intellegence,
+      dynamic intellegenceSavingThrow,
       int wisdom,
+      dynamic wisdomSavingThrow,
       int charisma,
+      dynamic charismaSavingThrow,
       dynamic acrobatics,
       dynamic animalHandling,
       dynamic arcana,
@@ -138,11 +150,17 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
     Object? speed = null,
     Object? initiative = null,
     Object? strength = null,
+    Object? strengthSavingThrow = null,
     Object? dexterity = null,
+    Object? dexteritySavingThrow = null,
     Object? constitution = null,
+    Object? constitutionSavingThrow = null,
     Object? intellegence = null,
+    Object? intellegenceSavingThrow = null,
     Object? wisdom = null,
+    Object? wisdomSavingThrow = null,
     Object? charisma = null,
+    Object? charismaSavingThrow = null,
     Object? acrobatics = null,
     Object? animalHandling = null,
     Object? arcana = null,
@@ -223,26 +241,50 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
           ? _value.strength
           : strength // ignore: cast_nullable_to_non_nullable
               as int,
+      strengthSavingThrow: null == strengthSavingThrow
+          ? _value.strengthSavingThrow
+          : strengthSavingThrow // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       dexterity: null == dexterity
           ? _value.dexterity
           : dexterity // ignore: cast_nullable_to_non_nullable
               as int,
+      dexteritySavingThrow: null == dexteritySavingThrow
+          ? _value.dexteritySavingThrow
+          : dexteritySavingThrow // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       constitution: null == constitution
           ? _value.constitution
           : constitution // ignore: cast_nullable_to_non_nullable
               as int,
+      constitutionSavingThrow: null == constitutionSavingThrow
+          ? _value.constitutionSavingThrow
+          : constitutionSavingThrow // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       intellegence: null == intellegence
           ? _value.intellegence
           : intellegence // ignore: cast_nullable_to_non_nullable
               as int,
+      intellegenceSavingThrow: null == intellegenceSavingThrow
+          ? _value.intellegenceSavingThrow
+          : intellegenceSavingThrow // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       wisdom: null == wisdom
           ? _value.wisdom
           : wisdom // ignore: cast_nullable_to_non_nullable
               as int,
+      wisdomSavingThrow: null == wisdomSavingThrow
+          ? _value.wisdomSavingThrow
+          : wisdomSavingThrow // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       charisma: null == charisma
           ? _value.charisma
           : charisma // ignore: cast_nullable_to_non_nullable
               as int,
+      charismaSavingThrow: null == charismaSavingThrow
+          ? _value.charismaSavingThrow
+          : charismaSavingThrow // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       acrobatics: null == acrobatics
           ? _value.acrobatics
           : acrobatics // ignore: cast_nullable_to_non_nullable
@@ -341,11 +383,17 @@ abstract class _$$_PlayerCopyWith<$Res> implements $PlayerCopyWith<$Res> {
       int speed,
       int initiative,
       int strength,
+      dynamic strengthSavingThrow,
       int dexterity,
+      dynamic dexteritySavingThrow,
       int constitution,
+      dynamic constitutionSavingThrow,
       int intellegence,
+      dynamic intellegenceSavingThrow,
       int wisdom,
+      dynamic wisdomSavingThrow,
       int charisma,
+      dynamic charismaSavingThrow,
       dynamic acrobatics,
       dynamic animalHandling,
       dynamic arcana,
@@ -391,11 +439,17 @@ class __$$_PlayerCopyWithImpl<$Res>
     Object? speed = null,
     Object? initiative = null,
     Object? strength = null,
+    Object? strengthSavingThrow = null,
     Object? dexterity = null,
+    Object? dexteritySavingThrow = null,
     Object? constitution = null,
+    Object? constitutionSavingThrow = null,
     Object? intellegence = null,
+    Object? intellegenceSavingThrow = null,
     Object? wisdom = null,
+    Object? wisdomSavingThrow = null,
     Object? charisma = null,
+    Object? charismaSavingThrow = null,
     Object? acrobatics = null,
     Object? animalHandling = null,
     Object? arcana = null,
@@ -476,26 +530,44 @@ class __$$_PlayerCopyWithImpl<$Res>
           ? _value.strength
           : strength // ignore: cast_nullable_to_non_nullable
               as int,
+      strengthSavingThrow: null == strengthSavingThrow
+          ? _value.strengthSavingThrow
+          : strengthSavingThrow,
       dexterity: null == dexterity
           ? _value.dexterity
           : dexterity // ignore: cast_nullable_to_non_nullable
               as int,
+      dexteritySavingThrow: null == dexteritySavingThrow
+          ? _value.dexteritySavingThrow
+          : dexteritySavingThrow,
       constitution: null == constitution
           ? _value.constitution
           : constitution // ignore: cast_nullable_to_non_nullable
               as int,
+      constitutionSavingThrow: null == constitutionSavingThrow
+          ? _value.constitutionSavingThrow
+          : constitutionSavingThrow,
       intellegence: null == intellegence
           ? _value.intellegence
           : intellegence // ignore: cast_nullable_to_non_nullable
               as int,
+      intellegenceSavingThrow: null == intellegenceSavingThrow
+          ? _value.intellegenceSavingThrow
+          : intellegenceSavingThrow,
       wisdom: null == wisdom
           ? _value.wisdom
           : wisdom // ignore: cast_nullable_to_non_nullable
               as int,
+      wisdomSavingThrow: null == wisdomSavingThrow
+          ? _value.wisdomSavingThrow
+          : wisdomSavingThrow,
       charisma: null == charisma
           ? _value.charisma
           : charisma // ignore: cast_nullable_to_non_nullable
               as int,
+      charismaSavingThrow: null == charismaSavingThrow
+          ? _value.charismaSavingThrow
+          : charismaSavingThrow,
       acrobatics: null == acrobatics ? _value.acrobatics : acrobatics,
       animalHandling:
           null == animalHandling ? _value.animalHandling : animalHandling,
@@ -540,11 +612,19 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
       this.speed = 10,
       this.initiative = 0,
       this.strength = 10,
+      this.strengthSavingThrow = const SavingThrow(skillName: 'strength'),
       this.dexterity = 10,
+      this.dexteritySavingThrow = const SavingThrow(skillName: 'dexterity'),
       this.constitution = 10,
+      this.constitutionSavingThrow =
+          const SavingThrow(skillName: 'constitution'),
       this.intellegence = 10,
+      this.intellegenceSavingThrow =
+          const SavingThrow(skillName: 'intellegence'),
       this.wisdom = 10,
+      this.wisdomSavingThrow = const SavingThrow(skillName: 'wisdom'),
       this.charisma = 10,
+      this.charismaSavingThrow = const SavingThrow(skillName: 'charisma'),
       this.acrobatics =
           const PlayerSkill(skillName: 'acrobatics', skillType: 'dexterity'),
       this.animalHandling =
@@ -606,6 +686,7 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
   @override
   @JsonKey()
   final String background;
+//
   @override
   @JsonKey()
   final int currentHp;
@@ -627,24 +708,44 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
   @override
   @JsonKey()
   final int initiative;
+//
   @override
   @JsonKey()
   final int strength;
   @override
   @JsonKey()
+  final dynamic strengthSavingThrow;
+  @override
+  @JsonKey()
   final int dexterity;
+  @override
+  @JsonKey()
+  final dynamic dexteritySavingThrow;
   @override
   @JsonKey()
   final int constitution;
   @override
   @JsonKey()
+  final dynamic constitutionSavingThrow;
+  @override
+  @JsonKey()
   final int intellegence;
+  @override
+  @JsonKey()
+  final dynamic intellegenceSavingThrow;
   @override
   @JsonKey()
   final int wisdom;
   @override
   @JsonKey()
+  final dynamic wisdomSavingThrow;
+  @override
+  @JsonKey()
   final int charisma;
+  @override
+  @JsonKey()
+  final dynamic charismaSavingThrow;
+//
   @override
   @JsonKey()
   final dynamic acrobatics;
@@ -702,7 +803,7 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Player(characterName: $characterName, level: $level, exp: $exp, playerClass: $playerClass, playerRace: $playerRace, alignment: $alignment, background: $background, currentHp: $currentHp, totalHp: $totalHp, tempHp: $tempHp, armorClass: $armorClass, proficiency: $proficiency, speed: $speed, initiative: $initiative, strength: $strength, dexterity: $dexterity, constitution: $constitution, intellegence: $intellegence, wisdom: $wisdom, charisma: $charisma, acrobatics: $acrobatics, animalHandling: $animalHandling, arcana: $arcana, atheletics: $atheletics, deception: $deception, history: $history, insight: $insight, intimidation: $intimidation, investigation: $investigation, medicine: $medicine, nature: $nature, perception: $perception, perfomance: $perfomance, persuasian: $persuasian, religion: $religion, sleightOfHand: $sleightOfHand, stealth: $stealth, survival: $survival)';
+    return 'Player(characterName: $characterName, level: $level, exp: $exp, playerClass: $playerClass, playerRace: $playerRace, alignment: $alignment, background: $background, currentHp: $currentHp, totalHp: $totalHp, tempHp: $tempHp, armorClass: $armorClass, proficiency: $proficiency, speed: $speed, initiative: $initiative, strength: $strength, strengthSavingThrow: $strengthSavingThrow, dexterity: $dexterity, dexteritySavingThrow: $dexteritySavingThrow, constitution: $constitution, constitutionSavingThrow: $constitutionSavingThrow, intellegence: $intellegence, intellegenceSavingThrow: $intellegenceSavingThrow, wisdom: $wisdom, wisdomSavingThrow: $wisdomSavingThrow, charisma: $charisma, charismaSavingThrow: $charismaSavingThrow, acrobatics: $acrobatics, animalHandling: $animalHandling, arcana: $arcana, atheletics: $atheletics, deception: $deception, history: $history, insight: $insight, intimidation: $intimidation, investigation: $investigation, medicine: $medicine, nature: $nature, perception: $perception, perfomance: $perfomance, persuasian: $persuasian, religion: $religion, sleightOfHand: $sleightOfHand, stealth: $stealth, survival: $survival)';
   }
 
   @override
@@ -725,11 +826,19 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
       ..add(DiagnosticsProperty('speed', speed))
       ..add(DiagnosticsProperty('initiative', initiative))
       ..add(DiagnosticsProperty('strength', strength))
+      ..add(DiagnosticsProperty('strengthSavingThrow', strengthSavingThrow))
       ..add(DiagnosticsProperty('dexterity', dexterity))
+      ..add(DiagnosticsProperty('dexteritySavingThrow', dexteritySavingThrow))
       ..add(DiagnosticsProperty('constitution', constitution))
+      ..add(DiagnosticsProperty(
+          'constitutionSavingThrow', constitutionSavingThrow))
       ..add(DiagnosticsProperty('intellegence', intellegence))
+      ..add(DiagnosticsProperty(
+          'intellegenceSavingThrow', intellegenceSavingThrow))
       ..add(DiagnosticsProperty('wisdom', wisdom))
+      ..add(DiagnosticsProperty('wisdomSavingThrow', wisdomSavingThrow))
       ..add(DiagnosticsProperty('charisma', charisma))
+      ..add(DiagnosticsProperty('charismaSavingThrow', charismaSavingThrow))
       ..add(DiagnosticsProperty('acrobatics', acrobatics))
       ..add(DiagnosticsProperty('animalHandling', animalHandling))
       ..add(DiagnosticsProperty('arcana', arcana))
@@ -780,15 +889,27 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
                 other.initiative == initiative) &&
             (identical(other.strength, strength) ||
                 other.strength == strength) &&
+            const DeepCollectionEquality()
+                .equals(other.strengthSavingThrow, strengthSavingThrow) &&
             (identical(other.dexterity, dexterity) ||
                 other.dexterity == dexterity) &&
+            const DeepCollectionEquality()
+                .equals(other.dexteritySavingThrow, dexteritySavingThrow) &&
             (identical(other.constitution, constitution) ||
                 other.constitution == constitution) &&
+            const DeepCollectionEquality().equals(
+                other.constitutionSavingThrow, constitutionSavingThrow) &&
             (identical(other.intellegence, intellegence) ||
                 other.intellegence == intellegence) &&
+            const DeepCollectionEquality().equals(
+                other.intellegenceSavingThrow, intellegenceSavingThrow) &&
             (identical(other.wisdom, wisdom) || other.wisdom == wisdom) &&
+            const DeepCollectionEquality()
+                .equals(other.wisdomSavingThrow, wisdomSavingThrow) &&
             (identical(other.charisma, charisma) ||
                 other.charisma == charisma) &&
+            const DeepCollectionEquality()
+                .equals(other.charismaSavingThrow, charismaSavingThrow) &&
             const DeepCollectionEquality()
                 .equals(other.acrobatics, acrobatics) &&
             const DeepCollectionEquality()
@@ -837,11 +958,17 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
         speed,
         initiative,
         strength,
+        const DeepCollectionEquality().hash(strengthSavingThrow),
         dexterity,
+        const DeepCollectionEquality().hash(dexteritySavingThrow),
         constitution,
+        const DeepCollectionEquality().hash(constitutionSavingThrow),
         intellegence,
+        const DeepCollectionEquality().hash(intellegenceSavingThrow),
         wisdom,
+        const DeepCollectionEquality().hash(wisdomSavingThrow),
         charisma,
+        const DeepCollectionEquality().hash(charismaSavingThrow),
         const DeepCollectionEquality().hash(acrobatics),
         const DeepCollectionEquality().hash(animalHandling),
         const DeepCollectionEquality().hash(arcana),
@@ -893,11 +1020,17 @@ abstract class _Player implements Player {
       final int speed,
       final int initiative,
       final int strength,
+      final dynamic strengthSavingThrow,
       final int dexterity,
+      final dynamic dexteritySavingThrow,
       final int constitution,
+      final dynamic constitutionSavingThrow,
       final int intellegence,
+      final dynamic intellegenceSavingThrow,
       final int wisdom,
+      final dynamic wisdomSavingThrow,
       final int charisma,
+      final dynamic charismaSavingThrow,
       final dynamic acrobatics,
       final dynamic animalHandling,
       final dynamic arcana,
@@ -933,7 +1066,7 @@ abstract class _Player implements Player {
   String get alignment;
   @override
   String get background;
-  @override
+  @override //
   int get currentHp;
   @override
   int get totalHp;
@@ -947,19 +1080,31 @@ abstract class _Player implements Player {
   int get speed;
   @override
   int get initiative;
-  @override
+  @override //
   int get strength;
+  @override
+  dynamic get strengthSavingThrow;
   @override
   int get dexterity;
   @override
+  dynamic get dexteritySavingThrow;
+  @override
   int get constitution;
+  @override
+  dynamic get constitutionSavingThrow;
   @override
   int get intellegence;
   @override
+  dynamic get intellegenceSavingThrow;
+  @override
   int get wisdom;
+  @override
+  dynamic get wisdomSavingThrow;
   @override
   int get charisma;
   @override
+  dynamic get charismaSavingThrow;
+  @override //
   dynamic get acrobatics;
   @override
   dynamic get animalHandling;

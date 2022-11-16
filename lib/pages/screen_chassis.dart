@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:player_watchtower/global_components/bottom_bar.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/pages/Dice/dice.dart';
@@ -41,6 +40,8 @@ class ScreenChassis extends ConsumerWidget {
       return name[0];
     }
 
+    double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -52,7 +53,7 @@ class ScreenChassis extends ConsumerWidget {
                 child: StrokeText(
               text:
                   '${truncateWithEllipsis(12, ref.watch(playerProvider).characterName)} - Lv.${getPlayerLevelByExp(ref.watch(playerProvider).exp)}',
-              size: 20,
+              size: width / 18,
             )),
             Container(
                 alignment: Alignment.centerRight,

@@ -25,6 +25,8 @@ class StatsEntry extends ConsumerWidget {
   });
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    double width = MediaQuery.of(context).size.width;
+
     return GestureDetector(
       onLongPress: () {
         showDialog(
@@ -52,12 +54,12 @@ class StatsEntry extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Container(
-                      width: 175,
+                      width: width * 0.33,
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
                         child: StrokeText(
                           text: title,
-                          size: 22,
+                          size: width / 20,
                         ),
                       ),
                     ),
@@ -73,7 +75,7 @@ class StatsEntry extends ConsumerWidget {
                           text: isModifier
                               ? displayValue(provider)
                               : provider.toString(),
-                          size: 18,
+                          size: width / 18,
                         ),
                       ),
                     ),

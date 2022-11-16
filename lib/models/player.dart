@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:player_watchtower/models/playerSkill.dart';
+import 'package:player_watchtower/models/savingThrow.dart';
 
 part 'player.freezed.dart';
 part 'player.g.dart';
@@ -15,6 +16,7 @@ class Player with _$Player {
     @Default('Human') String playerRace,
     @Default('True Neutral') String alignment,
     @Default('Hermit') String background,
+    //
     @Default(10) int currentHp,
     @Default(10) int totalHp,
     @Default(0) int tempHp,
@@ -22,12 +24,20 @@ class Player with _$Player {
     @Default(1) int proficiency,
     @Default(10) int speed,
     @Default(0) int initiative,
+    //
     @Default(10) int strength,
+    @Default(SavingThrow(skillName: 'strength')) strengthSavingThrow,
     @Default(10) int dexterity,
+    @Default(SavingThrow(skillName: 'dexterity')) dexteritySavingThrow,
     @Default(10) int constitution,
+    @Default(SavingThrow(skillName: 'constitution')) constitutionSavingThrow,
     @Default(10) int intellegence,
+    @Default(SavingThrow(skillName: 'intellegence')) intellegenceSavingThrow,
     @Default(10) int wisdom,
+    @Default(SavingThrow(skillName: 'wisdom')) wisdomSavingThrow,
     @Default(10) int charisma,
+    @Default(SavingThrow(skillName: 'charisma')) charismaSavingThrow,
+    //
     @Default(PlayerSkill(skillName: 'acrobatics', skillType: 'dexterity'))
         acrobatics,
     @Default(PlayerSkill(skillName: 'animalHandling', skillType: 'wisdom'))

@@ -22,11 +22,23 @@ _$_Player _$$_PlayerFromJson(Map<String, dynamic> json) => _$_Player(
       speed: json['speed'] as int? ?? 10,
       initiative: json['initiative'] as int? ?? 0,
       strength: json['strength'] as int? ?? 10,
+      strengthSavingThrow: json['strengthSavingThrow'] ??
+          const SavingThrow(skillName: 'strength'),
       dexterity: json['dexterity'] as int? ?? 10,
+      dexteritySavingThrow: json['dexteritySavingThrow'] ??
+          const SavingThrow(skillName: 'dexterity'),
       constitution: json['constitution'] as int? ?? 10,
+      constitutionSavingThrow: json['constitutionSavingThrow'] ??
+          const SavingThrow(skillName: 'constitution'),
       intellegence: json['intellegence'] as int? ?? 10,
+      intellegenceSavingThrow: json['intellegenceSavingThrow'] ??
+          const SavingThrow(skillName: 'intellegence'),
       wisdom: json['wisdom'] as int? ?? 10,
+      wisdomSavingThrow:
+          json['wisdomSavingThrow'] ?? const SavingThrow(skillName: 'wisdom'),
       charisma: json['charisma'] as int? ?? 10,
+      charismaSavingThrow: json['charismaSavingThrow'] ??
+          const SavingThrow(skillName: 'charisma'),
       acrobatics: json['acrobatics'] ??
           const PlayerSkill(skillName: 'acrobatics', skillType: 'dexterity'),
       animalHandling: json['animalHandling'] ??
@@ -82,11 +94,17 @@ Map<String, dynamic> _$$_PlayerToJson(_$_Player instance) => <String, dynamic>{
       'speed': instance.speed,
       'initiative': instance.initiative,
       'strength': instance.strength,
+      'strengthSavingThrow': instance.strengthSavingThrow,
       'dexterity': instance.dexterity,
+      'dexteritySavingThrow': instance.dexteritySavingThrow,
       'constitution': instance.constitution,
+      'constitutionSavingThrow': instance.constitutionSavingThrow,
       'intellegence': instance.intellegence,
+      'intellegenceSavingThrow': instance.intellegenceSavingThrow,
       'wisdom': instance.wisdom,
+      'wisdomSavingThrow': instance.wisdomSavingThrow,
       'charisma': instance.charisma,
+      'charismaSavingThrow': instance.charismaSavingThrow,
       'acrobatics': instance.acrobatics,
       'animalHandling': instance.animalHandling,
       'arcana': instance.arcana,

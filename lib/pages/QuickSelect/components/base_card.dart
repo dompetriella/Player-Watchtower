@@ -9,6 +9,14 @@ import 'package:player_watchtower/global_components/multi_button.dart';
 import 'package:player_watchtower/global_components/fillable_bar.dart';
 import 'package:player_watchtower/functions/calculations.dart';
 
+double adjustSize(double height, double width) {
+  double size = height / width;
+  if (size < 2) {
+    return size + (width / 1500);
+  }
+  return size;
+}
+
 class BaseCard extends ConsumerWidget {
   const BaseCard({super.key});
 
@@ -17,16 +25,8 @@ class BaseCard extends ConsumerWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    double adjustSize(double height, double width) {
-      double size = height / width;
-      if (size < 2) {
-        return size + (width / 1500);
-      }
-      return size;
-    }
-
     return Container(
-      height: 180 * adjustSize(height, width),
+      height: 190 * adjustSize(height, width),
       decoration: BoxDecoration(
           color: ref.watch(themeProvider).baseCardBg,
           boxShadow: [ref.watch(themeProvider).shadow],
@@ -43,10 +43,10 @@ class BaseCard extends ConsumerWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  PlayerAvatar(),
+                  PlayerAvatar(width: width, height: height),
                   HealthBarWithButtons(
-                    height: 30,
-                    healthbarWidth: width * .6,
+                    height: 40,
+                    healthbarWidth: 90 * adjustSize(height, width),
                   ),
                 ],
               ),
@@ -154,16 +154,20 @@ class BigScoreCards extends ConsumerWidget {
 }
 
 class PlayerAvatar extends ConsumerWidget {
+  final double height;
+  final double width;
   const PlayerAvatar({
     Key? key,
+    required this.height,
+    required this.width,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
         child: Container(
-      height: 60,
-      width: 60,
+      height: 35 * adjustSize(height, width),
+      width: 35 * adjustSize(height, width),
       decoration: BoxDecoration(
           border: Border.all(color: Colors.white, width: 2),
           color: ref.watch(themeProvider).primary,
@@ -229,12 +233,12 @@ class HealthBarWithButtons extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 HpButton(
-                  height: height,
+                  height: height * .8,
                   healthbarWidth: healthbarWidth,
                   icon: FontAwesomeIcons.minus,
                 ),
                 HpButton(
-                  height: height,
+                  height: height * .8,
                   healthbarWidth: healthbarWidth,
                   icon: FontAwesomeIcons.plus,
                   increase: true,
