@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/functions/calculations.dart';
 import 'package:player_watchtower/models/player.dart';
+import 'package:player_watchtower/models/savingThrow.dart';
 
 import '../models/playerSkill.dart';
 
@@ -25,6 +26,9 @@ class PlayerNotifier extends StateNotifier<Player> {
     if (isAbilityScore) {
       playerJson = updatePlayerSkillModifierValue(
           playerJson, propertyName, adjustedValue);
+
+      playerJson = updateSavingThrowModifierValue(
+          playerJson, propertyName, adjustedValue);
     }
     state = Player.fromJson(playerJson);
   }
@@ -43,6 +47,18 @@ class PlayerNotifier extends StateNotifier<Player> {
         }
       }
     });
+    return playerProperties;
+  }
+
+  Map<String, dynamic> updateSavingThrowModifierValue(
+      Map<String, dynamic> playerProperties,
+      String propertyName,
+      dynamic adjustedValue) {
+    SavingThrow currentST = playerProperties[propertyName + 'SavingThrow'];
+    var stJson = currentST.toJson();
+    stJson['savingThrowModifier'] = getAbilityScoreModifier(adjustedValue);
+    playerProperties[propertyName + 'SavingThrow'] =
+        SavingThrow.fromJson(stJson);
     return playerProperties;
   }
 

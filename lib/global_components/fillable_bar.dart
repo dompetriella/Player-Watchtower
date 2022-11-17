@@ -34,7 +34,8 @@ class FillableBar extends ConsumerWidget {
           color: ref.watch(themeProvider).cardBg),
       child: Stack(
         children: [
-          FractionallySizedBox(
+          AnimatedFractionallySizedBox(
+            duration: Duration(milliseconds: 325),
             heightFactor: 1,
             widthFactor: current / total,
             child: Container(

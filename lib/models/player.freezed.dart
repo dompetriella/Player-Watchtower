@@ -612,19 +612,20 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
       this.speed = 10,
       this.initiative = 0,
       this.strength = 10,
-      this.strengthSavingThrow = const SavingThrow(skillName: 'strength'),
+      this.strengthSavingThrow = const SavingThrow(savingThrowName: 'strength'),
       this.dexterity = 10,
-      this.dexteritySavingThrow = const SavingThrow(skillName: 'dexterity'),
+      this.dexteritySavingThrow =
+          const SavingThrow(savingThrowName: 'dexterity'),
       this.constitution = 10,
       this.constitutionSavingThrow =
-          const SavingThrow(skillName: 'constitution'),
+          const SavingThrow(savingThrowName: 'constitution'),
       this.intellegence = 10,
       this.intellegenceSavingThrow =
-          const SavingThrow(skillName: 'intellegence'),
+          const SavingThrow(savingThrowName: 'intellegence'),
       this.wisdom = 10,
-      this.wisdomSavingThrow = const SavingThrow(skillName: 'wisdom'),
+      this.wisdomSavingThrow = const SavingThrow(savingThrowName: 'wisdom'),
       this.charisma = 10,
-      this.charismaSavingThrow = const SavingThrow(skillName: 'charisma'),
+      this.charismaSavingThrow = const SavingThrow(savingThrowName: 'charisma'),
       this.acrobatics =
           const PlayerSkill(skillName: 'acrobatics', skillType: 'dexterity'),
       this.animalHandling =

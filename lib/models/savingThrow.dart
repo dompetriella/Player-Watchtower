@@ -7,8 +7,8 @@ part 'savingThrow.g.dart';
 @freezed
 class SavingThrow with _$SavingThrow {
   const factory SavingThrow({
-    required String skillName,
-    @Default(0) int skillModifier,
+    required String savingThrowName,
+    @Default(0) int savingThrowModifier,
     @Default(false) bool isProficient,
     @Default(true) bool autoCalculated,
   }) = _SavingThrow;

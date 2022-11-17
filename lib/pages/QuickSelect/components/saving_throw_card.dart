@@ -46,7 +46,7 @@ class SavingThrowCard extends ConsumerWidget {
                   ),
                 ),
               ),
-              StrokeText(text: displayValue(savingThrow.skillModifier)),
+              StrokeText(text: displayValue(savingThrow.savingThrowModifier)),
             ],
           ),
         ),

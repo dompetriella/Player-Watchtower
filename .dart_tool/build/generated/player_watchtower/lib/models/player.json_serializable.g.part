@@ -19,22 +19,22 @@ _$_Player _$$_PlayerFromJson(Map<String, dynamic> json) => _$_Player(
       initiative: json['initiative'] as int? ?? 0,
       strength: json['strength'] as int? ?? 10,
       strengthSavingThrow: json['strengthSavingThrow'] ??
-          const SavingThrow(skillName: 'strength'),
+          const SavingThrow(savingThrowName: 'strength'),
       dexterity: json['dexterity'] as int? ?? 10,
       dexteritySavingThrow: json['dexteritySavingThrow'] ??
-          const SavingThrow(skillName: 'dexterity'),
+          const SavingThrow(savingThrowName: 'dexterity'),
       constitution: json['constitution'] as int? ?? 10,
       constitutionSavingThrow: json['constitutionSavingThrow'] ??
-          const SavingThrow(skillName: 'constitution'),
+          const SavingThrow(savingThrowName: 'constitution'),
       intellegence: json['intellegence'] as int? ?? 10,
       intellegenceSavingThrow: json['intellegenceSavingThrow'] ??
-          const SavingThrow(skillName: 'intellegence'),
+          const SavingThrow(savingThrowName: 'intellegence'),
       wisdom: json['wisdom'] as int? ?? 10,
-      wisdomSavingThrow:
-          json['wisdomSavingThrow'] ?? const SavingThrow(skillName: 'wisdom'),
+      wisdomSavingThrow: json['wisdomSavingThrow'] ??
+          const SavingThrow(savingThrowName: 'wisdom'),
       charisma: json['charisma'] as int? ?? 10,
       charismaSavingThrow: json['charismaSavingThrow'] ??
-          const SavingThrow(skillName: 'charisma'),
+          const SavingThrow(savingThrowName: 'charisma'),
       acrobatics: json['acrobatics'] ??
           const PlayerSkill(skillName: 'acrobatics', skillType: 'dexterity'),
       animalHandling: json['animalHandling'] ??

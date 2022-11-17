@@ -26,17 +26,19 @@ class Player with _$Player {
     @Default(0) int initiative,
     //
     @Default(10) int strength,
-    @Default(SavingThrow(skillName: 'strength')) strengthSavingThrow,
+    @Default(SavingThrow(savingThrowName: 'strength')) strengthSavingThrow,
     @Default(10) int dexterity,
-    @Default(SavingThrow(skillName: 'dexterity')) dexteritySavingThrow,
+    @Default(SavingThrow(savingThrowName: 'dexterity')) dexteritySavingThrow,
     @Default(10) int constitution,
-    @Default(SavingThrow(skillName: 'constitution')) constitutionSavingThrow,
+    @Default(SavingThrow(savingThrowName: 'constitution'))
+        constitutionSavingThrow,
     @Default(10) int intellegence,
-    @Default(SavingThrow(skillName: 'intellegence')) intellegenceSavingThrow,
+    @Default(SavingThrow(savingThrowName: 'intellegence'))
+        intellegenceSavingThrow,
     @Default(10) int wisdom,
-    @Default(SavingThrow(skillName: 'wisdom')) wisdomSavingThrow,
+    @Default(SavingThrow(savingThrowName: 'wisdom')) wisdomSavingThrow,
     @Default(10) int charisma,
-    @Default(SavingThrow(skillName: 'charisma')) charismaSavingThrow,
+    @Default(SavingThrow(savingThrowName: 'charisma')) charismaSavingThrow,
     //
     @Default(PlayerSkill(skillName: 'acrobatics', skillType: 'dexterity'))
         acrobatics,

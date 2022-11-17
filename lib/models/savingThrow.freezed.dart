@@ -20,8 +20,8 @@ SavingThrow _$SavingThrowFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SavingThrow {
-  String get skillName => throw _privateConstructorUsedError;
-  int get skillModifier => throw _privateConstructorUsedError;
+  String get savingThrowName => throw _privateConstructorUsedError;
+  int get savingThrowModifier => throw _privateConstructorUsedError;
   bool get isProficient => throw _privateConstructorUsedError;
   bool get autoCalculated => throw _privateConstructorUsedError;
 
@@ -38,8 +38,8 @@ abstract class $SavingThrowCopyWith<$Res> {
       _$SavingThrowCopyWithImpl<$Res, SavingThrow>;
   @useResult
   $Res call(
-      {String skillName,
-      int skillModifier,
+      {String savingThrowName,
+      int savingThrowModifier,
       bool isProficient,
       bool autoCalculated});
 }
@@ -57,19 +57,19 @@ class _$SavingThrowCopyWithImpl<$Res, $Val extends SavingThrow>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? skillName = null,
-    Object? skillModifier = null,
+    Object? savingThrowName = null,
+    Object? savingThrowModifier = null,
     Object? isProficient = null,
     Object? autoCalculated = null,
   }) {
     return _then(_value.copyWith(
-      skillName: null == skillName
-          ? _value.skillName
-          : skillName // ignore: cast_nullable_to_non_nullable
+      savingThrowName: null == savingThrowName
+          ? _value.savingThrowName
+          : savingThrowName // ignore: cast_nullable_to_non_nullable
               as String,
-      skillModifier: null == skillModifier
-          ? _value.skillModifier
-          : skillModifier // ignore: cast_nullable_to_non_nullable
+      savingThrowModifier: null == savingThrowModifier
+          ? _value.savingThrowModifier
+          : savingThrowModifier // ignore: cast_nullable_to_non_nullable
               as int,
       isProficient: null == isProficient
           ? _value.isProficient
@@ -92,8 +92,8 @@ abstract class _$$_SavingThrowCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String skillName,
-      int skillModifier,
+      {String savingThrowName,
+      int savingThrowModifier,
       bool isProficient,
       bool autoCalculated});
 }
@@ -109,19 +109,19 @@ class __$$_SavingThrowCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? skillName = null,
-    Object? skillModifier = null,
+    Object? savingThrowName = null,
+    Object? savingThrowModifier = null,
     Object? isProficient = null,
     Object? autoCalculated = null,
   }) {
     return _then(_$_SavingThrow(
-      skillName: null == skillName
-          ? _value.skillName
-          : skillName // ignore: cast_nullable_to_non_nullable
+      savingThrowName: null == savingThrowName
+          ? _value.savingThrowName
+          : savingThrowName // ignore: cast_nullable_to_non_nullable
               as String,
-      skillModifier: null == skillModifier
-          ? _value.skillModifier
-          : skillModifier // ignore: cast_nullable_to_non_nullable
+      savingThrowModifier: null == savingThrowModifier
+          ? _value.savingThrowModifier
+          : savingThrowModifier // ignore: cast_nullable_to_non_nullable
               as int,
       isProficient: null == isProficient
           ? _value.isProficient
@@ -139,8 +139,8 @@ class __$$_SavingThrowCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SavingThrow with DiagnosticableTreeMixin implements _SavingThrow {
   const _$_SavingThrow(
-      {required this.skillName,
-      this.skillModifier = 0,
+      {required this.savingThrowName,
+      this.savingThrowModifier = 0,
       this.isProficient = false,
       this.autoCalculated = true});
 
@@ -148,10 +148,10 @@ class _$_SavingThrow with DiagnosticableTreeMixin implements _SavingThrow {
       _$$_SavingThrowFromJson(json);
 
   @override
-  final String skillName;
+  final String savingThrowName;
   @override
   @JsonKey()
-  final int skillModifier;
+  final int savingThrowModifier;
   @override
   @JsonKey()
   final bool isProficient;
@@ -161,7 +161,7 @@ class _$_SavingThrow with DiagnosticableTreeMixin implements _SavingThrow {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SavingThrow(skillName: $skillName, skillModifier: $skillModifier, isProficient: $isProficient, autoCalculated: $autoCalculated)';
+    return 'SavingThrow(savingThrowName: $savingThrowName, savingThrowModifier: $savingThrowModifier, isProficient: $isProficient, autoCalculated: $autoCalculated)';
   }
 
   @override
@@ -169,8 +169,8 @@ class _$_SavingThrow with DiagnosticableTreeMixin implements _SavingThrow {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'SavingThrow'))
-      ..add(DiagnosticsProperty('skillName', skillName))
-      ..add(DiagnosticsProperty('skillModifier', skillModifier))
+      ..add(DiagnosticsProperty('savingThrowName', savingThrowName))
+      ..add(DiagnosticsProperty('savingThrowModifier', savingThrowModifier))
       ..add(DiagnosticsProperty('isProficient', isProficient))
       ..add(DiagnosticsProperty('autoCalculated', autoCalculated));
   }
@@ -180,10 +180,10 @@ class _$_SavingThrow with DiagnosticableTreeMixin implements _SavingThrow {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SavingThrow &&
-            (identical(other.skillName, skillName) ||
-                other.skillName == skillName) &&
-            (identical(other.skillModifier, skillModifier) ||
-                other.skillModifier == skillModifier) &&
+            (identical(other.savingThrowName, savingThrowName) ||
+                other.savingThrowName == savingThrowName) &&
+            (identical(other.savingThrowModifier, savingThrowModifier) ||
+                other.savingThrowModifier == savingThrowModifier) &&
             (identical(other.isProficient, isProficient) ||
                 other.isProficient == isProficient) &&
             (identical(other.autoCalculated, autoCalculated) ||
@@ -192,8 +192,8 @@ class _$_SavingThrow with DiagnosticableTreeMixin implements _SavingThrow {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, skillName, skillModifier, isProficient, autoCalculated);
+  int get hashCode => Object.hash(runtimeType, savingThrowName,
+      savingThrowModifier, isProficient, autoCalculated);
 
   @JsonKey(ignore: true)
   @override
@@ -211,8 +211,8 @@ class _$_SavingThrow with DiagnosticableTreeMixin implements _SavingThrow {
 
 abstract class _SavingThrow implements SavingThrow {
   const factory _SavingThrow(
-      {required final String skillName,
-      final int skillModifier,
+      {required final String savingThrowName,
+      final int savingThrowModifier,
       final bool isProficient,
       final bool autoCalculated}) = _$_SavingThrow;
 
@@ -220,9 +220,9 @@ abstract class _SavingThrow implements SavingThrow {
       _$_SavingThrow.fromJson;
 
   @override
-  String get skillName;
+  String get savingThrowName;
   @override
-  int get skillModifier;
+  int get savingThrowModifier;
   @override
   bool get isProficient;
   @override
