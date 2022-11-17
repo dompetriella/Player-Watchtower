@@ -44,6 +44,7 @@ class BaseCard extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   PlayerAvatar(width: width, height: height),

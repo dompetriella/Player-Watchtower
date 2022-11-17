@@ -15,17 +15,17 @@ class ScoreCard extends ConsumerWidget {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        Positioned(
-            top: -3,
-            right: -5,
-            child: Transform.rotate(
-              angle: 100,
-              child: FaIcon(
-                FontAwesomeIcons.graduationCap,
-                size: 20,
-                color: ref.watch(themeProvider).accent,
-              ),
-            )),
+        // Positioned(
+        //     top: -3,
+        //     right: -5,
+        //     child: Transform.rotate(
+        //       angle: 100,
+        //       child: FaIcon(
+        //         FontAwesomeIcons.graduationCap,
+        //         size: 20,
+        //         color: ref.watch(themeProvider).accent,
+        //       ),
+        //     )),
         Container(
           width: width / 4,
           height: width / 4,

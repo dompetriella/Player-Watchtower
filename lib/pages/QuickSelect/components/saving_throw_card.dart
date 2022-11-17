@@ -16,7 +16,12 @@ class SavingThrowCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.width;
+
+    double adjustedSize = height / width;
+
     return Stack(
+      clipBehavior: Clip.none,
       children: [
         Container(
           width: width / 4,
@@ -34,30 +39,35 @@ class SavingThrowCard extends ConsumerWidget {
             children: [
               StrokeText(
                 text: scoreName.substring(0, 3).toUpperCase(),
-                size: 12,
+                size: height / 25,
               ),
               Center(
                 child: Text(
-                  "Saving Throw",
+                  "Saving\nThrow",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: height / 25,
                     fontWeight: FontWeight.w900,
                   ),
                 ),
               ),
-              StrokeText(text: displayValue(savingThrow.savingThrowModifier)),
+              StrokeText(
+                text: displayValue(savingThrow.savingThrowModifier),
+                size: height / 20,
+              ),
             ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(2.0),
-          child: FaIcon(
-            FontAwesomeIcons.graduationCap,
-            color: ref.watch(themeProvider).accent,
-            size: 16,
+        if (savingThrow.isProficient)
+          Positioned(
+            left: -5,
+            top: -5,
+            child: FaIcon(
+              FontAwesomeIcons.graduationCap,
+              color: ref.watch(themeProvider).accent,
+              size: height / 20,
+            ),
           ),
-        ),
       ],
     );
   }

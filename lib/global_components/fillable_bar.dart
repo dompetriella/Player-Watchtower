@@ -13,6 +13,7 @@ class FillableBar extends ConsumerWidget {
   final double height;
   final double width;
   final bool isHp;
+  final int fillSpeed;
   const FillableBar(
       {super.key,
       this.color = Colors.green,
@@ -20,6 +21,7 @@ class FillableBar extends ConsumerWidget {
       required this.current,
       this.height = 30,
       this.width = double.infinity,
+      this.fillSpeed = 325,
       this.isHp = false});
 
   @override
@@ -35,7 +37,7 @@ class FillableBar extends ConsumerWidget {
       child: Stack(
         children: [
           AnimatedFractionallySizedBox(
-            duration: Duration(milliseconds: 325),
+            duration: Duration(milliseconds: fillSpeed),
             heightFactor: 1,
             widthFactor: current / total,
             child: Container(
