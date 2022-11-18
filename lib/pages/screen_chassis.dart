@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:player_watchtower/functions/database.dart';
 import 'package:player_watchtower/global_components/bottom_bar.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/pages/Dice/dice.dart';
@@ -14,31 +16,32 @@ import 'QuickSelect/quick_select_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/providers/page.dart';
 
-class ScreenChassis extends ConsumerWidget {
-  ScreenChassis({super.key});
+class MainPage extends ConsumerStatefulWidget {
+  const MainPage({super.key});
+
+  @override
+  ConsumerState<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends ConsumerState<MainPage> {
+  @override
+  void initState() {
+    // Hive.deleteBoxFromDisk('player');
+    getInitState(ref);
+    super.initState();
+  }
 
   int index = 0;
   List<String> themesNames = ['Daylight', 'Twilight', 'Midnight'];
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     List<Widget> pages = [
       QuickSelectPage(),
       StatsPage(),
       InventoryPage(),
       DicePage()
     ];
-
-    String truncateWithEllipsis(int cutoff, String myString) {
-      var name = myString.split(' ');
-
-      if (name[0].length > cutoff) {
-        return (myString.length <= cutoff)
-            ? myString
-            : '${myString.substring(0, cutoff)}...';
-      }
-      return name[0];
-    }
 
     double width = MediaQuery.of(context).size.width;
 

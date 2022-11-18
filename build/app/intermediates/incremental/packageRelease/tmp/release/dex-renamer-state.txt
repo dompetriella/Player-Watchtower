@@ -1,4 +1,4 @@
-#Tue Nov 15 17:07:22 EST 2022
+#Fri Nov 18 16:46:04 EST 2022
 base.0=/Users/dpetriella/Documents/code/player_watchtower/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

@@ -24,7 +24,7 @@ class SkillsList extends ConsumerWidget {
           playerSkill: ref.watch(playerProvider).arcana,
         ),
         Skill(
-          playerSkill: ref.watch(playerProvider).atheletics,
+          playerSkill: ref.watch(playerProvider).athletics,
         ),
         Skill(
           playerSkill: ref.watch(playerProvider).deception,
@@ -48,10 +48,10 @@ class SkillsList extends ConsumerWidget {
           playerSkill: ref.watch(playerProvider).nature,
         ),
         Skill(
-          playerSkill: ref.watch(playerProvider).perfomance,
+          playerSkill: ref.watch(playerProvider).performance,
         ),
         Skill(
-          playerSkill: ref.watch(playerProvider).persuasian,
+          playerSkill: ref.watch(playerProvider).persuasion,
         ),
         Skill(
           playerSkill: ref.watch(playerProvider).religion,

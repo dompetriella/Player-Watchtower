@@ -49,7 +49,7 @@ mixin _$Player {
   dynamic get acrobatics => throw _privateConstructorUsedError;
   dynamic get animalHandling => throw _privateConstructorUsedError;
   dynamic get arcana => throw _privateConstructorUsedError;
-  dynamic get atheletics => throw _privateConstructorUsedError;
+  dynamic get athletics => throw _privateConstructorUsedError;
   dynamic get deception => throw _privateConstructorUsedError;
   dynamic get history => throw _privateConstructorUsedError;
   dynamic get insight => throw _privateConstructorUsedError;
@@ -58,8 +58,8 @@ mixin _$Player {
   dynamic get medicine => throw _privateConstructorUsedError;
   dynamic get nature => throw _privateConstructorUsedError;
   dynamic get perception => throw _privateConstructorUsedError;
-  dynamic get perfomance => throw _privateConstructorUsedError;
-  dynamic get persuasian => throw _privateConstructorUsedError;
+  dynamic get performance => throw _privateConstructorUsedError;
+  dynamic get persuasion => throw _privateConstructorUsedError;
   dynamic get religion => throw _privateConstructorUsedError;
   dynamic get sleightOfHand => throw _privateConstructorUsedError;
   dynamic get stealth => throw _privateConstructorUsedError;
@@ -105,7 +105,7 @@ abstract class $PlayerCopyWith<$Res> {
       dynamic acrobatics,
       dynamic animalHandling,
       dynamic arcana,
-      dynamic atheletics,
+      dynamic athletics,
       dynamic deception,
       dynamic history,
       dynamic insight,
@@ -114,8 +114,8 @@ abstract class $PlayerCopyWith<$Res> {
       dynamic medicine,
       dynamic nature,
       dynamic perception,
-      dynamic perfomance,
-      dynamic persuasian,
+      dynamic performance,
+      dynamic persuasion,
       dynamic religion,
       dynamic sleightOfHand,
       dynamic stealth,
@@ -164,7 +164,7 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
     Object? acrobatics = null,
     Object? animalHandling = null,
     Object? arcana = null,
-    Object? atheletics = null,
+    Object? athletics = null,
     Object? deception = null,
     Object? history = null,
     Object? insight = null,
@@ -173,8 +173,8 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
     Object? medicine = null,
     Object? nature = null,
     Object? perception = null,
-    Object? perfomance = null,
-    Object? persuasian = null,
+    Object? performance = null,
+    Object? persuasion = null,
     Object? religion = null,
     Object? sleightOfHand = null,
     Object? stealth = null,
@@ -297,9 +297,9 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
           ? _value.arcana
           : arcana // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      atheletics: null == atheletics
-          ? _value.atheletics
-          : atheletics // ignore: cast_nullable_to_non_nullable
+      athletics: null == athletics
+          ? _value.athletics
+          : athletics // ignore: cast_nullable_to_non_nullable
               as dynamic,
       deception: null == deception
           ? _value.deception
@@ -333,13 +333,13 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
           ? _value.perception
           : perception // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      perfomance: null == perfomance
-          ? _value.perfomance
-          : perfomance // ignore: cast_nullable_to_non_nullable
+      performance: null == performance
+          ? _value.performance
+          : performance // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      persuasian: null == persuasian
-          ? _value.persuasian
-          : persuasian // ignore: cast_nullable_to_non_nullable
+      persuasion: null == persuasion
+          ? _value.persuasion
+          : persuasion // ignore: cast_nullable_to_non_nullable
               as dynamic,
       religion: null == religion
           ? _value.religion
@@ -397,7 +397,7 @@ abstract class _$$_PlayerCopyWith<$Res> implements $PlayerCopyWith<$Res> {
       dynamic acrobatics,
       dynamic animalHandling,
       dynamic arcana,
-      dynamic atheletics,
+      dynamic athletics,
       dynamic deception,
       dynamic history,
       dynamic insight,
@@ -406,8 +406,8 @@ abstract class _$$_PlayerCopyWith<$Res> implements $PlayerCopyWith<$Res> {
       dynamic medicine,
       dynamic nature,
       dynamic perception,
-      dynamic perfomance,
-      dynamic persuasian,
+      dynamic performance,
+      dynamic persuasion,
       dynamic religion,
       dynamic sleightOfHand,
       dynamic stealth,
@@ -453,7 +453,7 @@ class __$$_PlayerCopyWithImpl<$Res>
     Object? acrobatics = null,
     Object? animalHandling = null,
     Object? arcana = null,
-    Object? atheletics = null,
+    Object? athletics = null,
     Object? deception = null,
     Object? history = null,
     Object? insight = null,
@@ -462,8 +462,8 @@ class __$$_PlayerCopyWithImpl<$Res>
     Object? medicine = null,
     Object? nature = null,
     Object? perception = null,
-    Object? perfomance = null,
-    Object? persuasian = null,
+    Object? performance = null,
+    Object? persuasion = null,
     Object? religion = null,
     Object? sleightOfHand = null,
     Object? stealth = null,
@@ -572,7 +572,7 @@ class __$$_PlayerCopyWithImpl<$Res>
       animalHandling:
           null == animalHandling ? _value.animalHandling : animalHandling,
       arcana: null == arcana ? _value.arcana : arcana,
-      atheletics: null == atheletics ? _value.atheletics : atheletics,
+      athletics: null == athletics ? _value.athletics : athletics,
       deception: null == deception ? _value.deception : deception,
       history: null == history ? _value.history : history,
       insight: null == insight ? _value.insight : insight,
@@ -582,8 +582,8 @@ class __$$_PlayerCopyWithImpl<$Res>
       medicine: null == medicine ? _value.medicine : medicine,
       nature: null == nature ? _value.nature : nature,
       perception: null == perception ? _value.perception : perception,
-      perfomance: null == perfomance ? _value.perfomance : perfomance,
-      persuasian: null == persuasian ? _value.persuasian : persuasian,
+      performance: null == performance ? _value.performance : performance,
+      persuasion: null == persuasion ? _value.persuasion : persuasion,
       religion: null == religion ? _value.religion : religion,
       sleightOfHand:
           null == sleightOfHand ? _value.sleightOfHand : sleightOfHand,
@@ -632,12 +632,12 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
           const PlayerSkill(skillName: 'animalHandling', skillType: 'wisdom'),
       this.arcana =
           const PlayerSkill(skillName: 'arcana', skillType: 'intellegence'),
-      this.atheletics =
-          const PlayerSkill(skillName: 'atheletics', skillType: 'strength'),
+      this.athletics =
+          const PlayerSkill(skillName: 'athletics', skillType: 'strength'),
       this.deception =
           const PlayerSkill(skillName: 'deception', skillType: 'charisma'),
       this.history =
-          const PlayerSkill(skillName: 'history', skillType: 'intellgence'),
+          const PlayerSkill(skillName: 'history', skillType: 'intellegence'),
       this.insight =
           const PlayerSkill(skillName: 'insight', skillType: 'wisdom'),
       this.intimidation =
@@ -650,10 +650,10 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
           const PlayerSkill(skillName: 'nature', skillType: 'intellegence'),
       this.perception =
           const PlayerSkill(skillName: 'perception', skillType: 'wisdom'),
-      this.perfomance =
-          const PlayerSkill(skillName: 'perfomance', skillType: 'charisma'),
-      this.persuasian =
-          const PlayerSkill(skillName: 'persuasian', skillType: 'charisma'),
+      this.performance =
+          const PlayerSkill(skillName: 'performance', skillType: 'charisma'),
+      this.persuasion =
+          const PlayerSkill(skillName: 'persuasion', skillType: 'charisma'),
       this.religion =
           const PlayerSkill(skillName: 'religion', skillType: 'intellegence'),
       this.sleightOfHand =
@@ -758,7 +758,7 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
   final dynamic arcana;
   @override
   @JsonKey()
-  final dynamic atheletics;
+  final dynamic athletics;
   @override
   @JsonKey()
   final dynamic deception;
@@ -785,10 +785,10 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
   final dynamic perception;
   @override
   @JsonKey()
-  final dynamic perfomance;
+  final dynamic performance;
   @override
   @JsonKey()
-  final dynamic persuasian;
+  final dynamic persuasion;
   @override
   @JsonKey()
   final dynamic religion;
@@ -804,7 +804,7 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Player(characterName: $characterName, level: $level, exp: $exp, playerClass: $playerClass, playerRace: $playerRace, alignment: $alignment, background: $background, currentHp: $currentHp, totalHp: $totalHp, tempHp: $tempHp, armorClass: $armorClass, proficiency: $proficiency, speed: $speed, initiative: $initiative, strength: $strength, strengthSavingThrow: $strengthSavingThrow, dexterity: $dexterity, dexteritySavingThrow: $dexteritySavingThrow, constitution: $constitution, constitutionSavingThrow: $constitutionSavingThrow, intellegence: $intellegence, intellegenceSavingThrow: $intellegenceSavingThrow, wisdom: $wisdom, wisdomSavingThrow: $wisdomSavingThrow, charisma: $charisma, charismaSavingThrow: $charismaSavingThrow, acrobatics: $acrobatics, animalHandling: $animalHandling, arcana: $arcana, atheletics: $atheletics, deception: $deception, history: $history, insight: $insight, intimidation: $intimidation, investigation: $investigation, medicine: $medicine, nature: $nature, perception: $perception, perfomance: $perfomance, persuasian: $persuasian, religion: $religion, sleightOfHand: $sleightOfHand, stealth: $stealth, survival: $survival)';
+    return 'Player(characterName: $characterName, level: $level, exp: $exp, playerClass: $playerClass, playerRace: $playerRace, alignment: $alignment, background: $background, currentHp: $currentHp, totalHp: $totalHp, tempHp: $tempHp, armorClass: $armorClass, proficiency: $proficiency, speed: $speed, initiative: $initiative, strength: $strength, strengthSavingThrow: $strengthSavingThrow, dexterity: $dexterity, dexteritySavingThrow: $dexteritySavingThrow, constitution: $constitution, constitutionSavingThrow: $constitutionSavingThrow, intellegence: $intellegence, intellegenceSavingThrow: $intellegenceSavingThrow, wisdom: $wisdom, wisdomSavingThrow: $wisdomSavingThrow, charisma: $charisma, charismaSavingThrow: $charismaSavingThrow, acrobatics: $acrobatics, animalHandling: $animalHandling, arcana: $arcana, athletics: $athletics, deception: $deception, history: $history, insight: $insight, intimidation: $intimidation, investigation: $investigation, medicine: $medicine, nature: $nature, perception: $perception, performance: $performance, persuasion: $persuasion, religion: $religion, sleightOfHand: $sleightOfHand, stealth: $stealth, survival: $survival)';
   }
 
   @override
@@ -843,7 +843,7 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
       ..add(DiagnosticsProperty('acrobatics', acrobatics))
       ..add(DiagnosticsProperty('animalHandling', animalHandling))
       ..add(DiagnosticsProperty('arcana', arcana))
-      ..add(DiagnosticsProperty('atheletics', atheletics))
+      ..add(DiagnosticsProperty('athletics', athletics))
       ..add(DiagnosticsProperty('deception', deception))
       ..add(DiagnosticsProperty('history', history))
       ..add(DiagnosticsProperty('insight', insight))
@@ -852,8 +852,8 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
       ..add(DiagnosticsProperty('medicine', medicine))
       ..add(DiagnosticsProperty('nature', nature))
       ..add(DiagnosticsProperty('perception', perception))
-      ..add(DiagnosticsProperty('perfomance', perfomance))
-      ..add(DiagnosticsProperty('persuasian', persuasian))
+      ..add(DiagnosticsProperty('performance', performance))
+      ..add(DiagnosticsProperty('persuasion', persuasion))
       ..add(DiagnosticsProperty('religion', religion))
       ..add(DiagnosticsProperty('sleightOfHand', sleightOfHand))
       ..add(DiagnosticsProperty('stealth', stealth))
@@ -916,8 +916,7 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
             const DeepCollectionEquality()
                 .equals(other.animalHandling, animalHandling) &&
             const DeepCollectionEquality().equals(other.arcana, arcana) &&
-            const DeepCollectionEquality()
-                .equals(other.atheletics, atheletics) &&
+            const DeepCollectionEquality().equals(other.athletics, athletics) &&
             const DeepCollectionEquality().equals(other.deception, deception) &&
             const DeepCollectionEquality().equals(other.history, history) &&
             const DeepCollectionEquality().equals(other.insight, insight) &&
@@ -930,9 +929,9 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
             const DeepCollectionEquality()
                 .equals(other.perception, perception) &&
             const DeepCollectionEquality()
-                .equals(other.perfomance, perfomance) &&
+                .equals(other.performance, performance) &&
             const DeepCollectionEquality()
-                .equals(other.persuasian, persuasian) &&
+                .equals(other.persuasion, persuasion) &&
             const DeepCollectionEquality().equals(other.religion, religion) &&
             const DeepCollectionEquality()
                 .equals(other.sleightOfHand, sleightOfHand) &&
@@ -973,7 +972,7 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
         const DeepCollectionEquality().hash(acrobatics),
         const DeepCollectionEquality().hash(animalHandling),
         const DeepCollectionEquality().hash(arcana),
-        const DeepCollectionEquality().hash(atheletics),
+        const DeepCollectionEquality().hash(athletics),
         const DeepCollectionEquality().hash(deception),
         const DeepCollectionEquality().hash(history),
         const DeepCollectionEquality().hash(insight),
@@ -982,8 +981,8 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
         const DeepCollectionEquality().hash(medicine),
         const DeepCollectionEquality().hash(nature),
         const DeepCollectionEquality().hash(perception),
-        const DeepCollectionEquality().hash(perfomance),
-        const DeepCollectionEquality().hash(persuasian),
+        const DeepCollectionEquality().hash(performance),
+        const DeepCollectionEquality().hash(persuasion),
         const DeepCollectionEquality().hash(religion),
         const DeepCollectionEquality().hash(sleightOfHand),
         const DeepCollectionEquality().hash(stealth),
@@ -1035,7 +1034,7 @@ abstract class _Player implements Player {
       final dynamic acrobatics,
       final dynamic animalHandling,
       final dynamic arcana,
-      final dynamic atheletics,
+      final dynamic athletics,
       final dynamic deception,
       final dynamic history,
       final dynamic insight,
@@ -1044,8 +1043,8 @@ abstract class _Player implements Player {
       final dynamic medicine,
       final dynamic nature,
       final dynamic perception,
-      final dynamic perfomance,
-      final dynamic persuasian,
+      final dynamic performance,
+      final dynamic persuasion,
       final dynamic religion,
       final dynamic sleightOfHand,
       final dynamic stealth,
@@ -1112,7 +1111,7 @@ abstract class _Player implements Player {
   @override
   dynamic get arcana;
   @override
-  dynamic get atheletics;
+  dynamic get athletics;
   @override
   dynamic get deception;
   @override
@@ -1130,9 +1129,9 @@ abstract class _Player implements Player {
   @override
   dynamic get perception;
   @override
-  dynamic get perfomance;
+  dynamic get performance;
   @override
-  dynamic get persuasian;
+  dynamic get persuasion;
   @override
   dynamic get religion;
   @override

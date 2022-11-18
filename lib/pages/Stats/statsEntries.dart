@@ -69,11 +69,11 @@ class CombatStatsEntries extends ConsumerWidget {
           statPropertyName: 'armorClass',
           provider: ref.watch(playerProvider).armorClass,
         ),
-        StatsEntry(
-          title: 'Current Hit Points',
-          statPropertyName: 'currentHp',
-          provider: ref.watch(playerProvider).currentHp,
-        ),
+        // StatsEntry(
+        //   title: 'Current Hit Points',
+        //   statPropertyName: 'currentHp',
+        //   provider: ref.watch(playerProvider).currentHp,
+        // ),
         StatsEntry(
           title: 'Total Hit Points',
           statPropertyName: 'totalHp',

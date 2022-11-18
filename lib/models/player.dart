@@ -46,11 +46,11 @@ class Player with _$Player {
         animalHandling,
     @Default(PlayerSkill(skillName: 'arcana', skillType: 'intellegence'))
         arcana,
-    @Default(PlayerSkill(skillName: 'atheletics', skillType: 'strength'))
-        atheletics,
+    @Default(PlayerSkill(skillName: 'athletics', skillType: 'strength'))
+        athletics,
     @Default(PlayerSkill(skillName: 'deception', skillType: 'charisma'))
         deception,
-    @Default(PlayerSkill(skillName: 'history', skillType: 'intellgence'))
+    @Default(PlayerSkill(skillName: 'history', skillType: 'intellegence'))
         history,
     @Default(PlayerSkill(skillName: 'insight', skillType: 'wisdom')) insight,
     @Default(PlayerSkill(skillName: 'intimidation', skillType: 'charisma'))
@@ -62,10 +62,10 @@ class Player with _$Player {
         nature,
     @Default(PlayerSkill(skillName: 'perception', skillType: 'wisdom'))
         perception,
-    @Default(PlayerSkill(skillName: 'perfomance', skillType: 'charisma'))
-        perfomance,
-    @Default(PlayerSkill(skillName: 'persuasian', skillType: 'charisma'))
-        persuasian,
+    @Default(PlayerSkill(skillName: 'performance', skillType: 'charisma'))
+        performance,
+    @Default(PlayerSkill(skillName: 'persuasion', skillType: 'charisma'))
+        persuasion,
     @Default(PlayerSkill(skillName: 'religion', skillType: 'intellegence'))
         religion,
     @Default(PlayerSkill(skillName: 'sleightOfHand', skillType: 'dexterity'))

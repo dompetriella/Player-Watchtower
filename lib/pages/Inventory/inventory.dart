@@ -7,6 +7,7 @@ import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/pages/QuickSelect/components/saving_throw_card.dart';
 import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
+import 'package:player_watchtower/version.dart';
 
 class InventoryPage extends ConsumerWidget {
   const InventoryPage({super.key});
@@ -14,7 +15,8 @@ class InventoryPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      child: Center(),
+      color: Colors.lightBlue,
+      child: Center(child: Text('Coming Soon v$appVersion')),
     );
   }
 }

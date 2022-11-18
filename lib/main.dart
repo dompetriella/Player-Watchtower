@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:player_watchtower/pages/screen_chassis.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox('player');
   runApp(ProviderScope(child: PlayerWatchtower()));
 }
 
@@ -13,7 +16,7 @@ class PlayerWatchtower extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: SafeArea(
-        child: ScreenChassis(),
+        child: MainPage(),
       ),
     );
   }

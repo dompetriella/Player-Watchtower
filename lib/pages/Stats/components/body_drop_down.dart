@@ -24,8 +24,6 @@ class BodyDropDown extends ConsumerWidget {
           onTap: () {
             ref.read(expandedProvider.notifier).state =
                 !ref.read(expandedProvider);
-
-            print(ref.read(expandedProvider));
           },
           child: Container(
             decoration: BoxDecoration(

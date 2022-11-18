@@ -45,12 +45,12 @@ _$_Player _$$_PlayerFromJson(Map<String, dynamic> json) => _$_Player(
           const PlayerSkill(skillName: 'animalHandling', skillType: 'wisdom'),
       arcana: json['arcana'] ??
           const PlayerSkill(skillName: 'arcana', skillType: 'intellegence'),
-      atheletics: json['atheletics'] ??
-          const PlayerSkill(skillName: 'atheletics', skillType: 'strength'),
+      athletics: json['athletics'] ??
+          const PlayerSkill(skillName: 'athletics', skillType: 'strength'),
       deception: json['deception'] ??
           const PlayerSkill(skillName: 'deception', skillType: 'charisma'),
       history: json['history'] ??
-          const PlayerSkill(skillName: 'history', skillType: 'intellgence'),
+          const PlayerSkill(skillName: 'history', skillType: 'intellegence'),
       insight: json['insight'] ??
           const PlayerSkill(skillName: 'insight', skillType: 'wisdom'),
       intimidation: json['intimidation'] ??
@@ -64,10 +64,10 @@ _$_Player _$$_PlayerFromJson(Map<String, dynamic> json) => _$_Player(
           const PlayerSkill(skillName: 'nature', skillType: 'intellegence'),
       perception: json['perception'] ??
           const PlayerSkill(skillName: 'perception', skillType: 'wisdom'),
-      perfomance: json['perfomance'] ??
-          const PlayerSkill(skillName: 'perfomance', skillType: 'charisma'),
-      persuasian: json['persuasian'] ??
-          const PlayerSkill(skillName: 'persuasian', skillType: 'charisma'),
+      performance: json['performance'] ??
+          const PlayerSkill(skillName: 'performance', skillType: 'charisma'),
+      persuasion: json['persuasion'] ??
+          const PlayerSkill(skillName: 'persuasion', skillType: 'charisma'),
       religion: json['religion'] ??
           const PlayerSkill(skillName: 'religion', skillType: 'intellegence'),
       sleightOfHand: json['sleightOfHand'] ??
@@ -108,7 +108,7 @@ Map<String, dynamic> _$$_PlayerToJson(_$_Player instance) => <String, dynamic>{
       'acrobatics': instance.acrobatics,
       'animalHandling': instance.animalHandling,
       'arcana': instance.arcana,
-      'atheletics': instance.atheletics,
+      'athletics': instance.athletics,
       'deception': instance.deception,
       'history': instance.history,
       'insight': instance.insight,
@@ -117,8 +117,8 @@ Map<String, dynamic> _$$_PlayerToJson(_$_Player instance) => <String, dynamic>{
       'medicine': instance.medicine,
       'nature': instance.nature,
       'perception': instance.perception,
-      'perfomance': instance.perfomance,
-      'persuasian': instance.persuasian,
+      'performance': instance.performance,
+      'persuasion': instance.persuasion,
       'religion': instance.religion,
       'sleightOfHand': instance.sleightOfHand,
       'stealth': instance.stealth,

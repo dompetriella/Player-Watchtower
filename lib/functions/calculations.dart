@@ -12,6 +12,17 @@ String displayValue(var value) {
   return value.toString();
 }
 
+String truncateWithEllipsis(int cutoff, String myString) {
+  var name = myString.split(' ');
+
+  if (name[0].length > cutoff) {
+    return (myString.length <= cutoff)
+        ? myString
+        : '${myString.substring(0, cutoff)}...';
+  }
+  return name[0];
+}
+
 int getAbilityScoreModifier(int score) {
   if (score < 2) return -5;
   if (score < 4) return -4;

@@ -43,7 +43,7 @@ class InfoItem extends ConsumerWidget {
                   strokeWidth: 5.0,
                   strokeColor: ref.watch(themeProvider).outlineText,
                   child: Text(
-                    'Running',
+                    'v0.01a Placeholder',
                     style: TextStyle(
                         fontSize: height / 3,
                         letterSpacing: 1.2,
