@@ -71,18 +71,54 @@
 47            android:value="2" />
 47-->/Users/dpetriella/Documents/code/player_watchtower/android/app/src/main/AndroidManifest.xml:32:13-30
 48
-49        <uses-library
-49-->[androidx.window:window:1.0.0-beta04] /Users/dpetriella/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
-50            android:name="androidx.window.extensions"
-50-->[androidx.window:window:1.0.0-beta04] /Users/dpetriella/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
-51            android:required="false" />
-51-->[androidx.window:window:1.0.0-beta04] /Users/dpetriella/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
-52        <uses-library
-52-->[androidx.window:window:1.0.0-beta04] /Users/dpetriella/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
-53            android:name="androidx.window.sidecar"
-53-->[androidx.window:window:1.0.0-beta04] /Users/dpetriella/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
-54            android:required="false" />
-54-->[androidx.window:window:1.0.0-beta04] /Users/dpetriella/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
-55    </application>
-56
-57</manifest>
+49        <service
+49-->[:firebase_core] /Users/dpetriella/Documents/code/player_watchtower/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-14:19
+50            android:name="com.google.firebase.components.ComponentDiscoveryService"
+50-->[:firebase_core] /Users/dpetriella/Documents/code/player_watchtower/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:10:18-89
+51            android:directBootAware="true"
+51-->[com.google.firebase:firebase-common:20.2.0] /Users/dpetriella/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:34:13-43
+52            android:exported="false" >
+52-->[com.google.firebase:firebase-common:20.2.0] /Users/dpetriella/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:35:13-37
+53            <meta-data
+53-->[:firebase_core] /Users/dpetriella/Documents/code/player_watchtower/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-13:85
+54                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+54-->[:firebase_core] /Users/dpetriella/Documents/code/player_watchtower/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:12:17-124
+55                android:value="com.google.firebase.components.ComponentRegistrar" />
+55-->[:firebase_core] /Users/dpetriella/Documents/code/player_watchtower/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:13:17-82
+56        </service>
+57
+58        <uses-library
+58-->[androidx.window:window:1.0.0-beta04] /Users/dpetriella/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+59            android:name="androidx.window.extensions"
+59-->[androidx.window:window:1.0.0-beta04] /Users/dpetriella/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+60            android:required="false" />
+60-->[androidx.window:window:1.0.0-beta04] /Users/dpetriella/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+61        <uses-library
+61-->[androidx.window:window:1.0.0-beta04] /Users/dpetriella/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+62            android:name="androidx.window.sidecar"
+62-->[androidx.window:window:1.0.0-beta04] /Users/dpetriella/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+63            android:required="false" />
+63-->[androidx.window:window:1.0.0-beta04] /Users/dpetriella/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+64
+65        <provider
+65-->[com.google.firebase:firebase-common:20.2.0] /Users/dpetriella/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:25:9-30:39
+66            android:name="com.google.firebase.provider.FirebaseInitProvider"
+66-->[com.google.firebase:firebase-common:20.2.0] /Users/dpetriella/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:26:13-77
+67            android:authorities="com.example.player_watchtower.firebaseinitprovider"
+67-->[com.google.firebase:firebase-common:20.2.0] /Users/dpetriella/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:27:13-72
+68            android:directBootAware="true"
+68-->[com.google.firebase:firebase-common:20.2.0] /Users/dpetriella/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:28:13-43
+69            android:exported="false"
+69-->[com.google.firebase:firebase-common:20.2.0] /Users/dpetriella/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:29:13-37
+70            android:initOrder="100" />
+70-->[com.google.firebase:firebase-common:20.2.0] /Users/dpetriella/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:30:13-36
+71
+72        <meta-data
+72-->[com.google.android.gms:play-services-basement:18.1.0] /Users/dpetriella/.gradle/caches/transforms-3/6b0daa5fb4c2eb7e8b55778df9b972f6/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+73            android:name="com.google.android.gms.version"
+73-->[com.google.android.gms:play-services-basement:18.1.0] /Users/dpetriella/.gradle/caches/transforms-3/6b0daa5fb4c2eb7e8b55778df9b972f6/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+74            android:value="@integer/google_play_services_version" />
+74-->[com.google.android.gms:play-services-basement:18.1.0] /Users/dpetriella/.gradle/caches/transforms-3/6b0daa5fb4c2eb7e8b55778df9b972f6/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+75    </application>
+76
+77</manifest>

@@ -9,26 +9,30 @@ app_flutter
 kRepeat
 deviceId
 java.lang.Integer
+Runtime
 music
 verticalText
 android.util.LongArray
+dev.flutter.pigeon.FirebaseCoreHostAp...
 getUncaughtExceptionPreHandler
+com.google.firebase.common.prefs:
 onBackPressed
 adapter
 GeneratedPluginsRegister
 LEFT
-LANDSCAPE_RIGHT
 java.lang.CharSequence
-givenName
+LANDSCAPE_RIGHT
 _handled
+givenName
 androidx.window.layout.WindowInfoTrac...
+optional
 ActivityRule
 click
 0
 kotlin.jvm.functions.
-left
 WindowInfoTrackerImpl.kt
 kotlinx.coroutines.DefaultExecutor
+left
 TextInputClient.updateEditingStateWit...
 registerWith
 SystemSoundType.alert
@@ -69,11 +73,13 @@ acc
 flutter_assets
 TextInputClient.performPrivateCommand
 displayFeature.rect
+storageBucket
 emailAddress
 addSuppressed
 componentName
 activityComponent.className
 addressCountry
+com.google.firebase.components.Compon...
 LIGHT
 kotlinx.coroutines.default.parallelism
 extensionCallback
@@ -86,13 +92,17 @@ phoneCountryCode
 telephoneNumberCountryCode
 deviceState
 decimal
+projectId
 SystemChrome.setSystemUIOverlayStyle
 TextInput.setEditableSizeAndTransform
 COMPLETING_WAITING_CHILDREN
 enable_state_restoration
 ClassVerificationFailure
+dev.flutter.pigeon.FirebaseCoreHostAp...
 _invoked
 locale
+pluginConstants
+provider
 SET_SELECTION
 root
 _delayed
@@ -130,8 +140,8 @@ executor
 IS_TEXT_FIELD
 kotlinx.coroutines.internal.StackTrac...
 write
-TextInputType.none
 onStop
+TextInputType.none
 kotlin.coroutines.jvm.internal.a
 TextInputAction.none
 secondaryActivityName.className
@@ -139,11 +149,13 @@ byte
 getNextMatch
 getDeferredComponentInstallState
 splitRule
-creditCardNumber
 resizeUp
+creditCardNumber
 onPostResume
+applicationId
 io.flutter.Entrypoint
 CLIP_RECT
+deferred
 other
 wait
 FlutterActivityAndFragmentDelegate
@@ -153,8 +165,8 @@ cell
 %s.%sParcelizer
 safeCast
 URI
-URL
 FlutterTextureView
+URL
 CHARACTERS
 AppLifecycleState.resumed
 top
@@ -167,6 +179,8 @@ java.lang.String
 addressRegion
 TextInput.setClient
 resizeDown
+FirebaseApp
+databaseURL
 _resumed
 TextInputType.multiline
 coroutine
@@ -196,37 +210,41 @@ void
 read
 memoryPressure
 flutter/restoration
+firebase_data_collection_default_enabled
 touch
 onUserLeaveHint
 CommonPool
 _cur
 onResume
-java.util.List
 OFFER_SUCCESS
+FirebaseHeartBeat
+java.util.List
 hybrid
 UNEXPECTED:
 kotlin.Int
 basic
-collect
+google_storage_bucket
 kotlin.Throwable
+collect
 sidecarDisplayFeatures
 parkedWorkersStack
 IS_IMAGE
-PHONE
 COMPLETING_ALREADY
+PHONE
+20.2.0
 systemNavigationBarColor
-cause
 displayCutout
+cause
 PlatformPlugin
 java.lang.Iterable
 rect
 kotlinx.coroutines.DefaultExecutor.ke...
 kotlin.Annotation
 INVERT_COLORS
-synchronizeToNativeViewHierarchy
 packageName
-LANDSCAPE_LEFT
+synchronizeToNativeViewHierarchy
 info.displayFeatures
+LANDSCAPE_LEFT
 direction
 BITMAP
 windowConfiguration
@@ -234,8 +252,8 @@ newConfig
 resizeUpRight
 Array
 flutter/lifecycle
-TextInputType.number
 WindowServer
+TextInputType.number
 activities
 UNKNOWN
 ActivityFilter
@@ -243,8 +261,8 @@ getParentNodeId
 RestrictedApi
 accessibility
 getPoolSize
-SystemChrome.setEnabledSystemUIMode
 getAppBounds
+SystemChrome.setEnabledSystemUIMode
 ringtones
 android.widget.HorizontalScrollView
 password
@@ -256,8 +274,8 @@ state
 secondaryActivityStack.activities
 CompanionObject
 element
-creditCardExpirationMonth
 cache
+creditCardExpirationMonth
 deltaText
 zoomIn
 Destroying.
@@ -265,12 +283,14 @@ input
 pushRoute
 REMOVE_FROZEN
 POSTURE_FLAT
+android.hardware.type.automotive
 kotlin.collections.ListIterator
 oemFeature.bounds
 dev.flutter.pigeon.PathProviderApi.ge...
 CUSTOM_ACTION
 delimiters
 TextInputClient.updateEditingStateWit...
+/proc/
 PROTECTED
 STANDARD
 cached_engine_id
@@ -282,6 +302,7 @@ windowToken
 blockingTasksInBuffer
 onTrimMemory
 getSourceNodeId
+watch
 streetAddress
 kotlin.Char
 flutter/isolate
@@ -294,14 +315,15 @@ java.util.ListIterator
 kotlinx.coroutines.android.AndroidDis...
 DefaultDispatcher
 SplitPlaceholderRule
-source
 ALERT
+source
 kotlin.Double
 onActivityResult
 LocalizationChannel
 view
-java.lang.Short
 allScroll
+java.lang.Short
+appId
 SystemChrome.systemUIChange
 android.widget.Button
 NewApi
@@ -321,17 +343,17 @@ DartExecutor
 fields
 getDescriptor
 keymap
-string
 FlutterLoader
+string
 onRequestPermissionsResult
 deltaStart
 kotlin.coroutines.jvm.internal.BaseCo...
-android
 platformViewId
+android
 java.lang.module.ModuleDescriptor
 EDGE_TO_EDGE
-nameSuffix
 description
+nameSuffix
 LEAN_BACK
 _isTerminated
 SEALED
@@ -346,9 +368,9 @@ Cancelled
 callbackWrapper
 getPosture
 pair
-DATETIME
-primitiveFqNames.values
 enableSuggestions
+primitiveFqNames.values
+DATETIME
 PASTE
 IS_MULTILINE
 short
@@ -364,6 +386,7 @@ IS_FOCUSABLE
 TextInput.clearClient
 AppLifecycleState.inactive
 SCROLL_RIGHT
+messagingSenderId
 textCapitalization
 android.widget.ImageView
 android.widget.RadioButton
@@ -371,12 +394,14 @@ moduleName
 oemFeature
 getBounds
 put
+required
 EmptyCoroutineContext
 TextInputType.text
 CPU_ACQUIRED
 ACTION_ARGUMENT_SELECTION_END_INT
 embeddingCallback
 SCROLL_LEFT
+options
 HapticFeedbackType.heavyImpact
 TextInputAction.search
 windowBackend
@@ -393,8 +418,8 @@ SystemChannel
 flutter_deeplinking_enabled
 viewFocused
 HEAVY_IMPACT
-kotlin.Short
 light
+kotlin.Short
 bounds
 primaryActivityName.packageName
 PUBLIC
@@ -408,12 +433,14 @@ Dispatchers.Unconfined
 WindowInfoTrackerCallbackAdapter.kt
 $splitsWithActivity
 flags
+direct
 SystemSound.play
-onPause
 SystemUiOverlay.bottom
+onPause
 enabled
 android.intent.action.RUN
 android.widget.SeekBar
+android.hardware.type.watch
 INITIALIZED
 LAZY
 KeyEventChannel
@@ -450,9 +477,11 @@ inputType
 java.lang.Byte
 AppBundleLocaleChanges
 BOTH
+trackingId
 java.lang.Cloneable
 deltaEnd
 kind
+gcmSenderId
 GeneratedPluginRegistrant
 SplitPairFilter
 io.flutter.embedding.android.EnableIm...
@@ -469,13 +498,14 @@ TextInput.sendAppPrivateCommand
 TextInputType.phone
 SET_TEXT
 SystemChrome.restoreSystemUIOverlays
+dev.flutter.pigeon.FirebaseAppHostApi...
 consumerIndex
 point
 onCloseHandler
-_removedRef
 kotlin.Enum
-PlatformViewsChannel
+_removedRef
 alias
+PlatformViewsChannel
 deltas
 uniqueIdentifier
 kotlin.String.Companion
@@ -493,9 +523,9 @@ CLIP_PATH
 $splitRule
 getModule
 extent
+resizeColumn
 sidecarCompat
 java.specification.version
-resizeColumn
 plugins
 kotlinx.coroutines.scheduler.blocking...
 kotlin.Cloneable
@@ -504,11 +534,12 @@ IS_FOCUSED
 PlatformViewsController
 ReceiveQueued
 systemStatusBarContrastEnforced
-kotlin.reflect.jvm.internal.Reflectio...
 getSuppressed
+kotlin.reflect.jvm.internal.Reflectio...
 PARKING
 FOLD
 DartMessenger
+dev.flutter.pigeon.FirebaseAppHostApi...
 HIGH_CONTRAST
 ON_ANY
 MOVE_CURSOR_BACKWARD_BY_WORD
@@ -516,6 +547,7 @@ removeViewImmediate
 kotlin.Unit
 kotlinx.coroutines.scheduler.resoluti...
 removeView
+cancellation
 route
 ON_PAUSE
 birthdayDay
@@ -531,12 +563,15 @@ transparent
 java.
 SystemSoundType.click
 resizeUpDown
-background_mode
 popRoute
+background_mode
 NAMES_ROUTE
-defaultDisplay
 throwableMethods
+defaultDisplay
+embedded
 completion
+Firebase
+set
 clearFocus
 secondaryActivityIntent
 kUp
@@ -544,10 +579,11 @@ FRAMEWORK_CLIENT
 LOCALE
 hintText
 InlinedApi
-personNamePrefix
 activityComponent.packageName
+personNamePrefix
 MEDIUM_IMPACT
 feature.rect
+gcm_defaultSenderId
 missingDelimiterValue
 listener
 BanParcelableUsage
@@ -575,8 +611,8 @@ navigation_bar_height
 java.lang.annotation.Annotation
 countryName
 FlutterImageView
-nodeId
 inputAction
+nodeId
 frame
 TERMINATED
 flutter/navigation
@@ -587,6 +623,7 @@ secondaryActivity
 kotlin.collections.Map
 ENQUEUE_FAILED
 statusBarColor
+isAutomaticDataCollectionEnabled
 java.lang.Boolean
 continuation
 DISABLE_ANIMATIONS
@@ -605,32 +642,34 @@ resizeLeft
 resize
 TextEditingDelta
 DEFAULT
-TextInputAction.next
 setInitialRoute
+TextInputAction.next
 DROP_OLDEST
 splitInfoList
 TEXT
 lastScheduledTask
 clipboard
 birthdayMonth
-inFlightTasks
 autocorrect
+inFlightTasks
 HINGE
 java.lang.Character
 HapticFeedbackType.selectionClick
 context
 $newLayoutInfo
 action
-id
 text
+id
 birthdayYear
 SENTENCES
 isolate_snapshot_data
 TextInput.finishAutofillContext
+dev.flutter.pigeon.FirebaseAppHostApi...
 SPELLOUT
 surface
-signed
+ga_trackingId
 _bounds
+signed
 it
 PlatformChannel
 params
@@ -646,10 +685,12 @@ kotlin.jvm.internal.
 AccessibilityChannel
 fullStreetAddress
 telephoneNumber
+google_api_key
 secondaryActivityStack
 RIGHT
 placeholderIntent
 CancellableContinuation
+databaseUrl
 mServedView
 onDestroy
 IS_KEYBOARD_KEY
@@ -680,8 +721,10 @@ newUsername
 main
 activityFilters
 suffix
+authDomain
 personMiddleInitial
 cleartextTrafficPermitted
+android.intent.action.USER_UNLOCKED
 DID_GAIN_ACCESSIBILITY_FOCUS
 kotlin.Number
 DeviceOrientation.portraitDown
@@ -691,8 +734,8 @@ kDown
 ListenableEditingState
 separator
 personMiddleName
-null
 grabbing
+null
 NavigationChannel
 background
 alwaysUse24HourFormat
@@ -721,8 +764,10 @@ on
 nativeSpellCheckServiceDefined
 baseKey
 vm_snapshot_data
-Clipboard.getData
+dev.flutter.pigeon.FirebaseCoreHostAp...
+kotlin
 currentDisplay
+Clipboard.getData
 longPress
 COROUTINE_SUSPENDED
 ACCESSIBLE_NAVIGATION
@@ -730,15 +775,19 @@ flutter/textinput
 Completed
 callback
 RESUME_TOKEN
+com.google.firebase.components:
 HAS_TOGGLED_STATE
+apiKey
 PathProviderPlugin
 IS_SELECTED
+/cmdline
 TextInput.hide
 createAsync
 primaryActivityStack
 telephoneNumberNational
 .Companion
 character
+ComponentDiscovery
 dev.flutter.pigeon.PathProviderApi.ge...
 EMAIL_ADDRESS
 java.lang.Long
@@ -755,6 +804,7 @@ input_method
 oldText
 Clipboard.hasStrings
 CONDITION_FALSE
+deepLinkURLScheme
 commonPool
 IS_IN_MUTUALLY_EXCLUSIVE_GROUP
 activity
@@ -762,8 +812,8 @@ kotlin.Function
 RTL
 long
 SystemUiMode.immersive
-kotlinx.coroutines.channels.defaultBu...
 HALF_OPENED
+kotlinx.coroutines.channels.defaultBu...
 activity.windowManager.currentWindowM...
 $this$$receiver
 key
@@ -776,14 +826,16 @@ obscureText
 texture
 WORDS
 secondaryActivityName.packageName
+appGroupId
+androidClientId
 SELECTION_CLICK
 windowMetricsCalculator
 kotlin.Float
 systemNavigationBarIconBrightness
 contextMenu
 handled
-SystemNavigator.pop
 resizeRight
+SystemNavigator.pop
 TextInputAction.newline
 autofill
 TextCapitalization.none
@@ -791,6 +843,7 @@ operation
 _prev
 android.widget.EditText
 NO_DECISION
+tv
 secondaryActivity.intent
 postalCode
 primaryColor
@@ -799,6 +852,7 @@ personGivenName
 dev.flutter.pigeon.PathProviderApi.ge...
 pairs
 TextInput.setEditingState
+project_id
 details
 ON_START
 birthDateFull
@@ -808,13 +862,14 @@ ruleComponent
 Dispatchers.Default
 kotlinx.coroutines.io.parallelism
 NUMBER
-java.util.Collection
 LIST_EMPTY
+java.util.Collection
 componentName.packageName
 collection
 android.view.DisplayInfo
 AppLifecycleState.paused
 postalAddressExtendedPostalCode
+failure
 NOT_IN_STACK
 TextInputAction.previous
 CLICK
@@ -830,8 +885,8 @@ textservices
 EMPTY
 text/plain
 kotlinx.coroutines.test.internal.Test...
-CUTOUT
 creditCardExpirationYear
+CUTOUT
 flutter/system
 BlockedPrivateApi
 SystemUiMode.leanBack
@@ -844,8 +899,9 @@ splitRules
 ON_CLOSE_HANDLER_INVOKED
 REMOVED_TASK
 java.lang.Object
-SystemChrome.setSystemUIChangeListener
+com.google.firebase.firebaseinitprovider
 splitInfo
+SystemChrome.setSystemUIChangeListener
 base
 TextInput.setPlatformViewClient
 extendedPostalCode
@@ -856,6 +912,7 @@ type
 actionLabel
 movies
 TextCapitalization.sentences
+iosClientId
 IMMERSIVE_STICKY
 VERTICAL
 delimiter
@@ -874,8 +931,8 @@ ACTION_ARGUMENT_SELECTION_START_INT
 push
 _state
 SHOW_ON_SCREEN
-notifications
 brieflyShowPassword
+notifications
 overridingDecorator
 newDeviceState
 kotlinx.coroutines.scheduler
@@ -886,27 +943,29 @@ range
 resizeRow
 usesVirtualDisplay
 flutter/spellcheck
-pictures
 IS_TOGGLED
+pictures
 feature
 NO_THREAD_ELEMENTS
 get
 tracker
-oneTimeCode
 dark
+oneTimeCode
 FLAT
 getDisplayInfo
 copy
 precise
 java.lang.Number
+measurementId
 BanUncheckedReflection
 resizeDownRight
 newLayout
 DARK
 COPY
 IS_READ_ONLY
-token
+android.hardware.type.television
 initializer
+token
 SystemChrome.setPreferredOrientations
 filter
 help
@@ -914,6 +973,7 @@ phoneNumberDevice
 podcasts
 flutter/deferredcomponent
 elements
+iosBundleId
 java.lang.Comparable
 URI_MASKABLE
 ON_CREATE
@@ -923,17 +983,20 @@ data
 resizeUpRightDownLeft
 IS_ENABLED
 ON_RESUME
+firebase_database_url
 float
 IS_BUTTON
 postalAddressExtended
+FirebaseInitProvider
 TextCapitalization.characters
 java.lang.Enum
-familyName
 enableIMEPersonalizedLearning
+familyName
 create
 TRANSFORM
 Flow.kt
 TextInputType.datetime
+android.hardware.type.embedded
 TextInputAction.go
 tap
 offset
@@ -943,9 +1006,10 @@ kotlin.jvm.internal.EnumCompanionObject
 IS_HIDDEN
 io.flutter.InitialRoute
 controlState
+2.3.0
 transition_animation_scale
-keyCode
 sequence
+keyCode
 Active
 postalAddress
 telephoneNumberDevice
@@ -956,6 +1020,7 @@ files
 flutter/localization
 HORIZONTAL
 FlutterRenderer
+google_app_id
 mChildNodeIds
 kotlin.collections.Map.Entry
 ruleComponent.packageName
@@ -971,12 +1036,12 @@ kotlin.collections.Set
 postfix
 value
 getWindowLayoutInfo
-REUSABLE_CLAIMED
 opaque
+REUSABLE_CLAIMED
 java.util.Iterator
 0x%08x
-TextInputClient.performAction
 dart_entrypoint_args
+TextInputClient.performAction
 jar:file:
 addressState
 ON_STOP
@@ -1236,6 +1301,7 @@ Marking id:line3:2131034161 used because it matches string pool constant line
 @id/text2 : reachable=true
 @id/time : reachable=false
 @id/title : reachable=false
+@integer/google_play_services_version : reachable=true
 @integer/status_bar_notification_info_maxnum : reachable=false
 @layout/custom_dialog : reachable=false
 @layout/notification_action : reachable=false
@@ -1266,6 +1332,8 @@ Marking id:line3:2131034161 used because it matches string pool constant line
 @layout/notification_template_part_time : reachable=false
     @style/TextAppearance_Compat_Notification_Time
 @mipmap/ic_launcher : reachable=true
+@raw/firebase_common_keep : reachable=false
+@string/common_google_play_services_unknown_issue : reachable=true
 @string/status_bar_notification_info_overflow : reachable=false
 @style/LaunchTheme : reachable=true
     @drawable/launch_background
@@ -1338,9 +1406,11 @@ The root reachable resources are:
  id:locale:2131034162
  id:text:2131034184
  id:text2:2131034185
+ integer:google_play_services_version:2131099648
  mipmap:ic_launcher:2131230720
- style:LaunchTheme:2131361792
- style:NormalTheme:2131361793
+ string:common_google_play_services_unknown_issue:2131361792
+ style:LaunchTheme:2131427328
+ style:NormalTheme:2131427329
 Skipped unused resource res/drawable/notification_bg.xml: 751 bytes (replaced with small dummy file of size 9 bytes)
 Skipped unused resource res/drawable/notification_bg_low.xml: 753 bytes (replaced with small dummy file of size 9 bytes)
 Skipped unused resource res/drawable/notification_icon_background.xml: 314 bytes (replaced with small dummy file of size 9 bytes)
@@ -1375,3 +1445,4 @@ Skipped unused resource res/layout-v21/notification_action.xml: 2216 bytes (repl
 Skipped unused resource res/layout-v21/notification_action_tombstone.xml: 2677 bytes (replaced with small dummy file of size 9 bytes)
 Skipped unused resource res/layout-v21/notification_template_custom_big.xml: 6318 bytes (replaced with small dummy file of size 9 bytes)
 Skipped unused resource res/layout-v21/notification_template_icon_group.xml: 2432 bytes (replaced with small dummy file of size 9 bytes)
+Skipped unused resource res/raw/firebase_common_keep.xml: 290 bytes (replaced with small dummy file of size 9 bytes)

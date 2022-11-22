@@ -339,7 +339,8 @@ androidx.core.content.ContextCompat$Api16Impl
 androidx.core.content.ContextCompat$Api19Impl
 androidx.core.content.ContextCompat$Api21Impl
 androidx.core.content.ContextCompat$Api23Impl
-androidx.core.content.ContextCompat$Api24Impl
+androidx.core.content.ContextCompat$Api24Impl:
+    private void <init>()
 androidx.core.content.ContextCompat$Api26Impl
 androidx.core.content.ContextCompat$Api28Impl:
     private void <init>()
@@ -350,7 +351,6 @@ androidx.core.content.ContextCompat:
     private static android.util.TypedValue sTempValue
     protected void <init>()
     public static int checkSelfPermission(android.content.Context,java.lang.String)
-    public static android.content.Context createDeviceProtectedStorageContext(android.content.Context)
     private static java.io.File createFilesDir(java.io.File)
     public static java.lang.String getAttributionTag(android.content.Context)
     public static java.io.File getCodeCacheDir(android.content.Context)
@@ -611,7 +611,8 @@ androidx.core.os.ProcessCompat
 androidx.core.os.TraceCompat
 androidx.core.os.UserHandleCompat$Api24Impl
 androidx.core.os.UserHandleCompat
-androidx.core.os.UserManagerCompat
+androidx.core.os.UserManagerCompat:
+    private void <init>()
 androidx.core.provider.CallbackWithHandler$1
 androidx.core.provider.CallbackWithHandler$2
 androidx.core.provider.CallbackWithHandler
@@ -1647,10 +1648,498 @@ com.example.player_watchtower.R$id
 com.example.player_watchtower.R$integer
 com.example.player_watchtower.R$layout
 com.example.player_watchtower.R$mipmap
+com.example.player_watchtower.R$raw
 com.example.player_watchtower.R$string
 com.example.player_watchtower.R$style
 com.example.player_watchtower.R$styleable
 com.example.player_watchtower.R
+com.google.android.gms.actions.ItemListIntents
+com.google.android.gms.actions.NoteIntents
+com.google.android.gms.actions.ReserveIntents
+com.google.android.gms.actions.SearchIntents
+com.google.android.gms.common.AccountPicker$AccountChooserOptions$Builder
+com.google.android.gms.common.AccountPicker$AccountChooserOptions
+com.google.android.gms.common.AccountPicker
+com.google.android.gms.common.BlockingServiceConnection
+com.google.android.gms.common.ConnectionResult
+com.google.android.gms.common.Feature
+com.google.android.gms.common.FirstPartyScopes
+com.google.android.gms.common.GmsSignatureVerifier
+com.google.android.gms.common.GoogleApiAvailabilityLight
+com.google.android.gms.common.GooglePlayServicesIncorrectManifestValueException
+com.google.android.gms.common.GooglePlayServicesManifestException
+com.google.android.gms.common.GooglePlayServicesMissingManifestValueException
+com.google.android.gms.common.GooglePlayServicesNotAvailableException
+com.google.android.gms.common.GooglePlayServicesRepairableException
+com.google.android.gms.common.GooglePlayServicesUtilLight
+com.google.android.gms.common.GoogleSignatureVerifier
+com.google.android.gms.common.GoogleSourceStampsChecker
+com.google.android.gms.common.GoogleSourceStampsResult
+com.google.android.gms.common.PackageSignatureVerifier
+com.google.android.gms.common.PackageVerificationResult
+com.google.android.gms.common.ProGuardCanary
+com.google.android.gms.common.R$integer
+com.google.android.gms.common.R$string:
+    private void <init>()
+com.google.android.gms.common.R
+com.google.android.gms.common.Scopes
+com.google.android.gms.common.UserRecoverableException
+com.google.android.gms.common.annotation.KeepForSdk
+com.google.android.gms.common.annotation.KeepForSdkWithFieldsAndMethods
+com.google.android.gms.common.annotation.KeepForSdkWithMembers
+com.google.android.gms.common.annotation.NonNullApi
+com.google.android.gms.common.api.ApiException
+com.google.android.gms.common.api.CommonStatusCodes
+com.google.android.gms.common.api.Releasable
+com.google.android.gms.common.api.ResolvableApiException
+com.google.android.gms.common.api.ResolvingResultCallbacks
+com.google.android.gms.common.api.Response
+com.google.android.gms.common.api.Result
+com.google.android.gms.common.api.ResultCallback
+com.google.android.gms.common.api.ResultCallbacks
+com.google.android.gms.common.api.Scope
+com.google.android.gms.common.api.Status
+com.google.android.gms.common.api.UnsupportedApiCallException
+com.google.android.gms.common.api.internal.BackgroundDetector:
+    public boolean readCurrentStateIfPossible(boolean)
+com.google.android.gms.common.api.internal.GoogleServices
+com.google.android.gms.common.api.internal.LifecycleActivity:
+    private final java.lang.Object zza
+    public void <init>(android.app.Activity)
+    public void <init>(android.content.ContextWrapper)
+    public final android.app.Activity zza()
+    public final androidx.fragment.app.FragmentActivity zzb()
+    public final boolean zzc()
+    public final boolean zzd()
+com.google.android.gms.common.api.internal.LifecycleCallback:
+    protected final com.google.android.gms.common.api.internal.LifecycleFragment mLifecycleFragment
+    protected void <init>(com.google.android.gms.common.api.internal.LifecycleFragment)
+    public void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
+    public android.app.Activity getActivity()
+    public static com.google.android.gms.common.api.internal.LifecycleFragment getFragment(android.app.Activity)
+    public static com.google.android.gms.common.api.internal.LifecycleFragment getFragment(android.content.ContextWrapper)
+    protected static com.google.android.gms.common.api.internal.LifecycleFragment getFragment(com.google.android.gms.common.api.internal.LifecycleActivity)
+    public void onActivityResult(int,int,android.content.Intent)
+    public void onCreate(android.os.Bundle)
+    public void onDestroy()
+    public void onResume()
+    public void onSaveInstanceState(android.os.Bundle)
+    public void onStart()
+    public void onStop()
+com.google.android.gms.common.api.internal.LifecycleFragment:
+    public abstract void addCallback(java.lang.String,com.google.android.gms.common.api.internal.LifecycleCallback)
+    public abstract com.google.android.gms.common.api.internal.LifecycleCallback getCallbackOrNull(java.lang.String,java.lang.Class)
+    public abstract android.app.Activity getLifecycleActivity()
+    public abstract boolean isCreated()
+    public abstract boolean isStarted()
+    public abstract void startActivityForResult(android.content.Intent,int)
+com.google.android.gms.common.api.internal.StatusExceptionMapper
+com.google.android.gms.common.api.internal.zza
+com.google.android.gms.common.api.internal.zzb
+com.google.android.gms.common.api.internal.zzc
+com.google.android.gms.common.api.internal.zzd
+com.google.android.gms.common.api.zza
+com.google.android.gms.common.api.zzb
+com.google.android.gms.common.config.GservicesValue
+com.google.android.gms.common.config.zza
+com.google.android.gms.common.config.zzb
+com.google.android.gms.common.config.zzc
+com.google.android.gms.common.config.zzd
+com.google.android.gms.common.config.zze
+com.google.android.gms.common.internal.AccountAccessor
+com.google.android.gms.common.internal.AccountType
+com.google.android.gms.common.internal.Asserts
+com.google.android.gms.common.internal.BaseGmsClient$BaseConnectionCallbacks
+com.google.android.gms.common.internal.BaseGmsClient$BaseOnConnectionFailedListener
+com.google.android.gms.common.internal.BaseGmsClient$ConnectionProgressReportCallbacks
+com.google.android.gms.common.internal.BaseGmsClient$LegacyClientCallbackAdapter
+com.google.android.gms.common.internal.BaseGmsClient$SignOutCallbacks
+com.google.android.gms.common.internal.BaseGmsClient
+com.google.android.gms.common.internal.BinderWrapper
+com.google.android.gms.common.internal.ConnectionTelemetryConfiguration
+com.google.android.gms.common.internal.Constants
+com.google.android.gms.common.internal.DowngradeableSafeParcel
+com.google.android.gms.common.internal.GetServiceRequest
+com.google.android.gms.common.internal.GmsClientSupervisor
+com.google.android.gms.common.internal.GmsLogger
+com.google.android.gms.common.internal.HideFirstParty
+com.google.android.gms.common.internal.IAccountAccessor$Stub
+com.google.android.gms.common.internal.IAccountAccessor
+com.google.android.gms.common.internal.ICancelToken$Stub
+com.google.android.gms.common.internal.ICancelToken
+com.google.android.gms.common.internal.IGmsCallbacks
+com.google.android.gms.common.internal.IGmsServiceBroker$Stub
+com.google.android.gms.common.internal.IGmsServiceBroker
+com.google.android.gms.common.internal.ImagesContract
+com.google.android.gms.common.internal.LibraryVersion
+com.google.android.gms.common.internal.Objects:
+    private void <init>()
+    public static boolean checkBundlesEquality(android.os.Bundle,android.os.Bundle)
+com.google.android.gms.common.internal.Preconditions:
+    private void <init>()
+    public static void checkArgument(boolean)
+    public static void checkArgument(boolean,java.lang.Object)
+    public static varargs void checkArgument(boolean,java.lang.String,java.lang.Object[])
+    public static void checkHandlerThread(android.os.Handler)
+    public static void checkHandlerThread(android.os.Handler,java.lang.String)
+    public static void checkMainThread()
+    public static void checkMainThread(java.lang.String)
+    public static int checkNotZero(int)
+    public static int checkNotZero(int,java.lang.Object)
+    public static long checkNotZero(long)
+    public static long checkNotZero(long,java.lang.Object)
+    public static void checkState(boolean)
+    public static varargs void checkState(boolean,java.lang.String,java.lang.Object[])
+com.google.android.gms.common.internal.ResourceUtils
+com.google.android.gms.common.internal.RootTelemetryConfigManager
+com.google.android.gms.common.internal.RootTelemetryConfiguration
+com.google.android.gms.common.internal.ServiceSpecificExtraArgs$CastExtraArgs
+com.google.android.gms.common.internal.ServiceSpecificExtraArgs$GamesExtraArgs
+com.google.android.gms.common.internal.ServiceSpecificExtraArgs$PlusExtraArgs
+com.google.android.gms.common.internal.ServiceSpecificExtraArgs
+com.google.android.gms.common.internal.ShowFirstParty
+com.google.android.gms.common.internal.ViewUtils
+com.google.android.gms.common.internal.constants.ListAppsActivityContract
+com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable
+com.google.android.gms.common.internal.safeparcel.SafeParcelReader$ParseException
+com.google.android.gms.common.internal.safeparcel.SafeParcelReader
+com.google.android.gms.common.internal.safeparcel.SafeParcelWriter
+com.google.android.gms.common.internal.safeparcel.SafeParcelable$Class
+com.google.android.gms.common.internal.safeparcel.SafeParcelable$Constructor
+com.google.android.gms.common.internal.safeparcel.SafeParcelable$Field
+com.google.android.gms.common.internal.safeparcel.SafeParcelable$Indicator
+com.google.android.gms.common.internal.safeparcel.SafeParcelable$Param
+com.google.android.gms.common.internal.safeparcel.SafeParcelable$RemovedParam
+com.google.android.gms.common.internal.safeparcel.SafeParcelable$Reserved
+com.google.android.gms.common.internal.safeparcel.SafeParcelable$VersionField
+com.google.android.gms.common.internal.safeparcel.SafeParcelable
+com.google.android.gms.common.internal.safeparcel.SafeParcelableSerializer
+com.google.android.gms.common.internal.zza
+com.google.android.gms.common.internal.zzaa
+com.google.android.gms.common.internal.zzab
+com.google.android.gms.common.internal.zzac
+com.google.android.gms.common.internal.zzad
+com.google.android.gms.common.internal.zzae
+com.google.android.gms.common.internal.zzaf
+com.google.android.gms.common.internal.zzag
+com.google.android.gms.common.internal.zzai
+com.google.android.gms.common.internal.zzaj
+com.google.android.gms.common.internal.zzak
+com.google.android.gms.common.internal.zzb
+com.google.android.gms.common.internal.zzc
+com.google.android.gms.common.internal.zzd
+com.google.android.gms.common.internal.zze
+com.google.android.gms.common.internal.zzf
+com.google.android.gms.common.internal.zzg
+com.google.android.gms.common.internal.zzh
+com.google.android.gms.common.internal.zzi
+com.google.android.gms.common.internal.zzj
+com.google.android.gms.common.internal.zzk
+com.google.android.gms.common.internal.zzl
+com.google.android.gms.common.internal.zzm
+com.google.android.gms.common.internal.zzn
+com.google.android.gms.common.internal.zzo
+com.google.android.gms.common.internal.zzp
+com.google.android.gms.common.internal.zzq
+com.google.android.gms.common.internal.zzr
+com.google.android.gms.common.internal.zzs
+com.google.android.gms.common.internal.zzt
+com.google.android.gms.common.internal.zzu
+com.google.android.gms.common.internal.zzv
+com.google.android.gms.common.internal.zzw
+com.google.android.gms.common.internal.zzx
+com.google.android.gms.common.internal.zzy
+com.google.android.gms.common.internal.zzz
+com.google.android.gms.common.logging.Logger
+com.google.android.gms.common.providers.PooledExecutorsProvider$PooledExecutorFactory
+com.google.android.gms.common.providers.PooledExecutorsProvider
+com.google.android.gms.common.providers.zza
+com.google.android.gms.common.sqlite.CursorWrapper
+com.google.android.gms.common.stats.ConnectionTracker
+com.google.android.gms.common.stats.LoggingConstants
+com.google.android.gms.common.stats.StatsEvent$Types
+com.google.android.gms.common.stats.StatsEvent
+com.google.android.gms.common.stats.StatsUtils
+com.google.android.gms.common.stats.WakeLockEvent
+com.google.android.gms.common.stats.WakeLockTracker
+com.google.android.gms.common.stats.zza
+com.google.android.gms.common.util.AndroidUtilsLight
+com.google.android.gms.common.util.ArrayUtils
+com.google.android.gms.common.util.Base64Utils:
+    public void <init>()
+    public static byte[] decode(java.lang.String)
+    public static byte[] decodeUrlSafe(java.lang.String)
+    public static byte[] decodeUrlSafeNoPadding(java.lang.String)
+    public static java.lang.String encode(byte[])
+    public static java.lang.String encodeUrlSafe(byte[])
+com.google.android.gms.common.util.BiConsumer
+com.google.android.gms.common.util.ClientLibraryUtils
+com.google.android.gms.common.util.Clock$-CC
+com.google.android.gms.common.util.Clock
+com.google.android.gms.common.util.CollectionUtils
+com.google.android.gms.common.util.CrashUtils
+com.google.android.gms.common.util.DataUtils
+com.google.android.gms.common.util.DefaultClock
+com.google.android.gms.common.util.DeviceProperties
+com.google.android.gms.common.util.GmsVersion
+com.google.android.gms.common.util.Hex
+com.google.android.gms.common.util.HexDumpUtils
+com.google.android.gms.common.util.HttpUtils
+com.google.android.gms.common.util.IOUtils:
+    private void <init>()
+    public static void closeQuietly(android.os.ParcelFileDescriptor)
+    public static long copyStream(java.io.InputStream,java.io.OutputStream)
+    public static long copyStream(java.io.InputStream,java.io.OutputStream,boolean,int)
+    public static boolean isGzipByteBuffer(byte[])
+    public static byte[] readInputStreamFully(java.io.InputStream)
+    public static byte[] readInputStreamFully(java.io.InputStream,boolean)
+    public static byte[] toByteArray(java.io.InputStream)
+com.google.android.gms.common.util.JsonUtils
+com.google.android.gms.common.util.MapUtils
+com.google.android.gms.common.util.MurmurHash3
+com.google.android.gms.common.util.NumberUtils
+com.google.android.gms.common.util.PlatformVersion:
+    private void <init>()
+    public static boolean isAtLeastHoneycomb()
+    public static boolean isAtLeastHoneycombMR1()
+    public static boolean isAtLeastIceCreamSandwichMR1()
+    public static boolean isAtLeastJellyBean()
+    public static boolean isAtLeastJellyBeanMR1()
+    public static boolean isAtLeastJellyBeanMR2()
+    public static boolean isAtLeastKitKat()
+    public static boolean isAtLeastKitKatWatch()
+    public static boolean isAtLeastLollipop()
+    public static boolean isAtLeastLollipopMR1()
+    public static boolean isAtLeastM()
+    public static boolean isAtLeastN()
+    public static boolean isAtLeastO()
+    public static boolean isAtLeastP()
+    public static boolean isAtLeastQ()
+    public static boolean isAtLeastR()
+    public static boolean isAtLeastS()
+    public static boolean isAtLeastSv2()
+    public static boolean isAtLeastT()
+    public static boolean isAtLeastU()
+com.google.android.gms.common.util.Predicate
+com.google.android.gms.common.util.ProcessUtils:
+    private void <init>()
+com.google.android.gms.common.util.RetainForClient
+com.google.android.gms.common.util.ScopeUtil
+com.google.android.gms.common.util.SharedPreferencesUtils
+com.google.android.gms.common.util.Strings:
+    private void <init>()
+    public static java.lang.String emptyToNull(java.lang.String)
+com.google.android.gms.common.util.UidVerifier
+com.google.android.gms.common.util.VisibleForTesting
+com.google.android.gms.common.util.WorkSourceUtil
+com.google.android.gms.common.util.concurrent.HandlerExecutor
+com.google.android.gms.common.util.concurrent.NamedThreadFactory
+com.google.android.gms.common.util.concurrent.NumberedThreadFactory
+com.google.android.gms.common.util.concurrent.zza
+com.google.android.gms.common.util.zza
+com.google.android.gms.common.util.zzc
+com.google.android.gms.common.wrappers.InstantApps
+com.google.android.gms.common.wrappers.PackageManagerWrapper
+com.google.android.gms.common.wrappers.Wrappers
+com.google.android.gms.common.zza
+com.google.android.gms.common.zzaa
+com.google.android.gms.common.zzab
+com.google.android.gms.common.zzac
+com.google.android.gms.common.zzad
+com.google.android.gms.common.zzae
+com.google.android.gms.common.zzb
+com.google.android.gms.common.zzc
+com.google.android.gms.common.zzd
+com.google.android.gms.common.zze
+com.google.android.gms.common.zzf
+com.google.android.gms.common.zzg
+com.google.android.gms.common.zzh
+com.google.android.gms.common.zzi
+com.google.android.gms.common.zzj
+com.google.android.gms.common.zzk
+com.google.android.gms.common.zzl
+com.google.android.gms.common.zzm
+com.google.android.gms.common.zzn
+com.google.android.gms.common.zzo
+com.google.android.gms.common.zzp
+com.google.android.gms.common.zzq
+com.google.android.gms.common.zzr
+com.google.android.gms.common.zzs
+com.google.android.gms.common.zzt
+com.google.android.gms.common.zzu
+com.google.android.gms.common.zzv
+com.google.android.gms.common.zzw
+com.google.android.gms.common.zzx
+com.google.android.gms.common.zzy
+com.google.android.gms.common.zzz
+com.google.android.gms.dynamic.FragmentWrapper
+com.google.android.gms.dynamic.IFragmentWrapper$Stub
+com.google.android.gms.dynamic.IFragmentWrapper
+com.google.android.gms.dynamic.IObjectWrapper$Stub
+com.google.android.gms.dynamic.IObjectWrapper
+com.google.android.gms.dynamic.LifecycleDelegate
+com.google.android.gms.dynamic.ObjectWrapper
+com.google.android.gms.dynamic.OnDelegateCreatedListener
+com.google.android.gms.dynamic.RemoteCreator$RemoteCreatorException
+com.google.android.gms.dynamic.RemoteCreator
+com.google.android.gms.dynamic.SupportFragmentWrapper
+com.google.android.gms.dynamic.zza
+com.google.android.gms.dynamic.zzb
+com.google.android.gms.dynamite.DynamiteModule$LoadingException
+com.google.android.gms.dynamite.DynamiteModule$VersionPolicy$IVersions
+com.google.android.gms.dynamite.DynamiteModule$VersionPolicy$SelectionResult
+com.google.android.gms.dynamite.DynamiteModule$VersionPolicy
+com.google.android.gms.dynamite.DynamiteModule
+com.google.android.gms.dynamite.zza
+com.google.android.gms.dynamite.zzb
+com.google.android.gms.dynamite.zzc
+com.google.android.gms.dynamite.zzd
+com.google.android.gms.dynamite.zze
+com.google.android.gms.dynamite.zzf
+com.google.android.gms.dynamite.zzg
+com.google.android.gms.dynamite.zzh
+com.google.android.gms.dynamite.zzi
+com.google.android.gms.dynamite.zzj
+com.google.android.gms.dynamite.zzk
+com.google.android.gms.dynamite.zzl
+com.google.android.gms.dynamite.zzm
+com.google.android.gms.dynamite.zzn
+com.google.android.gms.dynamite.zzo
+com.google.android.gms.dynamite.zzp
+com.google.android.gms.dynamite.zzq
+com.google.android.gms.dynamite.zzr
+com.google.android.gms.internal.common.zza
+com.google.android.gms.internal.common.zzaa
+com.google.android.gms.internal.common.zzab
+com.google.android.gms.internal.common.zzac
+com.google.android.gms.internal.common.zzad
+com.google.android.gms.internal.common.zzae
+com.google.android.gms.internal.common.zzaf
+com.google.android.gms.internal.common.zzag
+com.google.android.gms.internal.common.zzah
+com.google.android.gms.internal.common.zzai
+com.google.android.gms.internal.common.zzaj
+com.google.android.gms.internal.common.zzak
+com.google.android.gms.internal.common.zzb
+com.google.android.gms.internal.common.zzc
+com.google.android.gms.internal.common.zzd
+com.google.android.gms.internal.common.zze
+com.google.android.gms.internal.common.zzf
+com.google.android.gms.internal.common.zzg
+com.google.android.gms.internal.common.zzh
+com.google.android.gms.internal.common.zzi
+com.google.android.gms.internal.common.zzj
+com.google.android.gms.internal.common.zzk
+com.google.android.gms.internal.common.zzl
+com.google.android.gms.internal.common.zzm
+com.google.android.gms.internal.common.zzn
+com.google.android.gms.internal.common.zzo
+com.google.android.gms.internal.common.zzp
+com.google.android.gms.internal.common.zzq
+com.google.android.gms.internal.common.zzr
+com.google.android.gms.internal.common.zzs
+com.google.android.gms.internal.common.zzt
+com.google.android.gms.internal.common.zzu
+com.google.android.gms.internal.common.zzv
+com.google.android.gms.internal.common.zzw
+com.google.android.gms.internal.common.zzx
+com.google.android.gms.internal.common.zzy
+com.google.android.gms.internal.common.zzz
+com.google.android.gms.internal.tasks.zza:
+    public void <init>()
+com.google.android.gms.security.ProviderInstaller$ProviderInstallListener
+com.google.android.gms.security.ProviderInstaller
+com.google.android.gms.security.zza
+com.google.android.gms.tasks.CancellationToken
+com.google.android.gms.tasks.CancellationTokenSource
+com.google.android.gms.tasks.Continuation
+com.google.android.gms.tasks.NativeOnCompleteListener
+com.google.android.gms.tasks.OnTokenCanceledListener
+com.google.android.gms.tasks.R
+com.google.android.gms.tasks.SuccessContinuation
+com.google.android.gms.tasks.Task:
+    public com.google.android.gms.tasks.Task addOnCanceledListener(android.app.Activity,com.google.android.gms.tasks.OnCanceledListener)
+    public com.google.android.gms.tasks.Task addOnCanceledListener(com.google.android.gms.tasks.OnCanceledListener)
+    public com.google.android.gms.tasks.Task addOnCompleteListener(android.app.Activity,com.google.android.gms.tasks.OnCompleteListener)
+    public com.google.android.gms.tasks.Task addOnCompleteListener(java.util.concurrent.Executor,com.google.android.gms.tasks.OnCompleteListener)
+    public abstract com.google.android.gms.tasks.Task addOnFailureListener(android.app.Activity,com.google.android.gms.tasks.OnFailureListener)
+    public abstract com.google.android.gms.tasks.Task addOnFailureListener(com.google.android.gms.tasks.OnFailureListener)
+    public abstract com.google.android.gms.tasks.Task addOnSuccessListener(android.app.Activity,com.google.android.gms.tasks.OnSuccessListener)
+    public abstract com.google.android.gms.tasks.Task addOnSuccessListener(com.google.android.gms.tasks.OnSuccessListener)
+    public com.google.android.gms.tasks.Task continueWith(com.google.android.gms.tasks.Continuation)
+    public com.google.android.gms.tasks.Task continueWith(java.util.concurrent.Executor,com.google.android.gms.tasks.Continuation)
+    public com.google.android.gms.tasks.Task continueWithTask(com.google.android.gms.tasks.Continuation)
+    public com.google.android.gms.tasks.Task continueWithTask(java.util.concurrent.Executor,com.google.android.gms.tasks.Continuation)
+    public abstract java.lang.Object getResult(java.lang.Class)
+    public com.google.android.gms.tasks.Task onSuccessTask(com.google.android.gms.tasks.SuccessContinuation)
+    public com.google.android.gms.tasks.Task onSuccessTask(java.util.concurrent.Executor,com.google.android.gms.tasks.SuccessContinuation)
+com.google.android.gms.tasks.TaskCompletionSource:
+    public void <init>(com.google.android.gms.tasks.CancellationToken)
+    public boolean trySetException(java.lang.Exception)
+    public boolean trySetResult(java.lang.Object)
+    static synthetic bridge com.google.android.gms.tasks.zzw zza(com.google.android.gms.tasks.TaskCompletionSource)
+com.google.android.gms.tasks.TaskExecutors:
+    private void <init>()
+com.google.android.gms.tasks.Tasks:
+    private void <init>()
+    public static java.lang.Object await(com.google.android.gms.tasks.Task,long,java.util.concurrent.TimeUnit)
+    public static com.google.android.gms.tasks.Task call(java.util.concurrent.Callable)
+    public static com.google.android.gms.tasks.Task forCanceled()
+    public static com.google.android.gms.tasks.Task forException(java.lang.Exception)
+    public static com.google.android.gms.tasks.Task whenAll(java.util.Collection)
+    public static varargs com.google.android.gms.tasks.Task whenAll(com.google.android.gms.tasks.Task[])
+    public static com.google.android.gms.tasks.Task whenAllComplete(java.util.Collection)
+    public static varargs com.google.android.gms.tasks.Task whenAllComplete(com.google.android.gms.tasks.Task[])
+    public static com.google.android.gms.tasks.Task whenAllSuccess(java.util.Collection)
+    public static varargs com.google.android.gms.tasks.Task whenAllSuccess(com.google.android.gms.tasks.Task[])
+    public static com.google.android.gms.tasks.Task withTimeout(com.google.android.gms.tasks.Task,long,java.util.concurrent.TimeUnit)
+com.google.android.gms.tasks.zza
+com.google.android.gms.tasks.zzaa
+com.google.android.gms.tasks.zzab
+com.google.android.gms.tasks.zzad:
+    private void <init>()
+    public final boolean zzb(long,java.util.concurrent.TimeUnit)
+com.google.android.gms.tasks.zzaf
+com.google.android.gms.tasks.zzb
+com.google.android.gms.tasks.zzc
+com.google.android.gms.tasks.zzd
+com.google.android.gms.tasks.zze
+com.google.android.gms.tasks.zzf
+com.google.android.gms.tasks.zzh:
+    public final void zzc()
+com.google.android.gms.tasks.zzj:
+    public final void zzc()
+com.google.android.gms.tasks.zzl:
+    public final void zzc()
+com.google.android.gms.tasks.zzn:
+    public final void zzc()
+com.google.android.gms.tasks.zzo
+com.google.android.gms.tasks.zzp
+com.google.android.gms.tasks.zzq:
+    public abstract void zzc()
+com.google.android.gms.tasks.zzs
+com.google.android.gms.tasks.zzv
+com.google.android.gms.tasks.zzw:
+    public final com.google.android.gms.tasks.Task addOnCanceledListener(android.app.Activity,com.google.android.gms.tasks.OnCanceledListener)
+    public final com.google.android.gms.tasks.Task addOnCanceledListener(com.google.android.gms.tasks.OnCanceledListener)
+    public final com.google.android.gms.tasks.Task addOnCompleteListener(android.app.Activity,com.google.android.gms.tasks.OnCompleteListener)
+    public final com.google.android.gms.tasks.Task addOnCompleteListener(java.util.concurrent.Executor,com.google.android.gms.tasks.OnCompleteListener)
+    public final com.google.android.gms.tasks.Task addOnFailureListener(android.app.Activity,com.google.android.gms.tasks.OnFailureListener)
+    public final com.google.android.gms.tasks.Task addOnFailureListener(com.google.android.gms.tasks.OnFailureListener)
+    public final com.google.android.gms.tasks.Task addOnSuccessListener(android.app.Activity,com.google.android.gms.tasks.OnSuccessListener)
+    public final com.google.android.gms.tasks.Task addOnSuccessListener(com.google.android.gms.tasks.OnSuccessListener)
+    public final com.google.android.gms.tasks.Task continueWith(com.google.android.gms.tasks.Continuation)
+    public final com.google.android.gms.tasks.Task continueWith(java.util.concurrent.Executor,com.google.android.gms.tasks.Continuation)
+    public final com.google.android.gms.tasks.Task continueWithTask(com.google.android.gms.tasks.Continuation)
+    public final com.google.android.gms.tasks.Task continueWithTask(java.util.concurrent.Executor,com.google.android.gms.tasks.Continuation)
+    public final java.lang.Object getResult(java.lang.Class)
+    public final com.google.android.gms.tasks.Task onSuccessTask(com.google.android.gms.tasks.SuccessContinuation)
+    public final com.google.android.gms.tasks.Task onSuccessTask(java.util.concurrent.Executor,com.google.android.gms.tasks.SuccessContinuation)
+    public final boolean zzc()
+    public final boolean zzd(java.lang.Exception)
+    public final boolean zze(java.lang.Object)
+com.google.android.gms.tasks.zzx
+com.google.android.gms.tasks.zzy
 com.google.common.annotations.Beta
 com.google.common.annotations.GwtCompatible
 com.google.common.annotations.GwtIncompatible
@@ -3533,11 +4022,15 @@ com.google.errorprone.annotations.CheckReturnValue
 com.google.errorprone.annotations.CompatibleWith
 com.google.errorprone.annotations.CompileTimeConstant
 com.google.errorprone.annotations.DoNotCall
+com.google.errorprone.annotations.DoNotMock
 com.google.errorprone.annotations.ForOverride
 com.google.errorprone.annotations.FormatMethod
 com.google.errorprone.annotations.FormatString
 com.google.errorprone.annotations.Immutable
 com.google.errorprone.annotations.IncompatibleModifiers
+com.google.errorprone.annotations.InlineMe
+com.google.errorprone.annotations.InlineMeValidationDisabled
+com.google.errorprone.annotations.Modifier
 com.google.errorprone.annotations.MustBeClosed
 com.google.errorprone.annotations.NoAllocation
 com.google.errorprone.annotations.OverridingMethodsMustInvokeSuper
@@ -3549,6 +4042,180 @@ com.google.errorprone.annotations.concurrent.GuardedBy
 com.google.errorprone.annotations.concurrent.LazyInit
 com.google.errorprone.annotations.concurrent.LockMethod
 com.google.errorprone.annotations.concurrent.UnlockMethod
+com.google.firebase.BuildConfig
+com.google.firebase.FirebaseApiNotAvailableException
+com.google.firebase.FirebaseApp:
+    public static final java.lang.String DEFAULT_APP_NAME
+    private static final java.lang.String FIREBASE_ANDROID
+    private static final java.lang.String FIREBASE_COMMON
+    private static final java.lang.String KOTLIN
+    private static final java.lang.String LOG_TAG
+    public void addLifecycleEventListener(com.google.firebase.FirebaseAppLifecycleListener)
+    public static void clearInstancesForTest()
+    public java.lang.Object get(java.lang.Class)
+    public android.content.Context getApplicationContext()
+    public static java.lang.String getPersistenceKey(java.lang.String,com.google.firebase.FirebaseOptions)
+    void initializeAllComponents()
+    public void removeBackgroundStateChangeListener(com.google.firebase.FirebaseApp$BackgroundStateChangeListener)
+    public void removeLifecycleEventListener(com.google.firebase.FirebaseAppLifecycleListener)
+    public void setDataCollectionDefaultEnabled(boolean)
+com.google.firebase.FirebaseCommonRegistrar:
+    private static final java.lang.String ANDROID_INSTALLER
+    private static final java.lang.String ANDROID_PLATFORM
+    private static final java.lang.String DEVICE_BRAND
+    private static final java.lang.String DEVICE_MODEL
+    private static final java.lang.String DEVICE_NAME
+    private static final java.lang.String FIREBASE_ANDROID
+    private static final java.lang.String FIREBASE_COMMON
+    private static final java.lang.String KOTLIN
+    private static final java.lang.String MIN_SDK
+    private static final java.lang.String TARGET_SDK
+com.google.firebase.FirebaseError
+com.google.firebase.FirebaseException
+com.google.firebase.FirebaseExceptionMapper
+com.google.firebase.FirebaseNetworkException
+com.google.firebase.FirebaseOptions$Builder:
+    public void <init>(com.google.firebase.FirebaseOptions)
+com.google.firebase.FirebaseOptions:
+    private static final java.lang.String API_KEY_RESOURCE_NAME
+    private static final java.lang.String APP_ID_RESOURCE_NAME
+    private static final java.lang.String DATABASE_URL_RESOURCE_NAME
+    private static final java.lang.String GA_TRACKING_ID_RESOURCE_NAME
+    private static final java.lang.String GCM_SENDER_ID_RESOURCE_NAME
+    private static final java.lang.String PROJECT_ID_RESOURCE_NAME
+    private static final java.lang.String STORAGE_BUCKET_RESOURCE_NAME
+    static synthetic java.lang.String access$000(com.google.firebase.FirebaseOptions)
+    static synthetic java.lang.String access$100(com.google.firebase.FirebaseOptions)
+    static synthetic java.lang.String access$200(com.google.firebase.FirebaseOptions)
+    static synthetic java.lang.String access$300(com.google.firebase.FirebaseOptions)
+    static synthetic java.lang.String access$400(com.google.firebase.FirebaseOptions)
+    static synthetic java.lang.String access$500(com.google.firebase.FirebaseOptions)
+    static synthetic java.lang.String access$600(com.google.firebase.FirebaseOptions)
+com.google.firebase.FirebaseTooManyRequestsException
+com.google.firebase.R$attr
+com.google.firebase.R$color
+com.google.firebase.R$dimen
+com.google.firebase.R$drawable
+com.google.firebase.R$id
+com.google.firebase.R$integer
+com.google.firebase.R$layout
+com.google.firebase.R$raw
+com.google.firebase.R$string
+com.google.firebase.R$style
+com.google.firebase.R$styleable
+com.google.firebase.R
+com.google.firebase.annotations.DeferredApi
+com.google.firebase.annotations.PreviewApi
+com.google.firebase.annotations.PublicApi
+com.google.firebase.components.BuildConfig
+com.google.firebase.components.Component$Builder:
+    public com.google.firebase.components.Component$Builder alwaysEager()
+    public com.google.firebase.components.Component$Builder eagerInDefaultApp()
+    public com.google.firebase.components.Component$Builder name(java.lang.String)
+    public com.google.firebase.components.Component$Builder publishes(java.lang.Class)
+    private com.google.firebase.components.Component$Builder setInstantiation(int)
+com.google.firebase.components.Component:
+    public boolean isLazy()
+    private static synthetic java.lang.Object lambda$of$0(java.lang.Object,com.google.firebase.components.ComponentContainer)
+    public static com.google.firebase.components.Component of(java.lang.Class,java.lang.Object)
+com.google.firebase.components.ComponentContainer:
+    public abstract com.google.firebase.inject.Deferred getDeferred(java.lang.Class)
+com.google.firebase.components.ComponentDiscovery:
+    private static final java.lang.String COMPONENT_KEY_PREFIX
+    private static final java.lang.String COMPONENT_SENTINEL_VALUE
+    static final java.lang.String TAG
+    public java.util.List discover()
+com.google.firebase.components.ComponentRuntime:
+    public varargs void <init>(java.util.concurrent.Executor,java.lang.Iterable,com.google.firebase.components.Component[])
+    public void discoverComponents()
+    java.util.Collection getAllComponentsForTest()
+    public com.google.firebase.inject.Deferred getDeferred(java.lang.Class)
+    public void initializeAllComponentsForTests()
+    private static synthetic com.google.firebase.components.ComponentRegistrar lambda$toProviders$1(com.google.firebase.components.ComponentRegistrar)
+    private static java.lang.Iterable toProviders(java.lang.Iterable)
+com.google.firebase.components.CycleDetector:
+    void <init>()
+com.google.firebase.components.Dependency:
+    public static com.google.firebase.components.Dependency deferred(java.lang.Class)
+    public static com.google.firebase.components.Dependency optional(java.lang.Class)
+    public static com.google.firebase.components.Dependency optionalProvider(java.lang.Class)
+    public static com.google.firebase.components.Dependency setOfProvider(java.lang.Class)
+com.google.firebase.components.DependencyCycleException:
+    public java.util.List getComponentsInCycle()
+com.google.firebase.components.EventBus:
+    public void subscribe(java.lang.Class,com.google.firebase.events.EventHandler)
+    public synchronized void subscribe(java.lang.Class,java.util.concurrent.Executor,com.google.firebase.events.EventHandler)
+    public synchronized void unsubscribe(java.lang.Class,com.google.firebase.events.EventHandler)
+com.google.firebase.components.Lazy:
+    void <init>(java.lang.Object)
+    boolean isInitialized()
+com.google.firebase.components.OptionalProvider:
+    private static synthetic void lambda$whenAvailable$2(com.google.firebase.inject.Deferred$DeferredHandler,com.google.firebase.inject.Deferred$DeferredHandler,com.google.firebase.inject.Provider)
+    static com.google.firebase.components.OptionalProvider of(com.google.firebase.inject.Provider)
+    public void whenAvailable(com.google.firebase.inject.Deferred$DeferredHandler)
+com.google.firebase.components.Preconditions:
+    public void <init>()
+com.google.firebase.components.R
+com.google.firebase.components.RestrictedComponentContainer:
+    public com.google.firebase.inject.Deferred getDeferred(java.lang.Class)
+com.google.firebase.dynamicloading.ComponentLoader:
+    public abstract void discoverComponents()
+com.google.firebase.emulators.EmulatedServiceSettings
+com.google.firebase.events.Event:
+    public java.lang.Object getPayload()
+com.google.firebase.events.Subscriber:
+    public abstract void subscribe(java.lang.Class,com.google.firebase.events.EventHandler)
+    public abstract void subscribe(java.lang.Class,java.util.concurrent.Executor,com.google.firebase.events.EventHandler)
+    public abstract void unsubscribe(java.lang.Class,com.google.firebase.events.EventHandler)
+com.google.firebase.heartbeatinfo.AutoValue_HeartBeatResult
+com.google.firebase.heartbeatinfo.AutoValue_SdkHeartBeatResult
+com.google.firebase.heartbeatinfo.DefaultHeartBeatController:
+    public synchronized com.google.firebase.heartbeatinfo.HeartBeatInfo$HeartBeat getHeartBeatCode(java.lang.String)
+    public com.google.android.gms.tasks.Task getHeartBeatsHeader()
+    private synthetic java.lang.String lambda$getHeartBeatsHeader$2()
+com.google.firebase.heartbeatinfo.HeartBeatConsumerComponent$1
+com.google.firebase.heartbeatinfo.HeartBeatConsumerComponent
+com.google.firebase.heartbeatinfo.HeartBeatController:
+    public abstract com.google.android.gms.tasks.Task getHeartBeatsHeader()
+com.google.firebase.heartbeatinfo.HeartBeatInfo$HeartBeat
+com.google.firebase.heartbeatinfo.HeartBeatInfo:
+    public abstract com.google.firebase.heartbeatinfo.HeartBeatInfo$HeartBeat getHeartBeatCode(java.lang.String)
+com.google.firebase.heartbeatinfo.HeartBeatInfoStorage:
+    private static final java.lang.String GLOBAL
+    private static final java.lang.String HEARTBEAT_PREFERENCES_NAME
+    private static final int HEART_BEAT_COUNT_LIMIT
+    private static final java.lang.String HEART_BEAT_COUNT_TAG
+    private static final java.lang.String LAST_STORED_DATE
+    private static final java.lang.String PREFERENCES_NAME
+    void <init>(android.content.SharedPreferences)
+    synchronized void deleteAllHeartBeats()
+    synchronized java.util.List getAllHeartBeats()
+    int getHeartBeatCount()
+    synchronized long getLastGlobalHeartBeat()
+    private synchronized java.lang.String getStoredUserAgentString(java.lang.String)
+    synchronized boolean isSameDateUtc(long,long)
+    synchronized void postHeartBeatCleanUp()
+    private synchronized void removeStoredDate(java.lang.String)
+    synchronized boolean shouldSendGlobalHeartBeat(long)
+    synchronized boolean shouldSendSdkHeartBeat(java.lang.String,long)
+    synchronized void updateGlobalHeartBeat(long)
+com.google.firebase.heartbeatinfo.HeartBeatResult
+com.google.firebase.heartbeatinfo.SdkHeartBeatResult
+com.google.firebase.inject.Deferred
+com.google.firebase.internal.DataCollectionConfigStorage:
+    public static final java.lang.String DATA_COLLECTION_DEFAULT_ENABLED
+    private static final java.lang.String FIREBASE_APP_PREFS
+com.google.firebase.platforminfo.GlobalLibraryVersionRegistrar:
+    public void registerVersion(java.lang.String,java.lang.String)
+com.google.firebase.platforminfo.KotlinDetector:
+    private void <init>()
+com.google.firebase.platforminfo.LibraryVersionComponent:
+    private void <init>()
+com.google.firebase.provider.FirebaseInitProvider:
+    static final java.lang.String EMPTY_APPLICATION_ID_PROVIDER_AUTHORITY
+    private static final java.lang.String TAG
+com.google.firebase.tracing.FirebaseTrace:
+    private void <init>()
 com.google.j2objc.annotations.AutoreleasePool
 com.google.j2objc.annotations.J2ObjCIncompatible
 com.google.j2objc.annotations.LoopTranslation$LoopStyle
@@ -4099,6 +4766,42 @@ io.flutter.plugin.platform.SingleViewPresentation$WindowManagerHandler:
 io.flutter.plugin.platform.VirtualDisplayController:
     public void dispose()
     void onFlutterViewDetached()
+io.flutter.plugins.firebase.core.BuildConfig
+io.flutter.plugins.firebase.core.GeneratedAndroidFirebaseCore$PigeonFirebaseOptions$Builder:
+    public io.flutter.plugins.firebase.core.GeneratedAndroidFirebaseCore$PigeonFirebaseOptions$Builder setAndroidClientId(java.lang.String)
+    public io.flutter.plugins.firebase.core.GeneratedAndroidFirebaseCore$PigeonFirebaseOptions$Builder setAppGroupId(java.lang.String)
+    public io.flutter.plugins.firebase.core.GeneratedAndroidFirebaseCore$PigeonFirebaseOptions$Builder setAuthDomain(java.lang.String)
+    public io.flutter.plugins.firebase.core.GeneratedAndroidFirebaseCore$PigeonFirebaseOptions$Builder setDeepLinkURLScheme(java.lang.String)
+    public io.flutter.plugins.firebase.core.GeneratedAndroidFirebaseCore$PigeonFirebaseOptions$Builder setIosBundleId(java.lang.String)
+    public io.flutter.plugins.firebase.core.GeneratedAndroidFirebaseCore$PigeonFirebaseOptions$Builder setIosClientId(java.lang.String)
+    public io.flutter.plugins.firebase.core.GeneratedAndroidFirebaseCore$PigeonFirebaseOptions$Builder setMeasurementId(java.lang.String)
+io.flutter.plugins.firebase.core.GeneratedAndroidFirebaseCore$PigeonFirebaseOptions:
+    public java.lang.String getAndroidClientId()
+    public java.lang.String getAppGroupId()
+    public java.lang.String getAuthDomain()
+    public java.lang.String getDeepLinkURLScheme()
+    public java.lang.String getIosBundleId()
+    public java.lang.String getIosClientId()
+    public java.lang.String getMeasurementId()
+io.flutter.plugins.firebase.core.GeneratedAndroidFirebaseCore$PigeonInitializeResponse:
+    public java.lang.Boolean getIsAutomaticDataCollectionEnabled()
+    public java.lang.String getName()
+    public io.flutter.plugins.firebase.core.GeneratedAndroidFirebaseCore$PigeonFirebaseOptions getOptions()
+    public java.util.Map getPluginConstants()
+io.flutter.plugins.firebase.core.GeneratedAndroidFirebaseCore:
+    public void <init>()
+io.flutter.plugins.firebase.core.R$attr
+io.flutter.plugins.firebase.core.R$color
+io.flutter.plugins.firebase.core.R$dimen
+io.flutter.plugins.firebase.core.R$drawable
+io.flutter.plugins.firebase.core.R$id
+io.flutter.plugins.firebase.core.R$integer
+io.flutter.plugins.firebase.core.R$layout
+io.flutter.plugins.firebase.core.R$raw
+io.flutter.plugins.firebase.core.R$string
+io.flutter.plugins.firebase.core.R$style
+io.flutter.plugins.firebase.core.R$styleable
+io.flutter.plugins.firebase.core.R
 io.flutter.plugins.pathprovider.BuildConfig
 io.flutter.plugins.pathprovider.Messages:
     public void <init>()
@@ -4239,9 +4942,14 @@ kotlin.KotlinNothingValueException:
     public void <init>(java.lang.String,java.lang.Throwable)
     public void <init>(java.lang.Throwable)
 kotlin.KotlinNullPointerException
-kotlin.KotlinVersion$Companion
-kotlin.KotlinVersion
-kotlin.KotlinVersionCurrentValue
+kotlin.KotlinVersion:
+    public static final int MAX_COMPONENT_VALUE
+    public void <init>(int,int)
+    public final int getMajor()
+    public final int getMinor()
+    public final int getPatch()
+    public final boolean isAtLeast(int,int)
+    public final boolean isAtLeast(int,int,int)
 kotlin.LateinitKt
 kotlin.Lazy:
     public abstract boolean isInitialized()
@@ -10551,6 +11259,8 @@ androidx.savedstate.SavedStateRegistry$AutoRecreated
 androidx.savedstate.SavedStateRegistry:
     boolean mAllowingSavingState
     public android.os.Bundle consumeRestoredStateForKey(java.lang.String)
+com.google.firebase.heartbeatinfo.HeartBeatInfoStorage:
+    private static com.google.firebase.heartbeatinfo.HeartBeatInfoStorage instance
 io.flutter.Log:
     public static int ASSERT
     public static int DEBUG

@@ -28,6 +28,10 @@
         "source": "/Users/dpetriella/Documents/code/player_watchtower/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
+        "merged": "/Users/dpetriella/Documents/code/player_watchtower/build/app/intermediates/merged_res/release/raw_firebase_common_keep.xml.flat",
+        "source": "/Users/dpetriella/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/res/raw/firebase_common_keep.xml"
+    },
+    {
         "merged": "/Users/dpetriella/Documents/code/player_watchtower/build/app/intermediates/merged_res/release/drawable_notification_bg_low.xml.flat",
         "source": "/Users/dpetriella/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/drawable/notification_bg_low.xml"
     },
