@@ -72,7 +72,7 @@ class RollHistoryBar extends ConsumerWidget {
                                 .watch(themeProvider)
                                 .diceDrawerColumnContentBg),
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+                          padding: const EdgeInsets.all(8.0),
                           child: ListView(
                               reverse: true, children: getLoggingData()),
                         )),

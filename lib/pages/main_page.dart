@@ -64,14 +64,28 @@ class _MainPageState extends ConsumerState<MainPage> {
                     '${truncateWithEllipsis(12, ref.watch(playerProvider).characterName)} - Lv.${getPlayerLevelByExp(ref.watch(playerProvider).exp)}',
                 size: width / 18,
               )),
+              if (ref.watch(currentPage) == 0)
+                Builder(builder: (context) {
+                  return GestureDetector(
+                      onPanUpdate: (swipe) {
+                        if (swipe.delta.dx > 0) {
+                          Scaffold.of(context).openDrawer();
+                        }
+                      },
+                      onTap: () => Scaffold.of(context).openDrawer(),
+                      child: FaIcon(FontAwesomeIcons.personCircleCheck));
+                }),
               ref.watch(currentPage) == 3
                   ? Builder(builder: (context) {
                       return Container(
                           alignment: Alignment.centerRight,
                           child: GestureDetector(
-                              onTap: () {
-                                Scaffold.of(context).openEndDrawer();
+                              onPanUpdate: (swipe) {
+                                if (swipe.delta.dx < 0) {
+                                  Scaffold.of(context).openEndDrawer();
+                                }
                               },
+                              onTap: () => Scaffold.of(context).openEndDrawer(),
                               child: FaIcon(FontAwesomeIcons.dice)));
                     })
                   : Container(
@@ -85,17 +99,6 @@ class _MainPageState extends ConsumerState<MainPage> {
                                 : index++;
                           },
                           child: Icon(Icons.settings))),
-              if (ref.watch(currentPage) == 0)
-                Builder(builder: (context) {
-                  return GestureDetector(
-                      onPanUpdate: (swipe) {
-                        if (swipe.delta.dx < width) {
-                          Scaffold.of(context).openDrawer();
-                        }
-                      },
-                      onTap: () => Scaffold.of(context).openDrawer(),
-                      child: FaIcon(FontAwesomeIcons.personCircleCheck));
-                }),
             ],
           ),
         ),

@@ -16,7 +16,11 @@ class InventoryPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       color: Colors.lightBlue,
-      child: Center(child: Text('Coming Soon v$appVersion')),
+      child: Center(
+          child: Text(
+        'Inventory Management\nComing in v0.3a',
+        textAlign: TextAlign.center,
+      )),
     );
   }
 }

@@ -53,7 +53,7 @@ class HistoryLog extends ConsumerWidget {
         clipBehavior: Clip.none,
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(10.0, 8, 8, 0),
+            padding: const EdgeInsets.fromLTRB(4, 4, 4, 4),
             child: Column(
               children: [
                 Container(
