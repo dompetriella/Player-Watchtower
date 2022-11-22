@@ -8,31 +8,31 @@ Color hex(String code) {
 }
 
 var defaultTheme = AppTheme(
-  themeName: "Daylight",
-  themeColors: [hex('423B52'), hex('AAC6C3'), hex('D9D9D9'), hex('990000')],
-  currentNavHighlightColor: daylightPrimary,
-  bgColor: daylightBg,
-  primary: daylightPrimary,
-  accent: daylightAccent,
-  baseCardBg: daylightSecondary,
-  cardBg: daylightSecondary,
-  bgForInput: daylightBg,
-  bgForText: daylightSecondary,
-  appBarColor: daylightPrimary,
-  //
-  numberDisplayBgColor: daylightSecondary,
-  diceIconBgColor: daylightPrimary,
-  diceTypeBgColor: daylightPrimary,
-  rollButtonBgColor: daylightAccent,
-  multiplierTextColor: daylightPrimary,
-  diceButtonBg: daylightPrimary,
-  diceDrawerBg: daylightPrimary,
-  diceDrawerColumnBg: daylightBg,
-  diceDrawerColumnTextColor: Colors.black,
-  diceDrawerHistorySliverBg: daylightSecondary,
-  diceDrawerStatsIconBg: daylightPrimary,
-  diceDrawerStatsColorBg: Colors.white,
-);
+    themeName: "Daylight",
+    themeColors: [hex('423B52'), hex('AAC6C3'), hex('D9D9D9'), hex('990000')],
+    currentNavHighlightColor: daylightPrimary,
+    bgColor: daylightBg,
+    primary: daylightPrimary,
+    accent: daylightAccent,
+    baseCardBg: daylightSecondary,
+    cardBg: daylightSecondary,
+    bgForInput: daylightBg,
+    bgForText: daylightSecondary,
+    appBarColor: daylightPrimary,
+    //
+    numberDisplayBgColor: daylightSecondary,
+    diceIconBgColor: daylightPrimary,
+    diceTypeBgColor: daylightPrimary,
+    rollButtonBgColor: daylightAccent,
+    multiplierTextColor: daylightPrimary,
+    diceButtonBg: daylightPrimary,
+    diceDrawerBg: daylightPrimary,
+    diceDrawerColumnBg: daylightBg,
+    diceDrawerColumnTextColor: Colors.black,
+    diceDrawerHistorySliverBg: daylightSecondary,
+    diceDrawerStatsIconBg: daylightPrimary,
+    diceDrawerStatsColorBg: Colors.white,
+    diceDrawerColumnContentBg: daylightAccent);
 
 Map<String, AppTheme> themesDictionary = {
   'Daylight': AppTheme(

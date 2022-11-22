@@ -11,7 +11,10 @@ class NavButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
-      onTap: () => ref.watch(currentPage.notifier).state = index,
+      onTap: () => {
+        ref.watch(currentPage.notifier).state = index,
+        pageController.jumpToPage(ref.read(currentPage))
+      },
       child: AnimatedContainer(
         duration: Duration(milliseconds: 250),
         height: 40,

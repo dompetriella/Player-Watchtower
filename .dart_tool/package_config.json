@@ -212,6 +212,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "flutter_svg",
+      "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-1.1.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/dpetriella/Documents/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -290,6 +296,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "intl",
+      "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "io",
       "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/io-1.0.3",
       "packageUri": "lib/",
@@ -362,6 +374,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "path_drawing",
+      "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/path_drawing-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_parsing",
+      "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/path_parsing-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "path_provider",
       "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.11",
       "packageUri": "lib/",
@@ -402,6 +426,12 @@
       "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.1.3",
       "packageUri": "lib/",
       "languageVersion": "2.17"
+    },
+    {
+      "name": "petitparser",
+      "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-5.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
     },
     {
       "name": "platform",
@@ -494,6 +524,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "sticky_headers",
+      "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/sticky_headers-0.3.0+2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "stream_channel",
       "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0",
       "packageUri": "lib/",
@@ -566,6 +602,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "xml",
+      "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/xml-6.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "yaml",
       "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/yaml-3.1.1",
       "packageUri": "lib/",
@@ -578,7 +620,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2022-11-18T22:08:05.573818Z",
+  "generated": "2022-11-22T15:24:44.879535Z",
   "generator": "pub",
   "generatorVersion": "2.18.4"
 }

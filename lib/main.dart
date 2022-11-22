@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:player_watchtower/pages/screen_chassis.dart';
+import 'package:player_watchtower/pages/main_page.dart';
 
 void main() async {
   await Hive.initFlutter();
