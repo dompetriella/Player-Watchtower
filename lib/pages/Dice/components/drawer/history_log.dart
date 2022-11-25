@@ -116,8 +116,12 @@ class HistoryLog extends ConsumerWidget {
                                         .fade(duration: 300.ms, delay: 100.ms)
                                         .rotate(
                                             duration: 500.ms,
-                                            begin:
-                                                throwDirection > 0 ? 1.80 : .20)
+                                            begin: throwDirection >= 0
+                                                ? -.40
+                                                : .40,
+                                            end: throwDirection >= 0
+                                                ? -1.0
+                                                : 1.0)
                                         .move(
                                             duration: 500.ms,
                                             begin: Offset(
