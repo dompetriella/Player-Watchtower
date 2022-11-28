@@ -14,6 +14,8 @@ class MultiplierControls extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
+    var sizeFactor = screenHeight / screenWidth;
+
     return Container(
       height: screenHeight * 0.08,
       width: screenWidth,
@@ -38,6 +40,9 @@ class PlusButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
+    var sizeFactor = screenHeight / screenWidth;
     return GestureDetector(
       onTap: () {
         buttonPressAnimation(ref, multiplierPlusButtonPressEffects,
@@ -61,10 +66,11 @@ class PlusButton extends ConsumerWidget {
             .watch(multiplierPlusButtonPressCondition.notifier)
             .state = false,
         child: Container(
-            height: 60,
-            width: 60,
+            height: 27 * sizeFactor,
+            width: 27 * sizeFactor,
             decoration: BoxDecoration(
                 color: ref.watch(themeProvider).numberDisplayBgColor,
+                border: Border.all(color: Colors.white, width: 1),
                 borderRadius: BorderRadius.all(Radius.circular(
                     ref.watch(themeProvider).diceButtonBorderRadius)),
                 boxShadow: [ref.watch(themeProvider).innerShadow]),
@@ -79,57 +85,57 @@ class PlusButton extends ConsumerWidget {
   }
 }
 
-// class ClearButton extends ConsumerWidget {
-//   const ClearButton({
-//     Key? key,
-//   }) : super(key: key);
+class ClearButton extends ConsumerWidget {
+  const ClearButton({
+    Key? key,
+  }) : super(key: key);
 
-//   @override
-//   Widget build(BuildContext context, WidgetRef ref) {
-//     return Padding(
-//       padding: const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
-//       child: GestureDetector(
-//         onTap: () {
-//           buttonPressAnimation(ref, multiplierClearButtonPressEffects,
-//               multiplierClearButtonPressCondition,
-//               speed: 100, name: "Clear");
-//           ref.watch(isClear.notifier).state = true;
-//           ref.watch(multiplierProvider.notifier).reset();
-//           ref.watch(modifierProvider.notifier).state = 0;
-//           ref.watch(displayNumber.notifier).state = '0';
-//           ref.watch(modifierSignPositive.notifier).state = true;
-//         },
-//         child: Animate(
-//           adapter:
-//               TriggerAdapter(ref.watch(multiplierClearButtonPressCondition)),
-//           effects: ref.watch(multiplierClearButtonPressEffects),
-//           onComplete: (controller) => ref
-//               .watch(multiplierClearButtonPressCondition.notifier)
-//               .state = false,
-//           child: Container(
-//             height: 50,
-//             width: 60,
-//             decoration: BoxDecoration(
-//                 color: ref.watch(themeProvider).numberDisplayBgColor,
-//                 borderRadius: BorderRadius.all(Radius.circular(
-//                     ref.watch(themeProvider).diceButtonBorderRadius)),
-//                 border: Border.all(
-//                     color: ref.watch(themeProvider).outline, width: 4),
-//                 boxShadow: [ref.watch(themeProvider).shadow]),
-//             child: Center(
-//                 child: Text(
-//               "C",
-//               style: TextStyle(
-//                   fontSize: 30,
-//                   fontWeight: FontWeight.w900,
-//                   color: ref.watch(themeProvider).multiplierTextColor),
-//             )),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
+      child: GestureDetector(
+        onTap: () {
+          buttonPressAnimation(ref, multiplierClearButtonPressEffects,
+              multiplierClearButtonPressCondition,
+              speed: 100, name: "Clear");
+          ref.watch(isClear.notifier).state = true;
+          ref.watch(multiplierProvider.notifier).reset();
+          ref.watch(modifierProvider.notifier).state = 0;
+          ref.watch(displayNumber.notifier).state = '0';
+          ref.watch(modifierSignPositive.notifier).state = true;
+        },
+        child: Animate(
+          adapter:
+              TriggerAdapter(ref.watch(multiplierClearButtonPressCondition)),
+          effects: ref.watch(multiplierClearButtonPressEffects),
+          onComplete: (controller) => ref
+              .watch(multiplierClearButtonPressCondition.notifier)
+              .state = false,
+          child: Container(
+            height: 50,
+            width: 60,
+            decoration: BoxDecoration(
+                color: ref.watch(themeProvider).numberDisplayBgColor,
+                borderRadius: BorderRadius.all(Radius.circular(
+                    ref.watch(themeProvider).diceButtonBorderRadius)),
+                border: Border.all(
+                    color: ref.watch(themeProvider).outline, width: 4),
+                boxShadow: [ref.watch(themeProvider).shadow]),
+            child: Center(
+                child: Text(
+              "C",
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w900,
+                  color: ref.watch(themeProvider).multiplierTextColor),
+            )),
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 class MinusButton extends ConsumerWidget {
   const MinusButton({
@@ -138,6 +144,9 @@ class MinusButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
+    var sizeFactor = screenHeight / screenWidth;
     return GestureDetector(
       onTap: () {
         buttonPressAnimation(ref, multiplierMinusButtonPressEffects,
@@ -158,9 +167,10 @@ class MinusButton extends ConsumerWidget {
             .watch(multiplierMinusButtonPressCondition.notifier)
             .state = false,
         child: Container(
-            height: 60,
-            width: 60,
+            height: 27 * sizeFactor,
+            width: 27 * sizeFactor,
             decoration: BoxDecoration(
+                border: Border.all(color: Colors.white, width: 1),
                 color: ref.watch(themeProvider).numberDisplayBgColor,
                 borderRadius: BorderRadius.all(Radius.circular(
                     ref.watch(themeProvider).diceButtonBorderRadius)),

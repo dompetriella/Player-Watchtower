@@ -15,27 +15,27 @@ class DicePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0),
       child: ListView(
         children: [
           StickyHeader(
-            header: Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: Container(
-                color: ref.watch(themeProvider).bgColor,
-                child: Column(
-                  children: [
-                    const Display(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        MinusButton(),
-                        const RollButton(),
-                        PlusButton()
-                      ],
-                    ),
-                  ],
-                ),
+            header: Container(
+              color: ref.watch(themeProvider).bgColor,
+              child: Column(
+                children: [
+                  const Display(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      MinusButton(),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: const RollButton(),
+                      ),
+                      PlusButton()
+                    ],
+                  ),
+                ],
               ),
             ),
             content: const ButtonsDialer(),

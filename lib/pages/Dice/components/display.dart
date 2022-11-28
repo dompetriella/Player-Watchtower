@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
+import 'package:player_watchtower/pages/Dice/components/multiplier_controls.dart';
 
 import '../../../providers/animation_provider.dart';
 import '../../../providers/dice_provider.dart';
@@ -17,19 +18,25 @@ class Display extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
-    return Stack(
-      children: [
-        Container(
-          height: screenHeight * .20,
-          decoration: BoxDecoration(
-              color: ref.watch(themeProvider).numberDisplayBgColor,
-              border:
-                  Border.all(color: ref.watch(themeProvider).outline, width: 4),
-              borderRadius: BorderRadius.all(Radius.circular(
-                  ref.watch(themeProvider).numberDisplayBorderRadius)),
-              boxShadow: [ref.watch(themeProvider).shadow]),
+    var sizeFactor = screenHeight / screenWidth;
+    return Container(
+      height: screenHeight * .20,
+      width: screenWidth,
+      decoration: BoxDecoration(
+          color: ref.watch(themeProvider).numberDisplayBgColor,
+          border: Border.all(color: ref.watch(themeProvider).outline, width: 4),
+          borderRadius: BorderRadius.all(Radius.circular(
+              ref.watch(themeProvider).numberDisplayBorderRadius)),
+          boxShadow: [ref.watch(themeProvider).shadow]),
+      child: Column(children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(12.0, 8, 12, 8),
+          child: RolledDiceView(size: 14 * sizeFactor),
         ),
-      ],
+        Stack(
+          children: [],
+        )
+      ]),
     );
   }
 }
