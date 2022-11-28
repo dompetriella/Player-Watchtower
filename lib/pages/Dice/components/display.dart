@@ -17,60 +17,36 @@ class Display extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
-    return Container(
-      constraints: BoxConstraints(minHeight: 100),
-      decoration: BoxDecoration(
-          color: ref.watch(themeProvider).numberDisplayBgColor,
-          border: Border.all(color: ref.watch(themeProvider).outline, width: 4),
-          borderRadius: BorderRadius.all(Radius.circular(
-              ref.watch(themeProvider).numberDisplayBorderRadius)),
-          boxShadow: [ref.watch(themeProvider).shadow]),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(24.0, 16, 24.0, 16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: SizedBox(
-                    width: screenWidth * .75,
-                    child: RolledDiceView(
-                      size: 35,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                DiceIconDisplay(screenHeight: screenHeight),
-                Animate(
-                  adapter: TriggerAdapter(ref.watch(diceTotalCondition)),
-                  effects: ref.watch(diceTotalEffects),
-                  onComplete: (controller) =>
-                      ref.watch(diceTotalCondition.notifier).state = false,
-                  child: Text(
-                    ref.watch(displayNumber),
-                    style: TextStyle(
-                        color: ref.watch(themeProvider).numberDisplayTextColor,
-                        fontSize: 100,
-                        fontWeight: FontWeight.w900),
-                  ),
-                ),
-                DisplayMultiplierTotal(screenHeight: screenHeight)
-              ],
-            )
-          ],
+    return Stack(
+      children: [
+        Container(
+          height: screenHeight * .20,
+          decoration: BoxDecoration(
+              color: ref.watch(themeProvider).numberDisplayBgColor,
+              border:
+                  Border.all(color: ref.watch(themeProvider).outline, width: 4),
+              borderRadius: BorderRadius.all(Radius.circular(
+                  ref.watch(themeProvider).numberDisplayBorderRadius)),
+              boxShadow: [ref.watch(themeProvider).shadow]),
         ),
-      ),
+      ],
     );
   }
 }
+
+// Animate(
+//   adapter: TriggerAdapter(ref.watch(diceTotalCondition)),
+//   effects: ref.watch(diceTotalEffects),
+//   onComplete: (controller) =>
+//       ref.watch(diceTotalCondition.notifier).state = false,
+//   child: Text(
+//     ref.watch(displayNumber),
+//     style: TextStyle(
+//         color: ref.watch(themeProvider).numberDisplayTextColor,
+//         fontSize: 100,
+//         fontWeight: FontWeight.w900),
+//   ),
+// ),
 
 class DisplayMultiplierTotal extends ConsumerWidget {
   const DisplayMultiplierTotal({

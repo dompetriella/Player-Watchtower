@@ -41,16 +41,16 @@ class _MainPageState extends ConsumerState<MainPage> {
       QuickSelectPage(),
       StatsPage(),
       InventoryPage(),
-      // DicePage()
+      DicePage()
 
-      Container(
-        color: Colors.lightBlue,
-        child: Center(
-            child: Text(
-          'Dice Roller\nComing in v0.2a',
-          textAlign: TextAlign.center,
-        )),
-      )
+      // Container(
+      //   color: Colors.lightBlue,
+      //   child: Center(
+      //       child: Text(
+      //     'Dice Roller\nComing in v0.2a',
+      //     textAlign: TextAlign.center,
+      //   )),
+      // )
     ];
 
     double width = MediaQuery.of(context).size.width;

@@ -143,8 +143,6 @@ class RollButton extends ConsumerWidget {
           onComplete: (controller) =>
               ref.watch(rollButtonPressCondition.notifier).state = false,
           child: Container(
-            width: screenWidth,
-            constraints: BoxConstraints(minHeight: 100),
             decoration: BoxDecoration(
                 color: ref.watch(themeProvider).rollButtonBgColor,
                 borderRadius: BorderRadius.all(Radius.circular(
@@ -154,12 +152,15 @@ class RollButton extends ConsumerWidget {
                   ref.watch(themeProvider).rollButtonOutline
                 ]),
             child: Center(
-                child: Text(
-              "ROLL D" + ref.watch(selectedDiceProvider).toString(),
-              style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.05,
-                  color: ref.watch(themeProvider).rollButtonTextColor,
-                  fontWeight: FontWeight.w900),
+                child: Padding(
+              padding: const EdgeInsets.fromLTRB(30, 16, 30, 16),
+              child: Text(
+                "ROLL D${ref.watch(selectedDiceProvider)}",
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.04,
+                    color: ref.watch(themeProvider).rollButtonTextColor,
+                    fontWeight: FontWeight.w900),
+              ),
             )),
           ),
         ),

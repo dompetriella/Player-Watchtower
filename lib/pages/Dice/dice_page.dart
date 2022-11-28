@@ -26,8 +26,14 @@ class DicePage extends ConsumerWidget {
                 child: Column(
                   children: [
                     const Display(),
-                    const RollButton(),
-                    const MultiplierControls(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        MinusButton(),
+                        const RollButton(),
+                        PlusButton()
+                      ],
+                    ),
                   ],
                 ),
               ),
