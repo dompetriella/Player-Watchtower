@@ -44,7 +44,7 @@ class StatsLog extends ConsumerWidget {
         height: buttonSize,
         decoration: BoxDecoration(
           color: ref.watch(themeProvider).diceButtonBg,
-          border: Border.all(color: ref.watch(themeProvider).outline, width: 4),
+          border: Border.all(color: ref.watch(themeProvider).outline, width: 2),
           boxShadow: [ref.watch(themeProvider).shadow],
           borderRadius: BorderRadius.all(
               Radius.circular(ref.watch(themeProvider).diceButtonBorderRadius)),

@@ -27,21 +27,29 @@ class BottomBar extends ConsumerWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            NavButton(
-              buttonIcon: Icons.bolt,
-              index: 0,
+            Expanded(
+              child: NavButton(
+                buttonIcon: Icons.bolt,
+                index: 0,
+              ),
             ),
-            NavButton(
-              buttonIcon: Icons.mode,
-              index: 1,
+            Expanded(
+              child: NavButton(
+                buttonIcon: Icons.mode,
+                index: 1,
+              ),
             ),
-            NavButton(
-              buttonIcon: FontAwesomeIcons.briefcase,
-              index: 2,
+            Expanded(
+              child: NavButton(
+                buttonIcon: FontAwesomeIcons.briefcase,
+                index: 2,
+              ),
             ),
-            NavButton(
-              buttonIcon: FontAwesomeIcons.diceD20,
-              index: 3,
+            Expanded(
+              child: NavButton(
+                buttonIcon: FontAwesomeIcons.diceD20,
+                index: 3,
+              ),
             )
           ],
         ),
