@@ -30,30 +30,45 @@ class Display extends ConsumerWidget {
           boxShadow: [ref.watch(themeProvider).shadow]),
       child: Column(children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(12.0, 8, 12, 8),
-          child: RolledDiceView(size: 14 * sizeFactor),
-        ),
-        Stack(
-          children: [],
+            padding: const EdgeInsets.fromLTRB(12.0, 8, 12, 8),
+            child: SizedBox(
+              width: screenWidth,
+              child: Row(
+                children: [
+                  Expanded(child: RolledDiceView(size: 18 * sizeFactor)),
+                  ClearButton()
+                ],
+              ),
+            )),
+        Expanded(
+          child: Stack(
+            children: [
+              Animate(
+                adapter: TriggerAdapter(ref.watch(diceTotalCondition)),
+                effects: ref.watch(diceTotalEffects),
+                onComplete: (controller) =>
+                    ref.watch(diceTotalCondition.notifier).state = false,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: StrokeText(
+                    text: ref.watch(displayNumber),
+                    size: screenHeight / 12,
+                  ),
+                ),
+              ),
+              Align(
+                  alignment: Alignment.bottomRight,
+                  child: DisplayMultiplierTotal(screenHeight: screenHeight)),
+              Align(
+                  alignment: Alignment.bottomLeft,
+                  child: DiceIconDisplay(screenHeight: screenHeight))
+            ],
+          ),
         )
       ]),
     );
   }
 }
-
-// Animate(
-//   adapter: TriggerAdapter(ref.watch(diceTotalCondition)),
-//   effects: ref.watch(diceTotalEffects),
-//   onComplete: (controller) =>
-//       ref.watch(diceTotalCondition.notifier).state = false,
-//   child: Text(
-//     ref.watch(displayNumber),
-//     style: TextStyle(
-//         color: ref.watch(themeProvider).numberDisplayTextColor,
-//         fontSize: 100,
-//         fontWeight: FontWeight.w900),
-//   ),
-// ),
 
 class DisplayMultiplierTotal extends ConsumerWidget {
   const DisplayMultiplierTotal({
@@ -65,17 +80,13 @@ class DisplayMultiplierTotal extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SizedBox(
-      width: screenHeight * 0.07,
-      child: Center(
-        child: Text('x${(ref.watch(multiplierProvider).toString())}',
-            style: TextStyle(
-                color: ref.watch(themeProvider).numberDisplayTextColor,
-                fontSize: ref.watch(multiplierProvider) < 10
-                    ? screenHeight * .05
-                    : screenHeight * 0.04,
-                fontWeight: FontWeight.w900)),
-      ),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16, 8.0),
+      child: Text('x${(ref.watch(multiplierProvider).toString())}',
+          style: TextStyle(
+              color: ref.watch(themeProvider).numberDisplayTextColor,
+              fontSize: screenHeight / 25,
+              fontWeight: FontWeight.w900)),
     );
   }
 }
@@ -96,68 +107,72 @@ class DiceIconDisplay extends ConsumerWidget {
       return '- ${ref.watch(modifierProvider)}';
     }
 
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        SizedBox(
-          width: screenHeight * 0.07,
-          height: screenHeight * 0.07,
-          child: GestureDetector(
-            onTap: () => (ref.read(modifierProvider) < 99)
-                ? ref.read(modifierProvider.notifier).state += 1
-                : null,
-            onLongPress: (() => ref.read(modifierProvider.notifier).state = 0),
-            onPanStart: (swipe) => ref
-                .read(modifierSignPositive.notifier)
-                .state = !ref.read(modifierSignPositive),
-            child: Container(
-              decoration: BoxDecoration(
-                  color: ref.watch(themeProvider).diceTypeBgColor,
-                  borderRadius: BorderRadius.all(Radius.circular(
-                      ref.watch(themeProvider).diceTypeBorderRadius))),
-              child: Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: SvgPicture.asset(
-                  'assets/D${ref.watch(selectedDiceProvider).toString()}.svg',
-                  color: ref.watch(themeProvider).diceTypeStrokeColor,
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 8.0, 16, 8),
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          SizedBox(
+            width: screenHeight / 15,
+            height: screenHeight / 15,
+            child: GestureDetector(
+              onTap: () => (ref.read(modifierProvider) < 99)
+                  ? ref.read(modifierProvider.notifier).state += 1
+                  : null,
+              onLongPress: (() =>
+                  ref.read(modifierProvider.notifier).state = 0),
+              onPanStart: (swipe) => ref
+                  .read(modifierSignPositive.notifier)
+                  .state = !ref.read(modifierSignPositive),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: ref.watch(themeProvider).diceTypeBgColor,
+                    borderRadius: BorderRadius.all(Radius.circular(
+                        ref.watch(themeProvider).diceTypeBorderRadius))),
+                child: Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: SvgPicture.asset(
+                    'assets/D${ref.watch(selectedDiceProvider).toString()}.svg',
+                    color: ref.watch(themeProvider).diceTypeStrokeColor,
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-        if (ref.watch(modifierProvider) != 0)
-          Positioned(
-              top: -8,
-              left: -8,
-              child: Container(
-                height: 25,
-                width: 25,
-                decoration: BoxDecoration(
-                    color: ref.watch(modifierSignPositive)
-                        ? ref.watch(themeProvider).rollButtonBgColor
-                        : ref.watch(themeProvider).rollButtonTextColor,
-                    borderRadius: BorderRadius.circular(
-                        ref.watch(themeProvider).diceButtonBorderRadius),
-                    border: Border.all(
+          if (ref.watch(modifierProvider) != 0)
+            Positioned(
+                top: -8,
+                right: -8,
+                child: Container(
+                  height: 25,
+                  width: 25,
+                  decoration: BoxDecoration(
                       color: ref.watch(modifierSignPositive)
-                          ? ref.watch(themeProvider).rollButtonTextColor
-                          : ref.watch(themeProvider).rollButtonBgColor,
-                    )),
-                child: Center(
-                  child: Text(
-                    ref.watch(modifierSignPositive)
-                        ? '+${ref.watch(modifierProvider)}'
-                        : '- ${ref.watch(modifierProvider)}',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: ref.watch(modifierSignPositive)
-                          ? ref.watch(themeProvider).rollButtonTextColor
-                          : ref.watch(themeProvider).rollButtonBgColor,
+                          ? ref.watch(themeProvider).rollButtonBgColor
+                          : ref.watch(themeProvider).rollButtonTextColor,
+                      borderRadius: BorderRadius.circular(
+                          ref.watch(themeProvider).diceButtonBorderRadius),
+                      border: Border.all(
+                        color: ref.watch(modifierSignPositive)
+                            ? ref.watch(themeProvider).rollButtonTextColor
+                            : ref.watch(themeProvider).rollButtonBgColor,
+                      )),
+                  child: Center(
+                    child: Text(
+                      ref.watch(modifierSignPositive)
+                          ? '+${ref.watch(modifierProvider)}'
+                          : '- ${ref.watch(modifierProvider)}',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: ref.watch(modifierSignPositive)
+                            ? ref.watch(themeProvider).rollButtonTextColor
+                            : ref.watch(themeProvider).rollButtonBgColor,
+                      ),
                     ),
                   ),
-                ),
-              ).animate().scale(begin: Offset(0.5, 0.5), duration: 100.ms))
-      ],
+                ).animate().scale(begin: Offset(0.5, 0.5), duration: 100.ms))
+        ],
+      ),
     );
   }
 }
