@@ -112,13 +112,13 @@ class MinusButton extends ConsumerWidget {
             .watch(multiplierMinusButtonPressCondition.notifier)
             .state = false,
         child: Container(
-            height: screenHeight / 12,
+            height: screenHeight / 8,
             width: screenWidth / 1.5,
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.white, width: 1),
                 color: ref.watch(themeProvider).numberDisplayBgColor,
                 borderRadius: BorderRadius.all(Radius.circular(
-                    ref.watch(themeProvider).diceIconBorderRadius)),
+                    ref.watch(themeProvider).numberDisplayBorderRadius)),
                 boxShadow: [
                   ref.watch(themeProvider).innerShadow,
                 ]),
@@ -171,13 +171,13 @@ class PlusButton extends ConsumerWidget {
             .watch(multiplierPlusButtonPressCondition.notifier)
             .state = false,
         child: Container(
-            height: screenHeight / 12,
+            height: screenHeight / 8,
             width: screenWidth / 1.5,
             decoration: BoxDecoration(
                 color: ref.watch(themeProvider).numberDisplayBgColor,
                 border: Border.all(color: Colors.white, width: 1),
                 borderRadius: BorderRadius.all(Radius.circular(
-                    ref.watch(themeProvider).diceIconBorderRadius)),
+                    ref.watch(themeProvider).numberDisplayBorderRadius)),
                 boxShadow: [ref.watch(themeProvider).innerShadow]),
             child: Align(
               alignment: Alignment.centerRight,

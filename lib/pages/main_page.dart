@@ -82,7 +82,10 @@ class _MainPageState extends ConsumerState<MainPage> {
                         }
                       },
                       onTap: () => Scaffold.of(context).openDrawer(),
-                      child: FaIcon(FontAwesomeIcons.personCircleCheck));
+                      child: FaIcon(
+                        FontAwesomeIcons.personCircleCheck,
+                        color: ref.watch(themeProvider).appBarIconColor,
+                      ));
                 }),
               ref.watch(currentPage) == 3
                   ? Builder(builder: (context) {
@@ -95,7 +98,10 @@ class _MainPageState extends ConsumerState<MainPage> {
                                 }
                               },
                               onTap: () => Scaffold.of(context).openEndDrawer(),
-                              child: FaIcon(FontAwesomeIcons.dice)));
+                              child: FaIcon(
+                                FontAwesomeIcons.dice,
+                                color: ref.watch(themeProvider).appBarIconColor,
+                              )));
                     })
                   : Container(
                       alignment: Alignment.centerRight,
@@ -107,7 +113,10 @@ class _MainPageState extends ConsumerState<MainPage> {
                                 ? index = 0
                                 : index++;
                           },
-                          child: Icon(Icons.settings))),
+                          child: Icon(
+                            Icons.settings,
+                            color: ref.watch(themeProvider).appBarIconColor,
+                          ))),
             ],
           ),
         ),

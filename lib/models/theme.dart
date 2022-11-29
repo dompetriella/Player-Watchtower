@@ -14,6 +14,7 @@ class AppTheme {
   final BoxShadow shadow;
   final Color appBarColor;
   final String fontFamily;
+  final Color appBarIconColor;
 
   final Color baseCardBg;
   final Color cardBg;
@@ -91,6 +92,7 @@ class AppTheme {
     required this.diceDrawerHistorySliverBg,
     required this.diceDrawerStatsIconBg,
     required this.diceDrawerStatsColorBg,
+    this.appBarIconColor = Colors.white,
     this.currentNavHighlightColor = Colors.white,
     this.shadow = const BoxShadow(
         inset: false,

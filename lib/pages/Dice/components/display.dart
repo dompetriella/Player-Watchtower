@@ -20,7 +20,7 @@ class Display extends ConsumerWidget {
     var screenWidth = MediaQuery.of(context).size.width;
     var sizeFactor = screenHeight / screenWidth;
     return Container(
-      height: screenHeight * .20,
+      height: screenHeight * .25,
       width: screenWidth,
       decoration: BoxDecoration(
           color: ref.watch(themeProvider).numberDisplayBgColor,
@@ -52,7 +52,7 @@ class Display extends ConsumerWidget {
                   alignment: Alignment.center,
                   child: StrokeText(
                     text: ref.watch(displayNumber),
-                    size: screenHeight / 12,
+                    size: screenHeight / 8,
                   ),
                 ),
               ),

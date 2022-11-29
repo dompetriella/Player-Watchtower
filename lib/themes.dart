@@ -111,6 +111,7 @@ Map<String, AppTheme> themesDictionary = {
       bgForText: Colors.black,
       cardIconColor: Colors.white,
       appBarColor: Colors.white,
+      appBarIconColor: Colors.black,
       numberDisplayBgColor: Colors.black,
       diceIconBgColor: Colors.black,
       diceTypeBgColor: Colors.black,

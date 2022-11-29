@@ -140,14 +140,15 @@ class RollButton extends ConsumerWidget {
         onComplete: (controller) =>
             ref.watch(rollButtonPressCondition.notifier).state = false,
         child: Container(
-          height: screenHeight / 10,
-          width: screenWidth / 1.8,
+          height: screenHeight / 8,
+          width: screenWidth / 1.6,
           decoration: BoxDecoration(
               color: ref.watch(themeProvider).rollButtonBgColor,
               borderRadius: BorderRadius.all(Radius.circular(
                   ref.watch(themeProvider).numberDisplayBorderRadius)),
               boxShadow: [
                 ref.watch(themeProvider).innerShadow,
+                ref.watch(themeProvider).shadow,
                 ref.watch(themeProvider).rollButtonOutline,
               ]),
           child: Center(
