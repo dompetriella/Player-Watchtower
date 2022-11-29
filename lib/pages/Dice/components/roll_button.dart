@@ -148,13 +148,13 @@ class RollButton extends ConsumerWidget {
                   ref.watch(themeProvider).numberDisplayBorderRadius)),
               boxShadow: [
                 ref.watch(themeProvider).innerShadow,
-                ref.watch(themeProvider).rollButtonOutline
+                ref.watch(themeProvider).rollButtonOutline,
               ]),
           child: Center(
               child: Text(
             "ROLL D${ref.watch(selectedDiceProvider)}",
             style: TextStyle(
-                fontSize: MediaQuery.of(context).size.height / 20,
+                fontSize: MediaQuery.of(context).size.height / 22,
                 color: ref.watch(themeProvider).rollButtonTextColor,
                 fontWeight: FontWeight.w900),
           )),
