@@ -51,6 +51,7 @@ dependencies:
   sticky_headers: ^0.3.0+2
   flutter_svg: ^1.1.6
   intl: ^0.17.0
+  flutter_bounce: ^1.1.0
 
 dev_dependencies:
   flutter_test:

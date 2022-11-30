@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/dictionaries/info.dart';
 import 'package:player_watchtower/functions/calculations.dart';
 import 'package:player_watchtower/global_components/action_dialogs/base_dialog.dart';
+import 'package:player_watchtower/global_components/action_dialogs/components/drop_down_input.dart';
+import 'package:player_watchtower/global_components/action_dialogs/types/changeTo_dialog.dart';
+import 'package:player_watchtower/global_components/action_dialogs/types/drop_down_dialog.dart';
 import 'package:player_watchtower/global_components/fillable_bar.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/pages/QuickSelect/components/saving_throw_card.dart';
@@ -15,12 +19,8 @@ class InventoryPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      color: Colors.lightBlue,
-      child: Center(
-          child: Text(
-        'Inventory Management\nComing in v0.3a',
-        textAlign: TextAlign.center,
-      )),
+      color: ref.watch(themeProvider).primary,
+      child: Center(child: DropDownInput(dropDownOptions: classes5e)),
     );
   }
 }

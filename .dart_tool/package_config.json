@@ -194,6 +194,12 @@
       "languageVersion": "2.15"
     },
     {
+      "name": "flutter_bounce",
+      "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bounce-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_inset_box_shadow",
       "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inset_box_shadow-1.0.8",
       "packageUri": "lib/",
@@ -620,7 +626,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2022-11-22T15:24:44.879535Z",
+  "generated": "2022-11-30T14:56:12.135719Z",
   "generator": "pub",
   "generatorVersion": "2.18.4"
 }

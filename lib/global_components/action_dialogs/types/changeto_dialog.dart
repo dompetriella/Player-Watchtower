@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/dialog-input.dart';
+import '../components/dialog_input.dart';
 
 class ChangeToDialog extends StatelessWidget {
   final Type inputType;

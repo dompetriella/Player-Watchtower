@@ -13,11 +13,13 @@ class StatsEntry extends ConsumerWidget {
   final Widget displayWidget;
   final dynamic provider;
   final String editDialogType;
+  final List<String> dropDownOptions;
   const StatsEntry({
     super.key,
     required this.provider,
     required this.title,
     required this.statPropertyName,
+    this.dropDownOptions = const ['Custom'],
     this.isAbilityScore = false,
     this.editDialogType = 'changeTo',
     this.displayWidget = const SizedBox.shrink(),
@@ -38,6 +40,7 @@ class StatsEntry extends ConsumerWidget {
                   statPropertyName: statPropertyName,
                   statPropertyType: provider.runtimeType,
                   isAbilityScore: isAbilityScore,
+                  dropDownOptions: dropDownOptions,
                 ));
       },
       child: Padding(

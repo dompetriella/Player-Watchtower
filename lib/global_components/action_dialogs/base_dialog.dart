@@ -1,7 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/functions/provider_logic.dart';
 import 'package:player_watchtower/global_components/action_dialogs/types/changeTo_dialog.dart';
+import 'package:player_watchtower/global_components/action_dialogs/types/drop_down_dialog.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/providers/forms.dart';
 import 'package:player_watchtower/providers/player.dart';
@@ -14,9 +16,11 @@ class BaseDialog extends ConsumerWidget {
   final String statPropertyName;
   final Type statPropertyType;
   final bool isAbilityScore;
+  final List<String> dropDownOptions;
   const BaseDialog(
       {super.key,
       this.editDialogType = "change-to",
+      this.dropDownOptions = const ['Custom'],
       required this.isAbilityScore,
       required this.title,
       required this.provider,
@@ -28,7 +32,7 @@ class BaseDialog extends ConsumerWidget {
       case 'changeTo':
         return ChangeToDialog(inputType: statPropertyType);
       case 'dropDown':
-        return Text('drop-down');
+        return DropDownDialog(dropDownOptions: dropDownOptions);
       case 'modifier':
         return Text('modifier');
       case 'abilityScore':
@@ -61,18 +65,19 @@ class BaseDialog extends ConsumerWidget {
         elevation: 38,
         contentPadding: EdgeInsets.all(0),
         content: Container(
-          height: 200,
           decoration: BoxDecoration(
               color: ref.watch(themeProvider).primary,
               border: Border.all(color: Colors.white),
               borderRadius: BorderRadius.circular(10)),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 16.0),
+                  child: Container(
                     child: Column(
                       children: [
                         StrokeText(text: "CURRENT VALUE"),
@@ -98,28 +103,31 @@ class BaseDialog extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  editTypeFilter(editDialogType)
-                ],
-              ),
+                ),
+                editTypeFilter(editDialogType)
+              ],
             ),
           ),
         ),
         actions: [
           GestureDetector(
-            onTap: () => Navigator.pop(context),
+            onTap: () {
+              wipeTemporaryFormData(ref);
+              Navigator.pop(context);
+            },
             child: DialogActionButton(
               text: 'Cancel',
             ),
           ),
           GestureDetector(
               onTap: () {
-                if (ref.read(changeTo) != '') {
+                if (formValuesChanged(ref)) {
                   ref.watch(playerProvider.notifier).updatePlayerProperty(
                       propertyName: statPropertyName,
-                      newValue: ref.read(changeTo),
+                      newValue: ref.read(changeToFinalProvider),
                       propertyType: statPropertyType,
                       isAbilityScore: isAbilityScore);
-                  ref.read(changeTo.notifier).state = '';
+                  wipeTemporaryFormData(ref);
                 }
 
                 Navigator.pop(context);

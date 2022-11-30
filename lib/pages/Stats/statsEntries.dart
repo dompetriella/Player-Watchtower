@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/dictionaries/info.dart';
 import 'package:player_watchtower/providers/page.dart';
 import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
@@ -36,21 +37,29 @@ class CharacterStatsEntries extends ConsumerWidget {
           title: 'Class',
           statPropertyName: 'playerClass',
           provider: ref.watch(playerProvider).playerClass,
+          editDialogType: 'dropDown',
+          dropDownOptions: classes5e,
         ),
         StatsEntry(
           title: 'Race',
           statPropertyName: 'playerRace',
           provider: ref.watch(playerProvider).playerRace,
+          editDialogType: 'dropDown',
+          dropDownOptions: races5e,
         ),
         StatsEntry(
           title: 'Alignment',
           statPropertyName: 'alignment',
           provider: ref.watch(playerProvider).alignment,
+          editDialogType: 'dropDown',
+          dropDownOptions: alignments5e,
         ),
         StatsEntry(
           title: 'Background',
           statPropertyName: 'background',
           provider: ref.watch(playerProvider).background,
+          editDialogType: 'dropDown',
+          dropDownOptions: backgrounds5e,
         ),
       ],
     );

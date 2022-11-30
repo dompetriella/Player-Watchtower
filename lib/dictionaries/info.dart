@@ -8,8 +8,8 @@ var classes5e = [
   'Paladin',
   'Ranger',
   'Rogue',
-  'Sorcerer'
-      'Warlock',
+  'Sorcerer',
+  'Warlock',
   'Wizard'
 ];
 
@@ -19,8 +19,8 @@ var races5e = [
   'Elf',
   'Gnome',
   'Half-Elf',
-  'Half-Orc'
-      'Halfling',
+  'Half-Orc',
+  'Halfling',
   'Human',
   'Tiefling'
 ];
@@ -35,4 +35,20 @@ var alignments5e = [
   'Lawful Evil',
   'Neutral Evil',
   'Chaotic Evil'
+];
+
+var backgrounds5e = [
+  'Acolyte',
+  'Charlatan',
+  'Criminal',
+  'Entertainer',
+  'Folk Hero',
+  'Guild Artisan',
+  'Hermit',
+  'Noble',
+  'Outlander',
+  'Sage',
+  'Sailor',
+  'Soldier',
+  'Urchin'
 ];

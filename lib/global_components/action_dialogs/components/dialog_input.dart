@@ -29,7 +29,8 @@ class DialogInput extends ConsumerWidget {
                     ? TextInputType.text
                     : TextInputType.number,
                 onChanged: (value) {
-                  ref.watch(changeTo.notifier).state = value;
+                  ref.read(changeToProvider.notifier).state = value;
+                  ref.read(changeToFinalProvider.notifier).state = value;
                 },
                 textAlign: TextAlign.center,
                 textAlignVertical: TextAlignVertical.center,
