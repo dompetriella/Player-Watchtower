@@ -52,6 +52,7 @@ dependencies:
   flutter_svg: ^1.1.6
   intl: ^0.17.0
   flutter_bounce: ^1.1.0
+  dropdown_button2: ^1.9.1
 
 dev_dependencies:
   flutter_test:
