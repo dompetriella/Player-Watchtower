@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
+import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -39,8 +40,9 @@ class ClearButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return GestureDetector(
-      onTap: () {
+    return Bounce(
+      duration: Duration(milliseconds: 200),
+      onPressed: () {
         ref.watch(isClear.notifier).state = true;
         ref.watch(multiplierProvider.notifier).reset();
         ref.watch(modifierProvider.notifier).state = 0;
@@ -81,13 +83,14 @@ class MinusButton extends ConsumerWidget {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
     var sizeFactor = screenHeight / screenWidth;
-    return GestureDetector(
-      onTap: () {
+    return Bounce(
+      duration: Duration(milliseconds: 200),
+      onPressed: () {
         ref.watch(multiplierProvider.notifier).decrement();
       },
-      onLongPress: () {
-        ref.watch(multiplierProvider.notifier).bigDecrement();
-      },
+      // onLongPress: () {
+      //   ref.watch(multiplierProvider.notifier).bigDecrement();
+      // },
       child: Container(
           height: screenHeight / 8,
           width: screenWidth / 1.5,
@@ -124,13 +127,14 @@ class PlusButton extends ConsumerWidget {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
     var sizeFactor = screenHeight / screenWidth;
-    return GestureDetector(
-      onTap: () {
+    return Bounce(
+      duration: Duration(milliseconds: 200),
+      onPressed: () {
         ref.watch(multiplierProvider.notifier).increment();
       },
-      onLongPress: () {
-        ref.watch(multiplierProvider.notifier).bigIncrement();
-      },
+      // onLongPress: () {
+      //   ref.watch(multiplierProvider.notifier).bigIncrement();
+      // },
       child: Container(
           height: screenHeight / 8,
           width: screenWidth / 1.5,
