@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/pages/QuickSelect/components/saving_throw_card.dart';
@@ -317,8 +318,9 @@ class HpButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.all(2.0),
-      child: GestureDetector(
-        onTap: () => increase
+      child: Bounce(
+        duration: Duration(milliseconds: 150),
+        onPressed: () => increase
             ? ref.read(playerProvider.notifier).increaseHealth()
             : ref.read(playerProvider.notifier).decreaseHealth(),
         child: Container(

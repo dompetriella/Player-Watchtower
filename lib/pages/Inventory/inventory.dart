@@ -19,8 +19,7 @@ class InventoryPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      color: ref.watch(themeProvider).primary,
-      child: Center(child: DropDownInput(dropDownOptions: classes5e)),
+      child: Center(child: Text('Inventory Screen: Coming v0.3')),
     );
   }
 }
