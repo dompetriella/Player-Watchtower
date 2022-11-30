@@ -99,8 +99,6 @@ class RollButton extends ConsumerWidget {
     var screenHeight = MediaQuery.of(context).size.height;
     return GestureDetector(
       onTap: () {
-        buttonPressAnimation(
-            ref, rollButtonPressEffects, rollButtonPressCondition);
         ref.watch(isClear.notifier).state = false;
         ref
             .read(rollHistoryProvider.notifier)
@@ -108,58 +106,29 @@ class RollButton extends ConsumerWidget {
 
         ref.watch(displayNumber.notifier).state =
             '${getRolledDiceSum(ref.watch(rollHistoryProvider).last) + ref.watch(rollHistoryProvider).last[0].modifier}';
-        triggerAnimation(ref, diceTotalEffects, diceTotalCondition, [
-          ScaleEffect(
-              begin: Offset(1.05, 1.05),
-              delay: 300.ms,
-              curve: Curves.easeInOut),
-          MoveEffect(delay: 300.ms, begin: Offset(0, 5), curve: Curves.easeIn)
-        ]);
-
-        triggerAnimation(
-            ref, rolledDisplayDiceEffects, rolledDisplayDiceCondition, [
-          FadeEffect(duration: 200.ms, delay: 50.ms),
-          RotateEffect(
-              duration: 500.ms,
-              begin: throwDirection >= 0 ? -.40 : .40,
-              end: throwDirection >= 0 ? -1.0 : 1.0),
-          MoveEffect(
-              duration: 500.ms,
-              begin: Offset(throwDirection.toDouble(), -20),
-              curve: Curves.elasticOut,
-              delay: 200.ms),
-          ScaleEffect(
-              duration: 200.ms, curve: Curves.elasticIn, begin: Offset(.7, .7)),
-        ]);
 
         calculateStats(ref);
       },
-      child: Animate(
-        adapter: TriggerAdapter(ref.watch(rollButtonPressCondition)),
-        effects: ref.watch(rollButtonPressEffects),
-        onComplete: (controller) =>
-            ref.watch(rollButtonPressCondition.notifier).state = false,
-        child: Container(
-          height: screenHeight / 8,
-          width: screenWidth / 1.6,
-          decoration: BoxDecoration(
-              color: ref.watch(themeProvider).rollButtonBgColor,
-              borderRadius: BorderRadius.all(Radius.circular(
-                  ref.watch(themeProvider).numberDisplayBorderRadius)),
-              boxShadow: [
-                ref.watch(themeProvider).innerShadow,
-                ref.watch(themeProvider).shadow,
-                ref.watch(themeProvider).rollButtonOutline,
-              ]),
-          child: Center(
-              child: Text(
-            "ROLL D${ref.watch(selectedDiceProvider)}",
-            style: TextStyle(
-                fontSize: MediaQuery.of(context).size.height / 22,
-                color: ref.watch(themeProvider).rollButtonTextColor,
-                fontWeight: FontWeight.w900),
-          )),
-        ),
+      child: Container(
+        height: screenHeight / 8,
+        width: screenWidth / 1.6,
+        decoration: BoxDecoration(
+            color: ref.watch(themeProvider).rollButtonBgColor,
+            borderRadius: BorderRadius.all(Radius.circular(
+                ref.watch(themeProvider).numberDisplayBorderRadius)),
+            boxShadow: [
+              ref.watch(themeProvider).innerShadow,
+              ref.watch(themeProvider).shadow,
+              ref.watch(themeProvider).rollButtonOutline,
+            ]),
+        child: Center(
+            child: Text(
+          "ROLL D${ref.watch(selectedDiceProvider)}",
+          style: TextStyle(
+              fontSize: MediaQuery.of(context).size.height / 22,
+              color: ref.watch(themeProvider).rollButtonTextColor,
+              fontWeight: FontWeight.w900),
+        )),
       ),
     );
   }
