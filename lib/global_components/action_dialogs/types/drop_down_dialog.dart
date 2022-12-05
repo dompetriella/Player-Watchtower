@@ -10,15 +10,13 @@ class DropDownDialog extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Container(
-      child: Column(children: [
-        DropDownInput(
-          dropDownOptions: dropDownOptions,
-        ),
-        if (ref.watch(dropDownProvider) == '' ||
-            ref.watch(dropDownProvider) == 'Custom')
-          DialogInput(text: '(Custom Value)')
-      ]),
-    );
+    return Column(children: [
+      DropDownInput(
+        dropDownOptions: dropDownOptions,
+      ),
+      if (ref.watch(dropDownProvider) == '' ||
+          ref.watch(dropDownProvider) == 'Custom')
+        DialogInput(text: '(Custom Value)')
+    ]);
   }
 }

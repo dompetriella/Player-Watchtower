@@ -11,3 +11,11 @@ final dropDownProvider = StateProvider<String>(
 final changeToFinalProvider = StateProvider<String>(
   (ref) => '',
 );
+
+final increaseValueProvider = StateProvider<int>(
+  (ref) => 0,
+);
+
+final decreaseValueProvider = StateProvider<int>(
+  (ref) => 0,
+);

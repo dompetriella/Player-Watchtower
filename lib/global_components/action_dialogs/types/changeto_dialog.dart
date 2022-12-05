@@ -8,8 +8,6 @@ class ChangeToDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: DialogInput(text: 'Change To:', inputType: inputType),
-    );
+    return DialogInput(text: 'Change To:', inputType: inputType);
   }
 }

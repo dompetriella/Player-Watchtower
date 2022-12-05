@@ -7,6 +7,7 @@ import 'package:player_watchtower/pages/QuickSelect/components/score_card.dart';
 import 'package:player_watchtower/providers/page.dart';
 import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
+import '../../../global_components/action_dialogs/base_dialog.dart';
 import '../../../models/savingThrow.dart';
 import 'small_score_card.dart';
 import 'package:player_watchtower/global_components/multi_button.dart';
@@ -263,17 +264,33 @@ class HealthBarWithButtons extends ConsumerWidget {
     return Container(
       child: Column(
         children: [
-          FillableBar(
-            current: ref.watch(playerProvider).currentHp,
-            total: ref.watch(playerProvider).totalHp,
-            width: healthbarWidth,
-            height: height,
-            isHp: true,
-            color: percentageToHsl(
-                ref.watch(playerProvider).currentHp /
-                    ref.watch(playerProvider).totalHp,
-                0,
-                120),
+          GestureDetector(
+            onLongPress: () {
+              showDialog(
+                  context: context,
+                  builder: (_) => BaseDialog(
+                        editDialogType: 'increaseDecrease',
+                        title: 'Current Hp',
+                        provider: ref.read(playerProvider).currentHp,
+                        statPropertyName: 'currentHp',
+                        statPropertyType: int,
+                        isIncreaseDecrease: true,
+                        maximumIncreaseDecrease:
+                            ref.read(playerProvider).totalHp,
+                      ));
+            },
+            child: FillableBar(
+              current: ref.watch(playerProvider).currentHp,
+              total: ref.watch(playerProvider).totalHp,
+              width: healthbarWidth,
+              height: height,
+              isHp: true,
+              color: percentageToHsl(
+                  ref.watch(playerProvider).currentHp /
+                      ref.watch(playerProvider).totalHp,
+                  0,
+                  120),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(4.0),

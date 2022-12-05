@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/functions/provider_logic.dart';
 import 'package:player_watchtower/global_components/action_dialogs/types/changeTo_dialog.dart';
 import 'package:player_watchtower/global_components/action_dialogs/types/drop_down_dialog.dart';
+import 'package:player_watchtower/global_components/action_dialogs/types/increase_decrease_dialog.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/providers/forms.dart';
 import 'package:player_watchtower/providers/player.dart';
@@ -16,12 +17,16 @@ class BaseDialog extends ConsumerWidget {
   final String statPropertyName;
   final Type statPropertyType;
   final bool isAbilityScore;
+  final bool isIncreaseDecrease;
+  final int maximumIncreaseDecrease;
   final List<String> dropDownOptions;
   const BaseDialog(
       {super.key,
       this.editDialogType = "change-to",
       this.dropDownOptions = const ['Custom'],
-      required this.isAbilityScore,
+      this.isAbilityScore = false,
+      this.isIncreaseDecrease = false,
+      this.maximumIncreaseDecrease = 0,
       required this.title,
       required this.provider,
       required this.statPropertyName,
@@ -33,8 +38,8 @@ class BaseDialog extends ConsumerWidget {
         return ChangeToDialog(inputType: statPropertyType);
       case 'dropDown':
         return DropDownDialog(dropDownOptions: dropDownOptions);
-      case 'modifier':
-        return Text('modifier');
+      case 'increaseDecrease':
+        return IncreaseDecreaseDialog();
       case 'abilityScore':
         return Text('ability-score');
       case 'skill':
@@ -47,6 +52,31 @@ class BaseDialog extends ConsumerWidget {
         return Text('spell');
       default:
         return Text("hello");
+    }
+  }
+
+  int tryBoundariesReturnIncreaseDecrease(
+      int currentValue, int newValue, int maxBoundary) {
+    if (currentValue + newValue < 1) return 0;
+    if (currentValue + newValue > maxBoundary) return maxBoundary;
+    var newSum = currentValue + newValue;
+    return newSum;
+  }
+
+  int increaseDecreaseWithBoundaries(
+      int newValueIncreaseDecrease, String statPropertyName, WidgetRef ref) {
+    switch (statPropertyName) {
+      case 'currentHp':
+        return tryBoundariesReturnIncreaseDecrease(
+            ref.read(playerProvider).currentHp,
+            newValueIncreaseDecrease,
+            ref.read(playerProvider).totalHp);
+      case 'exp':
+        return tryBoundariesReturnIncreaseDecrease(
+            ref.read(playerProvider).exp, newValueIncreaseDecrease, 355000);
+      default:
+        var playerJson = ref.read(playerProvider).toJson();
+        return playerJson[statPropertyName];
     }
   }
 
@@ -122,12 +152,28 @@ class BaseDialog extends ConsumerWidget {
           GestureDetector(
               onTap: () {
                 if (formValuesChanged(ref)) {
-                  ref.watch(playerProvider.notifier).updatePlayerProperty(
-                      propertyName: statPropertyName,
-                      newValue: ref.read(changeToFinalProvider),
-                      propertyType: statPropertyType,
-                      isAbilityScore: isAbilityScore);
-                  wipeTemporaryFormData(ref);
+                  // if it's an increased or decreased integer
+                  if (isIncreaseDecrease) {
+                    int totalValueChange = ref.read(increaseValueProvider) +
+                        (-1 * ref.read(decreaseValueProvider));
+
+                    int newBoundedValue = increaseDecreaseWithBoundaries(
+                        totalValueChange, statPropertyName, ref);
+                    ref.watch(playerProvider.notifier).updatePlayerProperty(
+                        propertyName: statPropertyName,
+                        newValue: newBoundedValue.toString(),
+                        propertyType: int,
+                        isAbilityScore: isAbilityScore);
+                    wipeTemporaryFormData(ref);
+                  } else {
+                    // is a simple string or integer value
+                    ref.watch(playerProvider.notifier).updatePlayerProperty(
+                        propertyName: statPropertyName,
+                        newValue: ref.read(changeToFinalProvider),
+                        propertyType: statPropertyType,
+                        isAbilityScore: isAbilityScore);
+                    wipeTemporaryFormData(ref);
+                  }
                 }
 
                 Navigator.pop(context);
