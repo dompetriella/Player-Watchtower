@@ -1,12 +1,18 @@
 file:///Users/dpetriella/Documents/code/player_watchtower/.dart_tool/flutter_build/d055a73d5baf6964f84ab5f87cb9d138/main.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/.dart_tool/flutter_build/d055a73d5baf6964f84ab5f87cb9d138/web_plugin_registrant.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/.dart_tool/package_config.json
+file:///Users/dpetriella/Documents/code/player_watchtower/lib/dictionaries/info.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/dictionaries/skills_dict.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/functions/calculations.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/functions/database.dart
+file:///Users/dpetriella/Documents/code/player_watchtower/lib/functions/provider_logic.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/global_components/action_dialogs/base_dialog.dart
-file:///Users/dpetriella/Documents/code/player_watchtower/lib/global_components/action_dialogs/components/dialog-input.dart
+file:///Users/dpetriella/Documents/code/player_watchtower/lib/global_components/action_dialogs/components/dialog_input.dart
+file:///Users/dpetriella/Documents/code/player_watchtower/lib/global_components/action_dialogs/components/drop_down_input.dart
+file:///Users/dpetriella/Documents/code/player_watchtower/lib/global_components/action_dialogs/components/increase_decrease_input.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/global_components/action_dialogs/types/changeTo_dialog.dart
+file:///Users/dpetriella/Documents/code/player_watchtower/lib/global_components/action_dialogs/types/drop_down_dialog.dart
+file:///Users/dpetriella/Documents/code/player_watchtower/lib/global_components/action_dialogs/types/increase_decrease_dialog.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/global_components/bar_drop_down.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/global_components/bottom_bar.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/global_components/exp_bar.dart
@@ -57,6 +63,7 @@ file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/main_page.da
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/providers/animation_provider.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/providers/dice_provider.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/providers/forms.dart
+file:///Users/dpetriella/Documents/code/player_watchtower/lib/providers/inventory.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/providers/page.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/providers/player.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/providers/theme.dart
@@ -169,6 +176,9 @@ file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/cr
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-3.0.2/lib/src/sha512.dart
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-3.0.2/lib/src/sha512_slowsinks.dart
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-3.0.2/lib/src/utils.dart
+file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/dropdown_button2-1.9.1/lib/dropdown_button2.dart
+file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/dropdown_button2-1.9.1/lib/src/enums.dart
+file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/dropdown_button2-1.9.1/lib/src/utils.dart
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.3.1/lib/fake_async.dart
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.5.2/lib/firebase_core_platform_interface.dart
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.5.2/lib/src/firebase_core_exceptions.dart

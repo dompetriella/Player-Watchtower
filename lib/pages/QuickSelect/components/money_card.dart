@@ -2,8 +2,57 @@ import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:player_watchtower/providers/inventory.dart';
 
 import '../../../providers/theme.dart';
+
+Color platinum = Colors.grey[800]!;
+Color gold = Colors.yellow;
+Color silver = Colors.grey[400]!;
+Color copper = Colors.brown;
+
+String roundMoney(int amount) {
+  if (amount > 9999) {
+    String moneyString = amount.toString();
+    return '${moneyString.substring(0, 1)}.${moneyString.substring(1, 2)}k';
+  }
+  return amount.toString();
+}
+
+Widget cycleCoinView(WidgetRef ref) {
+  switch (ref.watch(quickSelectMoneyDisplay)) {
+    case 0:
+      return AllCoinView();
+    case 1:
+      return CoinNameAndAmount(
+        amount: ref.watch(platinumProvider),
+        coinName: 'Platinum',
+        coinColor: platinum,
+      );
+    case 2:
+      return CoinNameAndAmount(
+        amount: ref.watch(goldProvider),
+        coinName: 'Gold',
+        coinColor: gold,
+      );
+    case 3:
+      return CoinNameAndAmount(
+        amount: ref.watch(silverProvider),
+        coinName: 'Silver',
+        coinColor: silver,
+      );
+
+    case 4:
+      return CoinNameAndAmount(
+        amount: ref.watch(copperProvider),
+        coinName: 'Copper',
+        coinColor: copper,
+      );
+
+    default:
+      return AllCoinView();
+  }
+}
 
 class MoneyCard extends ConsumerWidget {
   const MoneyCard({
@@ -14,100 +63,129 @@ class MoneyCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.only(top: 8.0),
-      child: Container(
-        height: 50,
-        decoration: BoxDecoration(
-          color: ref.watch(themeProvider).cardBg,
-          boxShadow: [ref.watch(themeProvider).shadow],
-          border:
-              Border.all(color: ref.watch(themeProvider).outline, width: 2.0),
-          borderRadius: BorderRadius.circular(10),
+      child: GestureDetector(
+        onTap: () {
+          if (ref.read(quickSelectMoneyDisplay) > 4) {
+            ref.read(quickSelectMoneyDisplay.notifier).state = 0;
+          }
+          ref.read(quickSelectMoneyDisplay.notifier).state++;
+        },
+        child: Container(
+            height: 50,
+            decoration: BoxDecoration(
+              color: ref.watch(themeProvider).cardBg,
+              boxShadow: [ref.watch(themeProvider).shadow],
+              border: Border.all(
+                  color: ref.watch(themeProvider).outline, width: 2.0),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: cycleCoinView(ref)),
+      ),
+    );
+  }
+}
+
+class AllCoinView extends ConsumerWidget {
+  const AllCoinView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        CoinAmountAndIcon(
+            amount: ref.watch(platinumProvider), coinColor: platinum),
+        CoinAmountAndIcon(amount: ref.watch(goldProvider), coinColor: gold),
+        CoinAmountAndIcon(amount: ref.watch(silverProvider), coinColor: silver),
+        CoinAmountAndIcon(amount: ref.watch(copperProvider), coinColor: copper),
+      ],
+    );
+  }
+}
+
+class CoinAmountAndIcon extends ConsumerWidget {
+  final int amount;
+  final Color coinColor;
+  const CoinAmountAndIcon(
+      {Key? key, required this.amount, required this.coinColor})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Row(
+      children: [
+        FaIcon(
+          FontAwesomeIcons.coins,
+          color: coinColor,
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Row(
-              children: [
-                FaIcon(
-                  FontAwesomeIcons.coins,
-                  color: Colors.grey[800],
-                ),
-                BorderedText(
-                  strokeWidth: 5.0,
-                  strokeColor: Colors.black,
-                  child: Text(
-                    '2',
-                    style: TextStyle(
-                        fontSize: 20,
-                        letterSpacing: 1.2,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                FaIcon(
-                  FontAwesomeIcons.coins,
-                  color: Colors.yellow,
-                ),
-                BorderedText(
-                  strokeWidth: 5.0,
-                  strokeColor: Colors.black,
-                  child: Text(
-                    '32',
-                    style: TextStyle(
-                        fontSize: 20,
-                        letterSpacing: 1.2,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                FaIcon(
-                  FontAwesomeIcons.coins,
-                  color: Colors.grey[400],
-                ),
-                BorderedText(
-                  strokeWidth: 5.0,
-                  strokeColor: Colors.black,
-                  child: Text(
-                    '2',
-                    style: TextStyle(
-                        fontSize: 20,
-                        letterSpacing: 1.2,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                FaIcon(
-                  FontAwesomeIcons.coins,
-                  color: Colors.brown,
-                ),
-                BorderedText(
-                  strokeWidth: 5.0,
-                  strokeColor: Colors.black,
-                  child: Text(
-                    '100',
-                    style: TextStyle(
-                        fontSize: 20,
-                        letterSpacing: 1.2,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
-          ],
+        BorderedText(
+          strokeWidth: 5.0,
+          strokeColor: Colors.black,
+          child: Text(
+            roundMoney(amount),
+            style: TextStyle(
+                fontSize: 20,
+                letterSpacing: 1.2,
+                color: Colors.white,
+                fontWeight: FontWeight.bold),
+          ),
         ),
+      ],
+    );
+  }
+}
+
+class CoinNameAndAmount extends ConsumerWidget {
+  final int amount;
+  final String coinName;
+  final Color coinColor;
+  const CoinNameAndAmount(
+      {Key? key,
+      required this.amount,
+      required this.coinColor,
+      required this.coinName})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0, right: 24),
+            child: Row(
+              children: [
+                FaIcon(
+                  FontAwesomeIcons.coins,
+                  color: coinColor,
+                ),
+                BorderedText(
+                  strokeWidth: 5.0,
+                  strokeColor: Colors.black,
+                  child: Text(
+                    '$coinName: ',
+                    style: TextStyle(
+                        fontSize: 20,
+                        letterSpacing: 1.2,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Text(
+            '$amount coins',
+            style: TextStyle(
+                fontSize: 20,
+                letterSpacing: 1.2,
+                color: Colors.black,
+                fontWeight: FontWeight.w900),
+          ),
+        ],
       ),
     );
   }
