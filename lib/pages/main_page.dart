@@ -28,7 +28,7 @@ class _MainPageState extends ConsumerState<MainPage> {
   @override
   void initState() {
     // Hive.deleteBoxFromDisk('player');
-    // getInitState(ref);
+    getInitState(ref);
     super.initState();
   }
 

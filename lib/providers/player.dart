@@ -22,7 +22,7 @@ class PlayerNotifier extends StateNotifier<Player> {
       bool isAbilityScore = false}) {
     var playerJson = state.toJson();
     var adjustedValue = newValue;
-    if (propertyType == int) {
+    if (propertyType == int && newValue.runtimeType != int) {
       adjustedValue = int.parse(newValue);
     }
     playerJson[propertyName] = adjustedValue;

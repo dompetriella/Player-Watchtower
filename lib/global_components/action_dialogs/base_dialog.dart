@@ -161,7 +161,7 @@ class BaseDialog extends ConsumerWidget {
                         totalValueChange, statPropertyName, ref);
                     ref.watch(playerProvider.notifier).updatePlayerProperty(
                         propertyName: statPropertyName,
-                        newValue: newBoundedValue.toString(),
+                        newValue: newBoundedValue,
                         propertyType: int,
                         isAbilityScore: isAbilityScore);
                     wipeTemporaryFormData(ref);

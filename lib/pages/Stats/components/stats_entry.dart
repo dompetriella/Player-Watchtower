@@ -41,6 +41,8 @@ class StatsEntry extends ConsumerWidget {
                   statPropertyType: provider.runtimeType,
                   isAbilityScore: isAbilityScore,
                   dropDownOptions: dropDownOptions,
+                  isIncreaseDecrease:
+                      editDialogType == 'increaseDecrease' ? true : false,
                 ));
       },
       child: Padding(

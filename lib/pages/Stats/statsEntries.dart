@@ -24,6 +24,7 @@ class CharacterStatsEntries extends ConsumerWidget {
           title: 'Experience',
           statPropertyName: 'exp',
           provider: ref.watch(playerProvider).exp,
+          editDialogType: 'increaseDecrease',
           displayWidget: Padding(
             padding: const EdgeInsets.all(8.0),
             child: ExpBar(
