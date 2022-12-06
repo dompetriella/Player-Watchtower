@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/dictionaries/info.dart';
+import 'package:player_watchtower/models/playerSkill.dart';
 import 'package:player_watchtower/providers/page.dart';
 import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
@@ -79,11 +80,12 @@ class CombatStatsEntries extends ConsumerWidget {
           statPropertyName: 'armorClass',
           provider: ref.watch(playerProvider).armorClass,
         ),
-        // StatsEntry(
-        //   title: 'Current Hit Points',
-        //   statPropertyName: 'currentHp',
-        //   provider: ref.watch(playerProvider).currentHp,
-        // ),
+        StatsEntry(
+          title: 'Current Hit Points',
+          statPropertyName: 'currentHp',
+          provider: ref.watch(playerProvider).currentHp,
+          editDialogType: 'increaseDecrease',
+        ),
         StatsEntry(
           title: 'Total Hit Points',
           statPropertyName: 'totalHp',
@@ -159,15 +161,12 @@ class SkillsStatsEntries extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
-        // StatsEntry(
-        //   title: 'Acrobatics',
-        //   provider: ref.watch(playerProvider).acrobatics.skillModifier,
-        //   statPropertyName: ref.watch(playerProvider).acrobatics.skillName,
-        // ),
-        // StatsEntry(
-        //   title: 'Animal Handling',
-        //   entry: '+1',
-        // ),
+        StatsEntry(
+          title: 'Acrobatics',
+          editDialogType: 'skill',
+          provider: ref.watch(playerProvider).acrobatics,
+          statPropertyName: ref.read(playerProvider).acrobatics.skillName,
+        ),
       ],
     );
   }

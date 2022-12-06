@@ -14,17 +14,18 @@ class StatsEntry extends ConsumerWidget {
   final dynamic provider;
   final String editDialogType;
   final List<String> dropDownOptions;
-  const StatsEntry({
-    super.key,
-    required this.provider,
-    required this.title,
-    required this.statPropertyName,
-    this.dropDownOptions = const ['Custom'],
-    this.isAbilityScore = false,
-    this.editDialogType = 'changeTo',
-    this.displayWidget = const SizedBox.shrink(),
-    this.isModifier = false,
-  });
+  final int maximumIncreaseDecrease;
+  const StatsEntry(
+      {super.key,
+      required this.provider,
+      required this.title,
+      required this.statPropertyName,
+      this.dropDownOptions = const ['Custom'],
+      this.isAbilityScore = false,
+      this.editDialogType = 'changeTo',
+      this.displayWidget = const SizedBox.shrink(),
+      this.isModifier = false,
+      this.maximumIncreaseDecrease = 0});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     double width = MediaQuery.of(context).size.width;
@@ -43,6 +44,7 @@ class StatsEntry extends ConsumerWidget {
                   dropDownOptions: dropDownOptions,
                   isIncreaseDecrease:
                       editDialogType == 'increaseDecrease' ? true : false,
+                  maximumIncreaseDecrease: maximumIncreaseDecrease,
                 ));
       },
       child: Padding(

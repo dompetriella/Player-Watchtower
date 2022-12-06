@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:player_watchtower/functions/calculations.dart';
-import 'package:player_watchtower/models/playerSkill.dart';
-import 'package:player_watchtower/providers/page.dart';
 import 'package:player_watchtower/providers/player.dart';
 
 import 'skill.dart';
@@ -46,6 +43,9 @@ class SkillsList extends ConsumerWidget {
         ),
         Skill(
           playerSkill: ref.watch(playerProvider).nature,
+        ),
+        Skill(
+          playerSkill: ref.watch(playerProvider).perception,
         ),
         Skill(
           playerSkill: ref.watch(playerProvider).performance,

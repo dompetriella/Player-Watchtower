@@ -19,3 +19,5 @@ final increaseValueProvider = StateProvider<int>(
 final decreaseValueProvider = StateProvider<int>(
   (ref) => 0,
 );
+
+final checkboxProvider = StateProvider<bool>(((ref) => false));

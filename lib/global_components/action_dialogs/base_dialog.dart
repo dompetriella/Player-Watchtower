@@ -1,14 +1,19 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/functions/calculations.dart';
 import 'package:player_watchtower/functions/provider_logic.dart';
 import 'package:player_watchtower/global_components/action_dialogs/types/changeTo_dialog.dart';
 import 'package:player_watchtower/global_components/action_dialogs/types/drop_down_dialog.dart';
 import 'package:player_watchtower/global_components/action_dialogs/types/increase_decrease_dialog.dart';
+import 'package:player_watchtower/global_components/action_dialogs/types/skill_dialog.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/providers/forms.dart';
 import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
+
+import '../../models/player.dart';
+import '../../models/playerSkill.dart';
 
 class BaseDialog extends ConsumerWidget {
   final String title;
@@ -32,7 +37,7 @@ class BaseDialog extends ConsumerWidget {
       required this.statPropertyName,
       required this.statPropertyType});
 
-  Widget editTypeFilter(String editTypeSwitch) {
+  Widget editTypeFilter(String editTypeSwitch, WidgetRef ref) {
     switch (editTypeSwitch) {
       case 'changeTo':
         return ChangeToDialog(inputType: statPropertyType);
@@ -40,10 +45,11 @@ class BaseDialog extends ConsumerWidget {
         return DropDownDialog(dropDownOptions: dropDownOptions);
       case 'increaseDecrease':
         return IncreaseDecreaseDialog();
-      case 'abilityScore':
-        return Text('ability-score');
       case 'skill':
-        return Text('skill');
+        ref.read(checkboxProvider.notifier).state = (provider).isProficient;
+        return SkillDialog(
+            isSkillProficient: (provider).isProficient,
+            playerSkillProvider: provider);
       case 'item':
         return Text('item');
       case 'weapon':
@@ -94,7 +100,8 @@ class BaseDialog extends ConsumerWidget {
         backgroundColor: Colors.transparent,
         elevation: 38,
         contentPadding: EdgeInsets.all(0),
-        content: Container(
+        content: AnimatedContainer(
+          duration: Duration(milliseconds: 5000),
           decoration: BoxDecoration(
               color: ref.watch(themeProvider).primary,
               border: Border.all(color: Colors.white),
@@ -134,7 +141,7 @@ class BaseDialog extends ConsumerWidget {
                     ),
                   ),
                 ),
-                editTypeFilter(editDialogType)
+                editTypeFilter(editDialogType, ref)
               ],
             ),
           ),
@@ -153,26 +160,30 @@ class BaseDialog extends ConsumerWidget {
               onTap: () {
                 if (formValuesChanged(ref)) {
                   // if it's an increased or decreased integer
-                  if (isIncreaseDecrease) {
-                    int totalValueChange = ref.read(increaseValueProvider) +
-                        (-1 * ref.read(decreaseValueProvider));
 
-                    int newBoundedValue = increaseDecreaseWithBoundaries(
-                        totalValueChange, statPropertyName, ref);
-                    ref.watch(playerProvider.notifier).updatePlayerProperty(
-                        propertyName: statPropertyName,
-                        newValue: newBoundedValue,
-                        propertyType: int,
-                        isAbilityScore: isAbilityScore);
-                    wipeTemporaryFormData(ref);
-                  } else {
-                    // is a simple string or integer value
-                    ref.watch(playerProvider.notifier).updatePlayerProperty(
-                        propertyName: statPropertyName,
-                        newValue: ref.read(changeToFinalProvider),
-                        propertyType: statPropertyType,
-                        isAbilityScore: isAbilityScore);
-                    wipeTemporaryFormData(ref);
+                  switch (editDialogType) {
+                    case 'increaseDecrease':
+                      int totalValueChange = ref.read(increaseValueProvider) +
+                          (-1 * ref.read(decreaseValueProvider));
+
+                      int newBoundedValue = increaseDecreaseWithBoundaries(
+                          totalValueChange, statPropertyName, ref);
+                      ref.watch(playerProvider.notifier).updatePlayerProperty(
+                          propertyName: statPropertyName,
+                          newValue: newBoundedValue,
+                          propertyType: int,
+                          isAbilityScore: isAbilityScore);
+                      wipeTemporaryFormData(ref);
+                      break;
+
+                    default:
+                      // is a simple string or integer value
+                      ref.watch(playerProvider.notifier).updatePlayerProperty(
+                          propertyName: statPropertyName,
+                          newValue: ref.read(changeToFinalProvider),
+                          propertyType: statPropertyType,
+                          isAbilityScore: isAbilityScore);
+                      wipeTemporaryFormData(ref);
                   }
                 }
 
