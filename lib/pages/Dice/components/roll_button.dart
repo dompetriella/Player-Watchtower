@@ -3,10 +3,7 @@ import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:math';
-import 'package:flutter_animate/flutter_animate.dart';
-
 import '../../../models/rolledDice.dart';
-import '../../../providers/animation_provider.dart';
 import '../../../providers/dice_provider.dart';
 import '../../../providers/theme.dart';
 

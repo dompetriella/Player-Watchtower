@@ -8,6 +8,7 @@ part of 'player.dart';
 
 _$_Player _$$_PlayerFromJson(Map<String, dynamic> json) => _$_Player(
       characterName: json['characterName'] as String? ?? 'Player',
+      guid: json['guid'] as String? ?? '',
       level: json['level'] as int? ?? 1,
       exp: json['exp'] as int? ?? 0,
       playerClass: json['playerClass'] as String? ?? 'Fighter',
@@ -22,21 +23,21 @@ _$_Player _$$_PlayerFromJson(Map<String, dynamic> json) => _$_Player(
       speed: json['speed'] as int? ?? 10,
       initiative: json['initiative'] as int? ?? 0,
       strength: json['strength'] as int? ?? 10,
+      dexterity: json['dexterity'] as int? ?? 10,
+      constitution: json['constitution'] as int? ?? 10,
+      intellegence: json['intellegence'] as int? ?? 10,
+      wisdom: json['wisdom'] as int? ?? 10,
+      charisma: json['charisma'] as int? ?? 10,
       strengthSavingThrow: json['strengthSavingThrow'] ??
           const SavingThrow(savingThrowName: 'strength'),
-      dexterity: json['dexterity'] as int? ?? 10,
       dexteritySavingThrow: json['dexteritySavingThrow'] ??
           const SavingThrow(savingThrowName: 'dexterity'),
-      constitution: json['constitution'] as int? ?? 10,
       constitutionSavingThrow: json['constitutionSavingThrow'] ??
           const SavingThrow(savingThrowName: 'constitution'),
-      intellegence: json['intellegence'] as int? ?? 10,
       intellegenceSavingThrow: json['intellegenceSavingThrow'] ??
           const SavingThrow(savingThrowName: 'intellegence'),
-      wisdom: json['wisdom'] as int? ?? 10,
       wisdomSavingThrow: json['wisdomSavingThrow'] ??
           const SavingThrow(savingThrowName: 'wisdom'),
-      charisma: json['charisma'] as int? ?? 10,
       charismaSavingThrow: json['charismaSavingThrow'] ??
           const SavingThrow(savingThrowName: 'charisma'),
       acrobatics: json['acrobatics'] ??
@@ -80,6 +81,7 @@ _$_Player _$$_PlayerFromJson(Map<String, dynamic> json) => _$_Player(
 
 Map<String, dynamic> _$$_PlayerToJson(_$_Player instance) => <String, dynamic>{
       'characterName': instance.characterName,
+      'guid': instance.guid,
       'level': instance.level,
       'exp': instance.exp,
       'playerClass': instance.playerClass,
@@ -94,16 +96,16 @@ Map<String, dynamic> _$$_PlayerToJson(_$_Player instance) => <String, dynamic>{
       'speed': instance.speed,
       'initiative': instance.initiative,
       'strength': instance.strength,
-      'strengthSavingThrow': instance.strengthSavingThrow,
       'dexterity': instance.dexterity,
-      'dexteritySavingThrow': instance.dexteritySavingThrow,
       'constitution': instance.constitution,
-      'constitutionSavingThrow': instance.constitutionSavingThrow,
       'intellegence': instance.intellegence,
-      'intellegenceSavingThrow': instance.intellegenceSavingThrow,
       'wisdom': instance.wisdom,
-      'wisdomSavingThrow': instance.wisdomSavingThrow,
       'charisma': instance.charisma,
+      'strengthSavingThrow': instance.strengthSavingThrow,
+      'dexteritySavingThrow': instance.dexteritySavingThrow,
+      'constitutionSavingThrow': instance.constitutionSavingThrow,
+      'intellegenceSavingThrow': instance.intellegenceSavingThrow,
+      'wisdomSavingThrow': instance.wisdomSavingThrow,
       'charismaSavingThrow': instance.charismaSavingThrow,
       'acrobatics': instance.acrobatics,
       'animalHandling': instance.animalHandling,

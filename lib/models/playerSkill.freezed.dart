@@ -20,10 +20,15 @@ PlayerSkill _$PlayerSkillFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PlayerSkill {
+  @HiveField(0)
   String get skillName => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get skillType => throw _privateConstructorUsedError;
+  @HiveField(2)
   int get skillModifier => throw _privateConstructorUsedError;
+  @HiveField(3)
   bool get isProficient => throw _privateConstructorUsedError;
+  @HiveField(4)
   bool get autoCalculated => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,11 +44,11 @@ abstract class $PlayerSkillCopyWith<$Res> {
       _$PlayerSkillCopyWithImpl<$Res, PlayerSkill>;
   @useResult
   $Res call(
-      {String skillName,
-      String skillType,
-      int skillModifier,
-      bool isProficient,
-      bool autoCalculated});
+      {@HiveField(0) String skillName,
+      @HiveField(1) String skillType,
+      @HiveField(2) int skillModifier,
+      @HiveField(3) bool isProficient,
+      @HiveField(4) bool autoCalculated});
 }
 
 /// @nodoc
@@ -99,11 +104,11 @@ abstract class _$$_PlayerSkillCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String skillName,
-      String skillType,
-      int skillModifier,
-      bool isProficient,
-      bool autoCalculated});
+      {@HiveField(0) String skillName,
+      @HiveField(1) String skillType,
+      @HiveField(2) int skillModifier,
+      @HiveField(3) bool isProficient,
+      @HiveField(4) bool autoCalculated});
 }
 
 /// @nodoc
@@ -150,29 +155,35 @@ class __$$_PlayerSkillCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 1)
 class _$_PlayerSkill with DiagnosticableTreeMixin implements _PlayerSkill {
   const _$_PlayerSkill(
-      {required this.skillName,
-      required this.skillType,
-      this.skillModifier = 0,
-      this.isProficient = false,
-      this.autoCalculated = true});
+      {@HiveField(0) required this.skillName,
+      @HiveField(1) required this.skillType,
+      @HiveField(2) this.skillModifier = 0,
+      @HiveField(3) this.isProficient = false,
+      @HiveField(4) this.autoCalculated = true});
 
   factory _$_PlayerSkill.fromJson(Map<String, dynamic> json) =>
       _$$_PlayerSkillFromJson(json);
 
   @override
+  @HiveField(0)
   final String skillName;
   @override
+  @HiveField(1)
   final String skillType;
   @override
   @JsonKey()
+  @HiveField(2)
   final int skillModifier;
   @override
   @JsonKey()
+  @HiveField(3)
   final bool isProficient;
   @override
   @JsonKey()
+  @HiveField(4)
   final bool autoCalculated;
 
   @override
@@ -230,24 +241,29 @@ class _$_PlayerSkill with DiagnosticableTreeMixin implements _PlayerSkill {
 
 abstract class _PlayerSkill implements PlayerSkill {
   const factory _PlayerSkill(
-      {required final String skillName,
-      required final String skillType,
-      final int skillModifier,
-      final bool isProficient,
-      final bool autoCalculated}) = _$_PlayerSkill;
+      {@HiveField(0) required final String skillName,
+      @HiveField(1) required final String skillType,
+      @HiveField(2) final int skillModifier,
+      @HiveField(3) final bool isProficient,
+      @HiveField(4) final bool autoCalculated}) = _$_PlayerSkill;
 
   factory _PlayerSkill.fromJson(Map<String, dynamic> json) =
       _$_PlayerSkill.fromJson;
 
   @override
+  @HiveField(0)
   String get skillName;
   @override
+  @HiveField(1)
   String get skillType;
   @override
+  @HiveField(2)
   int get skillModifier;
   @override
+  @HiveField(3)
   bool get isProficient;
   @override
+  @HiveField(4)
   bool get autoCalculated;
   @override
   @JsonKey(ignore: true)

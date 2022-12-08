@@ -20,9 +20,13 @@ SavingThrow _$SavingThrowFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SavingThrow {
+  @HiveField(0)
   String get savingThrowName => throw _privateConstructorUsedError;
+  @HiveField(1)
   int get savingThrowModifier => throw _privateConstructorUsedError;
+  @HiveField(2)
   bool get isProficient => throw _privateConstructorUsedError;
+  @HiveField(3)
   bool get autoCalculated => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,10 +42,10 @@ abstract class $SavingThrowCopyWith<$Res> {
       _$SavingThrowCopyWithImpl<$Res, SavingThrow>;
   @useResult
   $Res call(
-      {String savingThrowName,
-      int savingThrowModifier,
-      bool isProficient,
-      bool autoCalculated});
+      {@HiveField(0) String savingThrowName,
+      @HiveField(1) int savingThrowModifier,
+      @HiveField(2) bool isProficient,
+      @HiveField(3) bool autoCalculated});
 }
 
 /// @nodoc
@@ -92,10 +96,10 @@ abstract class _$$_SavingThrowCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String savingThrowName,
-      int savingThrowModifier,
-      bool isProficient,
-      bool autoCalculated});
+      {@HiveField(0) String savingThrowName,
+      @HiveField(1) int savingThrowModifier,
+      @HiveField(2) bool isProficient,
+      @HiveField(3) bool autoCalculated});
 }
 
 /// @nodoc
@@ -137,26 +141,31 @@ class __$$_SavingThrowCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 2)
 class _$_SavingThrow with DiagnosticableTreeMixin implements _SavingThrow {
   const _$_SavingThrow(
-      {required this.savingThrowName,
-      this.savingThrowModifier = 0,
-      this.isProficient = false,
-      this.autoCalculated = true});
+      {@HiveField(0) required this.savingThrowName,
+      @HiveField(1) this.savingThrowModifier = 0,
+      @HiveField(2) this.isProficient = false,
+      @HiveField(3) this.autoCalculated = true});
 
   factory _$_SavingThrow.fromJson(Map<String, dynamic> json) =>
       _$$_SavingThrowFromJson(json);
 
   @override
+  @HiveField(0)
   final String savingThrowName;
   @override
   @JsonKey()
+  @HiveField(1)
   final int savingThrowModifier;
   @override
   @JsonKey()
+  @HiveField(2)
   final bool isProficient;
   @override
   @JsonKey()
+  @HiveField(3)
   final bool autoCalculated;
 
   @override
@@ -211,21 +220,25 @@ class _$_SavingThrow with DiagnosticableTreeMixin implements _SavingThrow {
 
 abstract class _SavingThrow implements SavingThrow {
   const factory _SavingThrow(
-      {required final String savingThrowName,
-      final int savingThrowModifier,
-      final bool isProficient,
-      final bool autoCalculated}) = _$_SavingThrow;
+      {@HiveField(0) required final String savingThrowName,
+      @HiveField(1) final int savingThrowModifier,
+      @HiveField(2) final bool isProficient,
+      @HiveField(3) final bool autoCalculated}) = _$_SavingThrow;
 
   factory _SavingThrow.fromJson(Map<String, dynamic> json) =
       _$_SavingThrow.fromJson;
 
   @override
+  @HiveField(0)
   String get savingThrowName;
   @override
+  @HiveField(1)
   int get savingThrowModifier;
   @override
+  @HiveField(2)
   bool get isProficient;
   @override
+  @HiveField(3)
   bool get autoCalculated;
   @override
   @JsonKey(ignore: true)
