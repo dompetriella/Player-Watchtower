@@ -35,7 +35,7 @@ class PlayerNotifier extends StateNotifier<Player> {
     }
 
     state = Player.fromJson(playerJson);
-    writeStateToHive(propertyName, isAbilityScore, state);
+    // writeStateToHive(propertyName, isAbilityScore, state);
   }
 
   Map<String, dynamic> updatePlayerSkillModifierValue(

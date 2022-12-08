@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:player_watchtower/functions/calculations.dart';
 import 'package:player_watchtower/functions/provider_logic.dart';
 import 'package:player_watchtower/global_components/action_dialogs/types/changeTo_dialog.dart';
 import 'package:player_watchtower/global_components/action_dialogs/types/drop_down_dialog.dart';
@@ -11,8 +10,6 @@ import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/providers/forms.dart';
 import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
-
-import '../../models/player.dart';
 import '../../models/playerSkill.dart';
 
 class BaseDialog extends ConsumerWidget {
@@ -46,18 +43,11 @@ class BaseDialog extends ConsumerWidget {
       case 'increaseDecrease':
         return IncreaseDecreaseDialog();
       case 'skill':
-        ref.read(checkboxProvider.notifier).state = (provider).isProficient;
         return SkillDialog(
             isSkillProficient: (provider).isProficient,
             playerSkillProvider: provider);
-      case 'item':
-        return Text('item');
-      case 'weapon':
-        return Text('weapon');
-      case 'spell':
-        return Text('spell');
       default:
-        return Text("hello");
+        return Text("Error");
     }
   }
 
@@ -91,6 +81,7 @@ class BaseDialog extends ConsumerWidget {
     return BackdropFilter(
       filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
       child: AlertDialog(
+        actionsAlignment: MainAxisAlignment.spaceEvenly,
         title: Center(
             child: StrokeText(
           text: title.toUpperCase(),
@@ -112,33 +103,40 @@ class BaseDialog extends ConsumerWidget {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 16.0),
-                  child: Container(
-                    child: Column(
-                      children: [
-                        StrokeText(text: "CURRENT VALUE"),
+                Container(
+                  child: Column(
+                    children: [
+                      if (editDialogType != 'skill')
                         Padding(
-                          padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
-                          child: Container(
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: ref.watch(themeProvider).bgColor,
-                                border:
-                                    Border.all(color: Colors.white, width: 4),
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Center(
-                                child: TextFormField(
-                              style: TextStyle(fontWeight: FontWeight.w900),
-                              readOnly: true,
-                              initialValue: provider.toString(),
-                              textAlign: TextAlign.center,
-                              textAlignVertical: TextAlignVertical.center,
-                            )),
+                          padding: const EdgeInsets.only(bottom: 16.0),
+                          child: Column(
+                            children: [
+                              StrokeText(text: "CURRENT VALUE"),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 4.0, bottom: 4.0),
+                                child: Container(
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                      color: ref.watch(themeProvider).bgColor,
+                                      border: Border.all(
+                                          color: Colors.white, width: 4),
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Center(
+                                      child: TextFormField(
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w900),
+                                    readOnly: true,
+                                    initialValue: provider.toString(),
+                                    textAlign: TextAlign.center,
+                                    textAlignVertical: TextAlignVertical.center,
+                                  )),
+                                ),
+                              )
+                            ],
                           ),
-                        )
-                      ],
-                    ),
+                        ),
+                    ],
                   ),
                 ),
                 editTypeFilter(editDialogType, ref)
@@ -168,7 +166,7 @@ class BaseDialog extends ConsumerWidget {
 
                       int newBoundedValue = increaseDecreaseWithBoundaries(
                           totalValueChange, statPropertyName, ref);
-                      ref.watch(playerProvider.notifier).updatePlayerProperty(
+                      ref.read(playerProvider.notifier).updatePlayerProperty(
                           propertyName: statPropertyName,
                           newValue: newBoundedValue,
                           propertyType: int,
@@ -176,6 +174,17 @@ class BaseDialog extends ConsumerWidget {
                       wipeTemporaryFormData(ref);
                       break;
 
+                    // this is not a permanent solution, only updates isProficient for now
+                    case 'skill':
+                      PlayerSkill updatedSkill = provider.copyWith(
+                          isProficient: ref.read(finalCheckboxProvider));
+                      ref.watch(playerProvider.notifier).updatePlayerProperty(
+                          propertyName: statPropertyName,
+                          newValue: updatedSkill,
+                          propertyType: statPropertyType,
+                          isAbilityScore: isAbilityScore);
+                      wipeTemporaryFormData(ref);
+                      break;
                     default:
                       // is a simple string or integer value
                       ref.watch(playerProvider.notifier).updatePlayerProperty(
@@ -203,8 +212,8 @@ class DialogActionButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
+      width: 120,
       height: 35,
-      width: 80,
       decoration: BoxDecoration(
           color: ref.watch(themeProvider).bgColor,
           border: Border.all(color: Colors.white, width: 4),

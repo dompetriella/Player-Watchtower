@@ -20,4 +20,6 @@ final decreaseValueProvider = StateProvider<int>(
   (ref) => 0,
 );
 
-final checkboxProvider = StateProvider<bool>(((ref) => false));
+final finalCheckboxProvider = StateProvider<bool>(((ref) => false));
+
+final didCheckboxChangeProvider = StateProvider<bool>(((ref) => false));

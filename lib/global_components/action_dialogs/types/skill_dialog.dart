@@ -26,13 +26,21 @@ class SkillDialog extends ConsumerWidget {
           activeColor: ref.watch(themeProvider).accent,
           checkColor: Colors.white,
           enableFeedback: false,
-          selected: ref.read(checkboxProvider),
-          secondary: FaIcon(FontAwesomeIcons.graduationCap),
-          title: Text('Proficient?'),
-          value: ref.watch(checkboxProvider.notifier).state,
+          secondary: FaIcon(
+            FontAwesomeIcons.graduationCap,
+          ),
+          title: Text(
+            'Proficient?',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          selected: ref.watch(finalCheckboxProvider),
+          value: ref.watch(finalCheckboxProvider),
           onChanged: (value) {
-            ref.watch(checkboxProvider.notifier).state =
-                !ref.watch(checkboxProvider);
+            if (ref.read(finalCheckboxProvider) != isSkillProficient) {
+              ref.read(didCheckboxChangeProvider.notifier).state = true;
+            }
+            ref.watch(finalCheckboxProvider.notifier).state =
+                !ref.watch(finalCheckboxProvider);
           },
         ),
       ),
