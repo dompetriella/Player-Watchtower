@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:player_watchtower/functions/database.dart';
 import 'package:player_watchtower/global_components/bottom_bar.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
@@ -27,7 +26,6 @@ class MainPage extends ConsumerStatefulWidget {
 class _MainPageState extends ConsumerState<MainPage> {
   @override
   void initState() {
-    // Hive.deleteBoxFromDisk('player');
     getInitState(ref);
     super.initState();
   }
@@ -42,15 +40,6 @@ class _MainPageState extends ConsumerState<MainPage> {
       StatsPage(),
       InventoryPage(),
       DicePage()
-
-      // Container(
-      //   color: Colors.lightBlue,
-      //   child: Center(
-      //       child: Text(
-      //     'Dice Roller\nComing in v0.2a',
-      //     textAlign: TextAlign.center,
-      //   )),
-      // )
     ];
 
     double width = MediaQuery.of(context).size.width;

@@ -83,8 +83,8 @@ class Skill extends ConsumerWidget {
                           top: -5,
                           right: -5,
                           child: StrokeText(
-                            text: displayValue(
-                                ref.watch(playerProvider).proficiency),
+                            text: displayValue(getProficiencyModifier(
+                                ref.watch(playerProvider).level)),
                             size: 12,
                           ),
                         )

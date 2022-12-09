@@ -22,7 +22,7 @@ Player _$PlayerFromJson(Map<String, dynamic> json) {
 mixin _$Player {
   @HiveField(0)
   String get characterName => throw _privateConstructorUsedError;
-  @HiveField(0)
+  @HiveField(1)
   String get guid => throw _privateConstructorUsedError;
   @HiveField(2)
   int get level => throw _privateConstructorUsedError;
@@ -62,29 +62,51 @@ mixin _$Player {
   int get wisdom => throw _privateConstructorUsedError;
   @HiveField(20)
   int get charisma => throw _privateConstructorUsedError; //
+  @HiveField(21)
   dynamic get strengthSavingThrow => throw _privateConstructorUsedError;
+  @HiveField(22)
   dynamic get dexteritySavingThrow => throw _privateConstructorUsedError;
+  @HiveField(23)
   dynamic get constitutionSavingThrow => throw _privateConstructorUsedError;
+  @HiveField(24)
   dynamic get intellegenceSavingThrow => throw _privateConstructorUsedError;
+  @HiveField(25)
   dynamic get wisdomSavingThrow => throw _privateConstructorUsedError;
+  @HiveField(26)
   dynamic get charismaSavingThrow => throw _privateConstructorUsedError; //
+  @HiveField(27)
   dynamic get acrobatics => throw _privateConstructorUsedError;
+  @HiveField(28)
   dynamic get animalHandling => throw _privateConstructorUsedError;
+  @HiveField(29)
   dynamic get arcana => throw _privateConstructorUsedError;
+  @HiveField(30)
   dynamic get athletics => throw _privateConstructorUsedError;
+  @HiveField(31)
   dynamic get deception => throw _privateConstructorUsedError;
+  @HiveField(32)
   dynamic get history => throw _privateConstructorUsedError;
   dynamic get insight => throw _privateConstructorUsedError;
+  @HiveField(33)
   dynamic get intimidation => throw _privateConstructorUsedError;
+  @HiveField(34)
   dynamic get investigation => throw _privateConstructorUsedError;
   dynamic get medicine => throw _privateConstructorUsedError;
+  @HiveField(35)
   dynamic get nature => throw _privateConstructorUsedError;
+  @HiveField(36)
   dynamic get perception => throw _privateConstructorUsedError;
+  @HiveField(37)
   dynamic get performance => throw _privateConstructorUsedError;
+  @HiveField(38)
   dynamic get persuasion => throw _privateConstructorUsedError;
+  @HiveField(39)
   dynamic get religion => throw _privateConstructorUsedError;
+  @HiveField(40)
   dynamic get sleightOfHand => throw _privateConstructorUsedError;
+  @HiveField(41)
   dynamic get stealth => throw _privateConstructorUsedError;
+  @HiveField(42)
   dynamic get survival => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -99,7 +121,7 @@ abstract class $PlayerCopyWith<$Res> {
   @useResult
   $Res call(
       {@HiveField(0) String characterName,
-      @HiveField(0) String guid,
+      @HiveField(1) String guid,
       @HiveField(2) int level,
       @HiveField(3) int exp,
       @HiveField(4) String playerClass,
@@ -119,30 +141,30 @@ abstract class $PlayerCopyWith<$Res> {
       @HiveField(18) int intellegence,
       @HiveField(19) int wisdom,
       @HiveField(20) int charisma,
-      dynamic strengthSavingThrow,
-      dynamic dexteritySavingThrow,
-      dynamic constitutionSavingThrow,
-      dynamic intellegenceSavingThrow,
-      dynamic wisdomSavingThrow,
-      dynamic charismaSavingThrow,
-      dynamic acrobatics,
-      dynamic animalHandling,
-      dynamic arcana,
-      dynamic athletics,
-      dynamic deception,
-      dynamic history,
+      @HiveField(21) dynamic strengthSavingThrow,
+      @HiveField(22) dynamic dexteritySavingThrow,
+      @HiveField(23) dynamic constitutionSavingThrow,
+      @HiveField(24) dynamic intellegenceSavingThrow,
+      @HiveField(25) dynamic wisdomSavingThrow,
+      @HiveField(26) dynamic charismaSavingThrow,
+      @HiveField(27) dynamic acrobatics,
+      @HiveField(28) dynamic animalHandling,
+      @HiveField(29) dynamic arcana,
+      @HiveField(30) dynamic athletics,
+      @HiveField(31) dynamic deception,
+      @HiveField(32) dynamic history,
       dynamic insight,
-      dynamic intimidation,
-      dynamic investigation,
+      @HiveField(33) dynamic intimidation,
+      @HiveField(34) dynamic investigation,
       dynamic medicine,
-      dynamic nature,
-      dynamic perception,
-      dynamic performance,
-      dynamic persuasion,
-      dynamic religion,
-      dynamic sleightOfHand,
-      dynamic stealth,
-      dynamic survival});
+      @HiveField(35) dynamic nature,
+      @HiveField(36) dynamic perception,
+      @HiveField(37) dynamic performance,
+      @HiveField(38) dynamic persuasion,
+      @HiveField(39) dynamic religion,
+      @HiveField(40) dynamic sleightOfHand,
+      @HiveField(41) dynamic stealth,
+      @HiveField(42) dynamic survival});
 }
 
 /// @nodoc
@@ -397,7 +419,7 @@ abstract class _$$_PlayerCopyWith<$Res> implements $PlayerCopyWith<$Res> {
   @useResult
   $Res call(
       {@HiveField(0) String characterName,
-      @HiveField(0) String guid,
+      @HiveField(1) String guid,
       @HiveField(2) int level,
       @HiveField(3) int exp,
       @HiveField(4) String playerClass,
@@ -417,30 +439,30 @@ abstract class _$$_PlayerCopyWith<$Res> implements $PlayerCopyWith<$Res> {
       @HiveField(18) int intellegence,
       @HiveField(19) int wisdom,
       @HiveField(20) int charisma,
-      dynamic strengthSavingThrow,
-      dynamic dexteritySavingThrow,
-      dynamic constitutionSavingThrow,
-      dynamic intellegenceSavingThrow,
-      dynamic wisdomSavingThrow,
-      dynamic charismaSavingThrow,
-      dynamic acrobatics,
-      dynamic animalHandling,
-      dynamic arcana,
-      dynamic athletics,
-      dynamic deception,
-      dynamic history,
+      @HiveField(21) dynamic strengthSavingThrow,
+      @HiveField(22) dynamic dexteritySavingThrow,
+      @HiveField(23) dynamic constitutionSavingThrow,
+      @HiveField(24) dynamic intellegenceSavingThrow,
+      @HiveField(25) dynamic wisdomSavingThrow,
+      @HiveField(26) dynamic charismaSavingThrow,
+      @HiveField(27) dynamic acrobatics,
+      @HiveField(28) dynamic animalHandling,
+      @HiveField(29) dynamic arcana,
+      @HiveField(30) dynamic athletics,
+      @HiveField(31) dynamic deception,
+      @HiveField(32) dynamic history,
       dynamic insight,
-      dynamic intimidation,
-      dynamic investigation,
+      @HiveField(33) dynamic intimidation,
+      @HiveField(34) dynamic investigation,
       dynamic medicine,
-      dynamic nature,
-      dynamic perception,
-      dynamic performance,
-      dynamic persuasion,
-      dynamic religion,
-      dynamic sleightOfHand,
-      dynamic stealth,
-      dynamic survival});
+      @HiveField(35) dynamic nature,
+      @HiveField(36) dynamic perception,
+      @HiveField(37) dynamic performance,
+      @HiveField(38) dynamic persuasion,
+      @HiveField(39) dynamic religion,
+      @HiveField(40) dynamic sleightOfHand,
+      @HiveField(41) dynamic stealth,
+      @HiveField(42) dynamic survival});
 }
 
 /// @nodoc
@@ -633,7 +655,7 @@ class __$$_PlayerCopyWithImpl<$Res>
 class _$_Player with DiagnosticableTreeMixin implements _Player {
   const _$_Player(
       {@HiveField(0) this.characterName = 'Player',
-      @HiveField(0) this.guid = '',
+      @HiveField(1) this.guid = '',
       @HiveField(2) this.level = 1,
       @HiveField(3) this.exp = 0,
       @HiveField(4) this.playerClass = 'Fighter',
@@ -653,50 +675,53 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
       @HiveField(18) this.intellegence = 10,
       @HiveField(19) this.wisdom = 10,
       @HiveField(20) this.charisma = 10,
-      this.strengthSavingThrow = const SavingThrow(savingThrowName: 'strength'),
-      this.dexteritySavingThrow =
+      @HiveField(21) this.strengthSavingThrow =
+          const SavingThrow(savingThrowName: 'strength'),
+      @HiveField(22) this.dexteritySavingThrow =
           const SavingThrow(savingThrowName: 'dexterity'),
-      this.constitutionSavingThrow =
+      @HiveField(23) this.constitutionSavingThrow =
           const SavingThrow(savingThrowName: 'constitution'),
-      this.intellegenceSavingThrow =
+      @HiveField(24) this.intellegenceSavingThrow =
           const SavingThrow(savingThrowName: 'intellegence'),
-      this.wisdomSavingThrow = const SavingThrow(savingThrowName: 'wisdom'),
-      this.charismaSavingThrow = const SavingThrow(savingThrowName: 'charisma'),
-      this.acrobatics =
+      @HiveField(25) this.wisdomSavingThrow =
+          const SavingThrow(savingThrowName: 'wisdom'),
+      @HiveField(26) this.charismaSavingThrow =
+          const SavingThrow(savingThrowName: 'charisma'),
+      @HiveField(27) this.acrobatics =
           const PlayerSkill(skillName: 'acrobatics', skillType: 'dexterity'),
-      this.animalHandling =
+      @HiveField(28) this.animalHandling =
           const PlayerSkill(skillName: 'animalHandling', skillType: 'wisdom'),
-      this.arcana =
+      @HiveField(29) this.arcana =
           const PlayerSkill(skillName: 'arcana', skillType: 'intellegence'),
-      this.athletics =
+      @HiveField(30) this.athletics =
           const PlayerSkill(skillName: 'athletics', skillType: 'strength'),
-      this.deception =
+      @HiveField(31) this.deception =
           const PlayerSkill(skillName: 'deception', skillType: 'charisma'),
-      this.history =
+      @HiveField(32) this.history =
           const PlayerSkill(skillName: 'history', skillType: 'intellegence'),
       this.insight =
           const PlayerSkill(skillName: 'insight', skillType: 'wisdom'),
-      this.intimidation =
+      @HiveField(33) this.intimidation =
           const PlayerSkill(skillName: 'intimidation', skillType: 'charisma'),
-      this.investigation = const PlayerSkill(
+      @HiveField(34) this.investigation = const PlayerSkill(
           skillName: 'investigation', skillType: 'intellegence'),
       this.medicine =
           const PlayerSkill(skillName: 'medicine', skillType: 'wisdom'),
-      this.nature =
+      @HiveField(35) this.nature =
           const PlayerSkill(skillName: 'nature', skillType: 'intellegence'),
-      this.perception =
+      @HiveField(36) this.perception =
           const PlayerSkill(skillName: 'perception', skillType: 'wisdom'),
-      this.performance =
+      @HiveField(37) this.performance =
           const PlayerSkill(skillName: 'performance', skillType: 'charisma'),
-      this.persuasion =
+      @HiveField(38) this.persuasion =
           const PlayerSkill(skillName: 'persuasion', skillType: 'charisma'),
-      this.religion =
+      @HiveField(39) this.religion =
           const PlayerSkill(skillName: 'religion', skillType: 'intellegence'),
-      this.sleightOfHand =
+      @HiveField(40) this.sleightOfHand =
           const PlayerSkill(skillName: 'sleightOfHand', skillType: 'dexterity'),
-      this.stealth =
+      @HiveField(41) this.stealth =
           const PlayerSkill(skillName: 'stealth', skillType: 'dexterity'),
-      this.survival =
+      @HiveField(42) this.survival =
           const PlayerSkill(skillName: 'survival', skillType: 'wisdom')});
 
   factory _$_Player.fromJson(Map<String, dynamic> json) =>
@@ -708,7 +733,7 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
   final String characterName;
   @override
   @JsonKey()
-  @HiveField(0)
+  @HiveField(1)
   final String guid;
   @override
   @JsonKey()
@@ -791,76 +816,98 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
 //
   @override
   @JsonKey()
+  @HiveField(21)
   final dynamic strengthSavingThrow;
   @override
   @JsonKey()
+  @HiveField(22)
   final dynamic dexteritySavingThrow;
   @override
   @JsonKey()
+  @HiveField(23)
   final dynamic constitutionSavingThrow;
   @override
   @JsonKey()
+  @HiveField(24)
   final dynamic intellegenceSavingThrow;
   @override
   @JsonKey()
+  @HiveField(25)
   final dynamic wisdomSavingThrow;
   @override
   @JsonKey()
+  @HiveField(26)
   final dynamic charismaSavingThrow;
 //
   @override
   @JsonKey()
+  @HiveField(27)
   final dynamic acrobatics;
   @override
   @JsonKey()
+  @HiveField(28)
   final dynamic animalHandling;
   @override
   @JsonKey()
+  @HiveField(29)
   final dynamic arcana;
   @override
   @JsonKey()
+  @HiveField(30)
   final dynamic athletics;
   @override
   @JsonKey()
+  @HiveField(31)
   final dynamic deception;
   @override
   @JsonKey()
+  @HiveField(32)
   final dynamic history;
   @override
   @JsonKey()
   final dynamic insight;
   @override
   @JsonKey()
+  @HiveField(33)
   final dynamic intimidation;
   @override
   @JsonKey()
+  @HiveField(34)
   final dynamic investigation;
   @override
   @JsonKey()
   final dynamic medicine;
   @override
   @JsonKey()
+  @HiveField(35)
   final dynamic nature;
   @override
   @JsonKey()
+  @HiveField(36)
   final dynamic perception;
   @override
   @JsonKey()
+  @HiveField(37)
   final dynamic performance;
   @override
   @JsonKey()
+  @HiveField(38)
   final dynamic persuasion;
   @override
   @JsonKey()
+  @HiveField(39)
   final dynamic religion;
   @override
   @JsonKey()
+  @HiveField(40)
   final dynamic sleightOfHand;
   @override
   @JsonKey()
+  @HiveField(41)
   final dynamic stealth;
   @override
   @JsonKey()
+  @HiveField(42)
   final dynamic survival;
 
   @override
@@ -1070,7 +1117,7 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
 abstract class _Player implements Player {
   const factory _Player(
       {@HiveField(0) final String characterName,
-      @HiveField(0) final String guid,
+      @HiveField(1) final String guid,
       @HiveField(2) final int level,
       @HiveField(3) final int exp,
       @HiveField(4) final String playerClass,
@@ -1090,30 +1137,30 @@ abstract class _Player implements Player {
       @HiveField(18) final int intellegence,
       @HiveField(19) final int wisdom,
       @HiveField(20) final int charisma,
-      final dynamic strengthSavingThrow,
-      final dynamic dexteritySavingThrow,
-      final dynamic constitutionSavingThrow,
-      final dynamic intellegenceSavingThrow,
-      final dynamic wisdomSavingThrow,
-      final dynamic charismaSavingThrow,
-      final dynamic acrobatics,
-      final dynamic animalHandling,
-      final dynamic arcana,
-      final dynamic athletics,
-      final dynamic deception,
-      final dynamic history,
+      @HiveField(21) final dynamic strengthSavingThrow,
+      @HiveField(22) final dynamic dexteritySavingThrow,
+      @HiveField(23) final dynamic constitutionSavingThrow,
+      @HiveField(24) final dynamic intellegenceSavingThrow,
+      @HiveField(25) final dynamic wisdomSavingThrow,
+      @HiveField(26) final dynamic charismaSavingThrow,
+      @HiveField(27) final dynamic acrobatics,
+      @HiveField(28) final dynamic animalHandling,
+      @HiveField(29) final dynamic arcana,
+      @HiveField(30) final dynamic athletics,
+      @HiveField(31) final dynamic deception,
+      @HiveField(32) final dynamic history,
       final dynamic insight,
-      final dynamic intimidation,
-      final dynamic investigation,
+      @HiveField(33) final dynamic intimidation,
+      @HiveField(34) final dynamic investigation,
       final dynamic medicine,
-      final dynamic nature,
-      final dynamic perception,
-      final dynamic performance,
-      final dynamic persuasion,
-      final dynamic religion,
-      final dynamic sleightOfHand,
-      final dynamic stealth,
-      final dynamic survival}) = _$_Player;
+      @HiveField(35) final dynamic nature,
+      @HiveField(36) final dynamic perception,
+      @HiveField(37) final dynamic performance,
+      @HiveField(38) final dynamic persuasion,
+      @HiveField(39) final dynamic religion,
+      @HiveField(40) final dynamic sleightOfHand,
+      @HiveField(41) final dynamic stealth,
+      @HiveField(42) final dynamic survival}) = _$_Player;
 
   factory _Player.fromJson(Map<String, dynamic> json) = _$_Player.fromJson;
 
@@ -1121,7 +1168,7 @@ abstract class _Player implements Player {
   @HiveField(0)
   String get characterName;
   @override
-  @HiveField(0)
+  @HiveField(1)
   String get guid;
   @override
   @HiveField(2)
@@ -1181,52 +1228,74 @@ abstract class _Player implements Player {
   @HiveField(20)
   int get charisma;
   @override //
+  @HiveField(21)
   dynamic get strengthSavingThrow;
   @override
+  @HiveField(22)
   dynamic get dexteritySavingThrow;
   @override
+  @HiveField(23)
   dynamic get constitutionSavingThrow;
   @override
+  @HiveField(24)
   dynamic get intellegenceSavingThrow;
   @override
+  @HiveField(25)
   dynamic get wisdomSavingThrow;
   @override
+  @HiveField(26)
   dynamic get charismaSavingThrow;
   @override //
+  @HiveField(27)
   dynamic get acrobatics;
   @override
+  @HiveField(28)
   dynamic get animalHandling;
   @override
+  @HiveField(29)
   dynamic get arcana;
   @override
+  @HiveField(30)
   dynamic get athletics;
   @override
+  @HiveField(31)
   dynamic get deception;
   @override
+  @HiveField(32)
   dynamic get history;
   @override
   dynamic get insight;
   @override
+  @HiveField(33)
   dynamic get intimidation;
   @override
+  @HiveField(34)
   dynamic get investigation;
   @override
   dynamic get medicine;
   @override
+  @HiveField(35)
   dynamic get nature;
   @override
+  @HiveField(36)
   dynamic get perception;
   @override
+  @HiveField(37)
   dynamic get performance;
   @override
+  @HiveField(38)
   dynamic get persuasion;
   @override
+  @HiveField(39)
   dynamic get religion;
   @override
+  @HiveField(40)
   dynamic get sleightOfHand;
   @override
+  @HiveField(41)
   dynamic get stealth;
   @override
+  @HiveField(42)
   dynamic get survival;
   @override
   @JsonKey(ignore: true)

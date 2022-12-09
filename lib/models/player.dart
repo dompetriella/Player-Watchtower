@@ -8,11 +8,11 @@ part 'player.freezed.dart';
 part 'player.g.dart';
 
 @freezed
-class Player extends HiveObject with _$Player {
+class Player with _$Player {
   @HiveType(typeId: 0)
   const factory Player({
     @Default('Player') @HiveField(0) String characterName,
-    @Default('') @HiveField(0) String guid,
+    @Default('') @HiveField(1) String guid,
     @Default(1) @HiveField(2) int level,
     @Default(0) @HiveField(3) int exp,
     @Default('Fighter') @HiveField(4) String playerClass,
@@ -35,47 +35,75 @@ class Player extends HiveObject with _$Player {
     @Default(10) @HiveField(19) int wisdom,
     @Default(10) @HiveField(20) int charisma,
     //
-    @Default(SavingThrow(savingThrowName: 'strength')) strengthSavingThrow,
-    @Default(SavingThrow(savingThrowName: 'dexterity')) dexteritySavingThrow,
+    @Default(SavingThrow(savingThrowName: 'strength'))
+    @HiveField(21)
+        strengthSavingThrow,
+    @Default(SavingThrow(savingThrowName: 'dexterity'))
+    @HiveField(22)
+        dexteritySavingThrow,
     @Default(SavingThrow(savingThrowName: 'constitution'))
+    @HiveField(23)
         constitutionSavingThrow,
     @Default(SavingThrow(savingThrowName: 'intellegence'))
+    @HiveField(24)
         intellegenceSavingThrow,
-    @Default(SavingThrow(savingThrowName: 'wisdom')) wisdomSavingThrow,
-    @Default(SavingThrow(savingThrowName: 'charisma')) charismaSavingThrow,
+    @Default(SavingThrow(savingThrowName: 'wisdom'))
+    @HiveField(25)
+        wisdomSavingThrow,
+    @Default(SavingThrow(savingThrowName: 'charisma'))
+    @HiveField(26)
+        charismaSavingThrow,
     //
     @Default(PlayerSkill(skillName: 'acrobatics', skillType: 'dexterity'))
+    @HiveField(27)
         acrobatics,
     @Default(PlayerSkill(skillName: 'animalHandling', skillType: 'wisdom'))
+    @HiveField(28)
         animalHandling,
     @Default(PlayerSkill(skillName: 'arcana', skillType: 'intellegence'))
+    @HiveField(29)
         arcana,
     @Default(PlayerSkill(skillName: 'athletics', skillType: 'strength'))
+    @HiveField(30)
         athletics,
     @Default(PlayerSkill(skillName: 'deception', skillType: 'charisma'))
+    @HiveField(31)
         deception,
     @Default(PlayerSkill(skillName: 'history', skillType: 'intellegence'))
+    @HiveField(32)
         history,
     @Default(PlayerSkill(skillName: 'insight', skillType: 'wisdom')) insight,
     @Default(PlayerSkill(skillName: 'intimidation', skillType: 'charisma'))
+    @HiveField(33)
         intimidation,
     @Default(PlayerSkill(skillName: 'investigation', skillType: 'intellegence'))
+    @HiveField(34)
         investigation,
     @Default(PlayerSkill(skillName: 'medicine', skillType: 'wisdom')) medicine,
     @Default(PlayerSkill(skillName: 'nature', skillType: 'intellegence'))
+    @HiveField(35)
         nature,
     @Default(PlayerSkill(skillName: 'perception', skillType: 'wisdom'))
+    @HiveField(36)
         perception,
     @Default(PlayerSkill(skillName: 'performance', skillType: 'charisma'))
+    @HiveField(37)
         performance,
     @Default(PlayerSkill(skillName: 'persuasion', skillType: 'charisma'))
+    @HiveField(38)
         persuasion,
     @Default(PlayerSkill(skillName: 'religion', skillType: 'intellegence'))
+    @HiveField(39)
         religion,
     @Default(PlayerSkill(skillName: 'sleightOfHand', skillType: 'dexterity'))
+    @HiveField(40)
         sleightOfHand,
-    @Default(PlayerSkill(skillName: 'stealth', skillType: 'dexterity')) stealth,
-    @Default(PlayerSkill(skillName: 'survival', skillType: 'wisdom')) survival,
+    @Default(PlayerSkill(skillName: 'stealth', skillType: 'dexterity'))
+    @HiveField(41)
+        stealth,
+    @Default(PlayerSkill(skillName: 'survival', skillType: 'wisdom'))
+    @HiveField(42)
+        survival,
   }) = _Player;
 
   factory Player.fromJson(Map<String, dynamic> json) => _$PlayerFromJson(json);

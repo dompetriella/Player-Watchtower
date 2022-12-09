@@ -6,7 +6,7 @@ part 'playerSkill.freezed.dart';
 part 'playerSkill.g.dart';
 
 @freezed
-class PlayerSkill extends HiveObject with _$PlayerSkill {
+class PlayerSkill with _$PlayerSkill {
   @HiveType(typeId: 1)
   const factory PlayerSkill({
     @HiveField(0) required String skillName,

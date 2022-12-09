@@ -3,6 +3,170 @@
 part of 'player.dart';
 
 // **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class PlayerAdapter extends TypeAdapter<_$_Player> {
+  @override
+  final int typeId = 0;
+
+  @override
+  _$_Player read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return _$_Player(
+      characterName: fields[0] as String,
+      guid: fields[1] as String,
+      level: fields[2] as int,
+      exp: fields[3] as int,
+      playerClass: fields[4] as String,
+      playerRace: fields[5] as String,
+      alignment: fields[6] as String,
+      background: fields[7] as String,
+      currentHp: fields[8] as int,
+      totalHp: fields[9] as int,
+      tempHp: fields[10] as int,
+      armorClass: fields[11] as int,
+      proficiency: fields[12] as int,
+      speed: fields[13] as int,
+      initiative: fields[14] as int,
+      strength: fields[15] as int,
+      dexterity: fields[16] as int,
+      constitution: fields[17] as int,
+      intellegence: fields[18] as int,
+      wisdom: fields[19] as int,
+      charisma: fields[20] as int,
+      strengthSavingThrow: fields[21] as dynamic,
+      dexteritySavingThrow: fields[22] as dynamic,
+      constitutionSavingThrow: fields[23] as dynamic,
+      intellegenceSavingThrow: fields[24] as dynamic,
+      wisdomSavingThrow: fields[25] as dynamic,
+      charismaSavingThrow: fields[26] as dynamic,
+      acrobatics: fields[27] as dynamic,
+      animalHandling: fields[28] as dynamic,
+      arcana: fields[29] as dynamic,
+      athletics: fields[30] as dynamic,
+      deception: fields[31] as dynamic,
+      history: fields[32] as dynamic,
+      intimidation: fields[33] as dynamic,
+      investigation: fields[34] as dynamic,
+      nature: fields[35] as dynamic,
+      perception: fields[36] as dynamic,
+      performance: fields[37] as dynamic,
+      persuasion: fields[38] as dynamic,
+      religion: fields[39] as dynamic,
+      sleightOfHand: fields[40] as dynamic,
+      stealth: fields[41] as dynamic,
+      survival: fields[42] as dynamic,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, _$_Player obj) {
+    writer
+      ..writeByte(43)
+      ..writeByte(0)
+      ..write(obj.characterName)
+      ..writeByte(1)
+      ..write(obj.guid)
+      ..writeByte(2)
+      ..write(obj.level)
+      ..writeByte(3)
+      ..write(obj.exp)
+      ..writeByte(4)
+      ..write(obj.playerClass)
+      ..writeByte(5)
+      ..write(obj.playerRace)
+      ..writeByte(6)
+      ..write(obj.alignment)
+      ..writeByte(7)
+      ..write(obj.background)
+      ..writeByte(8)
+      ..write(obj.currentHp)
+      ..writeByte(9)
+      ..write(obj.totalHp)
+      ..writeByte(10)
+      ..write(obj.tempHp)
+      ..writeByte(11)
+      ..write(obj.armorClass)
+      ..writeByte(12)
+      ..write(obj.proficiency)
+      ..writeByte(13)
+      ..write(obj.speed)
+      ..writeByte(14)
+      ..write(obj.initiative)
+      ..writeByte(15)
+      ..write(obj.strength)
+      ..writeByte(16)
+      ..write(obj.dexterity)
+      ..writeByte(17)
+      ..write(obj.constitution)
+      ..writeByte(18)
+      ..write(obj.intellegence)
+      ..writeByte(19)
+      ..write(obj.wisdom)
+      ..writeByte(20)
+      ..write(obj.charisma)
+      ..writeByte(21)
+      ..write(obj.strengthSavingThrow)
+      ..writeByte(22)
+      ..write(obj.dexteritySavingThrow)
+      ..writeByte(23)
+      ..write(obj.constitutionSavingThrow)
+      ..writeByte(24)
+      ..write(obj.intellegenceSavingThrow)
+      ..writeByte(25)
+      ..write(obj.wisdomSavingThrow)
+      ..writeByte(26)
+      ..write(obj.charismaSavingThrow)
+      ..writeByte(27)
+      ..write(obj.acrobatics)
+      ..writeByte(28)
+      ..write(obj.animalHandling)
+      ..writeByte(29)
+      ..write(obj.arcana)
+      ..writeByte(30)
+      ..write(obj.athletics)
+      ..writeByte(31)
+      ..write(obj.deception)
+      ..writeByte(32)
+      ..write(obj.history)
+      ..writeByte(33)
+      ..write(obj.intimidation)
+      ..writeByte(34)
+      ..write(obj.investigation)
+      ..writeByte(35)
+      ..write(obj.nature)
+      ..writeByte(36)
+      ..write(obj.perception)
+      ..writeByte(37)
+      ..write(obj.performance)
+      ..writeByte(38)
+      ..write(obj.persuasion)
+      ..writeByte(39)
+      ..write(obj.religion)
+      ..writeByte(40)
+      ..write(obj.sleightOfHand)
+      ..writeByte(41)
+      ..write(obj.stealth)
+      ..writeByte(42)
+      ..write(obj.survival);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is PlayerAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+// **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 

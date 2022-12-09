@@ -6,7 +6,7 @@ part 'savingThrow.freezed.dart';
 part 'savingThrow.g.dart';
 
 @freezed
-class SavingThrow extends HiveObject with _$SavingThrow {
+class SavingThrow with _$SavingThrow {
   @HiveType(typeId: 2)
   const factory SavingThrow({
     @HiveField(0) required String savingThrowName,
