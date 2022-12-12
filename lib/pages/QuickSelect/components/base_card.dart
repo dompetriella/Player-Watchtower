@@ -10,7 +10,6 @@ import 'package:player_watchtower/providers/theme.dart';
 import '../../../global_components/action_dialogs/base_dialog.dart';
 import '../../../models/savingThrow.dart';
 import 'small_score_card.dart';
-import 'package:player_watchtower/global_components/multi_button.dart';
 import 'package:player_watchtower/global_components/fillable_bar.dart';
 import 'package:player_watchtower/functions/calculations.dart';
 

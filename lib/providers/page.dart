@@ -58,3 +58,19 @@ final wisdomAbilityScoreCard = StateProvider<bool>(
 final charismaAbilityScoreCard = StateProvider<bool>(
   (ref) => true,
 );
+
+final moneyExpanded = StateProvider<bool>(
+  (ref) => false,
+);
+
+final itemsExpanded = StateProvider<bool>(
+  (ref) => false,
+);
+
+final weaponsExpanded = StateProvider<bool>(
+  (ref) => false,
+);
+
+final spellsExpanded = StateProvider<bool>(
+  (ref) => false,
+);

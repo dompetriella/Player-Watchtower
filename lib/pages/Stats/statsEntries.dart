@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/dictionaries/info.dart';
-import 'package:player_watchtower/models/playerSkill.dart';
-import 'package:player_watchtower/providers/page.dart';
 import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
 

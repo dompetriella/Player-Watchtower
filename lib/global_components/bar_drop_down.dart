@@ -7,7 +7,12 @@ import 'package:bordered_text/bordered_text.dart';
 class BarDropDown extends ConsumerWidget {
   final String text;
   final StateProvider<bool> expandedProvider;
-  BarDropDown({super.key, required this.text, required this.expandedProvider});
+  final List<Widget> items;
+  BarDropDown(
+      {super.key,
+      required this.text,
+      required this.expandedProvider,
+      this.items = const []});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -76,17 +81,7 @@ class BarDropDown extends ConsumerWidget {
                         bottomRight: Radius.circular(5))),
                 child: Padding(
                   padding: const EdgeInsets.all(8),
-                  child: Column(
-                    children: [
-                      InfoItem(),
-                      Divider(
-                        thickness: 3,
-                        indent: 125,
-                        endIndent: 100,
-                      ),
-                      InfoItem()
-                    ],
-                  ),
+                  child: Column(children: items),
                 ),
               ),
             ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:player_watchtower/functions/calculations.dart';
 import 'package:player_watchtower/global_components/action_dialogs/base_dialog.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/providers/forms.dart';

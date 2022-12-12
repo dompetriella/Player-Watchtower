@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import "package:flutter_riverpod/flutter_riverpod.dart";
-import 'package:player_watchtower/global_components/info_item.dart';
-import 'package:player_watchtower/pages/Stats/components/stats_entry.dart';
 import 'package:player_watchtower/providers/theme.dart';
 import 'package:bordered_text/bordered_text.dart';
 
