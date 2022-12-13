@@ -13,7 +13,6 @@ class InfoItem extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       height: height,
-      width: double.infinity,
       child: Row(
         children: [
           Container(

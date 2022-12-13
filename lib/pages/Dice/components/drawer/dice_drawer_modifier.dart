@@ -2,6 +2,7 @@ import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/pages/Dice/components/drawer/modifier_switch_button.dart';
+import 'package:player_watchtower/providers/player.dart';
 
 import '../../../../providers/theme.dart';
 
@@ -67,9 +68,16 @@ class DrawerModifierBar extends ConsumerWidget {
                             children: [
                               ModifierSwitchButton(
                                 text: 'STR',
+                                value: ref.read(playerProvider).strength,
                               ),
-                              ModifierSwitchButton(text: 'DEX'),
-                              ModifierSwitchButton(text: 'CON'),
+                              ModifierSwitchButton(
+                                text: 'DEX',
+                                value: ref.read(playerProvider).dexterity,
+                              ),
+                              ModifierSwitchButton(
+                                text: 'CON',
+                                value: ref.read(playerProvider).constitution,
+                              ),
                             ],
                           ),
                           Row(
@@ -77,9 +85,16 @@ class DrawerModifierBar extends ConsumerWidget {
                             children: [
                               ModifierSwitchButton(
                                 text: 'INT',
+                                value: ref.read(playerProvider).intellegence,
                               ),
-                              ModifierSwitchButton(text: 'WIS'),
-                              ModifierSwitchButton(text: 'CHA'),
+                              ModifierSwitchButton(
+                                text: 'WIS',
+                                value: ref.read(playerProvider).wisdom,
+                              ),
+                              ModifierSwitchButton(
+                                text: 'CHA',
+                                value: ref.read(playerProvider).charisma,
+                              ),
                             ],
                           ),
                         ]),

@@ -1,7 +1,10 @@
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:player_watchtower/global_components/multi_button.dart';
+import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/providers/inventory.dart';
 
 import '../../../providers/theme.dart';
@@ -152,40 +155,101 @@ class CoinNameAndAmount extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Center(
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 8.0, right: 24),
-            child: Row(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: Column(
               children: [
-                FaIcon(
-                  FontAwesomeIcons.coins,
-                  color: coinColor,
+                Text(
+                  '$coinName',
+                  style: TextStyle(fontSize: 12),
                 ),
-                BorderedText(
-                  strokeWidth: 5.0,
-                  strokeColor: Colors.black,
-                  child: Text(
-                    '$coinName: ',
-                    style: TextStyle(
-                        fontSize: 20,
-                        letterSpacing: 1.2,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
+                Row(
+                  children: [
+                    FaIcon(
+                      FontAwesomeIcons.coins,
+                      size: 25,
+                      color: coinColor,
+                    ),
+                    StrokeText(
+                      text: '$amount',
+                      size: 25,
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
-          Text(
-            '$amount coins',
-            style: TextStyle(
-                fontSize: 20,
-                letterSpacing: 1.2,
-                color: Colors.black,
-                fontWeight: FontWeight.w900),
-          ),
+          Row(
+            children: [
+              MoneyIncreaseButton(
+                isIncrease: false,
+              ),
+              MoneyIncreaseButton()
+            ],
+          )
         ],
+      ),
+    );
+  }
+}
+
+class MoneyIncreaseButton extends ConsumerWidget {
+  final bool isIncrease;
+  const MoneyIncreaseButton({
+    Key? key,
+    this.isIncrease = true,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Bounce(
+      duration: Duration(milliseconds: 200),
+      onPressed: () {
+        // terrible solution, will work for 1 character for now
+        switch (ref.read(quickSelectMoneyDisplay)) {
+          case 1:
+            isIncrease
+                ? ref.watch(platinumProvider.notifier).state++
+                : ref.watch(platinumProvider.notifier).state--;
+            break;
+          case 2:
+            isIncrease
+                ? ref.watch(goldProvider.notifier).state++
+                : ref.watch(goldProvider.notifier).state--;
+            break;
+          case 3:
+            isIncrease
+                ? ref.watch(silverProvider.notifier).state++
+                : ref.watch(silverProvider.notifier).state--;
+            break;
+          case 4:
+            isIncrease
+                ? ref.watch(copperProvider.notifier).state++
+                : ref.watch(copperProvider.notifier).state--;
+            break;
+          default:
+        }
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(2.0),
+        child: Container(
+          width: 80,
+          decoration: BoxDecoration(
+              color: ref.watch(themeProvider).primary,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                color: Colors.white,
+              ),
+              boxShadow: [ref.watch(themeProvider).shadow]),
+          child: Center(
+              child: FaIcon(
+            isIncrease ? FontAwesomeIcons.plus : FontAwesomeIcons.minus,
+            color: Colors.white,
+            size: 15,
+          )),
+        ),
       ),
     );
   }

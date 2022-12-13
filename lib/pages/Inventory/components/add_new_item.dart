@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
+import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/global_components/multi_button.dart';
@@ -14,30 +15,36 @@ class AddNewItem extends ConsumerWidget {
       height: 50,
       width: double.infinity,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          color: ref.watch(themeProvider).cardBg,
-          border: Border.all(color: Colors.white, width: 2)),
+        color: ref.watch(themeProvider).cardBg,
+      ),
       child: Stack(
         children: [
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.white, width: 3),
+                boxShadow: [ref.watch(themeProvider).columnShadow]),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: MultiButton(
+                      size: 40,
+                      icon: FontAwesomeIcons.plus,
+                      bgColor: ref.watch(themeProvider).accent,
+                      color: Colors.white),
+                )
+              ],
+            ),
+          ),
           Align(
             alignment: Alignment.center,
             child: Text(
               'Add New',
-              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25),
+              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: MultiButton(
-                    size: 40,
-                    icon: FontAwesomeIcons.plus,
-                    bgColor: ref.watch(themeProvider).accent,
-                    color: Colors.white),
-              )
-            ],
           ),
         ],
       ),

@@ -266,6 +266,7 @@ class HealthBarWithButtons extends ConsumerWidget {
           GestureDetector(
             onLongPress: () {
               showDialog(
+                  barrierDismissible: false,
                   context: context,
                   builder: (_) => BaseDialog(
                         editDialogType: 'increaseDecrease',

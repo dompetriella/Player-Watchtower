@@ -148,7 +148,7 @@ class HistoryLog extends ConsumerWidget {
                           )
                         : Center(
                             child: Text(
-                            'Simple Roller Started',
+                            'Roll History Started',
                             style: TextStyle(
                                 color: ref
                                     .watch(themeProvider)

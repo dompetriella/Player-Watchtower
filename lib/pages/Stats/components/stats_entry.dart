@@ -45,6 +45,7 @@ class StatsEntry extends ConsumerWidget {
         }
 
         showDialog(
+            barrierDismissible: false,
             context: context,
             builder: (_) => BaseDialog(
                   editDialogType: editDialogType,

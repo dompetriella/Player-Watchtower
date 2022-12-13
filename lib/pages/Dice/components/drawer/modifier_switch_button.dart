@@ -6,26 +6,31 @@ import 'package:player_watchtower/providers/theme.dart';
 
 class ModifierSwitchButton extends ConsumerWidget {
   final String text;
-  const ModifierSwitchButton({super.key, required this.text});
+  final int value;
+  const ModifierSwitchButton(
+      {super.key, required this.text, required this.value});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Container(
-      height: 38,
-      width: 70,
-      decoration: BoxDecoration(
-          color: ref.watch(themeProvider).cardBg,
-          boxShadow: [ref.watch(themeProvider).diceButtonInnerShadow],
-          borderRadius: BorderRadius.circular(15)),
-      child: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          StrokeText(
-            text: text,
-          )
-        ],
-      )),
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        height: 38,
+        width: 70,
+        decoration: BoxDecoration(
+            color: ref.watch(themeProvider).cardBg,
+            boxShadow: [ref.watch(themeProvider).diceButtonInnerShadow],
+            borderRadius: BorderRadius.circular(15)),
+        child: Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            StrokeText(
+              text: text,
+            )
+          ],
+        )),
+      ),
     );
   }
 }

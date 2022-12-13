@@ -124,3 +124,9 @@ var modifierProvider = StateProvider<int>(
 final displayNumber = StateProvider<String>((ref) => '0');
 
 final isClear = StateProvider<bool>((ref) => false);
+
+var addToRoll = StateProvider<String>(
+  (ref) => '',
+);
+
+var addProficiencyToRoll = StateProvider<bool>((ref) => false);

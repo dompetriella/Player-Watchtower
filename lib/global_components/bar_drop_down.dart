@@ -28,7 +28,7 @@ class BarDropDown extends ConsumerWidget {
             child: Container(
               height: 50,
               decoration: BoxDecoration(
-                  color: ref.watch(themeProvider).primary,
+                  color: ref.watch(themeProvider).cardBg,
                   boxShadow: [ref.watch(themeProvider).shadow],
                   border: Border.all(color: Colors.white, width: 2.0),
                   borderRadius: BorderRadius.circular(10)),

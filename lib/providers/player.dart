@@ -35,8 +35,7 @@ class PlayerNotifier extends StateNotifier<Player> {
     }
 
     state = Player.fromJson(playerJson);
-    var box = Hive.box<Player>('player');
-    writeStateToHive(state, box);
+    writeStateToHive(state);
   }
 
   Map<String, dynamic> updatePlayerSkillModifierValue(
@@ -71,48 +70,14 @@ class PlayerNotifier extends StateNotifier<Player> {
   void increaseHealth() {
     if (state.currentHp < state.totalHp) {
       state = state.copyWith(currentHp: state.currentHp + 1);
-      var box = Hive.box('player');
-      box.put('currentHp', state.currentHp);
-    }
-  }
-
-  void increaseHealthBy10() {
-    if (state.currentHp < state.totalHp) {
-      state = state.copyWith(currentHp: state.currentHp + 10);
-      var box = Hive.box('player');
-      box.put('currentHp', state.currentHp);
-    }
-  }
-
-  void increaseHealthByAmount(String amount) {
-    if (state.currentHp < state.totalHp) {
-      state = state.copyWith(currentHp: state.currentHp + int.parse(amount));
-      var box = Hive.box('player');
-      box.put('currentHp', state.currentHp);
+      Hive.box<Player>('player').put(state.guid, state);
     }
   }
 
   void decreaseHealth() {
     if (state.currentHp > 0) {
       state = state.copyWith(currentHp: state.currentHp - 1);
-      var box = Hive.box('player');
-      box.put('currentHp', state.currentHp);
-    }
-  }
-
-  void decreaseHealthBy10() {
-    if (state.currentHp > 0) {
-      state = state.copyWith(currentHp: state.currentHp - 1);
-      var box = Hive.box('player');
-      box.put('currentHp', state.currentHp);
-    }
-  }
-
-  void decreaseHealthByAmount(String amount) {
-    if (state.currentHp > 0) {
-      state = state.copyWith(currentHp: state.currentHp - int.parse(amount));
-      var box = Hive.box('player');
-      box.put('currentHp', state.currentHp);
+      Hive.box<Player>('player').put(state.guid, state);
     }
   }
 }

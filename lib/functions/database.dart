@@ -1,14 +1,15 @@
+import 'package:flutter_guid/flutter_guid.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:player_watchtower/providers/player.dart';
-import 'package:uuid/uuid.dart';
 import '../models/player.dart';
 
 createNewCharacterEntry(Box<Player> playerBox) {
-  String guid = Uuid().toString();
+  String guid = Guid.generate().toString();
   Map<String, dynamic> status = {'theme': 'Daylight'};
   Hive.box('characters').put(guid, status);
-  playerBox.put(guid, Player().copyWith(guid: guid));
+  Player firstPlayer = Player().copyWith(guid: guid);
+  playerBox.put(guid, firstPlayer);
 }
 
 Future getInitState(WidgetRef ref) async {
@@ -20,12 +21,12 @@ Future getInitState(WidgetRef ref) async {
     createNewCharacterEntry(playerBox);
   } else {
     // gets the first player guid for now
-    String characterGuid = characterBox.keyAt(0);
+    String characterGuid = characterBox.keys.first;
     Player newPlayer = playerBox.get(characterGuid)!;
     ref.read(playerProvider.notifier).state = newPlayer;
   }
 }
 
-void writeStateToHive(Player state, Box<Player> box) {
-  box.put(state.guid, state);
+void writeStateToHive(Player state) {
+  Hive.box<Player>('player').put(state.guid, state);
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/global_components/info_item.dart';
 import 'package:player_watchtower/pages/Inventory/components/add_new_item.dart';
 import 'package:player_watchtower/providers/page.dart';
 
@@ -19,7 +20,8 @@ class InventoryPage extends ConsumerWidget {
           children: [
             BarDropDown(
               expandedProvider: moneyExpanded,
-              text: 'Money',
+              text: 'Currency',
+              items: [],
             ),
             BarDropDown(
               expandedProvider: itemsExpanded,
