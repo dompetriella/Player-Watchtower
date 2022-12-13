@@ -70,12 +70,16 @@ class StatsBar extends ConsumerWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Text(
-                'Stats',
-                style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height * 0.03,
-                    fontWeight: FontWeight.w900,
-                    color: ref.watch(themeProvider).diceDrawerColumnTextColor),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Text(
+                  'Stats',
+                  style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height * 0.03,
+                      fontWeight: FontWeight.w900,
+                      color:
+                          ref.watch(themeProvider).diceDrawerColumnTextColor),
+                ),
               ),
             ),
           ],

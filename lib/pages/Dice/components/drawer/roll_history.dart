@@ -22,7 +22,7 @@ class RollHistoryBar extends ConsumerWidget {
     }
 
     return Flexible(
-      flex: 7,
+      flex: 5,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16.0, 16, 16.0, 0),
         child: Container(
@@ -38,7 +38,7 @@ class RollHistoryBar extends ConsumerWidget {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
