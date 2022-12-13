@@ -4,12 +4,13 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:player_watchtower/providers/player.dart';
 import '../models/player.dart';
 
-createNewCharacterEntry(Box<Player> playerBox) {
+Player createNewCharacterEntry(Box<Player> playerBox) {
   String guid = Guid.generate().toString();
   Map<String, dynamic> status = {'theme': 'Daylight'};
   Hive.box('characters').put(guid, status);
-  Player firstPlayer = Player().copyWith(guid: guid);
+  Player firstPlayer = const Player().copyWith(guid: guid);
   playerBox.put(guid, firstPlayer);
+  return firstPlayer;
 }
 
 Future getInitState(WidgetRef ref) async {
@@ -18,12 +19,12 @@ Future getInitState(WidgetRef ref) async {
   var characterBox = await Hive.openBox('characters');
   var playerBox = await Hive.openBox<Player>('player');
   if (characterBox.isEmpty) {
-    createNewCharacterEntry(playerBox);
+    ref.watch(playerProvider.notifier).state =
+        createNewCharacterEntry(playerBox);
   } else {
     // gets the first player guid for now
     String characterGuid = characterBox.keys.first;
-    Player newPlayer = playerBox.get(characterGuid)!;
-    ref.read(playerProvider.notifier).state = newPlayer;
+    ref.watch(playerProvider.notifier).state = playerBox.get(characterGuid)!;
   }
 }
 

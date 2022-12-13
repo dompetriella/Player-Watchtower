@@ -206,6 +206,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_guid",
+      "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_guid-0.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "flutter_inset_box_shadow",
       "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inset_box_shadow-1.0.8",
       "packageUri": "lib/",
@@ -292,6 +298,12 @@
     {
       "name": "hive_flutter",
       "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/hive_flutter-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "hive_generator",
+      "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/hive_generator-2.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -584,6 +596,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "uuid",
+      "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/uuid-3.0.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "validators",
+      "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/validators-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2",
       "packageUri": "lib/",
@@ -632,7 +656,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2022-11-30T20:48:07.098413Z",
+  "generated": "2022-12-13T14:44:59.449623Z",
   "generator": "pub",
   "generatorVersion": "2.18.4"
 }

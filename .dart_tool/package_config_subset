@@ -134,6 +134,10 @@ flutter_bounce
 2.12
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bounce-1.1.0/
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bounce-1.1.0/lib/
+flutter_guid
+2.15
+file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_guid-0.3.1/
+file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_guid-0.3.1/lib/
 flutter_inset_box_shadow
 2.12
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inset_box_shadow-1.0.8/
@@ -186,6 +190,10 @@ hive_flutter
 2.12
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/hive_flutter-1.1.0/
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/hive_flutter-1.1.0/lib/
+hive_generator
+2.12
+file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/hive_generator-2.0.0/
+file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/hive_generator-2.0.0/lib/
 http_multi_server
 2.12
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/http_multi_server-3.2.1/
@@ -374,6 +382,14 @@ typed_data
 2.12
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.1/
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.1/lib/
+uuid
+2.12
+file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/uuid-3.0.7/
+file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/uuid-3.0.7/lib/
+validators
+2.12
+file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/validators-3.0.0/
+file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/validators-3.0.0/lib/
 vector_math
 2.14
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2/
