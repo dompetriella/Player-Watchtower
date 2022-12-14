@@ -73,6 +73,10 @@ _$_Player _$$_PlayerFromJson(Map<String, dynamic> json) => _$_Player(
           const PlayerSkill(skillName: 'stealth', skillType: 'dexterity'),
       survival: json['survival'] ??
           const PlayerSkill(skillName: 'survival', skillType: 'wisdom'),
+      copper: json['copper'] as int? ?? 0,
+      silver: json['silver'] as int? ?? 0,
+      gold: json['gold'] as int? ?? 0,
+      platinum: json['platinum'] as int? ?? 0,
     );
 
 Map<String, dynamic> _$$_PlayerToJson(_$_Player instance) => <String, dynamic>{
@@ -121,4 +125,8 @@ Map<String, dynamic> _$$_PlayerToJson(_$_Player instance) => <String, dynamic>{
       'sleightOfHand': instance.sleightOfHand,
       'stealth': instance.stealth,
       'survival': instance.survival,
+      'copper': instance.copper,
+      'silver': instance.silver,
+      'gold': instance.gold,
+      'platinum': instance.platinum,
     };

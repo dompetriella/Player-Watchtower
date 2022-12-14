@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:player_watchtower/global_components/multi_button.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/providers/inventory.dart';
+import 'package:player_watchtower/providers/player.dart';
 
 import '../../../providers/theme.dart';
 
@@ -28,28 +28,27 @@ Widget cycleCoinView(WidgetRef ref) {
       return AllCoinView();
     case 1:
       return CoinNameAndAmount(
-        amount: ref.watch(platinumProvider),
-        coinName: 'Platinum',
-        coinColor: platinum,
+        amount: ref.watch(playerProvider).copper,
+        coinName: 'Copper',
+        coinColor: copper,
       );
     case 2:
       return CoinNameAndAmount(
-        amount: ref.watch(goldProvider),
-        coinName: 'Gold',
-        coinColor: gold,
-      );
-    case 3:
-      return CoinNameAndAmount(
-        amount: ref.watch(silverProvider),
+        amount: ref.watch(playerProvider).silver,
         coinName: 'Silver',
         coinColor: silver,
       );
-
+    case 3:
+      return CoinNameAndAmount(
+        amount: ref.watch(playerProvider).gold,
+        coinName: 'Gold',
+        coinColor: gold,
+      );
     case 4:
       return CoinNameAndAmount(
-        amount: ref.watch(copperProvider),
-        coinName: 'Copper',
-        coinColor: copper,
+        amount: ref.watch(playerProvider).platinum,
+        coinName: 'Platinum',
+        coinColor: platinum,
       );
 
     default:
@@ -99,10 +98,13 @@ class AllCoinView extends ConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         CoinAmountAndIcon(
-            amount: ref.watch(platinumProvider), coinColor: platinum),
-        CoinAmountAndIcon(amount: ref.watch(goldProvider), coinColor: gold),
-        CoinAmountAndIcon(amount: ref.watch(silverProvider), coinColor: silver),
-        CoinAmountAndIcon(amount: ref.watch(copperProvider), coinColor: copper),
+            amount: ref.watch(playerProvider).copper, coinColor: copper),
+        CoinAmountAndIcon(
+            amount: ref.watch(playerProvider).silver, coinColor: silver),
+        CoinAmountAndIcon(
+            amount: ref.watch(playerProvider).gold, coinColor: gold),
+        CoinAmountAndIcon(
+            amount: ref.watch(playerProvider).platinum, coinColor: platinum),
       ],
     );
   }
@@ -207,30 +209,9 @@ class MoneyIncreaseButton extends ConsumerWidget {
     return Bounce(
       duration: Duration(milliseconds: 200),
       onPressed: () {
-        // terrible solution, will work for 1 character for now
-        switch (ref.read(quickSelectMoneyDisplay)) {
-          case 1:
-            isIncrease
-                ? ref.watch(platinumProvider.notifier).state++
-                : ref.watch(platinumProvider.notifier).state--;
-            break;
-          case 2:
-            isIncrease
-                ? ref.watch(goldProvider.notifier).state++
-                : ref.watch(goldProvider.notifier).state--;
-            break;
-          case 3:
-            isIncrease
-                ? ref.watch(silverProvider.notifier).state++
-                : ref.watch(silverProvider.notifier).state--;
-            break;
-          case 4:
-            isIncrease
-                ? ref.watch(copperProvider.notifier).state++
-                : ref.watch(copperProvider.notifier).state--;
-            break;
-          default:
-        }
+        isIncrease
+            ? ref.read(playerProvider.notifier).increaseCoin(ref)
+            : ref.read(playerProvider.notifier).decreaseCoin(ref);
       },
       child: Padding(
         padding: const EdgeInsets.all(2.0),

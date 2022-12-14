@@ -60,13 +60,17 @@ class PlayerAdapter extends TypeAdapter<_$_Player> {
       sleightOfHand: fields[40] as dynamic,
       stealth: fields[41] as dynamic,
       survival: fields[42] as dynamic,
+      copper: fields[43] as int,
+      silver: fields[44] as int,
+      gold: fields[45] as int,
+      platinum: fields[46] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, _$_Player obj) {
     writer
-      ..writeByte(43)
+      ..writeByte(47)
       ..writeByte(0)
       ..write(obj.characterName)
       ..writeByte(1)
@@ -152,7 +156,15 @@ class PlayerAdapter extends TypeAdapter<_$_Player> {
       ..writeByte(41)
       ..write(obj.stealth)
       ..writeByte(42)
-      ..write(obj.survival);
+      ..write(obj.survival)
+      ..writeByte(43)
+      ..write(obj.copper)
+      ..writeByte(44)
+      ..write(obj.silver)
+      ..writeByte(45)
+      ..write(obj.gold)
+      ..writeByte(46)
+      ..write(obj.platinum);
   }
 
   @override
@@ -241,6 +253,10 @@ _$_Player _$$_PlayerFromJson(Map<String, dynamic> json) => _$_Player(
           const PlayerSkill(skillName: 'stealth', skillType: 'dexterity'),
       survival: json['survival'] ??
           const PlayerSkill(skillName: 'survival', skillType: 'wisdom'),
+      copper: json['copper'] as int? ?? 0,
+      silver: json['silver'] as int? ?? 0,
+      gold: json['gold'] as int? ?? 0,
+      platinum: json['platinum'] as int? ?? 0,
     );
 
 Map<String, dynamic> _$$_PlayerToJson(_$_Player instance) => <String, dynamic>{
@@ -289,4 +305,8 @@ Map<String, dynamic> _$$_PlayerToJson(_$_Player instance) => <String, dynamic>{
       'sleightOfHand': instance.sleightOfHand,
       'stealth': instance.stealth,
       'survival': instance.survival,
+      'copper': instance.copper,
+      'silver': instance.silver,
+      'gold': instance.gold,
+      'platinum': instance.platinum,
     };

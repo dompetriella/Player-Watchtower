@@ -56,13 +56,17 @@ class PlayerAdapter extends TypeAdapter<_$_Player> {
       sleightOfHand: fields[40] as dynamic,
       stealth: fields[41] as dynamic,
       survival: fields[42] as dynamic,
+      copper: fields[43] as int,
+      silver: fields[44] as int,
+      gold: fields[45] as int,
+      platinum: fields[46] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, _$_Player obj) {
     writer
-      ..writeByte(43)
+      ..writeByte(47)
       ..writeByte(0)
       ..write(obj.characterName)
       ..writeByte(1)
@@ -148,7 +152,15 @@ class PlayerAdapter extends TypeAdapter<_$_Player> {
       ..writeByte(41)
       ..write(obj.stealth)
       ..writeByte(42)
-      ..write(obj.survival);
+      ..write(obj.survival)
+      ..writeByte(43)
+      ..write(obj.copper)
+      ..writeByte(44)
+      ..write(obj.silver)
+      ..writeByte(45)
+      ..write(obj.gold)
+      ..writeByte(46)
+      ..write(obj.platinum);
   }
 
   @override

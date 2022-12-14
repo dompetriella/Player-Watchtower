@@ -107,7 +107,15 @@ mixin _$Player {
   @HiveField(41)
   dynamic get stealth => throw _privateConstructorUsedError;
   @HiveField(42)
-  dynamic get survival => throw _privateConstructorUsedError;
+  dynamic get survival => throw _privateConstructorUsedError; //
+  @HiveField(43)
+  int get copper => throw _privateConstructorUsedError;
+  @HiveField(44)
+  int get silver => throw _privateConstructorUsedError;
+  @HiveField(45)
+  int get gold => throw _privateConstructorUsedError;
+  @HiveField(46)
+  int get platinum => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -164,7 +172,11 @@ abstract class $PlayerCopyWith<$Res> {
       @HiveField(39) dynamic religion,
       @HiveField(40) dynamic sleightOfHand,
       @HiveField(41) dynamic stealth,
-      @HiveField(42) dynamic survival});
+      @HiveField(42) dynamic survival,
+      @HiveField(43) int copper,
+      @HiveField(44) int silver,
+      @HiveField(45) int gold,
+      @HiveField(46) int platinum});
 }
 
 /// @nodoc
@@ -225,6 +237,10 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
     Object? sleightOfHand = null,
     Object? stealth = null,
     Object? survival = null,
+    Object? copper = null,
+    Object? silver = null,
+    Object? gold = null,
+    Object? platinum = null,
   }) {
     return _then(_value.copyWith(
       characterName: null == characterName
@@ -407,6 +423,22 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
           ? _value.survival
           : survival // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      copper: null == copper
+          ? _value.copper
+          : copper // ignore: cast_nullable_to_non_nullable
+              as int,
+      silver: null == silver
+          ? _value.silver
+          : silver // ignore: cast_nullable_to_non_nullable
+              as int,
+      gold: null == gold
+          ? _value.gold
+          : gold // ignore: cast_nullable_to_non_nullable
+              as int,
+      platinum: null == platinum
+          ? _value.platinum
+          : platinum // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -462,7 +494,11 @@ abstract class _$$_PlayerCopyWith<$Res> implements $PlayerCopyWith<$Res> {
       @HiveField(39) dynamic religion,
       @HiveField(40) dynamic sleightOfHand,
       @HiveField(41) dynamic stealth,
-      @HiveField(42) dynamic survival});
+      @HiveField(42) dynamic survival,
+      @HiveField(43) int copper,
+      @HiveField(44) int silver,
+      @HiveField(45) int gold,
+      @HiveField(46) int platinum});
 }
 
 /// @nodoc
@@ -520,6 +556,10 @@ class __$$_PlayerCopyWithImpl<$Res>
     Object? sleightOfHand = null,
     Object? stealth = null,
     Object? survival = null,
+    Object? copper = null,
+    Object? silver = null,
+    Object? gold = null,
+    Object? platinum = null,
   }) {
     return _then(_$_Player(
       characterName: null == characterName
@@ -645,6 +685,22 @@ class __$$_PlayerCopyWithImpl<$Res>
           null == sleightOfHand ? _value.sleightOfHand : sleightOfHand,
       stealth: null == stealth ? _value.stealth : stealth,
       survival: null == survival ? _value.survival : survival,
+      copper: null == copper
+          ? _value.copper
+          : copper // ignore: cast_nullable_to_non_nullable
+              as int,
+      silver: null == silver
+          ? _value.silver
+          : silver // ignore: cast_nullable_to_non_nullable
+              as int,
+      gold: null == gold
+          ? _value.gold
+          : gold // ignore: cast_nullable_to_non_nullable
+              as int,
+      platinum: null == platinum
+          ? _value.platinum
+          : platinum // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -722,7 +778,11 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
       @HiveField(41) this.stealth =
           const PlayerSkill(skillName: 'stealth', skillType: 'dexterity'),
       @HiveField(42) this.survival =
-          const PlayerSkill(skillName: 'survival', skillType: 'wisdom')});
+          const PlayerSkill(skillName: 'survival', skillType: 'wisdom'),
+      @HiveField(43) this.copper = 0,
+      @HiveField(44) this.silver = 0,
+      @HiveField(45) this.gold = 0,
+      @HiveField(46) this.platinum = 0});
 
   factory _$_Player.fromJson(Map<String, dynamic> json) =>
       _$$_PlayerFromJson(json);
@@ -909,10 +969,27 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
   @JsonKey()
   @HiveField(42)
   final dynamic survival;
+//
+  @override
+  @JsonKey()
+  @HiveField(43)
+  final int copper;
+  @override
+  @JsonKey()
+  @HiveField(44)
+  final int silver;
+  @override
+  @JsonKey()
+  @HiveField(45)
+  final int gold;
+  @override
+  @JsonKey()
+  @HiveField(46)
+  final int platinum;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Player(characterName: $characterName, guid: $guid, level: $level, exp: $exp, playerClass: $playerClass, playerRace: $playerRace, alignment: $alignment, background: $background, currentHp: $currentHp, totalHp: $totalHp, tempHp: $tempHp, armorClass: $armorClass, proficiency: $proficiency, speed: $speed, initiative: $initiative, strength: $strength, dexterity: $dexterity, constitution: $constitution, intellegence: $intellegence, wisdom: $wisdom, charisma: $charisma, strengthSavingThrow: $strengthSavingThrow, dexteritySavingThrow: $dexteritySavingThrow, constitutionSavingThrow: $constitutionSavingThrow, intellegenceSavingThrow: $intellegenceSavingThrow, wisdomSavingThrow: $wisdomSavingThrow, charismaSavingThrow: $charismaSavingThrow, acrobatics: $acrobatics, animalHandling: $animalHandling, arcana: $arcana, athletics: $athletics, deception: $deception, history: $history, insight: $insight, intimidation: $intimidation, investigation: $investigation, medicine: $medicine, nature: $nature, perception: $perception, performance: $performance, persuasion: $persuasion, religion: $religion, sleightOfHand: $sleightOfHand, stealth: $stealth, survival: $survival)';
+    return 'Player(characterName: $characterName, guid: $guid, level: $level, exp: $exp, playerClass: $playerClass, playerRace: $playerRace, alignment: $alignment, background: $background, currentHp: $currentHp, totalHp: $totalHp, tempHp: $tempHp, armorClass: $armorClass, proficiency: $proficiency, speed: $speed, initiative: $initiative, strength: $strength, dexterity: $dexterity, constitution: $constitution, intellegence: $intellegence, wisdom: $wisdom, charisma: $charisma, strengthSavingThrow: $strengthSavingThrow, dexteritySavingThrow: $dexteritySavingThrow, constitutionSavingThrow: $constitutionSavingThrow, intellegenceSavingThrow: $intellegenceSavingThrow, wisdomSavingThrow: $wisdomSavingThrow, charismaSavingThrow: $charismaSavingThrow, acrobatics: $acrobatics, animalHandling: $animalHandling, arcana: $arcana, athletics: $athletics, deception: $deception, history: $history, insight: $insight, intimidation: $intimidation, investigation: $investigation, medicine: $medicine, nature: $nature, perception: $perception, performance: $performance, persuasion: $persuasion, religion: $religion, sleightOfHand: $sleightOfHand, stealth: $stealth, survival: $survival, copper: $copper, silver: $silver, gold: $gold, platinum: $platinum)';
   }
 
   @override
@@ -966,7 +1043,11 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
       ..add(DiagnosticsProperty('religion', religion))
       ..add(DiagnosticsProperty('sleightOfHand', sleightOfHand))
       ..add(DiagnosticsProperty('stealth', stealth))
-      ..add(DiagnosticsProperty('survival', survival));
+      ..add(DiagnosticsProperty('survival', survival))
+      ..add(DiagnosticsProperty('copper', copper))
+      ..add(DiagnosticsProperty('silver', silver))
+      ..add(DiagnosticsProperty('gold', gold))
+      ..add(DiagnosticsProperty('platinum', platinum));
   }
 
   @override
@@ -1046,7 +1127,12 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
             const DeepCollectionEquality()
                 .equals(other.sleightOfHand, sleightOfHand) &&
             const DeepCollectionEquality().equals(other.stealth, stealth) &&
-            const DeepCollectionEquality().equals(other.survival, survival));
+            const DeepCollectionEquality().equals(other.survival, survival) &&
+            (identical(other.copper, copper) || other.copper == copper) &&
+            (identical(other.silver, silver) || other.silver == silver) &&
+            (identical(other.gold, gold) || other.gold == gold) &&
+            (identical(other.platinum, platinum) ||
+                other.platinum == platinum));
   }
 
   @JsonKey(ignore: true)
@@ -1097,7 +1183,11 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
         const DeepCollectionEquality().hash(religion),
         const DeepCollectionEquality().hash(sleightOfHand),
         const DeepCollectionEquality().hash(stealth),
-        const DeepCollectionEquality().hash(survival)
+        const DeepCollectionEquality().hash(survival),
+        copper,
+        silver,
+        gold,
+        platinum
       ]);
 
   @JsonKey(ignore: true)
@@ -1160,7 +1250,11 @@ abstract class _Player implements Player {
       @HiveField(39) final dynamic religion,
       @HiveField(40) final dynamic sleightOfHand,
       @HiveField(41) final dynamic stealth,
-      @HiveField(42) final dynamic survival}) = _$_Player;
+      @HiveField(42) final dynamic survival,
+      @HiveField(43) final int copper,
+      @HiveField(44) final int silver,
+      @HiveField(45) final int gold,
+      @HiveField(46) final int platinum}) = _$_Player;
 
   factory _Player.fromJson(Map<String, dynamic> json) = _$_Player.fromJson;
 
@@ -1297,6 +1391,18 @@ abstract class _Player implements Player {
   @override
   @HiveField(42)
   dynamic get survival;
+  @override //
+  @HiveField(43)
+  int get copper;
+  @override
+  @HiveField(44)
+  int get silver;
+  @override
+  @HiveField(45)
+  int get gold;
+  @override
+  @HiveField(46)
+  int get platinum;
   @override
   @JsonKey(ignore: true)
   _$$_PlayerCopyWith<_$_Player> get copyWith =>

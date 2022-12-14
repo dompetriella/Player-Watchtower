@@ -7,6 +7,7 @@ import 'package:player_watchtower/models/savingThrow.dart';
 
 import '../functions/database.dart';
 import '../models/playerSkill.dart';
+import 'inventory.dart';
 
 final playerProvider = StateNotifierProvider<PlayerNotifier, Player>((ref) {
   return PlayerNotifier();
@@ -78,6 +79,58 @@ class PlayerNotifier extends StateNotifier<Player> {
     if (state.currentHp > 0) {
       state = state.copyWith(currentHp: state.currentHp - 1);
       Hive.box<Player>('player').put(state.guid, state);
+    }
+  }
+
+  void increaseCoin(WidgetRef ref) {
+    switch (ref.read(quickSelectMoneyDisplay)) {
+      case 1:
+        state = state.copyWith(copper: state.copper + 1);
+        Hive.box<Player>('player').put(state.guid, state);
+        break;
+      case 2:
+        state = state.copyWith(silver: state.silver + 1);
+        Hive.box<Player>('player').put(state.guid, state);
+        break;
+      case 3:
+        state = state.copyWith(gold: state.gold + 1);
+        Hive.box<Player>('player').put(state.guid, state);
+        break;
+      case 4:
+        state = state.copyWith(platinum: state.platinum + 1);
+        Hive.box<Player>('player').put(state.guid, state);
+        break;
+      default:
+    }
+  }
+
+  void decreaseCoin(WidgetRef ref) {
+    switch (ref.read(quickSelectMoneyDisplay)) {
+      case 1:
+        if (state.copper > 0) {
+          state = state.copyWith(copper: state.copper - 1);
+          Hive.box<Player>('player').put(state.guid, state);
+        }
+        break;
+      case 2:
+        if (state.silver > 0) {
+          state = state.copyWith(copper: state.silver - 1);
+          Hive.box<Player>('player').put(state.guid, state);
+        }
+        break;
+      case 3:
+        if (state.gold > 0) {
+          state = state.copyWith(copper: state.gold - 1);
+          Hive.box<Player>('player').put(state.guid, state);
+        }
+        break;
+      case 4:
+        if (state.platinum > 0) {
+          state = state.copyWith(copper: state.platinum - 1);
+          Hive.box<Player>('player').put(state.guid, state);
+        }
+        break;
+      default:
     }
   }
 }
