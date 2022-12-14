@@ -30,7 +30,8 @@ class BarDropDown extends ConsumerWidget {
               decoration: BoxDecoration(
                   color: ref.watch(themeProvider).cardBg,
                   boxShadow: [ref.watch(themeProvider).shadow],
-                  border: Border.all(color: Colors.white, width: 2.0),
+                  border: Border.all(
+                      color: ref.watch(themeProvider).primary, width: 2.0),
                   borderRadius: BorderRadius.circular(10)),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(8.0, 0, 8, 0),
@@ -55,12 +56,12 @@ class BarDropDown extends ConsumerWidget {
                           ? Icon(
                               Icons.expand_less,
                               size: 30,
-                              color: ref.watch(themeProvider).textColor,
+                              color: ref.watch(themeProvider).primary,
                             )
                           : Icon(
                               Icons.expand_more,
                               size: 30,
-                              color: ref.watch(themeProvider).textColor,
+                              color: ref.watch(themeProvider).primary,
                             ),
                     ),
                   ],

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/global_components/info_item.dart';
 import 'package:player_watchtower/pages/Inventory/components/add_new_item.dart';
+import 'package:player_watchtower/pages/Inventory/components/currency_item.dart';
 import 'package:player_watchtower/providers/page.dart';
+import 'package:player_watchtower/providers/player.dart';
 
 import '../../global_components/bar_drop_down.dart';
 import '../../providers/theme.dart';
@@ -21,7 +23,12 @@ class InventoryPage extends ConsumerWidget {
             BarDropDown(
               expandedProvider: moneyExpanded,
               text: 'Currency',
-              items: [],
+              items: [
+                CurrencyItem(
+                    currencyName: 'Copper',
+                    iconColor: Colors.brown,
+                    provider: ref.watch(playerProvider).copper)
+              ],
             ),
             BarDropDown(
               expandedProvider: itemsExpanded,

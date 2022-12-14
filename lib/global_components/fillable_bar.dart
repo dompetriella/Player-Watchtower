@@ -38,6 +38,7 @@ class FillableBar extends ConsumerWidget {
         children: [
           AnimatedFractionallySizedBox(
             duration: Duration(milliseconds: fillSpeed),
+            curve: Curves.easeInOut,
             heightFactor: 1,
             widthFactor: current / total,
             child: Container(
