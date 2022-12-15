@@ -114,19 +114,19 @@ class PlayerNotifier extends StateNotifier<Player> {
         break;
       case 2:
         if (state.silver > 0) {
-          state = state.copyWith(copper: state.silver - 1);
+          state = state.copyWith(silver: state.silver - 1);
           Hive.box<Player>('player').put(state.guid, state);
         }
         break;
       case 3:
         if (state.gold > 0) {
-          state = state.copyWith(copper: state.gold - 1);
+          state = state.copyWith(gold: state.gold - 1);
           Hive.box<Player>('player').put(state.guid, state);
         }
         break;
       case 4:
         if (state.platinum > 0) {
-          state = state.copyWith(copper: state.platinum - 1);
+          state = state.copyWith(platinum: state.platinum - 1);
           Hive.box<Player>('player').put(state.guid, state);
         }
         break;

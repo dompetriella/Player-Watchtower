@@ -2,6 +2,7 @@ import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/pages/Dice/components/drawer/modifier_switch_button.dart';
+import 'package:player_watchtower/providers/dice_provider.dart';
 import 'package:player_watchtower/providers/player.dart';
 
 import '../../../../providers/theme.dart';
@@ -67,16 +68,19 @@ class DrawerModifierBar extends ConsumerWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               ModifierSwitchButton(
-                                text: 'STR',
+                                diceAbilityScore: DiceAbilityScore.strength,
                                 value: ref.read(playerProvider).strength,
+                                text: 'STR',
                               ),
                               ModifierSwitchButton(
-                                text: 'DEX',
+                                diceAbilityScore: DiceAbilityScore.dexterity,
                                 value: ref.read(playerProvider).dexterity,
+                                text: 'DEX',
                               ),
                               ModifierSwitchButton(
-                                text: 'CON',
+                                diceAbilityScore: DiceAbilityScore.constitution,
                                 value: ref.read(playerProvider).constitution,
+                                text: 'CON',
                               ),
                             ],
                           ),
@@ -84,17 +88,19 @@ class DrawerModifierBar extends ConsumerWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               ModifierSwitchButton(
-                                text: 'INT',
+                                diceAbilityScore: DiceAbilityScore.intellegence,
                                 value: ref.read(playerProvider).intellegence,
+                                text: 'INT',
                               ),
                               ModifierSwitchButton(
-                                text: 'WIS',
+                                diceAbilityScore: DiceAbilityScore.wisdom,
                                 value: ref.read(playerProvider).wisdom,
+                                text: 'WIS',
                               ),
                               ModifierSwitchButton(
-                                text: 'CHA',
-                                value: ref.read(playerProvider).charisma,
-                              ),
+                                  diceAbilityScore: DiceAbilityScore.charisma,
+                                  value: ref.read(playerProvider).charisma,
+                                  text: 'CHA'),
                             ],
                           ),
                         ]),

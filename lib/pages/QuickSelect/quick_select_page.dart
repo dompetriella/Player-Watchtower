@@ -19,10 +19,10 @@ class QuickSelectPage extends ConsumerWidget {
           children: [
             const BaseCard(),
             const MoneyCard(),
-            BarDropDown(
-              expandedProvider: qsAbilitiesExpanded,
-              text: 'Abilities',
-            ),
+            // BarDropDown(
+            //   expandedProvider: qsAbilitiesExpanded,
+            //   text: 'Abilities',
+            // ),
             BarDropDown(
               expandedProvider: qsWeaponsExpanded,
               text: 'Weapons',

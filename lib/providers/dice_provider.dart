@@ -2,6 +2,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../models/rolledDice.dart';
 
+enum DiceAbilityScore {
+  none,
+  strength,
+  dexterity,
+  constitution,
+  intellegence,
+  wisdom,
+  charisma
+}
+
 final selectedDiceProvider = StateNotifierProvider<DiceNotifier, int>((ref) {
   return DiceNotifier();
 });
@@ -128,5 +138,8 @@ final isClear = StateProvider<bool>((ref) => false);
 var addToRoll = StateProvider<String>(
   (ref) => '',
 );
+
+var addDiceAbilityScore =
+    StateProvider<DiceAbilityScore>((ref) => DiceAbilityScore.none);
 
 var addProficiencyToRoll = StateProvider<bool>((ref) => false);

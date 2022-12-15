@@ -70,9 +70,13 @@ class BaseDialog extends ConsumerWidget {
       case 'exp':
         return tryBoundariesReturnIncreaseDecrease(
             ref.read(playerProvider).exp, newValueIncreaseDecrease, 355000);
+
       default:
         var playerJson = ref.read(playerProvider).toJson();
-        return playerJson[statPropertyName];
+        var newValue = playerJson[statPropertyName] + newValueIncreaseDecrease;
+        if (newValue > 999999999) return 999999999;
+        if (newValue < 0) return 0;
+        return newValue;
     }
   }
 

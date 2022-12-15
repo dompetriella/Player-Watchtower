@@ -42,7 +42,7 @@ class AddNewItem extends ConsumerWidget {
           Align(
             alignment: Alignment.center,
             child: Text(
-              'Add New',
+              'Coming Soon (v0.4)',
               style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
             ),
           ),

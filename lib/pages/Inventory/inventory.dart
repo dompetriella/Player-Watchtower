@@ -9,6 +9,11 @@ import 'package:player_watchtower/providers/player.dart';
 import '../../global_components/bar_drop_down.dart';
 import '../../providers/theme.dart';
 
+Color platinum = Colors.grey[800]!;
+Color gold = Colors.yellow;
+Color silver = Colors.grey[400]!;
+Color copper = Colors.brown;
+
 class InventoryPage extends ConsumerWidget {
   const InventoryPage({super.key});
 
@@ -26,8 +31,35 @@ class InventoryPage extends ConsumerWidget {
               items: [
                 CurrencyItem(
                     currencyName: 'Copper',
-                    iconColor: Colors.brown,
-                    provider: ref.watch(playerProvider).copper)
+                    iconColor: copper,
+                    provider: ref.read(playerProvider).copper),
+                Divider(
+                  thickness: 2,
+                  indent: 20,
+                  endIndent: 20,
+                ),
+                CurrencyItem(
+                    currencyName: 'Silver',
+                    iconColor: silver,
+                    provider: ref.read(playerProvider).silver),
+                Divider(
+                  thickness: 2,
+                  indent: 20,
+                  endIndent: 20,
+                ),
+                CurrencyItem(
+                    currencyName: 'Gold',
+                    iconColor: gold,
+                    provider: ref.read(playerProvider).gold),
+                Divider(
+                  thickness: 2,
+                  indent: 20,
+                  endIndent: 20,
+                ),
+                CurrencyItem(
+                    currencyName: 'Platinum',
+                    iconColor: platinum,
+                    provider: ref.read(playerProvider).platinum),
               ],
             ),
             BarDropDown(
