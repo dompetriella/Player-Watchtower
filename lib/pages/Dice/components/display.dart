@@ -20,52 +20,53 @@ class Display extends ConsumerWidget {
     var screenWidth = MediaQuery.of(context).size.width;
     var sizeFactor = screenHeight / screenWidth;
     return Container(
-      height: screenHeight * .25,
+      height: 80 * sizeFactor,
       width: screenWidth,
       decoration: BoxDecoration(
           color: ref.watch(themeProvider).numberDisplayBgColor,
-          border: Border.all(color: ref.watch(themeProvider).outline, width: 4),
           borderRadius: BorderRadius.all(Radius.circular(
               ref.watch(themeProvider).numberDisplayBorderRadius)),
-          boxShadow: [ref.watch(themeProvider).shadow]),
-      child: Column(children: [
-        Padding(
-            padding: const EdgeInsets.fromLTRB(12.0, 8, 12, 8),
-            child: SizedBox(
-              width: screenWidth,
-              child: Row(
-                children: [
-                  Expanded(child: RolledDiceView(size: 18 * sizeFactor)),
-                  ClearButton()
-                ],
-              ),
-            )),
-        Expanded(
-          child: Stack(
-            children: [
-              Animate(
-                adapter: TriggerAdapter(ref.watch(diceTotalCondition)),
-                effects: ref.watch(diceTotalEffects),
-                onComplete: (controller) =>
-                    ref.watch(diceTotalCondition.notifier).state = false,
-                child: Align(
-                  alignment: Alignment.center,
-                  child: StrokeText(
-                    text: ref.watch(displayNumber),
-                    size: screenHeight / 8,
-                  ),
+          boxShadow: [ref.watch(themeProvider).innerShadow]),
+      child: Stack(
+        children: [
+          Animate(
+            adapter: TriggerAdapter(ref.watch(diceTotalCondition)),
+            effects: ref.watch(diceTotalEffects),
+            onComplete: (controller) =>
+                ref.watch(diceTotalCondition.notifier).state = false,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                // Beeg display
+                child: StrokeText(
+                  text: ref.watch(displayNumber),
+                  size: screenHeight / 10,
                 ),
               ),
-              Align(
-                  alignment: Alignment.bottomRight,
-                  child: DisplayMultiplierTotal(screenHeight: screenHeight)),
-              Align(
-                  alignment: Alignment.bottomLeft,
-                  child: DiceIconDisplay(screenHeight: screenHeight))
-            ],
+            ),
           ),
-        )
-      ]),
+          Align(
+              alignment: Alignment.bottomRight,
+              child: DisplayMultiplierTotal(screenHeight: screenHeight)),
+          Align(
+              alignment: Alignment.bottomLeft,
+              child: DiceIconDisplay(screenHeight: screenHeight)),
+          Column(children: [
+            Padding(
+                padding: const EdgeInsets.all(16),
+                child: SizedBox(
+                  width: screenWidth,
+                  child: Row(
+                    children: [
+                      Expanded(child: RolledDiceView(size: 18 * sizeFactor)),
+                      ClearButton()
+                    ],
+                  ),
+                )),
+          ]),
+        ],
+      ),
     );
   }
 }
@@ -81,7 +82,7 @@ class DisplayMultiplierTotal extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16, 8.0),
+      padding: const EdgeInsets.all(16.0),
       child: Text('x${(ref.watch(multiplierProvider).toString())}',
           style: TextStyle(
               color: ref.watch(themeProvider).numberDisplayTextColor,
@@ -108,13 +109,13 @@ class DiceIconDisplay extends ConsumerWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 8.0, 16, 8),
+      padding: const EdgeInsets.all(16),
       child: Stack(
         clipBehavior: Clip.none,
         children: [
           SizedBox(
-            width: screenHeight / 15,
-            height: screenHeight / 15,
+            width: screenHeight / 16,
+            height: screenHeight / 16,
             child: GestureDetector(
               onTap: () => (ref.read(modifierProvider) < 99)
                   ? ref.read(modifierProvider.notifier).state += 1

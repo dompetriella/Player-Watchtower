@@ -39,17 +39,27 @@ class BodyDropDown extends ConsumerWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Center(
-                            child: BorderedText(
-                          strokeWidth: 5.0,
-                          strokeColor: Colors.black,
-                          child: Text(
-                            text,
-                            style: TextStyle(
-                                fontSize: 30,
-                                letterSpacing: 1.2,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
+                            child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            BorderedText(
+                              strokeWidth: 5.0,
+                              strokeColor: Colors.black,
+                              child: Text(
+                                text,
+                                style: TextStyle(
+                                    fontSize: 30,
+                                    letterSpacing: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            if (ref.watch(expandedProvider))
+                              Text(
+                                'Press and Hold to Edit',
+                                style: TextStyle(color: Colors.white),
+                              )
+                          ],
                         )),
                         Container(
                           alignment: Alignment.centerRight,

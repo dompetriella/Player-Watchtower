@@ -109,7 +109,7 @@ class RollButton extends ConsumerWidget {
         calculateStats(ref);
       },
       child: Container(
-        height: screenHeight / 8,
+        height: screenHeight / 10,
         width: screenWidth / 1.6,
         decoration: BoxDecoration(
             color: ref.watch(themeProvider).rollButtonBgColor,

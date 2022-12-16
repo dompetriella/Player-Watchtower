@@ -63,7 +63,7 @@ class ClearButton extends ConsumerWidget {
           child: Text(
             "CLEAR",
             style: TextStyle(
-                fontSize: 18,
+                fontSize: 16,
                 fontWeight: FontWeight.w900,
                 color: ref.watch(themeProvider).diceButtonTextColor),
           ),
@@ -92,10 +92,9 @@ class MinusButton extends ConsumerWidget {
       //   ref.watch(multiplierProvider.notifier).bigDecrement();
       // },
       child: Container(
-          height: screenHeight / 8,
+          height: screenHeight / 10,
           width: screenWidth / 1.5,
           decoration: BoxDecoration(
-              border: Border.all(color: Colors.white, width: 1),
               color: ref.watch(themeProvider).numberDisplayBgColor,
               borderRadius: BorderRadius.all(Radius.circular(
                   ref.watch(themeProvider).numberDisplayBorderRadius)),
@@ -136,11 +135,10 @@ class PlusButton extends ConsumerWidget {
       //   ref.watch(multiplierProvider.notifier).bigIncrement();
       // },
       child: Container(
-          height: screenHeight / 8,
+          height: screenHeight / 10,
           width: screenWidth / 1.5,
           decoration: BoxDecoration(
               color: ref.watch(themeProvider).numberDisplayBgColor,
-              border: Border.all(color: Colors.white, width: 1),
               borderRadius: BorderRadius.all(Radius.circular(
                   ref.watch(themeProvider).numberDisplayBorderRadius)),
               boxShadow: [ref.watch(themeProvider).innerShadow]),

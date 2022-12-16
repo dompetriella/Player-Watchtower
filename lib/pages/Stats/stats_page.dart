@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/pages/Stats/components/body_drop_down.dart';
 import 'package:player_watchtower/pages/Stats/statsEntries.dart';
 import 'package:player_watchtower/providers/theme.dart';
