@@ -104,7 +104,7 @@ class Player with _$Player {
     @Default(PlayerSkill(skillName: 'survival', skillType: 'wisdom'))
     @HiveField(42)
         survival,
-        //
+    //
     @Default(0) @HiveField(43) int copper,
     @Default(0) @HiveField(44) int silver,
     @Default(0) @HiveField(45) int gold,
