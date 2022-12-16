@@ -56,7 +56,7 @@ class ClearButton extends ConsumerWidget {
                 Radius.circular(ref.watch(themeProvider).diceIconBorderRadius)),
             border:
                 Border.all(color: ref.watch(themeProvider).outline, width: 1),
-            boxShadow: [ref.watch(themeProvider).shadow]),
+            boxShadow: [ref.watch(themeProvider).innerShadow]),
         child: Center(
             child: Padding(
           padding: const EdgeInsets.all(8.0),

@@ -37,8 +37,10 @@ file:///Users/dpetriella/Documents/code/player_watchtower/lib/models/theme.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Dice/components/buttons_dialer.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Dice/components/dice_button.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Dice/components/display.dart
+file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Dice/components/drawer/dice_drawer_modifier.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Dice/components/drawer/history_drawer.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Dice/components/drawer/history_log.dart
+file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Dice/components/drawer/modifier_switch_button.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Dice/components/drawer/roll_history.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Dice/components/drawer/stats.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Dice/components/drawer/stats_log.dart
@@ -46,6 +48,8 @@ file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Dice/compone
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Dice/components/roll_button.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Dice/components/rolled_dice_icon.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Dice/dice_page.dart
+file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Inventory/components/add_new_item.dart
+file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Inventory/components/currency_item.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/Inventory/inventory.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/QuickSelect/components/base_card.dart
 file:///Users/dpetriella/Documents/code/player_watchtower/lib/pages/QuickSelect/components/money_card.dart
@@ -241,6 +245,8 @@ file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/fl
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_animate-2.0.1/lib/extensions/offset_copy_with_extensions.dart
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_animate-2.0.1/lib/flutter_animate.dart
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bounce-1.1.0/lib/flutter_bounce.dart
+file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_guid-0.3.1/lib/flutter_guid.dart
+file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_guid-0.3.1/lib/flutter_guid_error.dart
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inset_box_shadow-1.0.8/lib/flutter_inset_box_shadow.dart
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inset_box_shadow-1.0.8/lib/src/box_decoration.dart
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inset_box_shadow-1.0.8/lib/src/box_shadow.dart
@@ -688,6 +694,8 @@ file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/ty
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.1/lib/typed_data.dart
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/uuid-3.0.7/lib/uuid.dart
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/uuid-3.0.7/lib/uuid_util.dart
+file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/validators-3.0.0/lib/src/helpers.dart
+file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/validators-3.0.0/lib/validators.dart
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2/lib/src/vector_math/aabb2.dart
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2/lib/src/vector_math/aabb3.dart
 file:///Users/dpetriella/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2/lib/src/vector_math/colors.dart

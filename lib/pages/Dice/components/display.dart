@@ -120,11 +120,11 @@ class DiceIconDisplay extends ConsumerWidget {
               onTap: () => (ref.read(modifierProvider) < 99)
                   ? ref.read(modifierProvider.notifier).state += 1
                   : null,
-              onLongPress: (() =>
-                  ref.read(modifierProvider.notifier).state = 0),
-              onPanStart: (swipe) => ref
+              onLongPress: (() => ref
                   .read(modifierSignPositive.notifier)
-                  .state = !ref.read(modifierSignPositive),
+                  .state = !ref.read(modifierSignPositive)),
+              onDoubleTap: (() =>
+                  ref.read(modifierProvider.notifier).state = 0),
               child: Container(
                 decoration: BoxDecoration(
                     color: ref.watch(themeProvider).diceTypeBgColor,
