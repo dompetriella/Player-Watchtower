@@ -15,7 +15,7 @@ class Weapon with _$Weapon {
     @Default('') @HiveField(3) String damage,
     @Default('') @HiveField(4) String damageType,
     @Default([]) @HiveField(5) List<String> weaponProperties,
-    @Default([]) @HiveField(6) List<String> weaponType,
+    @Default('') @HiveField(6) String weaponType,
     @Default('') @HiveField(7) String description,
   }) = _Weapon;
 

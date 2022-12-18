@@ -5,7 +5,7 @@ import 'package:player_watchtower/global_components/bottom_bar.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/pages/Dice/components/drawer/history_drawer.dart';
 import 'package:player_watchtower/pages/Dice/dice_page.dart';
-import 'package:player_watchtower/pages/Inventory/inventory.dart';
+import 'package:player_watchtower/pages/Inventory/inventory_page.dart';
 import 'package:player_watchtower/pages/QuickSelect/drawer/skills_drawer.dart';
 import 'package:player_watchtower/pages/Stats/stats_page.dart';
 import 'package:player_watchtower/providers/player.dart';

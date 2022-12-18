@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/providers/inventory.dart';
 import 'package:player_watchtower/providers/theme.dart';
 import 'package:player_watchtower/global_components/bar_drop_down.dart';
 import 'package:player_watchtower/providers/page.dart';
@@ -23,14 +24,16 @@ class QuickSelectPage extends ConsumerWidget {
             //   expandedProvider: qsAbilitiesExpanded,
             //   text: 'Abilities',
             // ),
-            BarDropDown(
-              expandedProvider: qsWeaponsExpanded,
-              text: 'Weapons',
-            ),
-            BarDropDown(
-              expandedProvider: qsSpellsExpanded,
-              text: 'Spells',
-            ),
+            if (ref.watch(inventoryProvider).quickSelectItems.isNotEmpty)
+              BarDropDown(
+                expandedProvider: qsWeaponsExpanded,
+                text: 'Weapons',
+              ),
+            if (ref.watch(inventoryProvider).quickSelectSpells.isNotEmpty)
+              BarDropDown(
+                expandedProvider: qsSpellsExpanded,
+                text: 'Spells',
+              ),
           ],
         ),
       ),

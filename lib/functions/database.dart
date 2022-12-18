@@ -14,8 +14,8 @@ Player createNewCharacterEntry(Box<Player> playerBox) {
 }
 
 Future getInitState(WidgetRef ref) async {
-  // await Hive.deleteBoxFromDisk('player');
-  // await Hive.deleteBoxFromDisk('characters');
+  await Hive.deleteBoxFromDisk('player');
+  await Hive.deleteBoxFromDisk('characters');
   var characterBox = await Hive.openBox('characters');
   var playerBox = await Hive.openBox<Player>('player');
   if (characterBox.isEmpty) {

@@ -85,7 +85,7 @@ class DisplayMultiplierTotal extends ConsumerWidget {
       padding: const EdgeInsets.all(16.0),
       child: Text('x${(ref.watch(multiplierProvider).toString())}',
           style: TextStyle(
-              color: ref.watch(themeProvider).numberDisplayTextColor,
+              color: ref.watch(themeProvider).diceButtonBg,
               fontSize: screenHeight / 25,
               fontWeight: FontWeight.w900)),
     );

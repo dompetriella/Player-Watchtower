@@ -56,7 +56,7 @@ class BodyDropDown extends ConsumerWidget {
                             ),
                             if (ref.watch(expandedProvider))
                               Text(
-                                'Press and Hold to Edit',
+                                ' Press and Hold to Edit',
                                 style: TextStyle(color: Colors.white),
                               )
                           ],

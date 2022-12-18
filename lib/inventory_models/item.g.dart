@@ -22,13 +22,14 @@ class ItemAdapter extends TypeAdapter<_$_Item> {
       blurb: fields[2] as String,
       itemCategory: fields[3] as String,
       description: fields[4] as String,
+      amount: fields[5] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, _$_Item obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.guid)
       ..writeByte(1)
@@ -38,7 +39,9 @@ class ItemAdapter extends TypeAdapter<_$_Item> {
       ..writeByte(3)
       ..write(obj.itemCategory)
       ..writeByte(4)
-      ..write(obj.description);
+      ..write(obj.description)
+      ..writeByte(5)
+      ..write(obj.amount);
   }
 
   @override
@@ -62,6 +65,7 @@ _$_Item _$$_ItemFromJson(Map<String, dynamic> json) => _$_Item(
       blurb: json['blurb'] as String? ?? '',
       itemCategory: json['itemCategory'] as String? ?? '',
       description: json['description'] as String? ?? '',
+      amount: json['amount'] as int? ?? 1,
     );
 
 Map<String, dynamic> _$$_ItemToJson(_$_Item instance) => <String, dynamic>{
@@ -70,4 +74,5 @@ Map<String, dynamic> _$$_ItemToJson(_$_Item instance) => <String, dynamic>{
       'blurb': instance.blurb,
       'itemCategory': instance.itemCategory,
       'description': instance.description,
+      'amount': instance.amount,
     };

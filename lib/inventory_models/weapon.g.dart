@@ -23,7 +23,7 @@ class WeaponAdapter extends TypeAdapter<_$_Weapon> {
       damage: fields[3] as String,
       damageType: fields[4] as String,
       weaponProperties: (fields[5] as List).cast<String>(),
-      weaponType: (fields[6] as List).cast<String>(),
+      weaponType: fields[6] as String,
       description: fields[7] as String,
     );
   }
@@ -42,12 +42,12 @@ class WeaponAdapter extends TypeAdapter<_$_Weapon> {
       ..write(obj.damage)
       ..writeByte(4)
       ..write(obj.damageType)
+      ..writeByte(6)
+      ..write(obj.weaponType)
       ..writeByte(7)
       ..write(obj.description)
       ..writeByte(5)
-      ..write(obj.weaponProperties)
-      ..writeByte(6)
-      ..write(obj.weaponType);
+      ..write(obj.weaponProperties);
   }
 
   @override
@@ -75,10 +75,7 @@ _$_Weapon _$$_WeaponFromJson(Map<String, dynamic> json) => _$_Weapon(
               ?.map((e) => e as String)
               .toList() ??
           const [],
-      weaponType: (json['weaponType'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const [],
+      weaponType: json['weaponType'] as String? ?? '',
       description: json['description'] as String? ?? '',
     );
 

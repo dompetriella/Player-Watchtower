@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import "package:flutter_riverpod/flutter_riverpod.dart";
-import 'package:player_watchtower/global_components/info_item.dart';
+import 'package:player_watchtower/pages/Inventory/components/item_display.dart';
 import 'package:player_watchtower/providers/theme.dart';
 import 'package:bordered_text/bordered_text.dart';
 
@@ -71,7 +71,7 @@ class BarDropDown extends ConsumerWidget {
           ),
           if (ref.watch(expandedProvider))
             Padding(
-              padding: const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
+              padding: const EdgeInsets.fromLTRB(10.0, 0, 10.0, 10),
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(

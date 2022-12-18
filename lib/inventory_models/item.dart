@@ -14,6 +14,7 @@ class Item with _$Item {
     @Default('') @HiveField(2) String blurb,
     @Default('') @HiveField(3) String itemCategory,
     @Default('') @HiveField(4) String description,
+    @Default(1) @HiveField(5) int amount,
   }) = _Item;
 
   factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
