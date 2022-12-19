@@ -39,6 +39,10 @@ final qsSpellsExpanded = StateProvider<bool>(
   (ref) => false,
 );
 
+final qsItemsExpanded = StateProvider<bool>(
+  (ref) => false,
+);
+
 final strengthAbilityScoreCard = StateProvider<bool>(
   (ref) => true,
 );

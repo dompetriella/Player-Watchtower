@@ -36,6 +36,8 @@ mixin _$Weapon {
   String get weaponType => throw _privateConstructorUsedError;
   @HiveField(7)
   String get description => throw _privateConstructorUsedError;
+  @HiveField(8)
+  bool get isQuickSelect => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -55,7 +57,8 @@ abstract class $WeaponCopyWith<$Res> {
       @HiveField(4) String damageType,
       @HiveField(5) List<String> weaponProperties,
       @HiveField(6) String weaponType,
-      @HiveField(7) String description});
+      @HiveField(7) String description,
+      @HiveField(8) bool isQuickSelect});
 }
 
 /// @nodoc
@@ -79,6 +82,7 @@ class _$WeaponCopyWithImpl<$Res, $Val extends Weapon>
     Object? weaponProperties = null,
     Object? weaponType = null,
     Object? description = null,
+    Object? isQuickSelect = null,
   }) {
     return _then(_value.copyWith(
       guid: null == guid
@@ -113,6 +117,10 @@ class _$WeaponCopyWithImpl<$Res, $Val extends Weapon>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      isQuickSelect: null == isQuickSelect
+          ? _value.isQuickSelect
+          : isQuickSelect // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -131,7 +139,8 @@ abstract class _$$_WeaponCopyWith<$Res> implements $WeaponCopyWith<$Res> {
       @HiveField(4) String damageType,
       @HiveField(5) List<String> weaponProperties,
       @HiveField(6) String weaponType,
-      @HiveField(7) String description});
+      @HiveField(7) String description,
+      @HiveField(8) bool isQuickSelect});
 }
 
 /// @nodoc
@@ -152,6 +161,7 @@ class __$$_WeaponCopyWithImpl<$Res>
     Object? weaponProperties = null,
     Object? weaponType = null,
     Object? description = null,
+    Object? isQuickSelect = null,
   }) {
     return _then(_$_Weapon(
       guid: null == guid
@@ -186,6 +196,10 @@ class __$$_WeaponCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      isQuickSelect: null == isQuickSelect
+          ? _value.isQuickSelect
+          : isQuickSelect // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -202,7 +216,8 @@ class _$_Weapon with DiagnosticableTreeMixin implements _Weapon {
       @HiveField(4) this.damageType = '',
       @HiveField(5) final List<String> weaponProperties = const [],
       @HiveField(6) this.weaponType = '',
-      @HiveField(7) this.description = ''})
+      @HiveField(7) this.description = '',
+      @HiveField(8) this.isQuickSelect = false})
       : _weaponProperties = weaponProperties;
 
   factory _$_Weapon.fromJson(Map<String, dynamic> json) =>
@@ -245,10 +260,14 @@ class _$_Weapon with DiagnosticableTreeMixin implements _Weapon {
   @JsonKey()
   @HiveField(7)
   final String description;
+  @override
+  @JsonKey()
+  @HiveField(8)
+  final bool isQuickSelect;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Weapon(guid: $guid, name: $name, blurb: $blurb, damage: $damage, damageType: $damageType, weaponProperties: $weaponProperties, weaponType: $weaponType, description: $description)';
+    return 'Weapon(guid: $guid, name: $name, blurb: $blurb, damage: $damage, damageType: $damageType, weaponProperties: $weaponProperties, weaponType: $weaponType, description: $description, isQuickSelect: $isQuickSelect)';
   }
 
   @override
@@ -263,7 +282,8 @@ class _$_Weapon with DiagnosticableTreeMixin implements _Weapon {
       ..add(DiagnosticsProperty('damageType', damageType))
       ..add(DiagnosticsProperty('weaponProperties', weaponProperties))
       ..add(DiagnosticsProperty('weaponType', weaponType))
-      ..add(DiagnosticsProperty('description', description));
+      ..add(DiagnosticsProperty('description', description))
+      ..add(DiagnosticsProperty('isQuickSelect', isQuickSelect));
   }
 
   @override
@@ -282,7 +302,9 @@ class _$_Weapon with DiagnosticableTreeMixin implements _Weapon {
             (identical(other.weaponType, weaponType) ||
                 other.weaponType == weaponType) &&
             (identical(other.description, description) ||
-                other.description == description));
+                other.description == description) &&
+            (identical(other.isQuickSelect, isQuickSelect) ||
+                other.isQuickSelect == isQuickSelect));
   }
 
   @JsonKey(ignore: true)
@@ -296,7 +318,8 @@ class _$_Weapon with DiagnosticableTreeMixin implements _Weapon {
       damageType,
       const DeepCollectionEquality().hash(_weaponProperties),
       weaponType,
-      description);
+      description,
+      isQuickSelect);
 
   @JsonKey(ignore: true)
   @override
@@ -321,7 +344,8 @@ abstract class _Weapon implements Weapon {
       @HiveField(4) final String damageType,
       @HiveField(5) final List<String> weaponProperties,
       @HiveField(6) final String weaponType,
-      @HiveField(7) final String description}) = _$_Weapon;
+      @HiveField(7) final String description,
+      @HiveField(8) final bool isQuickSelect}) = _$_Weapon;
 
   factory _Weapon.fromJson(Map<String, dynamic> json) = _$_Weapon.fromJson;
 
@@ -349,6 +373,9 @@ abstract class _Weapon implements Weapon {
   @override
   @HiveField(7)
   String get description;
+  @override
+  @HiveField(8)
+  bool get isQuickSelect;
   @override
   @JsonKey(ignore: true)
   _$$_WeaponCopyWith<_$_Weapon> get copyWith =>

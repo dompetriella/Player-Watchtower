@@ -26,6 +26,7 @@ List<Widget> turnItemInventoryIntoDisplay(WidgetRef ref) {
     for (Item item in ref.watch(inventoryProvider).items) {
       displays.add(ItemDisplay(
         guid: item.guid,
+        isQuickSelect: item.isQuickSelect,
         itemName: item.name,
         itemType: item.itemCategory,
         itemAmount: item.amount,
@@ -41,6 +42,7 @@ List<Widget> turnWeaponInventoryIntoDisplay(WidgetRef ref) {
     for (Weapon weapon in ref.watch(inventoryProvider).weapons) {
       displays.add(WeaponDisplay(
         guid: weapon.guid,
+        isQuickSelect: weapon.isQuickSelect,
         name: weapon.name,
         damage: weapon.damage,
       ));
@@ -55,6 +57,7 @@ List<Widget> turnSpellInventoryIntoDisplay(WidgetRef ref) {
     for (Spell spell in ref.watch(inventoryProvider).spells) {
       displays.add(SpellDisplay(
         guid: spell.guid,
+        isQuickSelect: spell.isQuickSelect,
         name: spell.name,
         level: spell.spellLevel,
         school: spell.school,
@@ -77,11 +80,6 @@ class InventoryPage extends ConsumerWidget {
           children: [
             CurrencyDropdown(),
             BarDropDown(
-              expandedProvider: itemsExpanded,
-              text: 'Items',
-              items: turnItemInventoryIntoDisplay(ref),
-            ),
-            BarDropDown(
                 expandedProvider: weaponsExpanded,
                 text: 'Weapons',
                 items: turnWeaponInventoryIntoDisplay(ref)),
@@ -89,6 +87,11 @@ class InventoryPage extends ConsumerWidget {
                 expandedProvider: spellsExpanded,
                 text: 'Spells',
                 items: turnSpellInventoryIntoDisplay(ref)),
+            BarDropDown(
+              expandedProvider: itemsExpanded,
+              text: 'Items',
+              items: turnItemInventoryIntoDisplay(ref),
+            ),
           ],
         ),
       ),

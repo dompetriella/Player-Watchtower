@@ -45,8 +45,8 @@ class AddNewItem extends ConsumerWidget {
                     onTap: () {
                       switch (typeName) {
                         case 'Item':
-                          ref.read(inventoryProvider.notifier).addItemToInventory(
-                              itemObject: Item(
+                          ref.read(inventoryProvider.notifier).addToInventory(
+                              addObject: Item(
                                   guid: Guid.generate().toString(),
                                   name: 'Deck of Many Things',
                                   blurb: 'A deck with devastating consequences',
@@ -56,8 +56,8 @@ class AddNewItem extends ConsumerWidget {
                                       'You pick the cards and some bad shit happens but sometimes good but usually bad almost always bad'));
                           break;
                         case 'Weapon':
-                          ref.read(inventoryProvider.notifier).addWeaponToInventory(
-                              weaponObject: Weapon(
+                          ref.read(inventoryProvider.notifier).addToInventory(
+                              addObject: Weapon(
                                   guid: Guid.generate().toString(),
                                   name: 'Crimson Crowbow',
                                   blurb:
@@ -72,10 +72,8 @@ class AddNewItem extends ConsumerWidget {
                                   description: ''));
                           break;
                         case 'Spell':
-                          ref
-                              .read(inventoryProvider.notifier)
-                              .addSpellToInventory(
-                                  spellObject: Spell(
+                          ref.read(inventoryProvider.notifier).addToInventory(
+                                  addObject: Spell(
                                 guid: Guid.generate().toString(),
                                 name: 'Dragonfrost',
                                 blurb: 'Is a real icy boy',

@@ -42,6 +42,8 @@ mixin _$Spell {
   List<String> get components => throw _privateConstructorUsedError;
   @HiveField(10)
   String get description => throw _privateConstructorUsedError;
+  @HiveField(11)
+  bool get isQuickSelect => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -64,7 +66,8 @@ abstract class $SpellCopyWith<$Res> {
       @HiveField(7) String duration,
       @HiveField(8) String school,
       @HiveField(9) List<String> components,
-      @HiveField(10) String description});
+      @HiveField(10) String description,
+      @HiveField(11) bool isQuickSelect});
 }
 
 /// @nodoc
@@ -91,6 +94,7 @@ class _$SpellCopyWithImpl<$Res, $Val extends Spell>
     Object? school = null,
     Object? components = null,
     Object? description = null,
+    Object? isQuickSelect = null,
   }) {
     return _then(_value.copyWith(
       guid: null == guid
@@ -137,6 +141,10 @@ class _$SpellCopyWithImpl<$Res, $Val extends Spell>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      isQuickSelect: null == isQuickSelect
+          ? _value.isQuickSelect
+          : isQuickSelect // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -158,7 +166,8 @@ abstract class _$$_SpellCopyWith<$Res> implements $SpellCopyWith<$Res> {
       @HiveField(7) String duration,
       @HiveField(8) String school,
       @HiveField(9) List<String> components,
-      @HiveField(10) String description});
+      @HiveField(10) String description,
+      @HiveField(11) bool isQuickSelect});
 }
 
 /// @nodoc
@@ -181,6 +190,7 @@ class __$$_SpellCopyWithImpl<$Res> extends _$SpellCopyWithImpl<$Res, _$_Spell>
     Object? school = null,
     Object? components = null,
     Object? description = null,
+    Object? isQuickSelect = null,
   }) {
     return _then(_$_Spell(
       guid: null == guid
@@ -227,6 +237,10 @@ class __$$_SpellCopyWithImpl<$Res> extends _$SpellCopyWithImpl<$Res, _$_Spell>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      isQuickSelect: null == isQuickSelect
+          ? _value.isQuickSelect
+          : isQuickSelect // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -246,7 +260,8 @@ class _$_Spell with DiagnosticableTreeMixin implements _Spell {
       @HiveField(7) this.duration = '',
       @HiveField(8) this.school = '',
       @HiveField(9) final List<String> components = const [],
-      @HiveField(10) this.description = ''})
+      @HiveField(10) this.description = '',
+      @HiveField(11) this.isQuickSelect = false})
       : _components = components;
 
   factory _$_Spell.fromJson(Map<String, dynamic> json) =>
@@ -301,10 +316,14 @@ class _$_Spell with DiagnosticableTreeMixin implements _Spell {
   @JsonKey()
   @HiveField(10)
   final String description;
+  @override
+  @JsonKey()
+  @HiveField(11)
+  final bool isQuickSelect;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Spell(guid: $guid, name: $name, blurb: $blurb, spellLevel: $spellLevel, effectType: $effectType, range: $range, castingTime: $castingTime, duration: $duration, school: $school, components: $components, description: $description)';
+    return 'Spell(guid: $guid, name: $name, blurb: $blurb, spellLevel: $spellLevel, effectType: $effectType, range: $range, castingTime: $castingTime, duration: $duration, school: $school, components: $components, description: $description, isQuickSelect: $isQuickSelect)';
   }
 
   @override
@@ -322,7 +341,8 @@ class _$_Spell with DiagnosticableTreeMixin implements _Spell {
       ..add(DiagnosticsProperty('duration', duration))
       ..add(DiagnosticsProperty('school', school))
       ..add(DiagnosticsProperty('components', components))
-      ..add(DiagnosticsProperty('description', description));
+      ..add(DiagnosticsProperty('description', description))
+      ..add(DiagnosticsProperty('isQuickSelect', isQuickSelect));
   }
 
   @override
@@ -346,7 +366,9 @@ class _$_Spell with DiagnosticableTreeMixin implements _Spell {
             const DeepCollectionEquality()
                 .equals(other._components, _components) &&
             (identical(other.description, description) ||
-                other.description == description));
+                other.description == description) &&
+            (identical(other.isQuickSelect, isQuickSelect) ||
+                other.isQuickSelect == isQuickSelect));
   }
 
   @JsonKey(ignore: true)
@@ -363,7 +385,8 @@ class _$_Spell with DiagnosticableTreeMixin implements _Spell {
       duration,
       school,
       const DeepCollectionEquality().hash(_components),
-      description);
+      description,
+      isQuickSelect);
 
   @JsonKey(ignore: true)
   @override
@@ -391,7 +414,8 @@ abstract class _Spell implements Spell {
       @HiveField(7) final String duration,
       @HiveField(8) final String school,
       @HiveField(9) final List<String> components,
-      @HiveField(10) final String description}) = _$_Spell;
+      @HiveField(10) final String description,
+      @HiveField(11) final bool isQuickSelect}) = _$_Spell;
 
   factory _Spell.fromJson(Map<String, dynamic> json) = _$_Spell.fromJson;
 
@@ -428,6 +452,9 @@ abstract class _Spell implements Spell {
   @override
   @HiveField(10)
   String get description;
+  @override
+  @HiveField(11)
+  bool get isQuickSelect;
   @override
   @JsonKey(ignore: true)
   _$$_SpellCopyWith<_$_Spell> get copyWith =>
