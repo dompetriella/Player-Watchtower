@@ -28,8 +28,6 @@ mixin _$Spell {
   String get blurb => throw _privateConstructorUsedError;
   @HiveField(3)
   int get spellLevel => throw _privateConstructorUsedError;
-  @HiveField(4)
-  String get effectType => throw _privateConstructorUsedError;
   @HiveField(5)
   String get range => throw _privateConstructorUsedError;
   @HiveField(6)
@@ -60,7 +58,6 @@ abstract class $SpellCopyWith<$Res> {
       @HiveField(1) String name,
       @HiveField(2) String blurb,
       @HiveField(3) int spellLevel,
-      @HiveField(4) String effectType,
       @HiveField(5) String range,
       @HiveField(6) String castingTime,
       @HiveField(7) String duration,
@@ -87,7 +84,6 @@ class _$SpellCopyWithImpl<$Res, $Val extends Spell>
     Object? name = null,
     Object? blurb = null,
     Object? spellLevel = null,
-    Object? effectType = null,
     Object? range = null,
     Object? castingTime = null,
     Object? duration = null,
@@ -113,10 +109,6 @@ class _$SpellCopyWithImpl<$Res, $Val extends Spell>
           ? _value.spellLevel
           : spellLevel // ignore: cast_nullable_to_non_nullable
               as int,
-      effectType: null == effectType
-          ? _value.effectType
-          : effectType // ignore: cast_nullable_to_non_nullable
-              as String,
       range: null == range
           ? _value.range
           : range // ignore: cast_nullable_to_non_nullable
@@ -160,7 +152,6 @@ abstract class _$$_SpellCopyWith<$Res> implements $SpellCopyWith<$Res> {
       @HiveField(1) String name,
       @HiveField(2) String blurb,
       @HiveField(3) int spellLevel,
-      @HiveField(4) String effectType,
       @HiveField(5) String range,
       @HiveField(6) String castingTime,
       @HiveField(7) String duration,
@@ -183,7 +174,6 @@ class __$$_SpellCopyWithImpl<$Res> extends _$SpellCopyWithImpl<$Res, _$_Spell>
     Object? name = null,
     Object? blurb = null,
     Object? spellLevel = null,
-    Object? effectType = null,
     Object? range = null,
     Object? castingTime = null,
     Object? duration = null,
@@ -209,10 +199,6 @@ class __$$_SpellCopyWithImpl<$Res> extends _$SpellCopyWithImpl<$Res, _$_Spell>
           ? _value.spellLevel
           : spellLevel // ignore: cast_nullable_to_non_nullable
               as int,
-      effectType: null == effectType
-          ? _value.effectType
-          : effectType // ignore: cast_nullable_to_non_nullable
-              as String,
       range: null == range
           ? _value.range
           : range // ignore: cast_nullable_to_non_nullable
@@ -254,7 +240,6 @@ class _$_Spell with DiagnosticableTreeMixin implements _Spell {
       @HiveField(1) this.name = '',
       @HiveField(2) this.blurb = '',
       @HiveField(3) this.spellLevel = 0,
-      @HiveField(4) this.effectType = '',
       @HiveField(5) this.range = '',
       @HiveField(6) this.castingTime = '',
       @HiveField(7) this.duration = '',
@@ -283,10 +268,6 @@ class _$_Spell with DiagnosticableTreeMixin implements _Spell {
   @JsonKey()
   @HiveField(3)
   final int spellLevel;
-  @override
-  @JsonKey()
-  @HiveField(4)
-  final String effectType;
   @override
   @JsonKey()
   @HiveField(5)
@@ -323,7 +304,7 @@ class _$_Spell with DiagnosticableTreeMixin implements _Spell {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Spell(guid: $guid, name: $name, blurb: $blurb, spellLevel: $spellLevel, effectType: $effectType, range: $range, castingTime: $castingTime, duration: $duration, school: $school, components: $components, description: $description, isQuickSelect: $isQuickSelect)';
+    return 'Spell(guid: $guid, name: $name, blurb: $blurb, spellLevel: $spellLevel, range: $range, castingTime: $castingTime, duration: $duration, school: $school, components: $components, description: $description, isQuickSelect: $isQuickSelect)';
   }
 
   @override
@@ -335,7 +316,6 @@ class _$_Spell with DiagnosticableTreeMixin implements _Spell {
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('blurb', blurb))
       ..add(DiagnosticsProperty('spellLevel', spellLevel))
-      ..add(DiagnosticsProperty('effectType', effectType))
       ..add(DiagnosticsProperty('range', range))
       ..add(DiagnosticsProperty('castingTime', castingTime))
       ..add(DiagnosticsProperty('duration', duration))
@@ -355,8 +335,6 @@ class _$_Spell with DiagnosticableTreeMixin implements _Spell {
             (identical(other.blurb, blurb) || other.blurb == blurb) &&
             (identical(other.spellLevel, spellLevel) ||
                 other.spellLevel == spellLevel) &&
-            (identical(other.effectType, effectType) ||
-                other.effectType == effectType) &&
             (identical(other.range, range) || other.range == range) &&
             (identical(other.castingTime, castingTime) ||
                 other.castingTime == castingTime) &&
@@ -379,7 +357,6 @@ class _$_Spell with DiagnosticableTreeMixin implements _Spell {
       name,
       blurb,
       spellLevel,
-      effectType,
       range,
       castingTime,
       duration,
@@ -408,7 +385,6 @@ abstract class _Spell implements Spell {
       @HiveField(1) final String name,
       @HiveField(2) final String blurb,
       @HiveField(3) final int spellLevel,
-      @HiveField(4) final String effectType,
       @HiveField(5) final String range,
       @HiveField(6) final String castingTime,
       @HiveField(7) final String duration,
@@ -431,9 +407,6 @@ abstract class _Spell implements Spell {
   @override
   @HiveField(3)
   int get spellLevel;
-  @override
-  @HiveField(4)
-  String get effectType;
   @override
   @HiveField(5)
   String get range;

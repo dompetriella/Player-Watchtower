@@ -99,20 +99,6 @@ class SpellDisplay extends ConsumerWidget {
                                   : 'Cantrip $school',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  'Effect ',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                FaIcon(
-                                  FontAwesomeIcons.snowflake,
-                                  color: Colors.lightBlue,
-                                  size: 20,
-                                ),
-                              ],
-                            )
                           ],
                         ),
                       ),

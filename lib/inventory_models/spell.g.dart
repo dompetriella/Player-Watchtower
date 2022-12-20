@@ -21,7 +21,6 @@ class SpellAdapter extends TypeAdapter<_$_Spell> {
       name: fields[1] as String,
       blurb: fields[2] as String,
       spellLevel: fields[3] as int,
-      effectType: fields[4] as String,
       range: fields[5] as String,
       castingTime: fields[6] as String,
       duration: fields[7] as String,
@@ -35,7 +34,7 @@ class SpellAdapter extends TypeAdapter<_$_Spell> {
   @override
   void write(BinaryWriter writer, _$_Spell obj) {
     writer
-      ..writeByte(12)
+      ..writeByte(11)
       ..writeByte(0)
       ..write(obj.guid)
       ..writeByte(1)
@@ -44,8 +43,6 @@ class SpellAdapter extends TypeAdapter<_$_Spell> {
       ..write(obj.blurb)
       ..writeByte(3)
       ..write(obj.spellLevel)
-      ..writeByte(4)
-      ..write(obj.effectType)
       ..writeByte(5)
       ..write(obj.range)
       ..writeByte(6)
@@ -82,7 +79,6 @@ _$_Spell _$$_SpellFromJson(Map<String, dynamic> json) => _$_Spell(
       name: json['name'] as String? ?? '',
       blurb: json['blurb'] as String? ?? '',
       spellLevel: json['spellLevel'] as int? ?? 0,
-      effectType: json['effectType'] as String? ?? '',
       range: json['range'] as String? ?? '',
       castingTime: json['castingTime'] as String? ?? '',
       duration: json['duration'] as String? ?? '',
@@ -100,7 +96,6 @@ Map<String, dynamic> _$$_SpellToJson(_$_Spell instance) => <String, dynamic>{
       'name': instance.name,
       'blurb': instance.blurb,
       'spellLevel': instance.spellLevel,
-      'effectType': instance.effectType,
       'range': instance.range,
       'castingTime': instance.castingTime,
       'duration': instance.duration,

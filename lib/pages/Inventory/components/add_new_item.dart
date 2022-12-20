@@ -6,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/global_components/multi_button.dart';
 import 'package:player_watchtower/inventory_models/inventory.dart';
 import 'package:player_watchtower/inventory_models/spell.dart';
+import 'package:player_watchtower/pages/Inventory/components/Forms/item_form.dart';
 import 'package:player_watchtower/providers/inventory.dart';
 
 import '../../../inventory_models/item.dart';
@@ -45,15 +46,11 @@ class AddNewItem extends ConsumerWidget {
                     onTap: () {
                       switch (typeName) {
                         case 'Item':
-                          ref.read(inventoryProvider.notifier).addToInventory(
-                              addObject: Item(
-                                  guid: Guid.generate().toString(),
-                                  name: 'Deck of Many Things',
-                                  blurb: 'A deck with devastating consequences',
-                                  itemCategory: 'Magic Item',
-                                  amount: 1,
-                                  description:
-                                      'You pick the cards and some bad shit happens but sometimes good but usually bad almost always bad'));
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ItemForm()),
+                          );
                           break;
                         case 'Weapon':
                           ref.read(inventoryProvider.notifier).addToInventory(
@@ -82,7 +79,6 @@ class AddNewItem extends ConsumerWidget {
                                 range: '60 Feet',
                                 components: ['Vocal', 'Somatic'],
                                 duration: 'Instantenous',
-                                effectType: 'Cold',
                                 school: 'Evocation',
                               ));
                           break;

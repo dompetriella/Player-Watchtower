@@ -13,7 +13,6 @@ class Spell with _$Spell {
       @Default('') @HiveField(1) String name,
       @Default('') @HiveField(2) String blurb,
       @Default(0) @HiveField(3) int spellLevel,
-      @Default('') @HiveField(4) String effectType,
       @Default('') @HiveField(5) String range,
       @Default('') @HiveField(6) String castingTime,
       @Default('') @HiveField(7) String duration,
