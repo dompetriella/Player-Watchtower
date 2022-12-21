@@ -133,7 +133,7 @@ class WeaponDisplay extends ConsumerWidget {
                                 onLongPress: () {
                                   ref
                                       .read(inventoryProvider.notifier)
-                                      .deleteItemFromInventory(
+                                      .deleteWeaponFromInventory(
                                           guid: guid, ref: ref);
                                 },
                                 child: Padding(
