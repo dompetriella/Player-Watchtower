@@ -17,7 +17,7 @@ class FormTitle extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
         child: Text(
-          'Add New $formType',
+          'New $formType Details',
           style: TextStyle(
               fontSize: 20, color: Colors.black, fontWeight: FontWeight.w900),
         ),

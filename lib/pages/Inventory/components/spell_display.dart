@@ -33,11 +33,6 @@ class SpellDisplay extends ConsumerWidget {
                 .read(inventoryProvider.notifier)
                 .toggleFlagSpellForQuickSelect(guid: guid, ref: ref);
           },
-          onLongPress: () {
-            ref
-                .read(inventoryProvider.notifier)
-                .deleteSpellFromInventory(guid: guid, ref: ref);
-          },
           child: Padding(
             padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
             child: Row(
@@ -92,12 +87,14 @@ class SpellDisplay extends ConsumerWidget {
                         padding: const EdgeInsets.all(3.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
                               level > 0
                                   ? 'Level $level $school'
                                   : 'Cantrip $school',
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 12),
                             ),
                           ],
                         ),
@@ -109,15 +106,41 @@ class SpellDisplay extends ConsumerWidget {
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(10),
                                 bottomRight: Radius.circular(10))),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(6, 10, 0, 10),
-                            child: StrokeText(
-                              textAlignment: TextAlign.start,
-                              text: name,
-                              size: 18,
-                            ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 6.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              StrokeText(
+                                textAlignment: TextAlign.start,
+                                text: name,
+                                size: 16,
+                              ),
+                              GestureDetector(
+                                onLongPress: () {
+                                  ref
+                                      .read(inventoryProvider.notifier)
+                                      .deleteSpellFromInventory(
+                                          guid: guid, ref: ref);
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 200),
+                                    decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        borderRadius: BorderRadius.circular(5),
+                                        border: Border.all(
+                                            width: 1, color: Colors.white)),
+                                    child: Icon(
+                                      Icons.delete_forever,
+                                      color: ref.watch(themeProvider).cardBg,
+                                      size: 35,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
                         ),
                       ),

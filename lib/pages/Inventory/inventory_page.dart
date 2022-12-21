@@ -27,7 +27,7 @@ List<Widget> turnItemInventoryIntoDisplay(WidgetRef ref) {
       displays.add(ItemDisplay(
         guid: item.guid,
         isQuickSelect: item.isQuickSelect,
-        itemName: item.name,
+        name: item.name,
         itemType: item.itemCategory,
         itemAmount: item.amount,
       ));

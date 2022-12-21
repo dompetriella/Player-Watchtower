@@ -47,7 +47,7 @@ List<Widget> turnItemQuickSelectIntoDisplay(WidgetRef ref) {
     for (Item item in ref.watch(inventoryProvider).items) {
       displays.add(ItemDisplay(
         guid: item.guid,
-        itemName: item.name,
+        name: item.name,
         itemType: item.itemCategory,
         itemAmount: item.amount,
       ));

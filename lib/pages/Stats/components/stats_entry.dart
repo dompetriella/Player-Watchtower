@@ -65,6 +65,7 @@ class StatsEntry extends ConsumerWidget {
         child: Container(
           decoration: BoxDecoration(
               color: ref.watch(themeProvider).cardBg,
+              boxShadow: [ref.watch(themeProvider).shadow],
               borderRadius: BorderRadius.circular(10)),
           child: Stack(
             children: [

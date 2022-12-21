@@ -82,7 +82,7 @@ class InventoryModifier extends StateNotifier<Inventory> {
     int indexCopy = state.items.indexWhere((element) => element.guid == guid);
     itemsCopy.removeAt(indexCopy);
     state = state.copyWith(items: itemsCopy);
-    ref.read(inventoryProvider.notifier).refreshWeaponQuickSelect();
+    ref.read(inventoryProvider.notifier).refreshItemQuickSelect();
   }
 
   void deleteWeaponFromInventory(

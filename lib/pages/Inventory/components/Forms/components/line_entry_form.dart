@@ -6,9 +6,12 @@ import 'package:player_watchtower/providers/theme.dart';
 class LineEntryForm extends ConsumerWidget {
   final String text;
   final int maxLines;
-  final dynamic provider;
+  final StateProvider<dynamic> provider;
   const LineEntryForm(
-      {super.key, required this.text, this.provider = 0, this.maxLines = 1});
+      {super.key,
+      required this.text,
+      required this.provider,
+      this.maxLines = 1});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -32,12 +35,15 @@ class LineEntryForm extends ConsumerWidget {
             child: TextField(
               minLines: 1,
               maxLines: maxLines,
+              cursorColor: ref.watch(themeProvider).appBarColor,
+              style: TextStyle(fontSize: 16),
               decoration: InputDecoration(
                   isDense: true,
                   focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.transparent)),
                   contentPadding:
-                      EdgeInsets.symmetric(vertical: 8, horizontal: 10)),
+                      EdgeInsets.symmetric(vertical: 10, horizontal: 10)),
+              onChanged: (value) => ref.watch(provider.notifier).state = value,
             ),
           )
         ],

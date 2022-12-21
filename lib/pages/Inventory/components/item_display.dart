@@ -13,13 +13,13 @@ class ItemDisplay extends ConsumerWidget {
   final bool isQuickSelect;
   final String itemType;
   final int itemAmount;
-  final String itemName;
+  final String name;
   ItemDisplay({
     super.key,
     this.isQuickSelect = false,
     required this.guid,
     required this.itemType,
-    required this.itemName,
+    required this.name,
     this.itemAmount = 1,
   });
 
@@ -32,11 +32,6 @@ class ItemDisplay extends ConsumerWidget {
             ref
                 .read(inventoryProvider.notifier)
                 .toggleFlagItemForQuickSelect(guid: guid, ref: ref);
-          },
-          onLongPress: () {
-            ref
-                .read(inventoryProvider.notifier)
-                .deleteItemFromInventory(guid: guid, ref: ref);
           },
           child: Padding(
             padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
@@ -92,14 +87,17 @@ class ItemDisplay extends ConsumerWidget {
                         padding: const EdgeInsets.all(3.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
                               itemType,
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 12),
                             ),
                             Text(
                               'In Inventory: x${itemAmount.toString()}',
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 12),
                             ),
                           ],
                         ),
@@ -111,15 +109,41 @@ class ItemDisplay extends ConsumerWidget {
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(10),
                                 bottomRight: Radius.circular(10))),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(6, 10, 0, 10),
-                            child: StrokeText(
-                              textAlignment: TextAlign.start,
-                              text: itemName,
-                              size: 18,
-                            ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 6.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              StrokeText(
+                                textAlignment: TextAlign.start,
+                                text: name,
+                                size: 16,
+                              ),
+                              GestureDetector(
+                                onLongPress: () {
+                                  ref
+                                      .read(inventoryProvider.notifier)
+                                      .deleteItemFromInventory(
+                                          guid: guid, ref: ref);
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 200),
+                                    decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        borderRadius: BorderRadius.circular(5),
+                                        border: Border.all(
+                                            width: 1, color: Colors.white)),
+                                    child: Icon(
+                                      Icons.delete_forever,
+                                      color: ref.watch(themeProvider).cardBg,
+                                      size: 35,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
                         ),
                       ),

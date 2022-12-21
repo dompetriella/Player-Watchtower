@@ -1,10 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:player_watchtower/pages/Inventory/components/Forms/components/one_line_form_entry.dart';
+import 'package:player_watchtower/pages/Inventory/components/Forms/components/form_add_to_button.dart';
+import 'package:player_watchtower/pages/Inventory/components/Forms/components/form_add_to_quickselect.dart';
+import 'package:player_watchtower/pages/Inventory/components/Forms/components/form_drop_down_entry.dart';
+import 'package:player_watchtower/pages/Inventory/components/Forms/components/line_entry_form.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
 import 'components/form_title.dart';
+
+var name = StateProvider<String>(
+  (ref) => '',
+);
+
+var hint = StateProvider<String>(
+  (ref) => '',
+);
+
+var catergory = StateProvider<String>(
+  (ref) => 'Custom',
+);
+
+var amount = StateProvider<int>(
+  (ref) => 1,
+);
+
+var description = StateProvider<String>(
+  (ref) => '',
+);
+
+var addToQuickSelect = StateProvider<bool>(
+  (ref) => false,
+);
 
 class ItemForm extends ConsumerWidget {
   const ItemForm({super.key});
@@ -34,14 +61,53 @@ class ItemForm extends ConsumerWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               FormTitle(formType: 'Item'),
-                              LineEntryForm(text: 'Name'),
+                              LineEntryForm(text: 'Name', provider: name),
                               LineEntryForm(
-                                text: 'Hint',
+                                text: 'Press-Hold Hint',
                                 maxLines: 2,
+                                provider: hint,
+                              ),
+                              DropDownFormEntry(
+                                text: 'Catergory',
+                                provider: catergory,
+                                items: [
+                                  DropdownMenuItem(
+                                    child: Text('Custom'),
+                                    value: 'Custom',
+                                  ),
+                                  DropdownMenuItem(
+                                    child: Text('Equipment'),
+                                    value: 'Equipment',
+                                  ),
+                                ],
+                              ),
+                              DropDownFormEntry(
+                                text: 'Amount',
+                                provider: amount,
+                                items: [
+                                  for (int i = 1; i < 100; i++)
+                                    DropdownMenuItem(
+                                      child: Text(i.toString()),
+                                      value: i,
+                                    )
+                                ],
                               ),
                               LineEntryForm(
                                 text: 'Description',
                                 maxLines: 15,
+                                provider: description,
+                              ),
+                              AddToQuickSelect(
+                                provider: addToQuickSelect,
+                              ),
+                              FormAddToButton(
+                                text: 'Item',
+                                name: name,
+                                hint: hint,
+                                catergory: catergory,
+                                amount: amount,
+                                description: description,
+                                addToQuickSelect: addToQuickSelect,
                               )
                             ]),
                       ),

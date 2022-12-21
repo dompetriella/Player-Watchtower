@@ -23,7 +23,11 @@ class DialogInput extends ConsumerWidget {
                   color: ref.watch(themeProvider).bgColor,
                   border: Border.all(color: Colors.white, width: 4),
                   borderRadius: BorderRadius.circular(10)),
-              child: TextFormField(
+              child: TextField(
+                decoration: InputDecoration(
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent)),
+                ),
                 style: TextStyle(fontWeight: FontWeight.w900),
                 keyboardType: inputType == String
                     ? TextInputType.text
