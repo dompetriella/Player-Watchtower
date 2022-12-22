@@ -43,7 +43,7 @@ var diceMultiplier = StateProvider<int>(
 );
 
 var diceDamage = StateProvider<String>(
-  (ref) => 'd4',
+  (ref) => '',
 );
 
 var modifierDamage = StateProvider<int>(

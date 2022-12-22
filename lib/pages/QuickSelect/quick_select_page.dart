@@ -22,6 +22,7 @@ List<Widget> turnWeaponQuickSelectIntoDisplay(WidgetRef ref) {
         guid: weapon.guid,
         canDelete: false,
         name: weapon.name,
+        weaponType: weapon.weaponType,
         damage: weapon.damage,
       ));
     }

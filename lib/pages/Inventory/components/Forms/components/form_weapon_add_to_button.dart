@@ -42,8 +42,11 @@ class WeaponFormAddToButton extends ConsumerWidget {
               name: ref.read(name),
               blurb: ref.read(hint),
               weaponType: ref.read(catergory),
-              damage:
-                  '${ref.read(diceMultiplier)}${ref.read(diceDamage)} + ${ref.read(modifierDamage)}',
+              damage: ref.read(diceMultiplier) == 1 &&
+                      ref.read(diceDamage) == '' &&
+                      ref.read(modifierDamage) == 0
+                  ? ''
+                  : '${ref.read(diceMultiplier)}${ref.read(diceDamage)} + ${ref.read(modifierDamage)}',
               description: ref.read(description),
               isQuickSelect: ref.read(addToQuickSelect));
 
@@ -53,7 +56,7 @@ class WeaponFormAddToButton extends ConsumerWidget {
           ref.read(inventoryProvider.notifier).refreshWeaponQuickSelect();
           ref.read(catergory.notifier).state = 'Custom';
           ref.read(diceMultiplier.notifier).state = 1;
-          ref.read(diceDamage.notifier).state = 'd4';
+          ref.read(diceDamage.notifier).state = '';
           ref.read(modifierDamage.notifier).state = 0;
           Navigator.pop(context);
         },

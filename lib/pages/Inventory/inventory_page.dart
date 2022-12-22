@@ -43,6 +43,7 @@ List<Widget> turnWeaponInventoryIntoDisplay(WidgetRef ref) {
       displays.add(WeaponDisplay(
         guid: weapon.guid,
         isQuickSelect: weapon.isQuickSelect,
+        weaponType: weapon.weaponType,
         name: weapon.name,
         damage: weapon.damage,
       ));

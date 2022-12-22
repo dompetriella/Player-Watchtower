@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 List<String> itemCategories = [
   'Custom',
   'Equipment',
@@ -24,7 +27,7 @@ List<String> damageTypes = [
   'Thunder'
 ];
 
-List<String> diceDamageTypes = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20'];
+List<String> diceDamageTypes = ['', 'd4', 'd6', 'd8', 'd10', 'd12', 'd20'];
 
 List<String> weaponCatergories = [
   'Custom',
@@ -69,3 +72,44 @@ List<String> schoolsOfMagic = [
   'Necromancy',
   'Transmutation'
 ];
+
+double size = 16;
+
+Map<String, FaIcon> retrieveDamageTypeIconDict = {
+  'Custom': FaIcon(
+    FontAwesomeIcons.kitchenSet,
+    color: Colors.white,
+    size: size,
+  ),
+  'Acid': FaIcon(
+    FontAwesomeIcons.cloudShowersWater,
+    color: Colors.lightGreen,
+    size: size,
+  ),
+  'Bludgeoning': FaIcon(
+    FontAwesomeIcons.hammer,
+    color: Colors.grey.shade700,
+  ),
+  'Cold': FaIcon(
+    FontAwesomeIcons.snowflake,
+    color: Colors.lightBlue,
+    size: size,
+  ),
+  'Fire': FaIcon(
+    FontAwesomeIcons.fire,
+    color: Colors.orange,
+    size: size,
+  ),
+  'Force': FaIcon(
+    FontAwesomeIcons.handsClapping,
+    color: Colors.amber,
+  ),
+  'Lightning': FaIcon(FontAwesomeIcons.bol),
+  'Necrotic',
+  'Piercing',
+  'Poison',
+  'Psychic',
+  'Radiant',
+  'Slashing',
+  'Thunder'
+};

@@ -14,6 +14,7 @@ class WeaponDisplay extends ConsumerWidget {
   final String guid;
   final bool isQuickSelect;
   final String damage;
+  final String weaponType;
   final String name;
   final bool canDelete;
   WeaponDisplay({
@@ -21,6 +22,7 @@ class WeaponDisplay extends ConsumerWidget {
     this.damage = '',
     this.isQuickSelect = false,
     this.canDelete = true,
+    required this.weaponType,
     required this.guid,
     required this.name,
   });
@@ -92,7 +94,7 @@ class WeaponDisplay extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                              'Martial Weapon',
+                              weaponType,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 12),
                             ),
