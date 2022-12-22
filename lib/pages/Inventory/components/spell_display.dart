@@ -12,12 +12,14 @@ double height = 65;
 class SpellDisplay extends ConsumerWidget {
   final String guid;
   final bool isQuickSelect;
+  final bool canDelete;
   final String name;
   final int level;
   final String school;
   SpellDisplay(
       {super.key,
       this.isQuickSelect = false,
+      this.canDelete = true,
       required this.guid,
       required this.name,
       required this.level,
@@ -107,7 +109,9 @@ class SpellDisplay extends ConsumerWidget {
                                 topRight: Radius.circular(10),
                                 bottomRight: Radius.circular(10))),
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 6.0),
+                          padding: canDelete
+                              ? const EdgeInsets.only(left: 6.0)
+                              : const EdgeInsets.fromLTRB(6, 12, 0, 12),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -116,30 +120,32 @@ class SpellDisplay extends ConsumerWidget {
                                 text: name,
                                 size: 16,
                               ),
-                              GestureDetector(
-                                onLongPress: () {
-                                  ref
-                                      .read(inventoryProvider.notifier)
-                                      .deleteSpellFromInventory(
-                                          guid: guid, ref: ref);
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.all(4.0),
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 200),
-                                    decoration: BoxDecoration(
-                                        color: Colors.transparent,
-                                        borderRadius: BorderRadius.circular(5),
-                                        border: Border.all(
-                                            width: 1, color: Colors.white)),
-                                    child: Icon(
-                                      Icons.delete_forever,
-                                      color: ref.watch(themeProvider).cardBg,
-                                      size: 35,
+                              if (canDelete)
+                                GestureDetector(
+                                  onLongPress: () {
+                                    ref
+                                        .read(inventoryProvider.notifier)
+                                        .deleteSpellFromInventory(
+                                            guid: guid, ref: ref);
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 200),
+                                      decoration: BoxDecoration(
+                                          color: Colors.transparent,
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                          border: Border.all(
+                                              width: 1, color: Colors.white)),
+                                      child: Icon(
+                                        Icons.delete_forever,
+                                        color: ref.watch(themeProvider).cardBg,
+                                        size: 35,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              )
+                                )
                             ],
                           ),
                         ),

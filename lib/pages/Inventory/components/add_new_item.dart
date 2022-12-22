@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/global_components/multi_button.dart';
 import 'package:player_watchtower/inventory_models/inventory.dart';
 import 'package:player_watchtower/inventory_models/spell.dart';
-import 'package:player_watchtower/pages/Inventory/components/Forms/item_form.dart';
+import 'package:player_watchtower/pages/Inventory/components/Forms/inventory_form.dart';
 import 'package:player_watchtower/providers/inventory.dart';
 
 import '../../../inventory_models/item.dart';
@@ -49,24 +49,17 @@ class AddNewItem extends ConsumerWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const ItemForm()),
+                                builder: (context) =>
+                                    const InventoryForm(formType: 'Item')),
                           );
                           break;
                         case 'Weapon':
-                          ref.read(inventoryProvider.notifier).addToInventory(
-                              addObject: Weapon(
-                                  guid: Guid.generate().toString(),
-                                  name: 'Crimson Crowbow',
-                                  blurb:
-                                      'A fiery red bow that shoots fire, 2d6 + 2',
-                                  damage: '2d6 + 2',
-                                  damageType: 'Fire',
-                                  weaponType: 'Martial Ranged',
-                                  weaponProperties: [
-                                    'Ammunition (range 25/100)',
-                                    'Light'
-                                  ],
-                                  description: ''));
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const InventoryForm(formType: 'Weapon')),
+                          );
                           break;
                         case 'Spell':
                           ref.read(inventoryProvider.notifier).addToInventory(

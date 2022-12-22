@@ -7,11 +7,13 @@ import '../../../../../providers/theme.dart';
 
 class DropDownFormEntry extends ConsumerWidget {
   final String text;
+  final bool hasTitle;
   StateProvider<dynamic> provider;
   final List<DropdownMenuItem<dynamic>> items;
   DropDownFormEntry(
       {super.key,
-      required this.text,
+      this.hasTitle = true,
+      this.text = '',
       required this.provider,
       required this.items});
 
@@ -24,10 +26,10 @@ class DropDownFormEntry extends ConsumerWidget {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(12.0, 0, 0, 4),
-            child: Text(
-              text,
-              style: TextStyle(color: Colors.white, fontSize: 12),
-            ),
+            child: hasTitle
+                ? Text(text,
+                    style: TextStyle(color: Colors.white, fontSize: 12))
+                : null,
           ),
           Align(
             alignment: Alignment.centerLeft,

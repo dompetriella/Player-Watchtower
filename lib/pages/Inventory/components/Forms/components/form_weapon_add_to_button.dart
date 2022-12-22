@@ -6,24 +6,27 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/providers/inventory.dart';
 
 import '../../../../../inventory_models/item.dart';
+import '../../../../../inventory_models/weapon.dart';
 import '../../../../../providers/theme.dart';
 
-class FormAddToButton extends ConsumerWidget {
-  final String text;
+class WeaponFormAddToButton extends ConsumerWidget {
   final StateProvider<String> name;
   final StateProvider<String> hint;
   final StateProvider<String> catergory;
-  final StateProvider<int> amount;
+  final StateProvider<int> diceMultiplier;
+  final StateProvider<String> diceDamage;
+  final StateProvider<int> modifierDamage;
   final StateProvider<String> description;
   final StateProvider<bool> addToQuickSelect;
 
-  const FormAddToButton(
+  const WeaponFormAddToButton(
       {super.key,
-      required this.text,
       required this.name,
       required this.hint,
       required this.catergory,
-      required this.amount,
+      required this.diceMultiplier,
+      required this.diceDamage,
+      required this.modifierDamage,
       required this.description,
       required this.addToQuickSelect});
 
@@ -34,21 +37,24 @@ class FormAddToButton extends ConsumerWidget {
       child: Bounce(
         duration: Duration(milliseconds: 300),
         onPressed: () {
-          Item newItem = Item(
+          Weapon newWeapon = Weapon(
               guid: Guid.generate().toString(),
               name: ref.read(name),
               blurb: ref.read(hint),
-              itemCategory: ref.read(catergory),
-              amount: ref.read(amount),
+              weaponType: ref.read(catergory),
+              damage:
+                  '${ref.read(diceMultiplier)}${ref.read(diceDamage)} + ${ref.read(modifierDamage)}',
               description: ref.read(description),
               isQuickSelect: ref.read(addToQuickSelect));
 
           ref
               .read(inventoryProvider.notifier)
-              .addToInventory(addObject: newItem);
-          ref.read(inventoryProvider.notifier).refreshItemQuickSelect();
+              .addToInventory(addObject: newWeapon);
+          ref.read(inventoryProvider.notifier).refreshWeaponQuickSelect();
           ref.read(catergory.notifier).state = 'Custom';
-          ref.read(amount.notifier).state = 1;
+          ref.read(diceMultiplier.notifier).state = 1;
+          ref.read(diceDamage.notifier).state = 'd4';
+          ref.read(modifierDamage.notifier).state = 0;
           Navigator.pop(context);
         },
         child: Padding(
@@ -63,7 +69,7 @@ class FormAddToButton extends ConsumerWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 18.0),
                 child: Text(
-                  'Add $text to Inventory',
+                  'Add Weapon to Inventory',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,
