@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
+import '../../../functions/calculations.dart';
 import '../../../global_components/stroke_text.dart';
 import '../../../providers/inventory.dart';
 
@@ -117,7 +118,9 @@ class SpellDisplay extends ConsumerWidget {
                             children: [
                               StrokeText(
                                 textAlignment: TextAlign.start,
-                                text: name,
+                                text: (canDelete)
+                                    ? truncateWithEllipsis(20, name)
+                                    : truncateWithEllipsis(25, name),
                                 size: 16,
                               ),
                               if (canDelete)

@@ -45,7 +45,6 @@ class DropDownFormEntry extends ConsumerWidget {
                     items: items,
                     value: ref.watch(provider),
                     onChanged: (value) {
-                      print(value);
                       ref.watch(provider.notifier).state = value;
                     })),
           )

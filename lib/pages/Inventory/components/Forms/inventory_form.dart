@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/dictionaries/inventory.dart';
-import 'package:player_watchtower/inventory_models/weapon.dart';
 import 'package:player_watchtower/pages/Inventory/components/Forms/components/form_item_add_to_button.dart';
 import 'package:player_watchtower/pages/Inventory/components/Forms/components/form_add_to_quickselect.dart';
 import 'package:player_watchtower/pages/Inventory/components/Forms/components/form_drop_down_entry.dart';
 import 'package:player_watchtower/pages/Inventory/components/Forms/components/line_entry_form.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
+import 'components/form_spell_add_to_button.dart';
 import 'components/form_title.dart';
 import 'components/form_weapon_add_to_button.dart';
 
@@ -36,6 +36,8 @@ var addToQuickSelect = StateProvider<bool>(
   (ref) => false,
 );
 
+// weapon state
+
 var diceMultiplier = StateProvider<int>(
   (ref) => 1,
 );
@@ -49,6 +51,20 @@ var modifierDamage = StateProvider<int>(
 );
 
 var weaponDamageType = StateProvider<String>(
+  (ref) => 'Custom',
+);
+
+// spell state
+
+var spellLevel = StateProvider<int>(
+  (ref) => 0,
+);
+
+var school = StateProvider<String>(
+  (ref) => 'Custom',
+);
+
+var duration = StateProvider<String>(
   (ref) => 'Custom',
 );
 
@@ -89,6 +105,8 @@ Widget switchForm(String formType) {
       return ItemInputs();
     case 'Weapon':
       return WeaponInputs();
+    case 'Spell':
+      return SpellInputs();
     default:
       return ItemInputs();
   }
@@ -225,27 +243,31 @@ class WeaponInputs extends StatelessWidget {
           provider: catergory,
           items: convertListToDropDownItems(weaponCatergories)),
       Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           DropDownFormEntry(
-              hasTitle: false,
+              text: 'Damage',
               provider: diceMultiplier,
               items: createDropDownNumberList(1, 99)),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: DropDownFormEntry(
-                hasTitle: false,
+                text: '',
                 provider: diceDamage,
                 items: convertListToDropDownItems(diceDamageTypes)),
           ),
-          FaIcon(
-            FontAwesomeIcons.plus,
-            color: Colors.white,
-            size: 20,
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20.0),
+            child: FaIcon(
+              FontAwesomeIcons.plus,
+              color: Colors.white,
+              size: 20,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: DropDownFormEntry(
-                hasTitle: false,
+                text: '',
                 provider: modifierDamage,
                 items: createDropDownNumberList(0, 99)),
           )
@@ -270,6 +292,54 @@ class WeaponInputs extends StatelessWidget {
         diceMultiplier: diceMultiplier,
         diceDamage: diceDamage,
         modifierDamage: modifierDamage,
+        description: description,
+        addToQuickSelect: addToQuickSelect,
+      )
+    ]);
+  }
+}
+
+class SpellInputs extends StatelessWidget {
+  const SpellInputs({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+      FormTitle(formType: 'Spell'),
+      LineEntryForm(text: 'Name', provider: name),
+      LineEntryForm(
+        text: 'Hint',
+        maxLines: 2,
+        provider: hint,
+      ),
+      DropDownFormEntry(
+          text: 'Level',
+          provider: spellLevel,
+          items: convertDictToDropDownItems(spellLevelsDict)),
+      DropDownFormEntry(
+          text: 'School',
+          provider: school,
+          items: convertListToDropDownItems(schoolsOfMagic)),
+      DropDownFormEntry(
+          text: 'Duration',
+          provider: duration,
+          items: convertListToDropDownItems(spellDurations)),
+      LineEntryForm(
+        text: 'Description',
+        maxLines: 15,
+        provider: description,
+      ),
+      AddToQuickSelect(
+        provider: addToQuickSelect,
+      ),
+      SpellFormAddToButton(
+        name: name,
+        hint: hint,
+        level: spellLevel,
+        school: school,
+        duration: duration,
         description: description,
         addToQuickSelect: addToQuickSelect,
       )

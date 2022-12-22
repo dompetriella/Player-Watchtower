@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
+import '../../../functions/calculations.dart';
 import '../../../global_components/stroke_text.dart';
 import '../../../inventory_models/weapon.dart';
 import '../../../providers/inventory.dart';
@@ -130,7 +131,15 @@ class WeaponDisplay extends ConsumerWidget {
                             children: [
                               StrokeText(
                                 textAlignment: TextAlign.start,
-                                text: name,
+                                text: (canDelete)
+                                    ? truncateWithEllipsis(
+                                        (MediaQuery.of(context).size.width / 20)
+                                            .toInt(),
+                                        name)
+                                    : truncateWithEllipsis(
+                                        (MediaQuery.of(context).size.width / 15)
+                                            .toInt(),
+                                        name),
                                 size: 16,
                               ),
                               if (canDelete)

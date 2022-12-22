@@ -59,7 +59,7 @@ class _MainPageState extends ConsumerState<MainPage> {
               Center(
                   child: StrokeText(
                 text:
-                    '${truncateWithEllipsis(12, ref.watch(playerProvider).characterName)} - Lv.${getPlayerLevelByExp(ref.watch(playerProvider).exp)}',
+                    '${truncateMultipleWordsWithEllipsis(12, ref.watch(playerProvider).characterName)} - Lv.${getPlayerLevelByExp(ref.watch(playerProvider).exp)}',
                 size: width / 18,
               )),
               if (ref.watch(currentPage) == 0)

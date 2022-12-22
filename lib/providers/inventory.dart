@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/functions/database.dart';
 
 import '../inventory_models/inventory.dart';
 import '../inventory_models/item.dart';
@@ -41,6 +42,12 @@ class InventoryModifier extends StateNotifier<Inventory> {
     state = state.copyWith(quickSelectSpells: newQs);
   }
 
+  refreshQuickSelectInventory() {
+    refreshItemQuickSelect();
+    refreshWeaponQuickSelect();
+    refreshSpellQuickSelect();
+  }
+
   Item toggleFlagItemForQuickSelect(
       {required String guid, required WidgetRef ref}) {
     List<Item> itemsCopy = state.items.toList();
@@ -50,6 +57,7 @@ class InventoryModifier extends StateNotifier<Inventory> {
         changedItem.copyWith(isQuickSelect: !changedItem.isQuickSelect);
     state = state.copyWith(items: itemsCopy);
     ref.read(inventoryProvider.notifier).refreshItemQuickSelect();
+    writeInventoryStateToHive(state);
     return itemsCopy[indexCopy];
   }
 
@@ -62,6 +70,7 @@ class InventoryModifier extends StateNotifier<Inventory> {
         changedItem.copyWith(isQuickSelect: !changedItem.isQuickSelect);
     state = state.copyWith(weapons: weaponCopy);
     ref.read(inventoryProvider.notifier).refreshWeaponQuickSelect();
+    writeInventoryStateToHive(state);
     return weaponCopy[indexCopy];
   }
 
@@ -74,6 +83,7 @@ class InventoryModifier extends StateNotifier<Inventory> {
         changedItem.copyWith(isQuickSelect: !changedItem.isQuickSelect);
     state = state.copyWith(spells: spellCopy);
     ref.read(inventoryProvider.notifier).refreshSpellQuickSelect();
+    writeInventoryStateToHive(state);
     return spellCopy[indexCopy];
   }
 
@@ -83,6 +93,7 @@ class InventoryModifier extends StateNotifier<Inventory> {
     itemsCopy.removeAt(indexCopy);
     state = state.copyWith(items: itemsCopy);
     ref.read(inventoryProvider.notifier).refreshItemQuickSelect();
+    writeInventoryStateToHive(state);
   }
 
   void deleteWeaponFromInventory(
@@ -101,17 +112,19 @@ class InventoryModifier extends StateNotifier<Inventory> {
     spellCopy.removeAt(indexCopy);
     state = state.copyWith(spells: spellCopy);
     ref.read(inventoryProvider.notifier).refreshSpellQuickSelect();
+    writeInventoryStateToHive(state);
   }
 
   addToInventory({required dynamic addObject}) {
-    print(addObject.runtimeType);
-
     if (addObject is Item)
       state = state.copyWith(items: [...state.quickSelectItems, addObject]);
+    writeInventoryStateToHive(state);
 
     if (addObject is Weapon)
       state = state.copyWith(weapons: [...state.weapons, addObject]);
+    writeInventoryStateToHive(state);
     if (addObject is Spell)
       state = state.copyWith(spells: [...state.quickSelectSpells, addObject]);
+    writeInventoryStateToHive(state);
   }
 }

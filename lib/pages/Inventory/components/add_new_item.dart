@@ -62,18 +62,12 @@ class AddNewItem extends ConsumerWidget {
                           );
                           break;
                         case 'Spell':
-                          ref.read(inventoryProvider.notifier).addToInventory(
-                                  addObject: Spell(
-                                guid: Guid.generate().toString(),
-                                name: 'Dragonfrost',
-                                blurb: 'Is a real icy boy',
-                                spellLevel: 1,
-                                castingTime: '1 action',
-                                range: '60 Feet',
-                                components: ['Vocal', 'Somatic'],
-                                duration: 'Instantenous',
-                                school: 'Evocation',
-                              ));
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const InventoryForm(formType: 'Spell')),
+                          );
                           break;
                         default:
                       }

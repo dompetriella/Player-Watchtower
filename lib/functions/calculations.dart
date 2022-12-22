@@ -12,7 +12,7 @@ String displayValue(var value) {
   return value.toString();
 }
 
-String truncateWithEllipsis(int cutoff, String myString) {
+String truncateMultipleWordsWithEllipsis(int cutoff, String myString) {
   var name = myString.split(' ');
 
   if (name[0].length > cutoff) {
@@ -21,6 +21,12 @@ String truncateWithEllipsis(int cutoff, String myString) {
         : '${myString.substring(0, cutoff)}...';
   }
   return name[0];
+}
+
+String truncateWithEllipsis(int cutoff, String myString) {
+  return (myString.length <= cutoff)
+      ? myString
+      : '${myString.substring(0, cutoff)}...';
 }
 
 int getAbilityScoreModifier(int score) {
