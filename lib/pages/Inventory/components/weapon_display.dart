@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:player_watchtower/dictionaries/inventory.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
 import '../../../functions/calculations.dart';
@@ -14,12 +15,14 @@ class WeaponDisplay extends ConsumerWidget {
   final String guid;
   final bool isQuickSelect;
   final String damage;
+  final String damageType;
   final String weaponType;
   final String name;
   final bool canDelete;
   WeaponDisplay({
     super.key,
     this.damage = '',
+    this.damageType = 'Custom',
     this.isQuickSelect = false,
     this.canDelete = true,
     required this.weaponType,
@@ -101,11 +104,8 @@ class WeaponDisplay extends ConsumerWidget {
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                FaIcon(
-                                  FontAwesomeIcons.fire,
-                                  color: Colors.orange,
-                                  size: 16,
-                                ),
+                                retrieveDamageTypeIconDict[damageType] ??
+                                    retrieveDamageTypeIconDict['Custom']!,
                                 Text(
                                   ' ' + damage,
                                   style: TextStyle(

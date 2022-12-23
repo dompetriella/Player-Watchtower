@@ -73,7 +73,7 @@ List<String> schoolsOfMagic = [
   'Transmutation'
 ];
 
-double size = 16;
+double size = 18;
 
 Map<String, FaIcon> retrieveDamageTypeIconDict = {
   'Custom': FaIcon(
@@ -89,6 +89,7 @@ Map<String, FaIcon> retrieveDamageTypeIconDict = {
   'Bludgeoning': FaIcon(
     FontAwesomeIcons.hammer,
     color: Colors.grey.shade700,
+    size: size,
   ),
   'Cold': FaIcon(
     FontAwesomeIcons.snowflake,
@@ -102,14 +103,47 @@ Map<String, FaIcon> retrieveDamageTypeIconDict = {
   ),
   'Force': FaIcon(
     FontAwesomeIcons.handsClapping,
-    color: Colors.amber,
+    color: Colors.blue,
+    size: size,
   ),
-  'Lightning': FaIcon(FontAwesomeIcons.bol),
-  'Necrotic',
-  'Piercing',
-  'Poison',
-  'Psychic',
-  'Radiant',
-  'Slashing',
-  'Thunder'
+  'Lightning': FaIcon(
+    FontAwesomeIcons.boltLightning,
+    color: Colors.yellow,
+    size: size,
+  ),
+  'Necrotic': FaIcon(
+    FontAwesomeIcons.skull,
+    color: Colors.brown,
+    size: size,
+  ),
+  'Piercing': FaIcon(
+    FontAwesomeIcons.heartCrack,
+    color: Colors.grey.shade800,
+    size: size,
+  ),
+  'Poison': FaIcon(
+    FontAwesomeIcons.biohazard,
+    color: Colors.green,
+    size: size,
+  ),
+  'Psychic': FaIcon(
+    FontAwesomeIcons.brain,
+    color: Colors.pink,
+    size: size,
+  ),
+  'Radiant': FaIcon(
+    FontAwesomeIcons.sun,
+    color: Colors.amber,
+    size: size,
+  ),
+  'Slashing': FaIcon(
+    FontAwesomeIcons.slash,
+    color: Colors.grey.shade500,
+    size: size,
+  ),
+  'Thunder': FaIcon(
+    FontAwesomeIcons.cloudBolt,
+    color: Colors.grey,
+    size: size,
+  )
 };

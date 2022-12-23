@@ -46,6 +46,7 @@ List<Widget> turnWeaponInventoryIntoDisplay(WidgetRef ref) {
         weaponType: weapon.weaponType,
         name: weapon.name,
         damage: weapon.damage,
+        damageType: weapon.damageType,
       ));
     }
   displays.add(AddNewItem(typeName: 'Weapon'));

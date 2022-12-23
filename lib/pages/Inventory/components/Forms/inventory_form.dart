@@ -292,6 +292,7 @@ class WeaponInputs extends StatelessWidget {
         diceMultiplier: diceMultiplier,
         diceDamage: diceDamage,
         modifierDamage: modifierDamage,
+        damageType: weaponDamageType,
         description: description,
         addToQuickSelect: addToQuickSelect,
       )
