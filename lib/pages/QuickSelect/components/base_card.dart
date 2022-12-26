@@ -30,7 +30,6 @@ class BaseCard extends ConsumerWidget {
     double height = MediaQuery.of(context).size.height;
 
     return Container(
-      height: 190 * adjustSize(height, width),
       decoration: BoxDecoration(
           color: ref.watch(themeProvider).baseCardBg,
           boxShadow: [ref.watch(themeProvider).shadow],
@@ -40,6 +39,7 @@ class BaseCard extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
@@ -106,62 +106,62 @@ class BigScoreCards extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Expanded(
-      child: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SwitchableScoreCard(
-                    abilityScoreName: "strength",
-                    switchProvider: strengthAbilityScoreCard,
-                    scoreProvider: ref.read(playerProvider).strength,
-                    savingThrow: ref.read(playerProvider).strengthSavingThrow,
-                    icon: FontAwesomeIcons.dumbbell),
-                SwitchableScoreCard(
-                    abilityScoreName: "dexterity",
-                    switchProvider: dexterityAbilityScoreCard,
-                    scoreProvider: ref.read(playerProvider).dexterity,
-                    savingThrow: ref.read(playerProvider).dexteritySavingThrow,
-                    icon: FontAwesomeIcons.hand),
-                SwitchableScoreCard(
-                    abilityScoreName: "constitution",
-                    switchProvider: constitutionAbilityScoreCard,
-                    scoreProvider: ref.read(playerProvider).constitution,
-                    savingThrow:
-                        ref.read(playerProvider).constitutionSavingThrow,
-                    icon: FontAwesomeIcons.heartPulse),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SwitchableScoreCard(
-                    abilityScoreName: "intellegence",
-                    switchProvider: intellegenceAbilityScoreCard,
-                    scoreProvider: ref.read(playerProvider).intellegence,
-                    savingThrow:
-                        ref.read(playerProvider).intellegenceSavingThrow,
-                    icon: FontAwesomeIcons.brain),
-                SwitchableScoreCard(
-                    abilityScoreName: "wisdom",
-                    switchProvider: wisdomAbilityScoreCard,
-                    scoreProvider: ref.read(playerProvider).wisdom,
-                    savingThrow: ref.read(playerProvider).wisdomSavingThrow,
-                    icon: FontAwesomeIcons.eye),
-                SwitchableScoreCard(
-                    abilityScoreName: "charisma",
-                    switchProvider: charismaAbilityScoreCard,
-                    scoreProvider: ref.read(playerProvider).charisma,
-                    savingThrow: ref.read(playerProvider).charismaSavingThrow,
-                    icon: FontAwesomeIcons.solidComments),
-              ],
-            )
-          ],
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SwitchableScoreCard(
+                  abilityScoreName: "strength",
+                  switchProvider: strengthAbilityScoreCard,
+                  scoreProvider: ref.read(playerProvider).strength,
+                  savingThrow: ref.read(playerProvider).strengthSavingThrow,
+                  icon: FontAwesomeIcons.dumbbell),
+              SwitchableScoreCard(
+                  abilityScoreName: "dexterity",
+                  switchProvider: dexterityAbilityScoreCard,
+                  scoreProvider: ref.read(playerProvider).dexterity,
+                  savingThrow: ref.read(playerProvider).dexteritySavingThrow,
+                  icon: FontAwesomeIcons.hand),
+              SwitchableScoreCard(
+                  abilityScoreName: "constitution",
+                  switchProvider: constitutionAbilityScoreCard,
+                  scoreProvider: ref.read(playerProvider).constitution,
+                  savingThrow: ref.read(playerProvider).constitutionSavingThrow,
+                  icon: FontAwesomeIcons.heartPulse),
+            ],
+          ),
         ),
-      ),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SwitchableScoreCard(
+                  abilityScoreName: "intellegence",
+                  switchProvider: intellegenceAbilityScoreCard,
+                  scoreProvider: ref.read(playerProvider).intellegence,
+                  savingThrow: ref.read(playerProvider).intellegenceSavingThrow,
+                  icon: FontAwesomeIcons.brain),
+              SwitchableScoreCard(
+                  abilityScoreName: "wisdom",
+                  switchProvider: wisdomAbilityScoreCard,
+                  scoreProvider: ref.read(playerProvider).wisdom,
+                  savingThrow: ref.read(playerProvider).wisdomSavingThrow,
+                  icon: FontAwesomeIcons.eye),
+              SwitchableScoreCard(
+                  abilityScoreName: "charisma",
+                  switchProvider: charismaAbilityScoreCard,
+                  scoreProvider: ref.read(playerProvider).charisma,
+                  savingThrow: ref.read(playerProvider).charismaSavingThrow,
+                  icon: FontAwesomeIcons.solidComments),
+            ],
+          ),
+        )
+      ],
     );
   }
 }
