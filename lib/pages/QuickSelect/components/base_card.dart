@@ -45,13 +45,16 @@ class BaseCard extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  PlayerAvatar(width: width, height: height),
-                  HealthBarWithButtons(
-                    height: 40,
-                    healthbarWidth: 90 * adjustSize(height, width),
+                  Expanded(child: PlayerAvatar()),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16.0),
+                    child: HealthBarWithButtons(
+                      height: 40,
+                      healthbarWidth: 90 * adjustSize(height, width),
+                    ),
                   ),
                 ],
               ),
@@ -202,33 +205,31 @@ class SwitchableScoreCard extends ConsumerWidget {
 }
 
 class PlayerAvatar extends ConsumerWidget {
-  final double height;
-  final double width;
   const PlayerAvatar({
     Key? key,
-    required this.height,
-    required this.width,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return GestureDetector(
-        child: Container(
-      height: 35 * adjustSize(height, width),
-      width: 35 * adjustSize(height, width),
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.white, width: 2),
-          color: ref.watch(themeProvider).primary,
-          borderRadius: BorderRadius.circular(200),
-          boxShadow: [ref.watch(themeProvider).shadow]),
-      child: Center(
-        child: FaIcon(
-          FontAwesomeIcons.firefox,
-          color: Colors.white,
-          size: 30,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: GestureDetector(
+          child: Container(
+        constraints: BoxConstraints(minWidth: 60, maxHeight: 100),
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.white, width: 2),
+            color: ref.watch(themeProvider).primary,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [ref.watch(themeProvider).shadow]),
+        child: Center(
+          child: FaIcon(
+            FontAwesomeIcons.firefox,
+            color: Colors.white,
+            size: 30,
+          ),
         ),
-      ),
-    ));
+      )),
+    );
   }
 }
 
@@ -260,59 +261,53 @@ class HealthBarWithButtons extends ConsumerWidget {
       return HSLColor.fromAHSL(1, returnHue, .9, saturation).toColor();
     }
 
-    return Container(
-      child: Column(
-        children: [
-          GestureDetector(
-            onLongPress: () {
-              showDialog(
-                  barrierDismissible: false,
-                  context: context,
-                  builder: (_) => BaseDialog(
-                        editDialogType: 'increaseDecrease',
-                        title: 'Current Hp',
-                        provider: ref.read(playerProvider).currentHp,
-                        statPropertyName: 'currentHp',
-                        statPropertyType: int,
-                        isIncreaseDecrease: true,
-                        maximumIncreaseDecrease:
-                            ref.read(playerProvider).totalHp,
-                      ));
-            },
-            child: FillableBar(
-              current: ref.watch(playerProvider).currentHp,
-              total: ref.watch(playerProvider).totalHp,
-              width: healthbarWidth,
-              height: height,
-              isHp: true,
-              color: percentageToHsl(
-                  ref.watch(playerProvider).currentHp /
-                      ref.watch(playerProvider).totalHp,
-                  0,
-                  120),
-            ),
+    return Column(
+      children: [
+        GestureDetector(
+          onLongPress: () {
+            showDialog(
+                barrierDismissible: false,
+                context: context,
+                builder: (_) => BaseDialog(
+                      editDialogType: 'increaseDecrease',
+                      title: 'Current Hp',
+                      provider: ref.read(playerProvider).currentHp,
+                      statPropertyName: 'currentHp',
+                      statPropertyType: int,
+                      isIncreaseDecrease: true,
+                      maximumIncreaseDecrease: ref.read(playerProvider).totalHp,
+                    ));
+          },
+          child: FillableBar(
+            current: ref.watch(playerProvider).currentHp,
+            total: ref.watch(playerProvider).totalHp,
+            width: healthbarWidth,
+            height: height,
+            isHp: true,
+            color: percentageToHsl(
+                ref.watch(playerProvider).currentHp /
+                    ref.watch(playerProvider).totalHp,
+                0,
+                120),
           ),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                HpButton(
-                  height: height * .8,
-                  healthbarWidth: healthbarWidth,
-                  icon: FontAwesomeIcons.minus,
-                ),
-                HpButton(
-                  height: height * .8,
-                  healthbarWidth: healthbarWidth,
-                  icon: FontAwesomeIcons.plus,
-                  increase: true,
-                ),
-              ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            HpButton(
+              height: height * .8,
+              healthbarWidth: healthbarWidth,
+              icon: FontAwesomeIcons.minus,
             ),
-          ),
-        ],
-      ),
+            HpButton(
+              height: height * .8,
+              healthbarWidth: healthbarWidth,
+              icon: FontAwesomeIcons.plus,
+              increase: true,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
