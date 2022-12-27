@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+enum InventoryType { item, weapon, spell }
+
 List<String> itemCategories = [
   'Custom',
   'Equipment',
@@ -89,7 +91,7 @@ Map<String, FaIcon> retrieveDamageTypeIconDict = {
   'Bludgeoning': FaIcon(
     FontAwesomeIcons.hammer,
     color: Colors.grey.shade700,
-    size: size,
+    size: 12,
   ),
   'Cold': FaIcon(
     FontAwesomeIcons.snowflake,

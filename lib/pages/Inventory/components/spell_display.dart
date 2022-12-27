@@ -13,14 +13,14 @@ double height = 65;
 class SpellDisplay extends ConsumerWidget {
   final String guid;
   final bool isQuickSelect;
-  final bool canDelete;
+  final bool hasEditingControl;
   final String name;
   final int level;
   final String school;
   SpellDisplay(
       {super.key,
       this.isQuickSelect = false,
-      this.canDelete = true,
+      this.hasEditingControl = true,
       required this.guid,
       required this.name,
       required this.level,
@@ -110,7 +110,7 @@ class SpellDisplay extends ConsumerWidget {
                                 topRight: Radius.circular(10),
                                 bottomRight: Radius.circular(10))),
                         child: Padding(
-                          padding: canDelete
+                          padding: !isQuickSelect
                               ? const EdgeInsets.only(left: 6.0)
                               : const EdgeInsets.fromLTRB(6, 12, 0, 12),
                           child: Row(
@@ -118,12 +118,12 @@ class SpellDisplay extends ConsumerWidget {
                             children: [
                               StrokeText(
                                 textAlignment: TextAlign.start,
-                                text: (canDelete)
+                                text: (!isQuickSelect)
                                     ? truncateWithEllipsis(20, name)
                                     : truncateWithEllipsis(25, name),
                                 size: 16,
                               ),
-                              if (canDelete)
+                              if (!isQuickSelect)
                                 GestureDetector(
                                   onLongPress: () {
                                     ref

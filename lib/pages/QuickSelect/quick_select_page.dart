@@ -20,7 +20,7 @@ List<Widget> turnWeaponQuickSelectIntoDisplay(WidgetRef ref) {
     for (Weapon weapon in ref.watch(inventoryProvider).quickSelectWeapons) {
       displays.add(WeaponDisplay(
         guid: weapon.guid,
-        canDelete: false,
+        isQuickSelect: true,
         name: weapon.name,
         weaponType: weapon.weaponType,
         damage: weapon.damage,
@@ -36,7 +36,7 @@ List<Widget> turnSpellQuickSelectIntoDisplay(WidgetRef ref) {
     for (Spell spell in ref.watch(inventoryProvider).spells) {
       displays.add(SpellDisplay(
         guid: spell.guid,
-        canDelete: false,
+        isQuickSelect: true,
         name: spell.name,
         level: spell.spellLevel,
         school: spell.school,
@@ -51,7 +51,7 @@ List<Widget> turnItemQuickSelectIntoDisplay(WidgetRef ref) {
     for (Item item in ref.watch(inventoryProvider).items) {
       displays.add(ItemDisplay(
         guid: item.guid,
-        canDelete: false,
+        isQuickSelect: true,
         name: item.name,
         itemType: item.itemCategory,
         itemAmount: item.amount,

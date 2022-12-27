@@ -33,8 +33,8 @@ class ExpBar extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 4.0),
           child: FillableBar(
-            total: levelDict[playerLevel + 1]!,
-            current: exp,
+            total: levelDict[playerLevel + 1]! - levelDict[playerLevel]!,
+            current: exp - levelDict[playerLevel]!,
             height: height,
             color: color,
           ),

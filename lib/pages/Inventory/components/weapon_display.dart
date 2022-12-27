@@ -18,13 +18,13 @@ class WeaponDisplay extends ConsumerWidget {
   final String damageType;
   final String weaponType;
   final String name;
-  final bool canDelete;
+  final bool hasEditingControl;
   WeaponDisplay({
     super.key,
     this.damage = '',
     this.damageType = 'Custom',
     this.isQuickSelect = false,
-    this.canDelete = true,
+    this.hasEditingControl = true,
     required this.weaponType,
     required this.guid,
     required this.name,
@@ -125,7 +125,7 @@ class WeaponDisplay extends ConsumerWidget {
                                 topRight: Radius.circular(10),
                                 bottomRight: Radius.circular(10))),
                         child: Padding(
-                          padding: canDelete
+                          padding: hasEditingControl
                               ? const EdgeInsets.only(left: 6.0)
                               : const EdgeInsets.fromLTRB(6, 12, 0, 12),
                           child: Row(
@@ -133,7 +133,7 @@ class WeaponDisplay extends ConsumerWidget {
                             children: [
                               StrokeText(
                                 textAlignment: TextAlign.start,
-                                text: (canDelete)
+                                text: (!hasEditingControl)
                                     ? truncateWithEllipsis(
                                         (MediaQuery.of(context).size.width / 20)
                                             .toInt(),
@@ -144,7 +144,7 @@ class WeaponDisplay extends ConsumerWidget {
                                         name),
                                 size: 16,
                               ),
-                              if (canDelete)
+                              if (hasEditingControl)
                                 GestureDetector(
                                   onLongPress: () {
                                     ref
