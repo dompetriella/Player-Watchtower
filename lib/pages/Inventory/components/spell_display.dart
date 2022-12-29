@@ -82,80 +82,12 @@
 //                       )
 //                   ],
 //                 ),
-//                 Expanded(
-//                   child: Column(
-//                     mainAxisAlignment: MainAxisAlignment.end,
-//                     children: [
-//                       Padding(
-//                         padding: const EdgeInsets.all(3.0),
-//                         child: Row(
-//                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                           crossAxisAlignment: CrossAxisAlignment.end,
-//                           children: [
-//                             Text(
-//                               level > 0
-//                                   ? 'Level $level $school'
-//                                   : 'Cantrip $school',
-//                               style: TextStyle(
-//                                   fontWeight: FontWeight.bold, fontSize: 12),
-//                             ),
-//                           ],
-//                         ),
-//                       ),
-//                       Container(
-//                         width: double.infinity,
-//                         decoration: BoxDecoration(
-//                             color: ref.watch(themeProvider).primary,
-//                             borderRadius: BorderRadius.only(
-//                                 topRight: Radius.circular(10),
-//                                 bottomRight: Radius.circular(10))),
-//                         child: Padding(
-//                           padding: !isQuickSelect
-//                               ? const EdgeInsets.only(left: 6.0)
-//                               : const EdgeInsets.fromLTRB(6, 12, 0, 12),
-//                           child: Row(
-//                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                             children: [
-//                               StrokeText(
-//                                 textAlignment: TextAlign.start,
-//                                 text: (!isQuickSelect)
-//                                     ? truncateWithEllipsis(20, name)
-//                                     : truncateWithEllipsis(25, name),
-//                                 size: 16,
-//                               ),
-//                               if (!isQuickSelect)
-//                                 GestureDetector(
-//                                   onLongPress: () {
-//                                     ref
-//                                         .read(inventoryProvider.notifier)
-//                                         .deleteSpellFromInventory(
-//                                             guid: guid, ref: ref);
-//                                   },
-//                                   child: Padding(
-//                                     padding: const EdgeInsets.all(4.0),
-//                                     child: AnimatedContainer(
-//                                       duration: Duration(milliseconds: 200),
-//                                       decoration: BoxDecoration(
-//                                           color: Colors.transparent,
-//                                           borderRadius:
-//                                               BorderRadius.circular(5),
-//                                           border: Border.all(
-//                                               width: 1, color: Colors.white)),
-//                                       child: Icon(
-//                                         Icons.delete_forever,
-//                                         color: ref.watch(themeProvider).cardBg,
-//                                         size: 35,
-//                                       ),
-//                                     ),
-//                                   ),
-//                                 )
-//                             ],
-//                           ),
-//                         ),
-//                       ),
-//                     ],
-//                   ),
-//                 ),
+//                 SpellDisplaySubtitle(
+//                     level: level,
+//                     school: school,
+//                     isQuickSelect: isQuickSelect,
+//                     name: name,
+//                     guid: guid),
 //               ],
 //             ),
 //           ),
@@ -166,6 +98,96 @@
 //           endIndent: 10,
 //         )
 //       ],
+//     );
+//   }
+// }
+
+// class SpellDisplaySubtitle extends StatelessWidget {
+//   const SpellDisplaySubtitle({
+//     Key? key,
+//     required this.level,
+//     required this.school,
+//     required this.isQuickSelect,
+//     required this.name,
+//     required this.guid,
+//   }) : super(key: key);
+
+//   final int level;
+//   final String school;
+//   final bool isQuickSelect;
+//   final String name;
+//   final String guid;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Expanded(
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.end,
+//         children: [
+//           Padding(
+//             padding: const EdgeInsets.all(3.0),
+//             child: Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//               crossAxisAlignment: CrossAxisAlignment.end,
+//               children: [
+//                 Text(
+//                   level > 0 ? 'Level $level $school' : 'Cantrip $school',
+//                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+//                 ),
+//               ],
+//             ),
+//           ),
+//           Container(
+//             width: double.infinity,
+//             decoration: BoxDecoration(
+//                 color: ref.watch(themeProvider).primary,
+//                 borderRadius: BorderRadius.only(
+//                     topRight: Radius.circular(10),
+//                     bottomRight: Radius.circular(10))),
+//             child: Padding(
+//               padding: !isQuickSelect
+//                   ? const EdgeInsets.only(left: 6.0)
+//                   : const EdgeInsets.fromLTRB(6, 12, 0, 12),
+//               child: Row(
+//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                 children: [
+//                   StrokeText(
+//                     textAlignment: TextAlign.start,
+//                     text: (!isQuickSelect)
+//                         ? truncateWithEllipsis(20, name)
+//                         : truncateWithEllipsis(25, name),
+//                     size: 16,
+//                   ),
+//                   if (!isQuickSelect)
+//                     GestureDetector(
+//                       onLongPress: () {
+//                         ref
+//                             .read(inventoryProvider.notifier)
+//                             .deleteSpellFromInventory(guid: guid, ref: ref);
+//                       },
+//                       child: Padding(
+//                         padding: const EdgeInsets.all(4.0),
+//                         child: AnimatedContainer(
+//                           duration: Duration(milliseconds: 200),
+//                           decoration: BoxDecoration(
+//                               color: Colors.transparent,
+//                               borderRadius: BorderRadius.circular(5),
+//                               border:
+//                                   Border.all(width: 1, color: Colors.white)),
+//                           child: Icon(
+//                             Icons.delete_forever,
+//                             color: ref.watch(themeProvider).cardBg,
+//                             size: 35,
+//                           ),
+//                         ),
+//                       ),
+//                     )
+//                 ],
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
 //     );
 //   }
 // }

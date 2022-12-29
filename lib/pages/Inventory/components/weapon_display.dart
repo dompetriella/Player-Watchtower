@@ -86,97 +86,13 @@
 //                       )
 //                   ],
 //                 ),
-//                 Expanded(
-//                   child: Column(
-//                     mainAxisAlignment: MainAxisAlignment.end,
-//                     children: [
-//                       Padding(
-//                         padding: const EdgeInsets.all(3.0),
-//                         child: Row(
-//                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                           crossAxisAlignment: CrossAxisAlignment.end,
-//                           children: [
-//                             Text(
-//                               weaponType,
-//                               style: TextStyle(
-//                                   fontWeight: FontWeight.bold, fontSize: 12),
-//                             ),
-//                             Row(
-//                               crossAxisAlignment: CrossAxisAlignment.end,
-//                               children: [
-//                                 retrieveDamageTypeIconDict[damageType] ??
-//                                     retrieveDamageTypeIconDict['Custom']!,
-//                                 Text(
-//                                   ' ' + damage,
-//                                   style: TextStyle(
-//                                       fontWeight: FontWeight.bold,
-//                                       fontSize: 12),
-//                                 )
-//                               ],
-//                             )
-//                           ],
-//                         ),
-//                       ),
-//                       Container(
-//                         width: double.infinity,
-//                         decoration: BoxDecoration(
-//                             color: ref.watch(themeProvider).primary,
-//                             borderRadius: BorderRadius.only(
-//                                 topRight: Radius.circular(10),
-//                                 bottomRight: Radius.circular(10))),
-//                         child: Padding(
-//                           padding: hasEditingControl
-//                               ? const EdgeInsets.only(left: 6.0)
-//                               : const EdgeInsets.fromLTRB(6, 12, 0, 12),
-//                           child: Row(
-//                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                             children: [
-//                               StrokeText(
-//                                 textAlignment: TextAlign.start,
-//                                 text: (!hasEditingControl)
-//                                     ? truncateWithEllipsis(
-//                                         (MediaQuery.of(context).size.width / 20)
-//                                             .toInt(),
-//                                         name)
-//                                     : truncateWithEllipsis(
-//                                         (MediaQuery.of(context).size.width / 15)
-//                                             .toInt(),
-//                                         name),
-//                                 size: 16,
-//                               ),
-//                               if (hasEditingControl)
-//                                 GestureDetector(
-//                                   onLongPress: () {
-//                                     ref
-//                                         .read(inventoryProvider.notifier)
-//                                         .deleteWeaponFromInventory(
-//                                             guid: guid, ref: ref);
-//                                   },
-//                                   child: Padding(
-//                                     padding: const EdgeInsets.all(4.0),
-//                                     child: AnimatedContainer(
-//                                       duration: Duration(milliseconds: 200),
-//                                       decoration: BoxDecoration(
-//                                           color: Colors.transparent,
-//                                           borderRadius:
-//                                               BorderRadius.circular(5),
-//                                           border: Border.all(
-//                                               width: 1, color: Colors.white)),
-//                                       child: Icon(
-//                                         Icons.delete_forever,
-//                                         color: ref.watch(themeProvider).cardBg,
-//                                         size: 35,
-//                                       ),
-//                                     ),
-//                                   ),
-//                                 )
-//                             ],
-//                           ),
-//                         ),
-//                       ),
-//                     ],
-//                   ),
-//                 ),
+//                 WeaponDisplaySubtitle(
+//                     weaponType: weaponType,
+//                     damageType: damageType,
+//                     damage: damage,
+//                     hasEditingControl: hasEditingControl,
+//                     name: name,
+//                     guid: guid),
 //               ],
 //             ),
 //           ),
@@ -190,3 +106,4 @@
 //     );
 //   }
 // }
+

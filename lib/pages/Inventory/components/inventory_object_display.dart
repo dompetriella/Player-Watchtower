@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/functions/calculations.dart';
-import 'package:player_watchtower/inventory_models/item.dart';
 import 'package:player_watchtower/providers/inventory.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
@@ -56,7 +55,7 @@ class InventoryObjectDisplay extends ConsumerWidget {
                               bottomLeft: Radius.circular(5))),
                       child: Center(
                         child: FaIcon(
-                          FontAwesomeIcons.kitchenSet,
+                          determineIconForInventory(inventoryType),
                           color: Colors.white,
                           size: height * .50,
                         ),
@@ -87,32 +86,7 @@ class InventoryObjectDisplay extends ConsumerWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(3.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            // is ItemType
-                            if (inventoryObject is Item)
-                              Text(
-                                inventoryObject.itemCategory,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 12),
-                              ),
-                            if (inventoryObject is Item)
-                              Text(
-                                'In Inventory: x${inventoryObject.amount.toString()}',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 12),
-                              ),
-
-                            // is WeaponType
-
-                            // is SpellType
-                          ],
-                        ),
-                      ),
+                      determineSubtitle(inventoryType, inventoryObject),
                       Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
@@ -181,6 +155,148 @@ class InventoryObjectDisplay extends ConsumerWidget {
           endIndent: 10,
         )
       ],
+    );
+  }
+}
+
+class InventoryObjectDisplayIndividualItem extends ConsumerWidget {
+  final String title;
+  final String text;
+  const InventoryObjectDisplayIndividualItem(
+      {Key? key, this.title = '', this.text = ''})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    if (title != '' && text != '') {
+      return Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
+              child: Text(
+                title,
+                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 12),
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  color: ref.watch(themeProvider).baseCardBg,
+                  borderRadius: BorderRadius.circular(10)),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 10.0, horizontal: 10.0),
+                child: Text(
+                  text,
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
+                ),
+              ),
+            )
+          ],
+        ),
+      );
+    }
+    return SizedBox.shrink();
+  }
+}
+
+IconData determineIconForInventory(InventoryType inventoryType) {
+  switch (inventoryType) {
+    case InventoryType.weapon:
+      return FontAwesomeIcons.crosshairs;
+    case InventoryType.spell:
+      return FontAwesomeIcons.bookOpen;
+    default:
+      return FontAwesomeIcons.kitchenSet;
+  }
+}
+
+class ItemDisplaySubtitle extends ConsumerWidget {
+  final dynamic inventoryObject;
+  const ItemDisplaySubtitle({super.key, required this.inventoryObject});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Text(
+            inventoryObject.itemCategory,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+          ),
+          Text(
+            'In Inventory: x${inventoryObject.amount.toString()}',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class WeaponDisplaySubtitle extends ConsumerWidget {
+  final dynamic inventoryObject;
+  const WeaponDisplaySubtitle({Key? key, required this.inventoryObject})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Text(
+            inventoryObject.weaponType,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              retrieveDamageTypeIconDict[inventoryObject.damageType] ??
+                  retrieveDamageTypeIconDict['Custom']!,
+              Text(
+                ' ' + inventoryObject.damage,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+              )
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class SpellDisplaySubtitle extends ConsumerWidget {
+  final dynamic inventoryObject;
+  const SpellDisplaySubtitle({
+    required this.inventoryObject,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Text(
+            inventoryObject.spellLevel > 0
+                ? 'Level ${inventoryObject.spellLevel} ${inventoryObject.school}'
+                : 'Cantrip ${inventoryObject.school}',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -278,46 +394,13 @@ class InventoryEntryDisplay extends ConsumerWidget {
   }
 }
 
-class InventoryObjectDisplayIndividualItem extends ConsumerWidget {
-  final String title;
-  final String text;
-  const InventoryObjectDisplayIndividualItem(
-      {Key? key, this.title = '', this.text = ''})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    if (title != '' && text != '') {
-      return Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
-              child: Text(
-                title,
-                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 12),
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  color: ref.watch(themeProvider).baseCardBg,
-                  borderRadius: BorderRadius.circular(10)),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                    vertical: 10.0, horizontal: 10.0),
-                child: Text(
-                  text,
-                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
-                ),
-              ),
-            )
-          ],
-        ),
-      );
-    }
-    return SizedBox.shrink();
+Widget determineSubtitle(InventoryType inventoryType, dynamic inventoryObject) {
+  switch (inventoryType) {
+    case InventoryType.weapon:
+      return WeaponDisplaySubtitle(inventoryObject: inventoryObject);
+    case InventoryType.spell:
+      return SpellDisplaySubtitle(inventoryObject: inventoryObject);
+    default:
+      return ItemDisplaySubtitle(inventoryObject: inventoryObject);
   }
 }
