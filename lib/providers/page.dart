@@ -23,6 +23,10 @@ final statsSkillsExpanded = StateProvider<bool>(
   (ref) => false,
 );
 
+final statsAbilitiesExpanded = StateProvider<bool>(
+  (ref) => false,
+);
+
 final statsNotesExpanded = StateProvider<bool>(
   (ref) => false,
 );

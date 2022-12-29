@@ -5,19 +5,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/dictionaries/inventory.dart';
 import 'package:player_watchtower/global_components/multi_button.dart';
-import 'package:player_watchtower/inventory_models/inventory.dart';
-import 'package:player_watchtower/inventory_models/spell.dart';
 import 'package:player_watchtower/pages/Inventory/components/Forms/inventory_form.dart';
-import 'package:player_watchtower/providers/inventory.dart';
 
 import '../../../functions/inventory.dart';
-import '../../../inventory_models/item.dart';
-import '../../../inventory_models/weapon.dart';
 import '../../../providers/theme.dart';
 
 class AddNewInventory extends ConsumerWidget {
   final InventoryType inventoryType;
-  const AddNewInventory({super.key, required this.inventoryType});
+  final bool isPlayerValue;
+  const AddNewInventory(
+      {super.key, required this.inventoryType, this.isPlayerValue = false});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -25,7 +22,9 @@ class AddNewInventory extends ConsumerWidget {
       height: 50,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: ref.watch(themeProvider).cardBg,
+        color: isPlayerValue
+            ? ref.watch(themeProvider).primary
+            : ref.watch(themeProvider).cardBg,
       ),
       child: Stack(
         children: [
@@ -43,18 +42,12 @@ class AddNewInventory extends ConsumerWidget {
                   child: MultiButton(
                     size: 40,
                     icon: FontAwesomeIcons.plus,
-                    bgColor: ref.watch(themeProvider).accent,
+                    bgColor: isPlayerValue
+                        ? ref.watch(themeProvider).bgColor
+                        : ref.watch(themeProvider).accent,
                     color: Colors.white,
                     onTap: () {
                       switch (inventoryType) {
-                        case InventoryType.item:
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const InventoryForm(
-                                    formType: InventoryType.item)),
-                          );
-                          break;
                         case InventoryType.weapon:
                           Navigator.push(
                             context,
@@ -71,7 +64,23 @@ class AddNewInventory extends ConsumerWidget {
                                     formType: InventoryType.spell)),
                           );
                           break;
-                        default:
+
+                        case InventoryType.item:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const InventoryForm(
+                                    formType: InventoryType.item)),
+                          );
+                          break;
+                        case InventoryType.ability:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const InventoryForm(
+                                    formType: InventoryType.ability)),
+                          );
+                          break;
                       }
                     },
                   ),

@@ -12,6 +12,8 @@ String stringNameFromInventoryType(InventoryType inventoryType) {
       return 'Weapon';
     case InventoryType.spell:
       return 'Spell';
+    case InventoryType.ability:
+      return 'Ability';
     default:
       return 'Item';
   }
@@ -20,7 +22,8 @@ String stringNameFromInventoryType(InventoryType inventoryType) {
 List<Widget> turnInventoryObjectIntoDisplay(
     {required WidgetRef ref,
     required InventoryType inventoryType,
-    bool isInventory = true}) {
+    bool isInventory = true,
+    bool isPlayerValue = false}) {
   List<Widget> displays = [];
   dynamic qsState = ref.watch(inventoryProvider).quickSelectItems;
   dynamic state = ref.watch(inventoryProvider).items;
@@ -34,6 +37,10 @@ List<Widget> turnInventoryObjectIntoDisplay(
       qsState = ref.watch(inventoryProvider).quickSelectSpells;
       state = ref.watch(inventoryProvider).spells;
       break;
+    case InventoryType.ability:
+      qsState = ref.watch(inventoryProvider).quickSelectAbilities;
+      state = ref.watch(inventoryProvider).abilities;
+      break;
     default:
   }
   if (isInventory) {
@@ -42,6 +49,7 @@ List<Widget> turnInventoryObjectIntoDisplay(
         inventoryObject: item,
         isQuickSelect: item.isQuickSelect,
         inventoryType: inventoryType,
+        isPlayerValue: isPlayerValue,
       ));
     }
   } else {
@@ -51,10 +59,15 @@ List<Widget> turnInventoryObjectIntoDisplay(
           inventoryObject: item,
           isInventory: false,
           inventoryType: inventoryType,
+          isPlayerValue: isPlayerValue,
         ));
       }
     }
   }
-  if (isInventory) displays.add(AddNewInventory(inventoryType: inventoryType));
+  if (isInventory)
+    displays.add(AddNewInventory(
+      inventoryType: inventoryType,
+      isPlayerValue: isPlayerValue,
+    ));
   return displays;
 }

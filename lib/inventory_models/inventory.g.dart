@@ -24,13 +24,15 @@ class InventoryAdapter extends TypeAdapter<_$_Inventory> {
       quickSelectWeapons: (fields[4] as List).cast<Weapon>(),
       quickSelectSpells: (fields[5] as List).cast<Spell>(),
       quickSelectItems: (fields[6] as List).cast<Item>(),
+      abilities: (fields[7] as List).cast<Ability>(),
+      quickSelectAbilities: (fields[8] as List).cast<Ability>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, _$_Inventory obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(9)
       ..writeByte(0)
       ..write(obj.guid)
       ..writeByte(1)
@@ -44,7 +46,11 @@ class InventoryAdapter extends TypeAdapter<_$_Inventory> {
       ..writeByte(5)
       ..write(obj.quickSelectSpells)
       ..writeByte(6)
-      ..write(obj.quickSelectItems);
+      ..write(obj.quickSelectItems)
+      ..writeByte(7)
+      ..write(obj.abilities)
+      ..writeByte(8)
+      ..write(obj.quickSelectAbilities);
   }
 
   @override
@@ -88,6 +94,14 @@ _$_Inventory _$$_InventoryFromJson(Map<String, dynamic> json) => _$_Inventory(
               ?.map((e) => Item.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      abilities: (json['abilities'] as List<dynamic>?)
+              ?.map((e) => Ability.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      quickSelectAbilities: (json['quickSelectAbilities'] as List<dynamic>?)
+              ?.map((e) => Ability.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$_InventoryToJson(_$_Inventory instance) =>
@@ -102,4 +116,7 @@ Map<String, dynamic> _$$_InventoryToJson(_$_Inventory instance) =>
           instance.quickSelectSpells.map((e) => e.toJson()).toList(),
       'quickSelectItems':
           instance.quickSelectItems.map((e) => e.toJson()).toList(),
+      'abilities': instance.abilities.map((e) => e.toJson()).toList(),
+      'quickSelectAbilities':
+          instance.quickSelectAbilities.map((e) => e.toJson()).toList(),
     };

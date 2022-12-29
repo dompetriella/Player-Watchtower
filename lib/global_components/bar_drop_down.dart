@@ -8,10 +8,12 @@ class BarDropDown extends ConsumerWidget {
   final String text;
   final StateProvider<bool> expandedProvider;
   final List<Widget> items;
+  final bool isPlayerValue;
   BarDropDown(
       {super.key,
       required this.text,
       required this.expandedProvider,
+      this.isPlayerValue = false,
       this.items = const []});
 
   @override
@@ -26,42 +28,61 @@ class BarDropDown extends ConsumerWidget {
                   !ref.read(expandedProvider);
             },
             child: Container(
-              height: 50,
+              height: isPlayerValue ? 75 : 50,
               decoration: BoxDecoration(
-                  color: ref.watch(themeProvider).cardBg,
+                  color: isPlayerValue
+                      ? ref.watch(themeProvider).primary
+                      : ref.watch(themeProvider).cardBg,
                   boxShadow: [ref.watch(themeProvider).shadow],
                   border: Border.all(
-                      color: ref.watch(themeProvider).primary, width: 2.0),
-                  borderRadius: BorderRadius.circular(10)),
+                      color: isPlayerValue
+                          ? ref.watch(themeProvider).baseCardBg
+                          : ref.watch(themeProvider).primary,
+                      width: 2.0),
+                  borderRadius: isPlayerValue
+                      ? BorderRadius.circular(5)
+                      : BorderRadius.circular(10)),
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(8.0, 0, 8, 0),
+                padding: isPlayerValue
+                    ? EdgeInsets.symmetric(horizontal: 16.0)
+                    : EdgeInsets.symmetric(horizontal: 8.0),
                 child: Stack(
                   children: [
-                    Center(
-                        child: BorderedText(
-                      strokeWidth: 5.0,
-                      strokeColor: ref.watch(themeProvider).outlineText,
-                      child: Text(
-                        text,
-                        style: TextStyle(
-                            fontSize: 30,
-                            letterSpacing: 1.2,
-                            color: ref.watch(themeProvider).textColor,
-                            fontWeight: FontWeight.bold),
+                    Align(
+                      alignment: isPlayerValue
+                          ? Alignment.centerLeft
+                          : Alignment.center,
+                      child: BorderedText(
+                        strokeWidth: 5.0,
+                        strokeColor: ref.watch(themeProvider).outlineText,
+                        child: Text(
+                          text,
+                          style: TextStyle(
+                              fontSize: 30,
+                              letterSpacing: 1.2,
+                              color: ref.watch(themeProvider).textColor,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
-                    )),
+                    ),
                     Container(
-                      alignment: Alignment.centerLeft,
+                      alignment: isPlayerValue
+                          ? Alignment.centerRight
+                          : Alignment.centerLeft,
                       child: ref.watch(expandedProvider)
                           ? Icon(
                               Icons.expand_less,
-                              size: 30,
-                              color: ref.watch(themeProvider).primary,
+                              size: isPlayerValue ? 35 : 30,
+                              color: isPlayerValue
+                                  ? ref.watch(themeProvider).baseCardBg
+                                  : ref.watch(themeProvider).primary,
                             )
                           : Icon(
                               Icons.expand_more,
-                              size: 30,
-                              color: ref.watch(themeProvider).primary,
+                              size: isPlayerValue ? 35 : 30,
+                              color: isPlayerValue
+                                  ? ref.watch(themeProvider).baseCardBg
+                                  : ref.watch(themeProvider).primary,
                             ),
                     ),
                   ],
@@ -75,7 +96,9 @@ class BarDropDown extends ConsumerWidget {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    color: ref.watch(themeProvider).cardBg,
+                    color: isPlayerValue
+                        ? ref.watch(themeProvider).primary
+                        : ref.watch(themeProvider).cardBg,
                     boxShadow: [ref.watch(themeProvider).shadow],
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(5),

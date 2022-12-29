@@ -4,6 +4,7 @@ import 'package:hive/hive.dart';
 import 'package:player_watchtower/inventory_models/spell.dart';
 import 'package:player_watchtower/inventory_models/weapon.dart';
 
+import 'ability.dart';
 import 'item.dart';
 
 part 'inventory.freezed.dart';
@@ -20,6 +21,8 @@ class Inventory with _$Inventory {
     @Default([]) @HiveField(4) List<Weapon> quickSelectWeapons,
     @Default([]) @HiveField(5) List<Spell> quickSelectSpells,
     @Default([]) @HiveField(6) List<Item> quickSelectItems,
+    @Default([]) @HiveField(7) List<Ability> abilities,
+    @Default([]) @HiveField(8) List<Ability> quickSelectAbilities,
   }) = _Inventory;
 
   factory Inventory.fromJson(Map<String, dynamic> json) =>

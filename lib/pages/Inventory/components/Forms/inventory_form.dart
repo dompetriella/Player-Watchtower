@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/dictionaries/inventory.dart';
+import 'package:player_watchtower/inventory_models/ability.dart';
 import 'package:player_watchtower/pages/Inventory/components/Forms/components/form_item_add_to_button.dart';
 import 'package:player_watchtower/pages/Inventory/components/Forms/components/form_add_to_quickselect.dart';
 import 'package:player_watchtower/pages/Inventory/components/Forms/components/form_drop_down_entry.dart';
 import 'package:player_watchtower/pages/Inventory/components/Forms/components/line_entry_form.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
+import 'components/form_ability_add_to_button.dart';
 import 'components/form_spell_add_to_button.dart';
 import 'components/form_title.dart';
 import 'components/form_weapon_add_to_button.dart';
@@ -68,6 +70,12 @@ var duration = StateProvider<String>(
   (ref) => 'Custom',
 );
 
+// ability
+
+var abilityCatergory = StateProvider<String>(
+  (ref) => 'Custom',
+);
+
 List<DropdownMenuItem> convertListToDropDownItems(List<dynamic> inputList) {
   return inputList
       .map((e) => DropdownMenuItem(
@@ -107,8 +115,10 @@ Widget switchForm(InventoryType formType) {
       return WeaponInputs();
     case InventoryType.spell:
       return SpellInputs();
-    default:
+    case InventoryType.item:
       return ItemInputs();
+    case InventoryType.ability:
+      return AbilityInputs();
   }
 }
 
@@ -341,6 +351,44 @@ class SpellInputs extends StatelessWidget {
         level: spellLevel,
         school: school,
         duration: duration,
+        description: description,
+        addToQuickSelect: addToQuickSelect,
+      )
+    ]);
+  }
+}
+
+class AbilityInputs extends StatelessWidget {
+  final InventoryType inventoryType;
+  const AbilityInputs({Key? key, this.inventoryType = InventoryType.ability})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+      FormTitle(formType: 'Ability'),
+      LineEntryForm(text: 'Name', provider: name),
+      LineEntryForm(
+        text: 'Hint',
+        maxLines: 2,
+        provider: hint,
+      ),
+      LineEntryForm(
+        text: 'Catergory',
+        provider: abilityCatergory,
+      ),
+      LineEntryForm(
+        text: 'Description',
+        maxLines: 20,
+        provider: description,
+      ),
+      AddToQuickSelect(
+        provider: addToQuickSelect,
+      ),
+      AbilityFormAddToButton(
+        name: name,
+        hint: hint,
+        abilityCatergory: abilityCatergory,
         description: description,
         addToQuickSelect: addToQuickSelect,
       )

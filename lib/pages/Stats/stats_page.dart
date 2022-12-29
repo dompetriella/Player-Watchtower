@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/global_components/bar_drop_down.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/pages/Stats/components/body_drop_down.dart';
 import 'package:player_watchtower/pages/Stats/statsEntries.dart';
 import 'package:player_watchtower/providers/theme.dart';
 import 'package:player_watchtower/providers/page.dart';
+
+import '../../dictionaries/inventory.dart';
+import '../../functions/inventory.dart';
 
 class StatsPage extends ConsumerWidget {
   StatsPage({super.key});
@@ -45,14 +49,15 @@ class StatsPage extends ConsumerWidget {
                 text: "Skills",
                 statsEntries: SkillsStatsEntries(),
                 expandedProvider: statsSkillsExpanded),
-            // Divider(
-            //   thickness: 0,
-            //   height: 10,
-            // ),
-            // BodyDropDown(
-            //     text: "Misc.",
-            //     statsEntries: MiscEntries(),
-            //     expandedProvider: statsNotesExpanded),
+            BarDropDown(
+              text: 'Abilities',
+              expandedProvider: statsAbilitiesExpanded,
+              isPlayerValue: true,
+              items: turnInventoryObjectIntoDisplay(
+                  ref: ref,
+                  inventoryType: InventoryType.ability,
+                  isPlayerValue: true),
+            )
           ],
         ),
       ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:player_watchtower/version.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 
 import '../../providers/theme.dart';

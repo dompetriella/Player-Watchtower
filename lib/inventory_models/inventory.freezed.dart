@@ -34,6 +34,10 @@ mixin _$Inventory {
   List<Spell> get quickSelectSpells => throw _privateConstructorUsedError;
   @HiveField(6)
   List<Item> get quickSelectItems => throw _privateConstructorUsedError;
+  @HiveField(7)
+  List<Ability> get abilities => throw _privateConstructorUsedError;
+  @HiveField(8)
+  List<Ability> get quickSelectAbilities => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +57,9 @@ abstract class $InventoryCopyWith<$Res> {
       @HiveField(3) List<Item> items,
       @HiveField(4) List<Weapon> quickSelectWeapons,
       @HiveField(5) List<Spell> quickSelectSpells,
-      @HiveField(6) List<Item> quickSelectItems});
+      @HiveField(6) List<Item> quickSelectItems,
+      @HiveField(7) List<Ability> abilities,
+      @HiveField(8) List<Ability> quickSelectAbilities});
 }
 
 /// @nodoc
@@ -76,6 +82,8 @@ class _$InventoryCopyWithImpl<$Res, $Val extends Inventory>
     Object? quickSelectWeapons = null,
     Object? quickSelectSpells = null,
     Object? quickSelectItems = null,
+    Object? abilities = null,
+    Object? quickSelectAbilities = null,
   }) {
     return _then(_value.copyWith(
       guid: null == guid
@@ -106,6 +114,14 @@ class _$InventoryCopyWithImpl<$Res, $Val extends Inventory>
           ? _value.quickSelectItems
           : quickSelectItems // ignore: cast_nullable_to_non_nullable
               as List<Item>,
+      abilities: null == abilities
+          ? _value.abilities
+          : abilities // ignore: cast_nullable_to_non_nullable
+              as List<Ability>,
+      quickSelectAbilities: null == quickSelectAbilities
+          ? _value.quickSelectAbilities
+          : quickSelectAbilities // ignore: cast_nullable_to_non_nullable
+              as List<Ability>,
     ) as $Val);
   }
 }
@@ -124,7 +140,9 @@ abstract class _$$_InventoryCopyWith<$Res> implements $InventoryCopyWith<$Res> {
       @HiveField(3) List<Item> items,
       @HiveField(4) List<Weapon> quickSelectWeapons,
       @HiveField(5) List<Spell> quickSelectSpells,
-      @HiveField(6) List<Item> quickSelectItems});
+      @HiveField(6) List<Item> quickSelectItems,
+      @HiveField(7) List<Ability> abilities,
+      @HiveField(8) List<Ability> quickSelectAbilities});
 }
 
 /// @nodoc
@@ -145,6 +163,8 @@ class __$$_InventoryCopyWithImpl<$Res>
     Object? quickSelectWeapons = null,
     Object? quickSelectSpells = null,
     Object? quickSelectItems = null,
+    Object? abilities = null,
+    Object? quickSelectAbilities = null,
   }) {
     return _then(_$_Inventory(
       guid: null == guid
@@ -175,6 +195,14 @@ class __$$_InventoryCopyWithImpl<$Res>
           ? _value._quickSelectItems
           : quickSelectItems // ignore: cast_nullable_to_non_nullable
               as List<Item>,
+      abilities: null == abilities
+          ? _value._abilities
+          : abilities // ignore: cast_nullable_to_non_nullable
+              as List<Ability>,
+      quickSelectAbilities: null == quickSelectAbilities
+          ? _value._quickSelectAbilities
+          : quickSelectAbilities // ignore: cast_nullable_to_non_nullable
+              as List<Ability>,
     ));
   }
 }
@@ -190,13 +218,17 @@ class _$_Inventory with DiagnosticableTreeMixin implements _Inventory {
       @HiveField(3) final List<Item> items = const [],
       @HiveField(4) final List<Weapon> quickSelectWeapons = const [],
       @HiveField(5) final List<Spell> quickSelectSpells = const [],
-      @HiveField(6) final List<Item> quickSelectItems = const []})
+      @HiveField(6) final List<Item> quickSelectItems = const [],
+      @HiveField(7) final List<Ability> abilities = const [],
+      @HiveField(8) final List<Ability> quickSelectAbilities = const []})
       : _weapons = weapons,
         _spells = spells,
         _items = items,
         _quickSelectWeapons = quickSelectWeapons,
         _quickSelectSpells = quickSelectSpells,
-        _quickSelectItems = quickSelectItems;
+        _quickSelectItems = quickSelectItems,
+        _abilities = abilities,
+        _quickSelectAbilities = quickSelectAbilities;
 
   factory _$_Inventory.fromJson(Map<String, dynamic> json) =>
       _$$_InventoryFromJson(json);
@@ -259,9 +291,27 @@ class _$_Inventory with DiagnosticableTreeMixin implements _Inventory {
     return EqualUnmodifiableListView(_quickSelectItems);
   }
 
+  final List<Ability> _abilities;
+  @override
+  @JsonKey()
+  @HiveField(7)
+  List<Ability> get abilities {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_abilities);
+  }
+
+  final List<Ability> _quickSelectAbilities;
+  @override
+  @JsonKey()
+  @HiveField(8)
+  List<Ability> get quickSelectAbilities {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_quickSelectAbilities);
+  }
+
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Inventory(guid: $guid, weapons: $weapons, spells: $spells, items: $items, quickSelectWeapons: $quickSelectWeapons, quickSelectSpells: $quickSelectSpells, quickSelectItems: $quickSelectItems)';
+    return 'Inventory(guid: $guid, weapons: $weapons, spells: $spells, items: $items, quickSelectWeapons: $quickSelectWeapons, quickSelectSpells: $quickSelectSpells, quickSelectItems: $quickSelectItems, abilities: $abilities, quickSelectAbilities: $quickSelectAbilities)';
   }
 
   @override
@@ -275,7 +325,9 @@ class _$_Inventory with DiagnosticableTreeMixin implements _Inventory {
       ..add(DiagnosticsProperty('items', items))
       ..add(DiagnosticsProperty('quickSelectWeapons', quickSelectWeapons))
       ..add(DiagnosticsProperty('quickSelectSpells', quickSelectSpells))
-      ..add(DiagnosticsProperty('quickSelectItems', quickSelectItems));
+      ..add(DiagnosticsProperty('quickSelectItems', quickSelectItems))
+      ..add(DiagnosticsProperty('abilities', abilities))
+      ..add(DiagnosticsProperty('quickSelectAbilities', quickSelectAbilities));
   }
 
   @override
@@ -292,7 +344,11 @@ class _$_Inventory with DiagnosticableTreeMixin implements _Inventory {
             const DeepCollectionEquality()
                 .equals(other._quickSelectSpells, _quickSelectSpells) &&
             const DeepCollectionEquality()
-                .equals(other._quickSelectItems, _quickSelectItems));
+                .equals(other._quickSelectItems, _quickSelectItems) &&
+            const DeepCollectionEquality()
+                .equals(other._abilities, _abilities) &&
+            const DeepCollectionEquality()
+                .equals(other._quickSelectAbilities, _quickSelectAbilities));
   }
 
   @JsonKey(ignore: true)
@@ -305,7 +361,9 @@ class _$_Inventory with DiagnosticableTreeMixin implements _Inventory {
       const DeepCollectionEquality().hash(_items),
       const DeepCollectionEquality().hash(_quickSelectWeapons),
       const DeepCollectionEquality().hash(_quickSelectSpells),
-      const DeepCollectionEquality().hash(_quickSelectItems));
+      const DeepCollectionEquality().hash(_quickSelectItems),
+      const DeepCollectionEquality().hash(_abilities),
+      const DeepCollectionEquality().hash(_quickSelectAbilities));
 
   @JsonKey(ignore: true)
   @override
@@ -329,7 +387,9 @@ abstract class _Inventory implements Inventory {
       @HiveField(3) final List<Item> items,
       @HiveField(4) final List<Weapon> quickSelectWeapons,
       @HiveField(5) final List<Spell> quickSelectSpells,
-      @HiveField(6) final List<Item> quickSelectItems}) = _$_Inventory;
+      @HiveField(6) final List<Item> quickSelectItems,
+      @HiveField(7) final List<Ability> abilities,
+      @HiveField(8) final List<Ability> quickSelectAbilities}) = _$_Inventory;
 
   factory _Inventory.fromJson(Map<String, dynamic> json) =
       _$_Inventory.fromJson;
@@ -355,6 +415,12 @@ abstract class _Inventory implements Inventory {
   @override
   @HiveField(6)
   List<Item> get quickSelectItems;
+  @override
+  @HiveField(7)
+  List<Ability> get abilities;
+  @override
+  @HiveField(8)
+  List<Ability> get quickSelectAbilities;
   @override
   @JsonKey(ignore: true)
   _$$_InventoryCopyWith<_$_Inventory> get copyWith =>

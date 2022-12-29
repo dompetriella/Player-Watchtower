@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:player_watchtower/pages/main_page.dart';
 
+import 'inventory_models/ability.dart';
 import 'inventory_models/inventory.dart';
 import 'inventory_models/item.dart';
 import 'inventory_models/spell.dart';
@@ -19,6 +20,7 @@ void main() async {
   Hive.registerAdapter(ItemAdapter());
   Hive.registerAdapter(WeaponAdapter());
   Hive.registerAdapter(SpellAdapter());
+  Hive.registerAdapter(AbilityAdapter());
   await Hive.initFlutter();
   runApp(ProviderScope(child: PlayerWatchtower()));
 }

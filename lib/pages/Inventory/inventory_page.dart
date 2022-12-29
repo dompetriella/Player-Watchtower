@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/dictionaries/inventory.dart';
-import 'package:player_watchtower/inventory_models/item.dart';
-import 'package:player_watchtower/pages/Inventory/components/inventory_object_display.dart';
-import 'package:player_watchtower/pages/Inventory/components/add_new_inventory.dart';
 import 'package:player_watchtower/pages/Inventory/components/currency_item.dart';
-import 'package:player_watchtower/pages/Inventory/components/spell_display.dart';
-import 'package:player_watchtower/pages/Inventory/components/weapon_display.dart';
-import 'package:player_watchtower/providers/inventory.dart';
 import 'package:player_watchtower/providers/page.dart';
 import 'package:player_watchtower/providers/player.dart';
 
 import '../../functions/inventory.dart';
 import '../../global_components/bar_drop_down.dart';
-import '../../inventory_models/spell.dart';
-import '../../inventory_models/weapon.dart';
 import '../../providers/theme.dart';
 
 Color platinum = Colors.grey[800]!;

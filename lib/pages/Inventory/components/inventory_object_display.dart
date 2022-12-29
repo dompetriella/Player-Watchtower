@@ -16,11 +16,13 @@ class InventoryObjectDisplay extends ConsumerWidget {
   final InventoryType inventoryType;
   final bool isQuickSelect;
   final bool isInventory;
+  final bool isPlayerValue;
   InventoryObjectDisplay({
     super.key,
     required this.inventoryType,
     required this.inventoryObject,
     this.isQuickSelect = false,
+    this.isPlayerValue = false,
     this.isInventory = true,
   });
 
@@ -32,7 +34,10 @@ class InventoryObjectDisplay extends ConsumerWidget {
           onTap: () {
             showDialog(
                 context: context,
-                builder: (builder) => Dialog(child: InventoryEntryDisplay()));
+                builder: (builder) => Dialog(
+                        child: InventoryEntryDisplay(
+                      inventoryObject: inventoryObject,
+                    )));
           },
           onDoubleTap: () {
             if (isInventory) {
@@ -54,7 +59,9 @@ class InventoryObjectDisplay extends ConsumerWidget {
                       height: height * .95,
                       width: height,
                       decoration: BoxDecoration(
-                          color: Colors.black,
+                          color: isPlayerValue
+                              ? ref.watch(themeProvider).bgColor
+                              : Colors.black,
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(5),
                               topRight: Radius.circular(5),
@@ -96,7 +103,9 @@ class InventoryObjectDisplay extends ConsumerWidget {
                       Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
-                            color: ref.watch(themeProvider).primary,
+                            color: isPlayerValue
+                                ? ref.watch(themeProvider).cardBg
+                                : ref.watch(themeProvider).primary,
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(10),
                                 bottomRight: Radius.circular(10))),
@@ -138,7 +147,9 @@ class InventoryObjectDisplay extends ConsumerWidget {
                                               width: 1, color: Colors.white)),
                                       child: Icon(
                                         Icons.delete_forever,
-                                        color: ref.watch(themeProvider).cardBg,
+                                        color: isPlayerValue
+                                            ? ref.watch(themeProvider).accent
+                                            : ref.watch(themeProvider).cardBg,
                                         size: 35,
                                       ),
                                     ),
@@ -171,8 +182,10 @@ IconData determineIconForInventory(InventoryType inventoryType) {
       return FontAwesomeIcons.crosshairs;
     case InventoryType.spell:
       return FontAwesomeIcons.bookOpen;
-    default:
+    case InventoryType.item:
       return FontAwesomeIcons.kitchenSet;
+    case InventoryType.ability:
+      return FontAwesomeIcons.personRunning;
   }
 }
 
@@ -263,13 +276,38 @@ class SpellDisplaySubtitle extends ConsumerWidget {
   }
 }
 
+class AbilityDisplaySubtitle extends ConsumerWidget {
+  final dynamic inventoryObject;
+  const AbilityDisplaySubtitle({super.key, required this.inventoryObject});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Text(
+            inventoryObject.abilityCatergory,
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 12, color: Colors.white),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 Widget determineSubtitle(InventoryType inventoryType, dynamic inventoryObject) {
   switch (inventoryType) {
     case InventoryType.weapon:
       return WeaponDisplaySubtitle(inventoryObject: inventoryObject);
     case InventoryType.spell:
       return SpellDisplaySubtitle(inventoryObject: inventoryObject);
-    default:
+    case InventoryType.item:
       return ItemDisplaySubtitle(inventoryObject: inventoryObject);
+    case InventoryType.ability:
+      return AbilityDisplaySubtitle(inventoryObject: inventoryObject);
   }
 }

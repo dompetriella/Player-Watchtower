@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:player_watchtower/dictionaries/inventory.dart';
+import 'package:player_watchtower/global_components/multi_button.dart';
+import 'package:player_watchtower/providers/inventory.dart';
 
 import '../../../providers/theme.dart';
 
 class InventoryEntryDisplay extends ConsumerWidget {
+  final dynamic inventoryObject;
+
   const InventoryEntryDisplay({
     Key? key,
+    required this.inventoryObject,
   }) : super(key: key);
 
   @override
@@ -35,7 +41,7 @@ class InventoryEntryDisplay extends ConsumerWidget {
                             color: ref.watch(themeProvider).primary,
                           ),
                           child: Text(
-                            'Really Noice Armour',
+                            inventoryObject.name,
                             style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w900,
@@ -47,23 +53,9 @@ class InventoryEntryDisplay extends ConsumerWidget {
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          children: [
-                            InventoryObjectDisplayIndividualItem(
-                              title: 'Catergory',
-                              text: 'Equipment',
-                            ),
-                            InventoryObjectDisplayIndividualItem(
-                              title: 'Amount',
-                              text: '5',
-                            ),
-                            InventoryObjectDisplayIndividualItem(
-                              title: 'Description',
-                              text:
-                                  'Oh boy here I go describing again in great detail man I love a good description here I go',
-                            ),
-                          ],
-                        ),
+                        child: determineInventoryEntryDisplay(
+                            InventoryType.values[inventoryObject.inventoryType],
+                            inventoryObject),
                       )
                     ])),
           ),
@@ -100,9 +92,11 @@ class InventoryEntryDisplay extends ConsumerWidget {
 class InventoryObjectDisplayIndividualItem extends ConsumerWidget {
   final String title;
   final String text;
-  const InventoryObjectDisplayIndividualItem(
-      {Key? key, this.title = '', this.text = ''})
-      : super(key: key);
+  const InventoryObjectDisplayIndividualItem({
+    Key? key,
+    this.title = '',
+    this.text = '',
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -132,11 +126,119 @@ class InventoryObjectDisplayIndividualItem extends ConsumerWidget {
                   style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
                 ),
               ),
-            )
+            ),
           ],
         ),
       );
     }
     return SizedBox.shrink();
+  }
+}
+
+class ItemEntryDisplay extends ConsumerWidget {
+  final dynamic inventoryObject;
+  const ItemEntryDisplay({
+    required this.inventoryObject,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Column(
+      children: [
+        InventoryObjectDisplayIndividualItem(
+          title: 'Catergory',
+          text: inventoryObject.itemCategory,
+        ),
+        InventoryObjectDisplayIndividualItem(
+          title: 'Amount',
+          text: inventoryObject.amount.toString(),
+        ),
+        InventoryObjectDisplayIndividualItem(
+            title: 'Description', text: inventoryObject.description),
+      ],
+    );
+  }
+}
+
+class WeaponEntryDisplay extends StatelessWidget {
+  final dynamic inventoryObject;
+  const WeaponEntryDisplay({
+    required this.inventoryObject,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        InventoryObjectDisplayIndividualItem(
+          title: 'Weapon Type',
+          text: inventoryObject.weaponType,
+        ),
+        InventoryObjectDisplayIndividualItem(
+          title: 'Damage',
+          text: inventoryObject.damage,
+        ),
+        InventoryObjectDisplayIndividualItem(
+          title: 'Damage Type',
+          text: inventoryObject.damageType,
+        ),
+        InventoryObjectDisplayIndividualItem(
+            title: 'Description', text: inventoryObject.description),
+      ],
+    );
+  }
+}
+
+class SpellEntryDisplay extends StatelessWidget {
+  final dynamic inventoryObject;
+  const SpellEntryDisplay({
+    required this.inventoryObject,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        InventoryObjectDisplayIndividualItem(
+          title: 'Spell Level',
+          text: inventoryObject.spellLevel == 0
+              ? 'Cantrip'
+              : inventoryObject.spellLevel.toString(),
+        ),
+        InventoryObjectDisplayIndividualItem(
+          title: 'School of Magic',
+          text: inventoryObject.school,
+        ),
+        InventoryObjectDisplayIndividualItem(
+          title: 'Casting Time',
+          text: inventoryObject.castingTime,
+        ),
+        InventoryObjectDisplayIndividualItem(
+          title: 'Range',
+          text: inventoryObject.range,
+        ),
+        InventoryObjectDisplayIndividualItem(
+          title: 'Duration',
+          text: inventoryObject.duration,
+        ),
+        InventoryObjectDisplayIndividualItem(
+            title: 'Description', text: inventoryObject.description),
+      ],
+    );
+  }
+}
+
+Widget determineInventoryEntryDisplay(
+    InventoryType inventoryType, dynamic inventoryObject) {
+  switch (inventoryType) {
+    case InventoryType.weapon:
+      return WeaponEntryDisplay(inventoryObject: inventoryObject);
+    case InventoryType.spell:
+      return SpellEntryDisplay(inventoryObject: inventoryObject);
+    default:
+      return ItemEntryDisplay(inventoryObject: inventoryObject);
   }
 }
