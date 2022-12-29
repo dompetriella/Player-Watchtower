@@ -28,13 +28,14 @@ class SpellAdapter extends TypeAdapter<_$_Spell> {
       components: (fields[9] as List).cast<String>(),
       description: fields[10] as String,
       isQuickSelect: fields[11] as bool,
+      inventoryType: fields[12] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, _$_Spell obj) {
     writer
-      ..writeByte(11)
+      ..writeByte(12)
       ..writeByte(0)
       ..write(obj.guid)
       ..writeByte(1)
@@ -55,6 +56,8 @@ class SpellAdapter extends TypeAdapter<_$_Spell> {
       ..write(obj.description)
       ..writeByte(11)
       ..write(obj.isQuickSelect)
+      ..writeByte(12)
+      ..write(obj.inventoryType)
       ..writeByte(9)
       ..write(obj.components);
   }
@@ -89,6 +92,7 @@ _$_Spell _$$_SpellFromJson(Map<String, dynamic> json) => _$_Spell(
           const [],
       description: json['description'] as String? ?? '',
       isQuickSelect: json['isQuickSelect'] as bool? ?? false,
+      inventoryType: json['inventoryType'] as int? ?? 2,
     );
 
 Map<String, dynamic> _$$_SpellToJson(_$_Spell instance) => <String, dynamic>{
@@ -103,4 +107,5 @@ Map<String, dynamic> _$$_SpellToJson(_$_Spell instance) => <String, dynamic>{
       'components': instance.components,
       'description': instance.description,
       'isQuickSelect': instance.isQuickSelect,
+      'inventoryType': instance.inventoryType,
     };

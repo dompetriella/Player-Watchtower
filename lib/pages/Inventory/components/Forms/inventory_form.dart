@@ -99,13 +99,13 @@ List<DropdownMenuItem> createDropDownNumberList(int min, int max) {
   return listOfNumbers;
 }
 
-Widget switchForm(String formType) {
+Widget switchForm(InventoryType formType) {
   switch (formType) {
-    case 'Item':
+    case InventoryType.item:
       return ItemInputs();
-    case 'Weapon':
+    case InventoryType.weapon:
       return WeaponInputs();
-    case 'Spell':
+    case InventoryType.spell:
       return SpellInputs();
     default:
       return ItemInputs();
@@ -113,7 +113,7 @@ Widget switchForm(String formType) {
 }
 
 class InventoryForm extends ConsumerWidget {
-  final String formType;
+  final InventoryType formType;
   const InventoryForm({super.key, required this.formType});
 
   @override
@@ -181,9 +181,9 @@ class InventoryForm extends ConsumerWidget {
 }
 
 class ItemInputs extends StatelessWidget {
-  const ItemInputs({
-    Key? key,
-  }) : super(key: key);
+  final InventoryType inventoryType;
+  const ItemInputs({Key? key, this.inventoryType = InventoryType.item})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

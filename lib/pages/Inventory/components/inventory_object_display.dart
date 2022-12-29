@@ -2,28 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/functions/calculations.dart';
+import 'package:player_watchtower/inventory_models/item.dart';
 import 'package:player_watchtower/providers/inventory.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
+import '../../../dictionaries/inventory.dart';
 import '../../../global_components/stroke_text.dart';
 
 double height = 65;
 
-class ItemDisplay extends ConsumerWidget {
-  final String guid;
+class InventoryObjectDisplay extends ConsumerWidget {
+  final dynamic inventoryObject;
+  final InventoryType inventoryType;
   final bool isQuickSelect;
-  final bool hasEditingControl;
-  final String itemType;
-  final int itemAmount;
-  final String name;
-  ItemDisplay({
+  final bool isInventory;
+  InventoryObjectDisplay({
     super.key,
+    required this.inventoryType,
+    required this.inventoryObject,
     this.isQuickSelect = false,
-    this.hasEditingControl = false,
-    required this.guid,
-    required this.itemType,
-    required this.name,
-    this.itemAmount = 1,
+    this.isInventory = true,
   });
 
   @override
@@ -31,25 +29,13 @@ class ItemDisplay extends ConsumerWidget {
     return Column(
       children: [
         GestureDetector(
-          onTap: (() {
-            isQuickSelect
-                ? print('helloworld')
-                : showDialog(
-                    context: context,
-                    builder: (builder) => Dialog(
-                          child: InventoryEntryDisplay(),
-                        ));
-          }),
           onDoubleTap: () {
-            if (!isQuickSelect)
-              ref
-                  .read(inventoryProvider.notifier)
-                  .toggleFlagItemForQuickSelect(guid: guid, ref: ref);
-          },
-          onLongPress: () {
-            isQuickSelect
-                ? showDialog(context: context, builder: (builder) => Dialog())
-                : print('helloworld');
+            if (isInventory) {
+              ref.read(inventoryProvider.notifier).toggleFlagForQuickSelect(
+                  guid: inventoryObject.guid,
+                  ref: ref,
+                  inventoryType: inventoryType);
+            }
           },
           child: Padding(
             padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
@@ -107,16 +93,23 @@ class ItemDisplay extends ConsumerWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            Text(
-                              itemType,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 12),
-                            ),
-                            Text(
-                              'In Inventory: x${itemAmount.toString()}',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 12),
-                            ),
+                            // is ItemType
+                            if (inventoryObject is Item)
+                              Text(
+                                inventoryObject.itemCategory,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 12),
+                              ),
+                            if (inventoryObject is Item)
+                              Text(
+                                'In Inventory: x${inventoryObject.amount.toString()}',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 12),
+                              ),
+
+                            // is WeaponType
+
+                            // is SpellType
                           ],
                         ),
                       ),
@@ -128,7 +121,7 @@ class ItemDisplay extends ConsumerWidget {
                                 topRight: Radius.circular(10),
                                 bottomRight: Radius.circular(10))),
                         child: Padding(
-                          padding: !isQuickSelect
+                          padding: isInventory
                               ? const EdgeInsets.only(left: 6.0)
                               : const EdgeInsets.fromLTRB(6, 12, 0, 12),
                           child: Row(
@@ -136,18 +129,22 @@ class ItemDisplay extends ConsumerWidget {
                             children: [
                               StrokeText(
                                 textAlignment: TextAlign.start,
-                                text: (!isQuickSelect)
-                                    ? truncateWithEllipsis(20, name)
-                                    : truncateWithEllipsis(25, name),
+                                text: (isInventory)
+                                    ? truncateWithEllipsis(
+                                        20, inventoryObject.name)
+                                    : truncateWithEllipsis(
+                                        25, inventoryObject.name),
                                 size: 16,
                               ),
-                              if (!isQuickSelect)
+                              if (isInventory)
                                 GestureDetector(
                                   onLongPress: () {
                                     ref
                                         .read(inventoryProvider.notifier)
                                         .deleteItemFromInventory(
-                                            guid: guid, ref: ref);
+                                            guid: inventoryObject.guid,
+                                            ref: ref,
+                                            inventoryType: inventoryType);
                                   },
                                   child: Padding(
                                     padding: const EdgeInsets.all(4.0),
@@ -233,15 +230,15 @@ class InventoryEntryDisplay extends ConsumerWidget {
                             borderRadius: BorderRadius.circular(10)),
                         child: Column(
                           children: [
-                            InventoryDisplayIndividualItem(
+                            InventoryObjectDisplayIndividualItem(
                               title: 'Catergory',
                               text: 'Equipment',
                             ),
-                            InventoryDisplayIndividualItem(
+                            InventoryObjectDisplayIndividualItem(
                               title: 'Amount',
                               text: '5',
                             ),
-                            InventoryDisplayIndividualItem(
+                            InventoryObjectDisplayIndividualItem(
                               title: 'Description',
                               text:
                                   'Oh boy here I go describing again in great detail man I love a good description here I go',
@@ -281,10 +278,10 @@ class InventoryEntryDisplay extends ConsumerWidget {
   }
 }
 
-class InventoryDisplayIndividualItem extends ConsumerWidget {
+class InventoryObjectDisplayIndividualItem extends ConsumerWidget {
   final String title;
   final String text;
-  const InventoryDisplayIndividualItem(
+  const InventoryObjectDisplayIndividualItem(
       {Key? key, this.title = '', this.text = ''})
       : super(key: key);
 

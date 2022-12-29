@@ -2,6 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 
+import '../dictionaries/inventory.dart';
+
 part 'spell.freezed.dart';
 part 'spell.g.dart';
 
@@ -19,7 +21,8 @@ class Spell with _$Spell {
       @Default('') @HiveField(8) String school,
       @Default([]) @HiveField(9) List<String> components,
       @Default('') @HiveField(10) String description,
-      @Default(false) @HiveField(11) bool isQuickSelect}) = _Spell;
+      @Default(false) @HiveField(11) bool isQuickSelect,
+      @Default(2) @HiveField(12) int inventoryType}) = _Spell;
 
   factory Spell.fromJson(Map<String, dynamic> json) => _$SpellFromJson(json);
 }

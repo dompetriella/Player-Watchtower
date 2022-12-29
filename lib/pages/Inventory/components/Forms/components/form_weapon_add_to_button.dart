@@ -3,7 +3,9 @@ import 'package:flutter_guid/flutter_guid.dart';
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/dictionaries/inventory.dart';
 import 'package:player_watchtower/providers/inventory.dart';
+import '../../../../../functions/inventory.dart';
 import '../../../../../inventory_models/weapon.dart';
 import '../../../../../providers/theme.dart';
 
@@ -17,9 +19,11 @@ class WeaponFormAddToButton extends ConsumerWidget {
   final StateProvider<String> damageType;
   final StateProvider<String> description;
   final StateProvider<bool> addToQuickSelect;
+  final InventoryType inventoryType;
 
   const WeaponFormAddToButton(
       {super.key,
+      this.inventoryType = InventoryType.weapon,
       required this.name,
       required this.hint,
       required this.catergory,
@@ -50,12 +54,15 @@ class WeaponFormAddToButton extends ConsumerWidget {
                   : '${ref.read(diceMultiplier)}${ref.read(diceDamage)} + ${ref.read(modifierDamage)}',
               damageType: ref.read(damageType),
               description: ref.read(description),
-              isQuickSelect: ref.read(addToQuickSelect));
+              isQuickSelect: ref.read(addToQuickSelect),
+              inventoryType: InventoryType.weapon.index);
 
           ref
               .read(inventoryProvider.notifier)
               .addToInventory(addObject: newWeapon);
-          ref.read(inventoryProvider.notifier).refreshWeaponQuickSelect();
+          ref
+              .read(inventoryProvider.notifier)
+              .refreshQuickSelect(InventoryType.weapon);
           ref.read(catergory.notifier).state = 'Custom';
           ref.read(diceMultiplier.notifier).state = 1;
           ref.read(diceDamage.notifier).state = '';
@@ -75,7 +82,7 @@ class WeaponFormAddToButton extends ConsumerWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 18.0),
                 child: Text(
-                  'Add Weapon to Inventory',
+                  'Add ${stringNameFromInventoryType(inventoryType)} to Inventory',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,

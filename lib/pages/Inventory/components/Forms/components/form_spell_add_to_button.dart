@@ -3,9 +3,11 @@ import 'package:flutter_guid/flutter_guid.dart';
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/dictionaries/inventory.dart';
 import 'package:player_watchtower/pages/Inventory/components/Forms/inventory_form.dart';
 import 'package:player_watchtower/providers/inventory.dart';
 
+import '../../../../../functions/inventory.dart';
 import '../../../../../inventory_models/item.dart';
 import '../../../../../inventory_models/spell.dart';
 import '../../../../../inventory_models/weapon.dart';
@@ -19,9 +21,11 @@ class SpellFormAddToButton extends ConsumerWidget {
   final StateProvider<String> duration;
   final StateProvider<String> description;
   final StateProvider<bool> addToQuickSelect;
+  final InventoryType inventoryType;
 
   const SpellFormAddToButton(
       {super.key,
+      this.inventoryType = InventoryType.spell,
       required this.name,
       required this.hint,
       required this.level,
@@ -45,12 +49,17 @@ class SpellFormAddToButton extends ConsumerWidget {
               school: ref.read(school),
               duration: ref.read(duration),
               description: ref.read(description),
-              isQuickSelect: ref.read(addToQuickSelect));
+              isQuickSelect: ref.read(
+                addToQuickSelect,
+              ),
+              inventoryType: InventoryType.spell.index);
 
           ref
               .read(inventoryProvider.notifier)
               .addToInventory(addObject: newSpell);
-          ref.read(inventoryProvider.notifier).refreshSpellQuickSelect();
+          ref
+              .read(inventoryProvider.notifier)
+              .refreshQuickSelect(InventoryType.spell);
           ref.read(spellLevel.notifier).state = 0;
           ref.read(school.notifier).state = 'Custom';
           ref.read(duration.notifier).state = 'Custom';
@@ -68,7 +77,7 @@ class SpellFormAddToButton extends ConsumerWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 18.0),
                 child: Text(
-                  'Add Spell to Inventory',
+                  'Add ${stringNameFromInventoryType(inventoryType)} to Inventory',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,

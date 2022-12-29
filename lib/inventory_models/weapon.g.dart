@@ -26,13 +26,14 @@ class WeaponAdapter extends TypeAdapter<_$_Weapon> {
       weaponType: fields[6] as String,
       description: fields[7] as String,
       isQuickSelect: fields[8] as bool,
+      inventoryType: fields[9] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, _$_Weapon obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(10)
       ..writeByte(0)
       ..write(obj.guid)
       ..writeByte(1)
@@ -49,6 +50,8 @@ class WeaponAdapter extends TypeAdapter<_$_Weapon> {
       ..write(obj.description)
       ..writeByte(8)
       ..write(obj.isQuickSelect)
+      ..writeByte(9)
+      ..write(obj.inventoryType)
       ..writeByte(5)
       ..write(obj.weaponProperties);
   }
@@ -81,6 +84,7 @@ _$_Weapon _$$_WeaponFromJson(Map<String, dynamic> json) => _$_Weapon(
       weaponType: json['weaponType'] as String? ?? '',
       description: json['description'] as String? ?? '',
       isQuickSelect: json['isQuickSelect'] as bool? ?? false,
+      inventoryType: json['inventoryType'] as int? ?? 1,
     );
 
 Map<String, dynamic> _$$_WeaponToJson(_$_Weapon instance) => <String, dynamic>{
@@ -93,4 +97,5 @@ Map<String, dynamic> _$$_WeaponToJson(_$_Weapon instance) => <String, dynamic>{
       'weaponType': instance.weaponType,
       'description': instance.description,
       'isQuickSelect': instance.isQuickSelect,
+      'inventoryType': instance.inventoryType,
     };

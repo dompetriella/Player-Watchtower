@@ -1,64 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/functions/inventory.dart';
+import 'package:player_watchtower/pages/Inventory/inventory_page.dart';
 import 'package:player_watchtower/providers/inventory.dart';
 import 'package:player_watchtower/providers/theme.dart';
 import 'package:player_watchtower/global_components/bar_drop_down.dart';
 import 'package:player_watchtower/providers/page.dart';
-import '../../inventory_models/item.dart';
-import '../../inventory_models/spell.dart';
-import '../../inventory_models/weapon.dart';
-import '../Inventory/components/add_new_item.dart';
-import '../Inventory/components/item_display.dart';
-import '../Inventory/components/spell_display.dart';
-import '../Inventory/components/weapon_display.dart';
+import '../../dictionaries/inventory.dart';
 import 'components/base_card.dart';
 import 'components/money_card.dart';
-
-List<Widget> turnWeaponQuickSelectIntoDisplay(WidgetRef ref) {
-  List<Widget> displays = [];
-  if (ref.watch(inventoryProvider).weapons.isNotEmpty)
-    for (Weapon weapon in ref.watch(inventoryProvider).quickSelectWeapons) {
-      displays.add(WeaponDisplay(
-        guid: weapon.guid,
-        isQuickSelect: true,
-        name: weapon.name,
-        weaponType: weapon.weaponType,
-        damage: weapon.damage,
-        damageType: weapon.damageType,
-      ));
-    }
-  return displays;
-}
-
-List<Widget> turnSpellQuickSelectIntoDisplay(WidgetRef ref) {
-  List<Widget> displays = [];
-  if (ref.watch(inventoryProvider).quickSelectSpells.isNotEmpty)
-    for (Spell spell in ref.watch(inventoryProvider).spells) {
-      displays.add(SpellDisplay(
-        guid: spell.guid,
-        isQuickSelect: true,
-        name: spell.name,
-        level: spell.spellLevel,
-        school: spell.school,
-      ));
-    }
-  return displays;
-}
-
-List<Widget> turnItemQuickSelectIntoDisplay(WidgetRef ref) {
-  List<Widget> displays = [];
-  if (ref.watch(inventoryProvider).items.isNotEmpty)
-    for (Item item in ref.watch(inventoryProvider).items) {
-      displays.add(ItemDisplay(
-        guid: item.guid,
-        isQuickSelect: true,
-        name: item.name,
-        itemType: item.itemCategory,
-        itemAmount: item.amount,
-      ));
-    }
-  return displays;
-}
 
 class QuickSelectPage extends ConsumerWidget {
   QuickSelectPage({super.key});
@@ -73,26 +23,30 @@ class QuickSelectPage extends ConsumerWidget {
           children: [
             const BaseCard(),
             const MoneyCard(),
-            // BarDropDown(
-            //   expandedProvider: qsAbilitiesExpanded,
-            //   text: 'Abilities',
-            // ),
             if (ref.watch(inventoryProvider).quickSelectWeapons.isNotEmpty)
               BarDropDown(
-                  expandedProvider: qsWeaponsExpanded,
+                  expandedProvider: weaponsExpanded,
                   text: 'Weapons',
-                  items: turnWeaponQuickSelectIntoDisplay(ref)),
+                  items: turnInventoryObjectIntoDisplay(
+                      ref: ref,
+                      inventoryType: InventoryType.weapon,
+                      isInventory: false)),
             if (ref.watch(inventoryProvider).quickSelectSpells.isNotEmpty)
               BarDropDown(
-                expandedProvider: qsSpellsExpanded,
-                text: 'Spells',
-                items: turnSpellQuickSelectIntoDisplay(ref),
-              ),
+                  expandedProvider: spellsExpanded,
+                  text: 'Spells',
+                  items: turnInventoryObjectIntoDisplay(
+                      ref: ref,
+                      inventoryType: InventoryType.spell,
+                      isInventory: false)),
             if (ref.watch(inventoryProvider).quickSelectItems.isNotEmpty)
               BarDropDown(
-                expandedProvider: qsItemsExpanded,
+                expandedProvider: itemsExpanded,
                 text: 'Items',
-                items: turnItemQuickSelectIntoDisplay(ref),
+                items: turnInventoryObjectIntoDisplay(
+                    ref: ref,
+                    inventoryType: InventoryType.item,
+                    isInventory: false),
               ),
           ],
         ),

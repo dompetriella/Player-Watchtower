@@ -2,6 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 
+import '../dictionaries/inventory.dart';
+
 part 'weapon.freezed.dart';
 part 'weapon.g.dart';
 
@@ -17,7 +19,8 @@ class Weapon with _$Weapon {
       @Default([]) @HiveField(5) List<String> weaponProperties,
       @Default('') @HiveField(6) String weaponType,
       @Default('') @HiveField(7) String description,
-      @Default(false) @HiveField(8) bool isQuickSelect}) = _Weapon;
+      @Default(false) @HiveField(8) bool isQuickSelect,
+      @Default(1) @HiveField(9) int inventoryType}) = _Weapon;
 
   factory Weapon.fromJson(Map<String, dynamic> json) => _$WeaponFromJson(json);
 }

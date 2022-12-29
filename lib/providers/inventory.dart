@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/functions/database.dart';
 
+import '../dictionaries/inventory.dart';
 import '../inventory_models/inventory.dart';
 import '../inventory_models/item.dart';
 import '../inventory_models/spell.dart';
@@ -18,113 +19,130 @@ final inventoryProvider =
 class InventoryModifier extends StateNotifier<Inventory> {
   InventoryModifier() : super(Inventory());
 
-  refreshItemQuickSelect() {
-    List<Item> newQs = [];
-    for (var item in state.items) {
-      if (item.isQuickSelect) newQs.add(item);
+  refreshQuickSelect(InventoryType inventoryType) {
+    switch (inventoryType) {
+      case InventoryType.item:
+        List<Item> newQs = [];
+        for (var item in state.items) {
+          if (item.isQuickSelect) newQs.add(item);
+        }
+        state = state.copyWith(quickSelectItems: newQs);
+        break;
+      case InventoryType.weapon:
+        List<Weapon> newQs = [];
+        for (var item in state.weapons) {
+          if (item.isQuickSelect) newQs.add(item);
+        }
+        state = state.copyWith(quickSelectWeapons: newQs);
+        break;
+      case InventoryType.spell:
+        List<Spell> newQs = [];
+        for (var item in state.spells) {
+          if (item.isQuickSelect) newQs.add(item);
+        }
+        state = state.copyWith(quickSelectSpells: newQs);
+        break;
+      default:
     }
-    state = state.copyWith(quickSelectItems: newQs);
-  }
-
-  refreshWeaponQuickSelect() {
-    List<Weapon> newQs = [];
-    for (var item in state.weapons) {
-      if (item.isQuickSelect) newQs.add(item);
-    }
-    state = state.copyWith(quickSelectWeapons: newQs);
-  }
-
-  refreshSpellQuickSelect() {
-    List<Spell> newQs = [];
-    for (var item in state.spells) {
-      if (item.isQuickSelect) newQs.add(item);
-    }
-    state = state.copyWith(quickSelectSpells: newQs);
   }
 
   refreshQuickSelectInventory() {
-    refreshItemQuickSelect();
-    refreshWeaponQuickSelect();
-    refreshSpellQuickSelect();
+    refreshQuickSelect(InventoryType.item);
+    refreshQuickSelect(InventoryType.weapon);
+    refreshQuickSelect(InventoryType.spell);
   }
 
-  Item toggleFlagItemForQuickSelect(
-      {required String guid, required WidgetRef ref}) {
-    List<Item> itemsCopy = state.items.toList();
-    int indexCopy = state.items.indexWhere((element) => element.guid == guid);
-    Item changedItem = state.items[indexCopy];
-    itemsCopy[indexCopy] =
+  Object toggleFlagForQuickSelect(
+      {required String guid,
+      required WidgetRef ref,
+      required InventoryType inventoryType}) {
+    dynamic inventoryState;
+
+    switch (inventoryType) {
+      case InventoryType.weapon:
+        inventoryState = state.weapons;
+        break;
+      case InventoryType.spell:
+        inventoryState = state.spells;
+        break;
+      default:
+        inventoryState = state.items;
+        break;
+    }
+    dynamic inventoryStateCopy = inventoryState.toList();
+    int indexCopy =
+        inventoryState.indexWhere((element) => element.guid == guid);
+    dynamic changedItem = inventoryState[indexCopy];
+    inventoryStateCopy[indexCopy] =
         changedItem.copyWith(isQuickSelect: !changedItem.isQuickSelect);
-    state = state.copyWith(items: itemsCopy);
-    ref.read(inventoryProvider.notifier).refreshItemQuickSelect();
+    switch (inventoryType) {
+      case InventoryType.weapon:
+        state = state.copyWith(weapons: inventoryStateCopy);
+        break;
+      case InventoryType.spell:
+        state = state.copyWith(spells: inventoryStateCopy);
+        break;
+      default:
+        state = state.copyWith(items: inventoryStateCopy);
+        break;
+    }
+    ref.read(inventoryProvider.notifier).refreshQuickSelect(inventoryType);
     writeInventoryStateToHive(state);
-    return itemsCopy[indexCopy];
+    return inventoryStateCopy[indexCopy];
   }
 
-  Weapon toggleFlagWeaponForQuickSelect(
-      {required String guid, required WidgetRef ref}) {
-    List<Weapon> weaponCopy = state.weapons.toList();
-    int indexCopy = state.weapons.indexWhere((element) => element.guid == guid);
-    Weapon changedItem = state.weapons[indexCopy];
-    weaponCopy[indexCopy] =
-        changedItem.copyWith(isQuickSelect: !changedItem.isQuickSelect);
-    state = state.copyWith(weapons: weaponCopy);
-    ref.read(inventoryProvider.notifier).refreshWeaponQuickSelect();
-    writeInventoryStateToHive(state);
-    return weaponCopy[indexCopy];
-  }
+  void deleteItemFromInventory(
+      {required String guid,
+      required WidgetRef ref,
+      required InventoryType inventoryType}) {
+    dynamic inventoryState;
 
-  Spell toggleFlagSpellForQuickSelect(
-      {required String guid, required WidgetRef ref}) {
-    List<Spell> spellCopy = state.spells.toList();
-    int indexCopy = state.spells.indexWhere((element) => element.guid == guid);
-    Spell changedItem = state.spells[indexCopy];
-    spellCopy[indexCopy] =
-        changedItem.copyWith(isQuickSelect: !changedItem.isQuickSelect);
-    state = state.copyWith(spells: spellCopy);
-    ref.read(inventoryProvider.notifier).refreshSpellQuickSelect();
-    writeInventoryStateToHive(state);
-    return spellCopy[indexCopy];
-  }
+    switch (inventoryType) {
+      case InventoryType.weapon:
+        inventoryState = state.weapons;
+        break;
+      case InventoryType.spell:
+        inventoryState = state.spells;
+        break;
+      default:
+        inventoryState = state.items;
+        break;
+    }
 
-  void deleteItemFromInventory({required String guid, required WidgetRef ref}) {
-    List<Item> itemsCopy = state.items.toList();
-    int indexCopy = state.items.indexWhere((element) => element.guid == guid);
-    itemsCopy.removeAt(indexCopy);
-    state = state.copyWith(items: itemsCopy);
-    ref.read(inventoryProvider.notifier).refreshItemQuickSelect();
-    writeInventoryStateToHive(state);
-  }
-
-  void deleteWeaponFromInventory(
-      {required String guid, required WidgetRef ref}) {
-    List<Weapon> weaponsCopy = state.weapons.toList();
-    int indexCopy = state.weapons.indexWhere((element) => element.guid == guid);
-    weaponsCopy.removeAt(indexCopy);
-    state = state.copyWith(weapons: weaponsCopy);
-    ref.read(inventoryProvider.notifier).refreshWeaponQuickSelect();
-  }
-
-  void deleteSpellFromInventory(
-      {required String guid, required WidgetRef ref}) {
-    List<Spell> spellCopy = state.spells.toList();
-    int indexCopy = state.spells.indexWhere((element) => element.guid == guid);
-    spellCopy.removeAt(indexCopy);
-    state = state.copyWith(spells: spellCopy);
-    ref.read(inventoryProvider.notifier).refreshSpellQuickSelect();
+    dynamic inventoryStateCopy = inventoryState.toList();
+    int indexCopy =
+        inventoryState.indexWhere((element) => element.guid == guid);
+    inventoryStateCopy.removeAt(indexCopy);
+    switch (inventoryType) {
+      case InventoryType.weapon:
+        state = state.copyWith(weapons: inventoryStateCopy);
+        break;
+      case InventoryType.spell:
+        state = state.copyWith(spells: inventoryStateCopy);
+        break;
+      default:
+        state = state.copyWith(items: inventoryStateCopy);
+        break;
+    }
+    ref.read(inventoryProvider.notifier).refreshQuickSelect(inventoryType);
     writeInventoryStateToHive(state);
   }
 
   addToInventory({required dynamic addObject}) {
-    if (addObject is Item)
-      state = state.copyWith(items: [...state.quickSelectItems, addObject]);
-    writeInventoryStateToHive(state);
-
-    if (addObject is Weapon)
-      state = state.copyWith(weapons: [...state.weapons, addObject]);
-    writeInventoryStateToHive(state);
-    if (addObject is Spell)
-      state = state.copyWith(spells: [...state.quickSelectSpells, addObject]);
-    writeInventoryStateToHive(state);
+    var inventoryType = InventoryType.values[addObject.inventoryType];
+    switch (InventoryType.values[addObject.inventoryType]) {
+      case InventoryType.item:
+        state = state.copyWith(items: [...state.quickSelectItems, addObject]);
+        writeInventoryStateToHive(state);
+        break;
+      case InventoryType.weapon:
+        state = state.copyWith(weapons: [...state.weapons, addObject]);
+        writeInventoryStateToHive(state);
+        break;
+      case InventoryType.spell:
+        state = state.copyWith(spells: [...state.quickSelectSpells, addObject]);
+        writeInventoryStateToHive(state);
+        break;
+    }
   }
 }

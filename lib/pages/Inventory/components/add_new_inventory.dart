@@ -3,19 +3,21 @@ import 'package:flutter_guid/flutter_guid.dart';
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:player_watchtower/dictionaries/inventory.dart';
 import 'package:player_watchtower/global_components/multi_button.dart';
 import 'package:player_watchtower/inventory_models/inventory.dart';
 import 'package:player_watchtower/inventory_models/spell.dart';
 import 'package:player_watchtower/pages/Inventory/components/Forms/inventory_form.dart';
 import 'package:player_watchtower/providers/inventory.dart';
 
+import '../../../functions/inventory.dart';
 import '../../../inventory_models/item.dart';
 import '../../../inventory_models/weapon.dart';
 import '../../../providers/theme.dart';
 
-class AddNewItem extends ConsumerWidget {
-  final String typeName;
-  const AddNewItem({super.key, required this.typeName});
+class AddNewInventory extends ConsumerWidget {
+  final InventoryType inventoryType;
+  const AddNewInventory({super.key, required this.inventoryType});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -44,29 +46,29 @@ class AddNewItem extends ConsumerWidget {
                     bgColor: ref.watch(themeProvider).accent,
                     color: Colors.white,
                     onTap: () {
-                      switch (typeName) {
-                        case 'Item':
+                      switch (inventoryType) {
+                        case InventoryType.item:
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    const InventoryForm(formType: 'Item')),
+                                builder: (context) => const InventoryForm(
+                                    formType: InventoryType.item)),
                           );
                           break;
-                        case 'Weapon':
+                        case InventoryType.weapon:
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    const InventoryForm(formType: 'Weapon')),
+                                builder: (context) => const InventoryForm(
+                                    formType: InventoryType.weapon)),
                           );
                           break;
-                        case 'Spell':
+                        case InventoryType.spell:
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    const InventoryForm(formType: 'Spell')),
+                                builder: (context) => const InventoryForm(
+                                    formType: InventoryType.spell)),
                           );
                           break;
                         default:
@@ -80,7 +82,7 @@ class AddNewItem extends ConsumerWidget {
           Align(
             alignment: Alignment.center,
             child: Text(
-              'Add New $typeName',
+              'Add New ${stringNameFromInventoryType(inventoryType)}',
               style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
             ),
           ),

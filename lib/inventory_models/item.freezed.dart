@@ -34,6 +34,8 @@ mixin _$Item {
   int get amount => throw _privateConstructorUsedError;
   @HiveField(6)
   bool get isQuickSelect => throw _privateConstructorUsedError;
+  @HiveField(7)
+  int get inventoryType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +54,8 @@ abstract class $ItemCopyWith<$Res> {
       @HiveField(3) String itemCategory,
       @HiveField(4) String description,
       @HiveField(5) int amount,
-      @HiveField(6) bool isQuickSelect});
+      @HiveField(6) bool isQuickSelect,
+      @HiveField(7) int inventoryType});
 }
 
 /// @nodoc
@@ -75,6 +78,7 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
     Object? description = null,
     Object? amount = null,
     Object? isQuickSelect = null,
+    Object? inventoryType = null,
   }) {
     return _then(_value.copyWith(
       guid: null == guid
@@ -105,6 +109,10 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
           ? _value.isQuickSelect
           : isQuickSelect // ignore: cast_nullable_to_non_nullable
               as bool,
+      inventoryType: null == inventoryType
+          ? _value.inventoryType
+          : inventoryType // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -122,7 +130,8 @@ abstract class _$$_ItemCopyWith<$Res> implements $ItemCopyWith<$Res> {
       @HiveField(3) String itemCategory,
       @HiveField(4) String description,
       @HiveField(5) int amount,
-      @HiveField(6) bool isQuickSelect});
+      @HiveField(6) bool isQuickSelect,
+      @HiveField(7) int inventoryType});
 }
 
 /// @nodoc
@@ -141,6 +150,7 @@ class __$$_ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res, _$_Item>
     Object? description = null,
     Object? amount = null,
     Object? isQuickSelect = null,
+    Object? inventoryType = null,
   }) {
     return _then(_$_Item(
       guid: null == guid
@@ -171,6 +181,10 @@ class __$$_ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res, _$_Item>
           ? _value.isQuickSelect
           : isQuickSelect // ignore: cast_nullable_to_non_nullable
               as bool,
+      inventoryType: null == inventoryType
+          ? _value.inventoryType
+          : inventoryType // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -186,7 +200,8 @@ class _$_Item with DiagnosticableTreeMixin implements _Item {
       @HiveField(3) this.itemCategory = '',
       @HiveField(4) this.description = '',
       @HiveField(5) this.amount = 1,
-      @HiveField(6) this.isQuickSelect = false});
+      @HiveField(6) this.isQuickSelect = false,
+      @HiveField(7) this.inventoryType = 0});
 
   factory _$_Item.fromJson(Map<String, dynamic> json) => _$$_ItemFromJson(json);
 
@@ -218,10 +233,14 @@ class _$_Item with DiagnosticableTreeMixin implements _Item {
   @JsonKey()
   @HiveField(6)
   final bool isQuickSelect;
+  @override
+  @JsonKey()
+  @HiveField(7)
+  final int inventoryType;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Item(guid: $guid, name: $name, blurb: $blurb, itemCategory: $itemCategory, description: $description, amount: $amount, isQuickSelect: $isQuickSelect)';
+    return 'Item(guid: $guid, name: $name, blurb: $blurb, itemCategory: $itemCategory, description: $description, amount: $amount, isQuickSelect: $isQuickSelect, inventoryType: $inventoryType)';
   }
 
   @override
@@ -235,7 +254,8 @@ class _$_Item with DiagnosticableTreeMixin implements _Item {
       ..add(DiagnosticsProperty('itemCategory', itemCategory))
       ..add(DiagnosticsProperty('description', description))
       ..add(DiagnosticsProperty('amount', amount))
-      ..add(DiagnosticsProperty('isQuickSelect', isQuickSelect));
+      ..add(DiagnosticsProperty('isQuickSelect', isQuickSelect))
+      ..add(DiagnosticsProperty('inventoryType', inventoryType));
   }
 
   @override
@@ -252,13 +272,15 @@ class _$_Item with DiagnosticableTreeMixin implements _Item {
                 other.description == description) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.isQuickSelect, isQuickSelect) ||
-                other.isQuickSelect == isQuickSelect));
+                other.isQuickSelect == isQuickSelect) &&
+            (identical(other.inventoryType, inventoryType) ||
+                other.inventoryType == inventoryType));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, guid, name, blurb, itemCategory,
-      description, amount, isQuickSelect);
+      description, amount, isQuickSelect, inventoryType);
 
   @JsonKey(ignore: true)
   @override
@@ -282,7 +304,8 @@ abstract class _Item implements Item {
       @HiveField(3) final String itemCategory,
       @HiveField(4) final String description,
       @HiveField(5) final int amount,
-      @HiveField(6) final bool isQuickSelect}) = _$_Item;
+      @HiveField(6) final bool isQuickSelect,
+      @HiveField(7) final int inventoryType}) = _$_Item;
 
   factory _Item.fromJson(Map<String, dynamic> json) = _$_Item.fromJson;
 
@@ -307,6 +330,9 @@ abstract class _Item implements Item {
   @override
   @HiveField(6)
   bool get isQuickSelect;
+  @override
+  @HiveField(7)
+  int get inventoryType;
   @override
   @JsonKey(ignore: true)
   _$$_ItemCopyWith<_$_Item> get copyWith => throw _privateConstructorUsedError;

@@ -3,8 +3,11 @@ import 'package:flutter_guid/flutter_guid.dart';
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:player_watchtower/dictionaries/inventory.dart';
+import 'package:player_watchtower/inventory_models/inventory.dart';
 import 'package:player_watchtower/providers/inventory.dart';
 
+import '../../../../../functions/inventory.dart';
 import '../../../../../inventory_models/item.dart';
 import '../../../../../providers/theme.dart';
 
@@ -15,9 +18,11 @@ class ItemFormAddToButton extends ConsumerWidget {
   final StateProvider<int> amount;
   final StateProvider<String> description;
   final StateProvider<bool> addToQuickSelect;
+  final InventoryType inventoryType;
 
   const ItemFormAddToButton(
       {super.key,
+      this.inventoryType = InventoryType.item,
       required this.name,
       required this.hint,
       required this.catergory,
@@ -39,12 +44,16 @@ class ItemFormAddToButton extends ConsumerWidget {
               itemCategory: ref.read(catergory),
               amount: ref.read(amount),
               description: ref.read(description),
-              isQuickSelect: ref.read(addToQuickSelect));
-
+              isQuickSelect: ref.read(addToQuickSelect),
+              inventoryType: InventoryType.item.index);
+          print(newItem);
           ref
               .read(inventoryProvider.notifier)
               .addToInventory(addObject: newItem);
-          ref.read(inventoryProvider.notifier).refreshItemQuickSelect();
+          print(ref.read(inventoryProvider).items);
+          ref
+              .read(inventoryProvider.notifier)
+              .refreshQuickSelect(inventoryType);
           ref.read(catergory.notifier).state = 'Custom';
           ref.read(amount.notifier).state = 1;
           Navigator.pop(context);
@@ -61,7 +70,7 @@ class ItemFormAddToButton extends ConsumerWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 18.0),
                 child: Text(
-                  'Add Item to Inventory',
+                  'Add ${stringNameFromInventoryType(inventoryType)} to Inventory',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,

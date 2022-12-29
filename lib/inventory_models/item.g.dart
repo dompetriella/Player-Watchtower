@@ -24,13 +24,14 @@ class ItemAdapter extends TypeAdapter<_$_Item> {
       description: fields[4] as String,
       amount: fields[5] as int,
       isQuickSelect: fields[6] as bool,
+      inventoryType: fields[7] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, _$_Item obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.guid)
       ..writeByte(1)
@@ -44,7 +45,9 @@ class ItemAdapter extends TypeAdapter<_$_Item> {
       ..writeByte(5)
       ..write(obj.amount)
       ..writeByte(6)
-      ..write(obj.isQuickSelect);
+      ..write(obj.isQuickSelect)
+      ..writeByte(7)
+      ..write(obj.inventoryType);
   }
 
   @override
@@ -70,6 +73,7 @@ _$_Item _$$_ItemFromJson(Map<String, dynamic> json) => _$_Item(
       description: json['description'] as String? ?? '',
       amount: json['amount'] as int? ?? 1,
       isQuickSelect: json['isQuickSelect'] as bool? ?? false,
+      inventoryType: json['inventoryType'] as int? ?? 0,
     );
 
 Map<String, dynamic> _$$_ItemToJson(_$_Item instance) => <String, dynamic>{
@@ -80,4 +84,5 @@ Map<String, dynamic> _$$_ItemToJson(_$_Item instance) => <String, dynamic>{
       'description': instance.description,
       'amount': instance.amount,
       'isQuickSelect': instance.isQuickSelect,
+      'inventoryType': instance.inventoryType,
     };
