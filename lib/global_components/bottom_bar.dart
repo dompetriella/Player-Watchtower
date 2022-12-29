@@ -23,35 +23,38 @@ class BottomBar extends ConsumerWidget {
               blurRadius: 5)
         ],
       ),
-      child: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Expanded(
-              child: NavButton(
-                buttonIcon: Icons.bolt,
-                index: 0,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Expanded(
+                child: NavButton(
+                  buttonIcon: Icons.bolt,
+                  index: 0,
+                ),
               ),
-            ),
-            Expanded(
-              child: NavButton(
-                buttonIcon: Icons.mode,
-                index: 1,
+              Expanded(
+                child: NavButton(
+                  buttonIcon: Icons.mode,
+                  index: 1,
+                ),
               ),
-            ),
-            Expanded(
-              child: NavButton(
-                buttonIcon: FontAwesomeIcons.briefcase,
-                index: 2,
+              Expanded(
+                child: NavButton(
+                  buttonIcon: FontAwesomeIcons.briefcase,
+                  index: 2,
+                ),
               ),
-            ),
-            Expanded(
-              child: NavButton(
-                buttonIcon: FontAwesomeIcons.diceD20,
-                index: 3,
-              ),
-            )
-          ],
+              Expanded(
+                child: NavButton(
+                  buttonIcon: FontAwesomeIcons.diceD20,
+                  index: 3,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -17,7 +17,7 @@ Color copper = Colors.brown;
 String roundMoney(int amount) {
   if (amount > 9999) {
     String moneyString = amount.toString();
-    return '${moneyString.substring(0, 1)}.${moneyString.substring(1, 2)}k';
+    return '${moneyString.substring(0, 2)}.${moneyString.substring(1, 2)}k';
   }
   return amount.toString();
 }
