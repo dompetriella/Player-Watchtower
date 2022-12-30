@@ -7,6 +7,12 @@ import 'package:player_watchtower/providers/inventory.dart';
 
 import '../../../providers/theme.dart';
 
+bool isPlayerValue(dynamic inventoryObject) {
+  if (InventoryType.values[inventoryObject.inventoryType] ==
+      InventoryType.ability) return true;
+  return false;
+}
+
 class InventoryEntryDisplay extends ConsumerWidget {
   final dynamic inventoryObject;
 
@@ -21,7 +27,9 @@ class InventoryEntryDisplay extends ConsumerWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-              color: ref.watch(themeProvider).primary,
+              color: isPlayerValue(inventoryObject)
+                  ? ref.watch(themeProvider).bgColor
+                  : ref.watch(themeProvider).primary,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(width: 1, color: Colors.white)),
           child: Padding(
@@ -38,14 +46,18 @@ class InventoryEntryDisplay extends ConsumerWidget {
                         child: Container(
                           width: 250,
                           decoration: BoxDecoration(
-                            color: ref.watch(themeProvider).primary,
+                            color: isPlayerValue(inventoryObject)
+                                ? ref.watch(themeProvider).bgColor
+                                : ref.watch(themeProvider).primary,
                           ),
                           child: Text(
                             inventoryObject.name,
                             style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w900,
-                                color: Colors.white),
+                                color: isPlayerValue(inventoryObject)
+                                    ? Colors.black
+                                    : Colors.white),
                           ),
                         ),
                       ),
@@ -231,6 +243,28 @@ class SpellEntryDisplay extends StatelessWidget {
   }
 }
 
+class AbilityEntryDisplay extends ConsumerWidget {
+  final dynamic inventoryObject;
+  const AbilityEntryDisplay({
+    required this.inventoryObject,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Column(
+      children: [
+        InventoryObjectDisplayIndividualItem(
+          title: 'Catergory',
+          text: inventoryObject.abilityCatergory,
+        ),
+        InventoryObjectDisplayIndividualItem(
+            title: 'Description', text: inventoryObject.description),
+      ],
+    );
+  }
+}
+
 Widget determineInventoryEntryDisplay(
     InventoryType inventoryType, dynamic inventoryObject) {
   switch (inventoryType) {
@@ -238,7 +272,9 @@ Widget determineInventoryEntryDisplay(
       return WeaponEntryDisplay(inventoryObject: inventoryObject);
     case InventoryType.spell:
       return SpellEntryDisplay(inventoryObject: inventoryObject);
-    default:
+    case InventoryType.item:
       return ItemEntryDisplay(inventoryObject: inventoryObject);
+    case InventoryType.ability:
+      return AbilityEntryDisplay(inventoryObject: inventoryObject);
   }
 }

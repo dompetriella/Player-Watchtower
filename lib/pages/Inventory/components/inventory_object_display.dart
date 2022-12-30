@@ -144,7 +144,12 @@ class InventoryObjectDisplay extends ConsumerWidget {
                                           borderRadius:
                                               BorderRadius.circular(5),
                                           border: Border.all(
-                                              width: 1, color: Colors.white)),
+                                              width: 1,
+                                              color: isPlayerValue
+                                                  ? ref
+                                                      .watch(themeProvider)
+                                                      .accent
+                                                  : Colors.white)),
                                       child: Icon(
                                         Icons.delete_forever,
                                         color: isPlayerValue
@@ -167,6 +172,9 @@ class InventoryObjectDisplay extends ConsumerWidget {
           ),
         ),
         Divider(
+          color: isPlayerValue
+              ? ref.watch(themeProvider).baseCardBg
+              : ref.watch(themeProvider).primary,
           thickness: 2,
           indent: 10,
           endIndent: 10,
@@ -233,7 +241,7 @@ class WeaponDisplaySubtitle extends ConsumerWidget {
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
           ),
           Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               retrieveDamageTypeIconDict[inventoryObject.damageType] ??
                   retrieveDamageTypeIconDict['Custom']!,

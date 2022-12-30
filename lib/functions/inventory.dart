@@ -14,7 +14,7 @@ String stringNameFromInventoryType(InventoryType inventoryType) {
       return 'Spell';
     case InventoryType.ability:
       return 'Ability';
-    default:
+    case InventoryType.item:
       return 'Item';
   }
 }

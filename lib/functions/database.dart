@@ -19,9 +19,9 @@ Player createNewCharacterEntry(
 }
 
 Future getInitState(WidgetRef ref) async {
-  await Hive.deleteBoxFromDisk('player');
-  await Hive.deleteBoxFromDisk('characters');
-  await Hive.deleteBoxFromDisk('inventory');
+  // await Hive.deleteBoxFromDisk('player');
+  // await Hive.deleteBoxFromDisk('characters');
+  // await Hive.deleteBoxFromDisk('inventory');
   var characterBox = await Hive.openBox('characters');
   var playerBox = await Hive.openBox<Player>('player');
   var inventoryBox = await Hive.openBox<Inventory>('inventory');

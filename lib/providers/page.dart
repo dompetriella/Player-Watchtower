@@ -82,3 +82,7 @@ final weaponsExpanded = StateProvider<bool>(
 final spellsExpanded = StateProvider<bool>(
   (ref) => false,
 );
+
+final abilitiesExpanded = StateProvider<bool>(
+  (ref) => false,
+);

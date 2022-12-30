@@ -22,10 +22,20 @@ class QuickSelectPage extends ConsumerWidget {
         child: ListView(
           children: [
             const BaseCard(),
+            if (ref.watch(inventoryProvider).quickSelectAbilities.isNotEmpty)
+              BarDropDown(
+                  expandedProvider: qsAbilitiesExpanded,
+                  text: 'Abilities',
+                  isPlayerValue: true,
+                  items: turnInventoryObjectIntoDisplay(
+                      ref: ref,
+                      inventoryType: InventoryType.ability,
+                      isInventory: false,
+                      isPlayerValue: true)),
             const MoneyCard(),
             if (ref.watch(inventoryProvider).quickSelectWeapons.isNotEmpty)
               BarDropDown(
-                  expandedProvider: weaponsExpanded,
+                  expandedProvider: qsWeaponsExpanded,
                   text: 'Weapons',
                   items: turnInventoryObjectIntoDisplay(
                       ref: ref,
@@ -33,7 +43,7 @@ class QuickSelectPage extends ConsumerWidget {
                       isInventory: false)),
             if (ref.watch(inventoryProvider).quickSelectSpells.isNotEmpty)
               BarDropDown(
-                  expandedProvider: spellsExpanded,
+                  expandedProvider: qsSpellsExpanded,
                   text: 'Spells',
                   items: turnInventoryObjectIntoDisplay(
                       ref: ref,
@@ -41,7 +51,7 @@ class QuickSelectPage extends ConsumerWidget {
                       isInventory: false)),
             if (ref.watch(inventoryProvider).quickSelectItems.isNotEmpty)
               BarDropDown(
-                expandedProvider: itemsExpanded,
+                expandedProvider: qsItemsExpanded,
                 text: 'Items',
                 items: turnInventoryObjectIntoDisplay(
                     ref: ref,
