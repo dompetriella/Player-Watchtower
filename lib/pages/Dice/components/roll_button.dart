@@ -108,26 +108,30 @@ class RollButton extends ConsumerWidget {
 
         calculateStats(ref);
       },
-      child: Container(
-        height: screenHeight / 10,
-        width: screenWidth / 1.6,
-        decoration: BoxDecoration(
-            color: ref.watch(themeProvider).rollButtonBgColor,
-            borderRadius: BorderRadius.all(Radius.circular(
-                ref.watch(themeProvider).numberDisplayBorderRadius)),
-            boxShadow: [
-              ref.watch(themeProvider).innerShadow,
-              ref.watch(themeProvider).shadow,
-              ref.watch(themeProvider).rollButtonOutline,
-            ]),
-        child: Center(
-            child: Text(
-          "ROLL D${ref.watch(selectedDiceProvider)}",
-          style: TextStyle(
-              fontSize: MediaQuery.of(context).size.height / 22,
-              color: ref.watch(themeProvider).rollButtonTextColor,
-              fontWeight: FontWeight.w900),
-        )),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32.0),
+        child: Container(
+          decoration: BoxDecoration(
+              color: ref.watch(themeProvider).rollButtonBgColor,
+              borderRadius: BorderRadius.all(Radius.circular(
+                  ref.watch(themeProvider).numberDisplayBorderRadius)),
+              boxShadow: [
+                ref.watch(themeProvider).innerShadow,
+                ref.watch(themeProvider).shadow,
+                ref.watch(themeProvider).rollButtonOutline,
+              ]),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 14),
+            child: Center(
+                child: Text(
+              "ROLL D${ref.watch(selectedDiceProvider)}",
+              style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.height / 22,
+                  color: ref.watch(themeProvider).rollButtonTextColor,
+                  fontWeight: FontWeight.w900),
+            )),
+          ),
+        ),
       ),
     );
   }

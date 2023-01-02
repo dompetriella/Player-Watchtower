@@ -17,14 +17,17 @@ class MultiplierControls extends ConsumerWidget {
     var screenWidth = MediaQuery.of(context).size.width;
     var sizeFactor = screenHeight / screenWidth;
 
-    return Container(
-      height: screenHeight * 0.08,
-      width: screenWidth,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
       child: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             MinusButton(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: ClearButton(),
+            ),
             PlusButton(),
           ],
         ),
@@ -50,20 +53,22 @@ class ClearButton extends ConsumerWidget {
         ref.watch(modifierSignPositive.notifier).state = true;
       },
       child: Container(
+        height: 50,
         decoration: BoxDecoration(
             color: ref.watch(themeProvider).diceButtonBg,
             borderRadius: BorderRadius.all(
                 Radius.circular(ref.watch(themeProvider).diceIconBorderRadius)),
-            border:
-                Border.all(color: ref.watch(themeProvider).outline, width: 1),
-            boxShadow: [ref.watch(themeProvider).innerShadow]),
+            boxShadow: [
+              ref.watch(themeProvider).innerShadow,
+              ref.watch(themeProvider).shadow
+            ]),
         child: Center(
             child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 24),
           child: Text(
             "CLEAR",
             style: TextStyle(
-                fontSize: 16,
+                fontSize: 18,
                 fontWeight: FontWeight.w900,
                 color: ref.watch(themeProvider).diceButtonTextColor),
           ),
@@ -92,25 +97,19 @@ class MinusButton extends ConsumerWidget {
       //   ref.watch(multiplierProvider.notifier).bigDecrement();
       // },
       child: Container(
-          height: screenHeight / 10,
-          width: screenWidth / 1.5,
+          height: 50,
+          width: 75,
           decoration: BoxDecoration(
               color: ref.watch(themeProvider).numberDisplayBgColor,
               borderRadius: BorderRadius.all(Radius.circular(
-                  ref.watch(themeProvider).numberDisplayBorderRadius)),
+                  ref.watch(themeProvider).diceIconBorderRadius)),
               boxShadow: [
                 ref.watch(themeProvider).innerShadow,
               ]),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: Icon(
-                Icons.remove,
-                size: 18 * sizeFactor,
-                color: ref.watch(themeProvider).multiplierTextColor,
-              ),
-            ),
+          child: Icon(
+            Icons.remove,
+            size: 18 * sizeFactor,
+            color: ref.watch(themeProvider).multiplierTextColor,
           )),
     );
   }
@@ -135,23 +134,17 @@ class PlusButton extends ConsumerWidget {
       //   ref.watch(multiplierProvider.notifier).bigIncrement();
       // },
       child: Container(
-          height: screenHeight / 10,
-          width: screenWidth / 1.5,
+          height: 50,
+          width: 75,
           decoration: BoxDecoration(
               color: ref.watch(themeProvider).numberDisplayBgColor,
               borderRadius: BorderRadius.all(Radius.circular(
-                  ref.watch(themeProvider).numberDisplayBorderRadius)),
+                  ref.watch(themeProvider).diceIconBorderRadius)),
               boxShadow: [ref.watch(themeProvider).innerShadow]),
-          child: Align(
-            alignment: Alignment.centerRight,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: Icon(
-                Icons.add,
-                size: 18 * sizeFactor,
-                color: ref.watch(themeProvider).multiplierTextColor,
-              ),
-            ),
+          child: Icon(
+            Icons.add,
+            size: 18 * sizeFactor,
+            color: ref.watch(themeProvider).multiplierTextColor,
           )),
     );
   }

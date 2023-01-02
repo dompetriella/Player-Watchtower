@@ -16,8 +16,7 @@ class DiceButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final double buttonHeight = 105;
-    final double buttonWidth = 110;
+    final double buttonHeight = MediaQuery.of(context).size.width / 4;
     String diceNumberString = diceNumber.toString();
 
     return Padding(
@@ -47,13 +46,13 @@ class DiceButton extends ConsumerWidget {
                 onComplete: (controller) =>
                     ref.watch(diceButtonCondition.notifier).state = false,
                 child: DiceButtonContainer(
-                    buttonWidth: buttonWidth,
+                    buttonWidth: buttonHeight,
                     buttonHeight: buttonHeight,
                     diceNumber: diceNumber,
                     diceNumberString: diceNumberString),
               )
             : DiceButtonContainer(
-                buttonWidth: buttonWidth,
+                buttonWidth: buttonHeight,
                 buttonHeight: buttonHeight,
                 diceNumber: diceNumber,
                 diceNumberString: diceNumberString),
@@ -94,7 +93,7 @@ class DiceButtonContainer extends ConsumerWidget {
                     color: ref.watch(themeProvider).rollButtonBgColor,
                     offset: Offset(0, 0),
                     spreadRadius: 5,
-                    blurRadius: 15,
+                    blurRadius: 8,
                     blurStyle: BlurStyle.normal)
                 : BoxShadow()
           ]),
@@ -103,7 +102,7 @@ class DiceButtonContainer extends ConsumerWidget {
         child: Column(
           children: [
             Container(
-              height: buttonHeight * .60,
+              height: buttonHeight * .50,
               width: buttonWidth,
               child: Center(
                 child: SvgPicture.asset(

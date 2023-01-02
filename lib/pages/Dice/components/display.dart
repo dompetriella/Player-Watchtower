@@ -3,6 +3,7 @@ import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:player_watchtower/global_components/stroke_text.dart';
 import 'package:player_watchtower/pages/Dice/components/multiplier_controls.dart';
 
@@ -60,7 +61,16 @@ class Display extends ConsumerWidget {
                   child: Row(
                     children: [
                       Expanded(child: RolledDiceView(size: 18 * sizeFactor)),
-                      ClearButton()
+                      GestureDetector(
+                        onTap: () => Scaffold.of(context).openEndDrawer(),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: FaIcon(
+                            FontAwesomeIcons.bars,
+                            size: 28,
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 )),

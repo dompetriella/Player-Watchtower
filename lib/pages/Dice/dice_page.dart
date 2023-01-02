@@ -25,25 +25,13 @@ class DicePage extends ConsumerWidget {
                   const Display(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Stack(
-                      alignment: AlignmentDirectional.centerStart,
-                      children: [
-                        Align(
-                            alignment: Alignment.centerLeft,
-                            child: MinusButton()),
-                        Align(
-                            alignment: Alignment.centerRight,
-                            child: PlusButton()),
-                        Align(
-                            alignment: Alignment.center,
-                            child: const RollButton()),
-                      ],
-                    ),
+                    child: RollButton(),
                   ),
+                  MultiplierControls()
                 ],
               ),
             ),
-            content: const ButtonsDialer(),
+            content: Center(child: const ButtonsDialer()),
           ),
         ],
       ),

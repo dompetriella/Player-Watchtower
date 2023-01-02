@@ -76,36 +76,18 @@ class _MainPageState extends ConsumerState<MainPage> {
                         color: ref.watch(themeProvider).appBarIconColor,
                       ));
                 }),
-              ref.watch(currentPage) == 3
-                  ? Builder(builder: (context) {
-                      return Container(
-                          alignment: Alignment.centerRight,
-                          child: GestureDetector(
-                              onPanUpdate: (swipe) {
-                                if (swipe.delta.dx < 0) {
-                                  Scaffold.of(context).openEndDrawer();
-                                }
-                              },
-                              onTap: () => Scaffold.of(context).openEndDrawer(),
-                              child: FaIcon(
-                                FontAwesomeIcons.dice,
-                                color: ref.watch(themeProvider).appBarIconColor,
-                              )));
-                    })
-                  : Container(
-                      alignment: Alignment.centerRight,
-                      child: GestureDetector(
-                          onTap: () {
-                            ref.watch(themeProvider.notifier).state =
-                                themesDictionary[themesNames[index]]!;
-                            index == themesNames.length - 1
-                                ? index = 0
-                                : index++;
-                          },
-                          child: Icon(
-                            Icons.settings,
-                            color: ref.watch(themeProvider).appBarIconColor,
-                          ))),
+              Container(
+                  alignment: Alignment.centerRight,
+                  child: GestureDetector(
+                      onTap: () {
+                        ref.watch(themeProvider.notifier).state =
+                            themesDictionary[themesNames[index]]!;
+                        index == themesNames.length - 1 ? index = 0 : index++;
+                      },
+                      child: Icon(
+                        Icons.settings,
+                        color: ref.watch(themeProvider).appBarIconColor,
+                      ))),
             ],
           ),
         ),
