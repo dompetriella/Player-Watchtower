@@ -105,6 +105,7 @@ class MinusButton extends ConsumerWidget {
                   ref.watch(themeProvider).diceIconBorderRadius)),
               boxShadow: [
                 ref.watch(themeProvider).innerShadow,
+                ref.watch(themeProvider).shadow
               ]),
           child: Icon(
             Icons.remove,
@@ -140,7 +141,10 @@ class PlusButton extends ConsumerWidget {
               color: ref.watch(themeProvider).numberDisplayBgColor,
               borderRadius: BorderRadius.all(Radius.circular(
                   ref.watch(themeProvider).diceIconBorderRadius)),
-              boxShadow: [ref.watch(themeProvider).innerShadow]),
+              boxShadow: [
+                ref.watch(themeProvider).innerShadow,
+                ref.watch(themeProvider).shadow
+              ]),
           child: Icon(
             Icons.add,
             size: 18 * sizeFactor,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../pages/Settings/components/character_tile.dart';
+
 final currentPage = StateProvider<int>(
   (ref) => 0,
 );
@@ -85,4 +87,14 @@ final spellsExpanded = StateProvider<bool>(
 
 final abilitiesExpanded = StateProvider<bool>(
   (ref) => false,
+);
+
+final settingsPlayersProvider = StateProvider<List<CharacterTile>>(
+  (ref) => [
+    const CharacterTile(
+      characterName: 'Add New',
+      guid: '0',
+      isNewCharacter: true,
+    )
+  ],
 );

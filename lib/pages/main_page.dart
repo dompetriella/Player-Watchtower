@@ -7,6 +7,8 @@ import 'package:player_watchtower/pages/Dice/components/drawer/history_drawer.da
 import 'package:player_watchtower/pages/Dice/dice_page.dart';
 import 'package:player_watchtower/pages/Inventory/inventory_page.dart';
 import 'package:player_watchtower/pages/QuickSelect/drawer/skills_drawer.dart';
+import 'package:player_watchtower/pages/Settings/components/character_tile.dart';
+import 'package:player_watchtower/pages/Settings/settings_page.dart';
 import 'package:player_watchtower/pages/Stats/stats_page.dart';
 import 'package:player_watchtower/providers/player.dart';
 import 'package:player_watchtower/providers/theme.dart';
@@ -79,11 +81,11 @@ class _MainPageState extends ConsumerState<MainPage> {
               Container(
                   alignment: Alignment.centerRight,
                   child: GestureDetector(
-                      onTap: () {
-                        ref.watch(themeProvider.notifier).state =
-                            themesDictionary[themesNames[index]]!;
-                        index == themesNames.length - 1 ? index = 0 : index++;
-                      },
+                      onTap: (() {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const SettingsPage()));
+                        createCharacterTiles(ref);
+                      }),
                       child: Icon(
                         Icons.settings,
                         color: ref.watch(themeProvider).appBarIconColor,
