@@ -9,72 +9,11 @@ import 'package:player_watchtower/pages/Inventory/components/Forms/components/fo
 import 'package:player_watchtower/pages/Inventory/components/Forms/components/line_entry_form.dart';
 import 'package:player_watchtower/providers/theme.dart';
 
+import '../../../../providers/forms.dart';
 import 'components/form_ability_add_to_button.dart';
 import 'components/form_spell_add_to_button.dart';
 import 'components/form_title.dart';
 import 'components/form_weapon_add_to_button.dart';
-
-var name = StateProvider<String>(
-  (ref) => '',
-);
-
-var hint = StateProvider<String>(
-  (ref) => '',
-);
-
-var catergory = StateProvider<String>(
-  (ref) => 'Custom',
-);
-
-var amount = StateProvider<int>(
-  (ref) => 1,
-);
-
-var description = StateProvider<String>(
-  (ref) => '',
-);
-
-var addToQuickSelect = StateProvider<bool>(
-  (ref) => false,
-);
-
-// weapon state
-
-var diceMultiplier = StateProvider<int>(
-  (ref) => 1,
-);
-
-var diceDamage = StateProvider<String>(
-  (ref) => '',
-);
-
-var modifierDamage = StateProvider<int>(
-  (ref) => 0,
-);
-
-var weaponDamageType = StateProvider<String>(
-  (ref) => 'Custom',
-);
-
-// spell state
-
-var spellLevel = StateProvider<int>(
-  (ref) => 0,
-);
-
-var school = StateProvider<String>(
-  (ref) => 'Custom',
-);
-
-var duration = StateProvider<String>(
-  (ref) => 'Custom',
-);
-
-// ability
-
-var abilityCatergory = StateProvider<String>(
-  (ref) => 'Custom',
-);
 
 List<DropdownMenuItem> convertListToDropDownItems(List<dynamic> inputList) {
   return inputList

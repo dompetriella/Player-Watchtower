@@ -5,6 +5,7 @@ import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/dictionaries/inventory.dart';
 import 'package:player_watchtower/inventory_models/inventory.dart';
+import 'package:player_watchtower/providers/forms.dart';
 import 'package:player_watchtower/providers/inventory.dart';
 
 import '../../../../../functions/inventory.dart';
@@ -46,16 +47,13 @@ class ItemFormAddToButton extends ConsumerWidget {
               description: ref.read(description),
               isQuickSelect: ref.read(addToQuickSelect),
               inventoryType: InventoryType.item.index);
-          print(newItem);
           ref
               .read(inventoryProvider.notifier)
               .addToInventory(addObject: newItem);
-          print(ref.read(inventoryProvider).items);
           ref
               .read(inventoryProvider.notifier)
               .refreshQuickSelect(inventoryType);
-          ref.read(catergory.notifier).state = 'Custom';
-          ref.read(amount.notifier).state = 1;
+          clearInventoryForm(ref);
           Navigator.pop(context);
         },
         child: Padding(

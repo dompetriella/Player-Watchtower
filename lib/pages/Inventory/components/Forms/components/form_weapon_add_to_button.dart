@@ -4,6 +4,7 @@ import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/dictionaries/inventory.dart';
+import 'package:player_watchtower/providers/forms.dart';
 import 'package:player_watchtower/providers/inventory.dart';
 import '../../../../../functions/inventory.dart';
 import '../../../../../inventory_models/weapon.dart';
@@ -41,7 +42,9 @@ class WeaponFormAddToButton extends ConsumerWidget {
       child: Bounce(
         duration: Duration(milliseconds: 300),
         onPressed: () {
-          print(ref.read(damageType));
+          String addDamage = ref.read(modifierDamage) > 0
+              ? ' + ${ref.read(modifierDamage).toString()}'
+              : '';
           Weapon newWeapon = Weapon(
               guid: Guid.generate().toString(),
               name: ref.read(name),
@@ -51,7 +54,7 @@ class WeaponFormAddToButton extends ConsumerWidget {
                       ref.read(diceDamage) == '' &&
                       ref.read(modifierDamage) == 0
                   ? ''
-                  : '${ref.read(diceMultiplier)}${ref.read(diceDamage)} + ${ref.read(modifierDamage)}',
+                  : '${ref.read(diceMultiplier)}${ref.read(diceDamage)}$addDamage',
               damageType: ref.read(damageType),
               description: ref.read(description),
               isQuickSelect: ref.read(addToQuickSelect),
@@ -63,11 +66,7 @@ class WeaponFormAddToButton extends ConsumerWidget {
           ref
               .read(inventoryProvider.notifier)
               .refreshQuickSelect(InventoryType.weapon);
-          ref.read(catergory.notifier).state = 'Custom';
-          ref.read(diceMultiplier.notifier).state = 1;
-          ref.read(diceDamage.notifier).state = '';
-          ref.read(damageType.notifier).state = 'Custom';
-          ref.read(modifierDamage.notifier).state = 0;
+          clearInventoryForm(ref);
           Navigator.pop(context);
         },
         child: Padding(

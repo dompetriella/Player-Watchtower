@@ -11,6 +11,7 @@ import '../../../../../functions/inventory.dart';
 import '../../../../../inventory_models/item.dart';
 import '../../../../../inventory_models/spell.dart';
 import '../../../../../inventory_models/weapon.dart';
+import '../../../../../providers/forms.dart';
 import '../../../../../providers/theme.dart';
 
 class SpellFormAddToButton extends ConsumerWidget {
@@ -60,9 +61,7 @@ class SpellFormAddToButton extends ConsumerWidget {
           ref
               .read(inventoryProvider.notifier)
               .refreshQuickSelect(InventoryType.spell);
-          ref.read(spellLevel.notifier).state = 0;
-          ref.read(school.notifier).state = 'Custom';
-          ref.read(duration.notifier).state = 'Custom';
+          clearInventoryForm(ref);
           Navigator.pop(context);
         },
         child: Padding(

@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:player_watchtower/dictionaries/inventory.dart';
 import 'package:player_watchtower/inventory_models/inventory.dart';
 import 'package:player_watchtower/pages/Inventory/components/Forms/inventory_form.dart';
+import 'package:player_watchtower/providers/forms.dart';
 import 'package:player_watchtower/providers/inventory.dart';
 import 'package:player_watchtower/providers/player.dart';
 
@@ -52,8 +53,7 @@ class AbilityFormAddToButton extends ConsumerWidget {
           ref
               .read(inventoryProvider.notifier)
               .refreshQuickSelect(inventoryType);
-          ref.read(name.notifier).state = '';
-          ref.read(abilityCatergory.notifier).state = '';
+          clearInventoryForm(ref);
           Navigator.pop(context);
         },
         child: Padding(
